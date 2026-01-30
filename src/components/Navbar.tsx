@@ -1,19 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import logoRondaPrive from "@/assets/logo-ronda-prive.png";
-
-const navItems = [
-  { href: "#como-funciona", label: "Cómo funciona" },
-  { href: "#beneficios", label: "Beneficios" },
-  { href: "#para-quien", label: "Para quién" },
-  { href: "#plataforma", label: "Plataforma" },
-];
+import LanguageSelector from "./LanguageSelector";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+
+  const navItems = [
+    { href: "#como-funciona", labelKey: "navbar.howItWorks" },
+    { href: "#beneficios", labelKey: "navbar.benefits" },
+    { href: "#para-quien", labelKey: "navbar.forWho" },
+    { href: "#plataforma", labelKey: "navbar.platform" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,15 +71,16 @@ const Navbar = () => {
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {item.label}
+                {t(item.labelKey)}
               </a>
             ))}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden md:block">
+          {/* Language + CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSelector />
             <Button variant="gold" size="default" asChild>
-              <a href="#contacto">Solicitar demo</a>
+              <a href="#contacto">{t("navbar.requestDemo")}</a>
             </Button>
           </div>
 
@@ -108,12 +112,19 @@ const Navbar = () => {
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </a>
               ))}
+              
+              {/* Language selector for mobile */}
+              <div className="py-2 border-t border-border/30 mt-2">
+                <p className="text-xs text-muted-foreground mb-2">Language</p>
+                <LanguageSelector variant="mobile" />
+              </div>
+              
               <Button variant="gold" className="mt-4" asChild>
                 <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>
-                  Solicitar demo
+                  {t("navbar.requestDemo")}
                 </a>
               </Button>
             </nav>

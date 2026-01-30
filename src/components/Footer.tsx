@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import logoRondaPrive from "@/assets/logo-ronda-prive.png";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="py-12 border-t border-border/50">
       <div className="container">
@@ -14,29 +17,29 @@ const Footer = () => {
               loading="lazy"
             />
             <p className="text-sm text-muted-foreground mt-2">
-              Tecnología para eventos premium
+              {t("footer.tagline")}
             </p>
           </div>
 
           {/* Links */}
           <nav className="flex items-center gap-8">
             <a href="#como-funciona" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Cómo funciona
+              {t("navbar.howItWorks")}
             </a>
             <a href="#beneficios" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Beneficios
+              {t("navbar.benefits")}
             </a>
             <a href="#plataforma" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Plataforma
+              {t("navbar.platform")}
             </a>
             <a href="#contacto" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Contacto
+              {t("navbar.requestDemo")}
             </a>
           </nav>
 
           {/* Social / Contact */}
           <div className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Ronda Privé. Todos los derechos reservados.
+            {t("footer.copyright", { year: new Date().getFullYear() })}
           </div>
         </div>
       </div>
