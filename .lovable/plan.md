@@ -1,28 +1,46 @@
 
-# Dynamic Copyright Year in Footer
+
+# Update LATAM References to Worldwide
 
 ## Summary
-Replace the hardcoded year "2025" with a dynamic JavaScript expression that automatically displays the current year.
+Update the Differentiators section to reflect that Ronda Privé is designed for worldwide use, not just LATAM.
 
-## Change
-**File:** `src/components/Footer.tsx`
+## Changes Required
 
-Update line 39 from:
-```jsx
-© 2025 Ronda Privé. Todos los derechos reservados.
+**File:** `src/components/DifferentiatorsSection.tsx`
+
+### 1. Comparison Table Item (Line 9)
+Change:
+```tsx
+{ feature: "Soporte local en LATAM", ronda: true, others: false },
 ```
-
 To:
-```jsx
-© {new Date().getFullYear()} Ronda Privé. Todos los derechos reservados.
+```tsx
+{ feature: "Soporte global 24/7", ronda: true, others: false },
 ```
 
-## How It Works
-- `new Date()` creates a JavaScript Date object with the current date/time
-- `.getFullYear()` extracts the 4-digit year (e.g., 2026, 2027, 2030)
-- The year updates automatically whenever a user loads the page
+### 2. Description Paragraph (Line 28)
+Change:
+```tsx
+Ronda Privé es una plataforma completa de operación y monetización, diseñada específicamente para la realidad de LATAM.
+```
+To:
+```tsx
+Ronda Privé es una plataforma completa de operación y monetización, diseñada para escalar en cualquier mercado del mundo.
+```
 
-## Technical Details
-- No additional dependencies required
-- No performance impact (single Date object creation)
-- Works client-side, so the year reflects the user's system time
+### 3. Key Differentiator Stat (Lines 79-81)
+Change:
+```tsx
+<div className="text-4xl font-bold text-gradient-gold mb-2">LATAM</div>
+<p className="text-muted-foreground text-sm">Pensado para la región</p>
+```
+To:
+```tsx
+<div className="text-4xl font-bold text-gradient-gold mb-2">Global</div>
+<p className="text-muted-foreground text-sm">Escalable en cualquier mercado</p>
+```
+
+## Result
+The messaging will now accurately reflect that Ronda Privé is a worldwide solution, not limited to Latin America.
+
