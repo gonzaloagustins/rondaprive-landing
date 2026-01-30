@@ -1,15 +1,20 @@
 import { Check, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const comparisons = [
-  { feature: "Compras desde el celular", ronda: true, others: true },
-  { feature: "Dashboard en tiempo real", ronda: true, others: false },
-  { feature: "Control de inventario integrado", ronda: true, others: false },
-  { feature: "Gestión de mesas VIP", ronda: true, others: false },
-  { feature: "Pensado para alto volumen", ronda: true, others: false },
-  { feature: "Soporte global 24/7", ronda: true, others: false },
+const comparisonData = [
+  { ronda: true, others: true },
+  { ronda: true, others: false },
+  { ronda: true, others: false },
+  { ronda: true, others: false },
+  { ronda: true, others: false },
+  { ronda: true, others: false },
 ];
 
 const DifferentiatorsSection = () => {
+  const { t } = useTranslation();
+  
+  const features = t("differentiators.features", { returnObjects: true }) as string[];
+
   return (
     <section className="py-24 md:py-32 bg-secondary/20 relative overflow-hidden">
       {/* Decorative */}
@@ -19,32 +24,32 @@ const DifferentiatorsSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <p className="text-primary font-semibold mb-4 uppercase tracking-wider text-sm">Por qué Ronda</p>
+            <p className="text-primary font-semibold mb-4 uppercase tracking-wider text-sm">{t("differentiators.label")}</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              No es solo un QR.{" "}
-              <span className="text-gradient-gold">Es mucho más.</span>
+              {t("differentiators.title")}{" "}
+              <span className="text-gradient-gold">{t("differentiators.titleHighlight")}</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Ronda Privé es una plataforma completa de operación y monetización, diseñada para escalar en cualquier mercado del mundo.
+              {t("differentiators.subtitle")}
             </p>
           </div>
 
           {/* Comparison Table */}
           <div className="card-premium overflow-hidden">
             <div className="grid grid-cols-3 bg-secondary/50 p-4 font-semibold text-sm">
-              <div>Característica</div>
-              <div className="text-center">Ronda Privé</div>
-              <div className="text-center text-muted-foreground">Otras soluciones</div>
+              <div>{t("differentiators.tableHeader.feature")}</div>
+              <div className="text-center">{t("differentiators.tableHeader.ronda")}</div>
+              <div className="text-center text-muted-foreground">{t("differentiators.tableHeader.others")}</div>
             </div>
             
-            {comparisons.map((item, index) => (
+            {features.map((feature, index) => (
               <div 
                 key={index}
                 className="grid grid-cols-3 p-4 border-t border-border/50 items-center hover:bg-secondary/30 transition-colors"
               >
-                <div className="text-sm">{item.feature}</div>
+                <div className="text-sm">{feature}</div>
                 <div className="flex justify-center">
-                  {item.ronda ? (
+                  {comparisonData[index].ronda ? (
                     <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
                       <Check className="w-5 h-5 text-primary" />
                     </div>
@@ -55,7 +60,7 @@ const DifferentiatorsSection = () => {
                   )}
                 </div>
                 <div className="flex justify-center">
-                  {item.others ? (
+                  {comparisonData[index].others ? (
                     <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
                       <Check className="w-5 h-5 text-muted-foreground" />
                     </div>
@@ -73,15 +78,15 @@ const DifferentiatorsSection = () => {
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <div className="text-center p-6">
               <div className="text-4xl font-bold text-gradient-gold mb-2">100%</div>
-              <p className="text-muted-foreground text-sm">Plataforma end-to-end</p>
+              <p className="text-muted-foreground text-sm">{t("differentiators.stats.endToEnd")}</p>
             </div>
             <div className="text-center p-6">
               <div className="text-4xl font-bold text-gradient-gold mb-2">Global</div>
-              <p className="text-muted-foreground text-sm">Escalable en cualquier mercado</p>
+              <p className="text-muted-foreground text-sm">{t("differentiators.stats.global")}</p>
             </div>
             <div className="text-center p-6">
               <div className="text-4xl font-bold text-gradient-gold mb-2">24/7</div>
-              <p className="text-muted-foreground text-sm">Soporte durante eventos</p>
+              <p className="text-muted-foreground text-sm">{t("differentiators.stats.support")}</p>
             </div>
           </div>
         </div>

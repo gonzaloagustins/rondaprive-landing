@@ -1,0 +1,199 @@
+{
+  "navbar": {
+    "howItWorks": "How it works",
+    "benefits": "Benefits",
+    "forWho": "Who it's for",
+    "platform": "Platform",
+    "requestDemo": "Request demo"
+  },
+  "hero": {
+    "badge": "Technology for premium events",
+    "headline": "The smartest way to",
+    "headlineHighlight": "sell drinks",
+    "headlineEnd": "and experiences at events",
+    "subheadline": "Ronda Privé enables attendees to purchase from their phone and organizers to sell more, with full real-time control.",
+    "ctaDemo": "Request demo",
+    "ctaVideo": "See how it works",
+    "statSales": "Sales per attendee",
+    "statQueue": "Time in queues",
+    "statControl": "Real-time control"
+  },
+  "howItWorks": {
+    "label": "How it works",
+    "title": "Three steps to",
+    "titleHighlight": "transform",
+    "titleEnd": "your event",
+    "subtitle": "No complications. No extensive training. Just results.",
+    "step": "Step",
+    "steps": [
+      {
+        "title": "Scan or access",
+        "description": "Attendees access from their phone with a simple QR code or direct link. No apps, no friction."
+      },
+      {
+        "title": "Easy purchase",
+        "description": "They choose drinks, VIP tables, or menu items. Integrated digital payment in seconds."
+      },
+      {
+        "title": "Efficient delivery",
+        "description": "The order goes directly to staff. You control everything in real-time from the dashboard."
+      }
+    ]
+  },
+  "benefits": {
+    "label": "Benefits",
+    "title": "Everything you need to",
+    "titleHighlight": "maximize",
+    "titleEnd": "your event",
+    "subtitle": "Designed by and for event organizers who seek results.",
+    "items": [
+      {
+        "title": "More sales per attendee",
+        "description": "Increase average ticket by up to 40% with frictionless purchases."
+      },
+      {
+        "title": "Fewer lines and friction",
+        "description": "Eliminate waiting queues. More time enjoying, more consumption."
+      },
+      {
+        "title": "Inventory control",
+        "description": "View stock in real-time. Make decisions with precise data."
+      },
+      {
+        "title": "Less staff burden",
+        "description": "Optimize operations. Your team focuses on the experience."
+      },
+      {
+        "title": "Integrated digital payments",
+        "description": "Multiple payment methods. Zero cash, zero problems."
+      },
+      {
+        "title": "Premium experience",
+        "description": "Your attendees enjoy a first-class event from their phone."
+      }
+    ]
+  },
+  "targetAudience": {
+    "label": "Who Ronda is for",
+    "title": "Created for those who",
+    "titleHighlight": "move",
+    "titleEnd": "the industry",
+    "subtitle": "From intimate clubs to massive arenas. Ronda adapts to your operation.",
+    "items": [
+      {
+        "title": "Arenas and stadiums",
+        "description": "Manage thousands of simultaneous transactions without overwhelming operations."
+      },
+      {
+        "title": "Event producers",
+        "description": "Full control of multiple bars and points of sale in a single dashboard."
+      },
+      {
+        "title": "Clubs & nightlife",
+        "description": "VIP experience for your most exclusive clients. Tables, bottles, no waiting."
+      },
+      {
+        "title": "Festivals",
+        "description": "Scale without limits. Ideal for massive events with high demand."
+      },
+      {
+        "title": "Corporate events",
+        "description": "Professional image with cutting-edge technology for your business clients."
+      }
+    ]
+  },
+  "platform": {
+    "label": "Platform",
+    "title": "Technology that",
+    "titleHighlight": "powers",
+    "titleEnd": "your operation",
+    "subtitle": "You don't need to be a tech expert. Ronda Privé is designed so any team can operate it without complications.",
+    "features": [
+      {
+        "title": "Intuitive dashboard",
+        "description": "Control panel designed so you see everything that matters at a glance."
+      },
+      {
+        "title": "Real-time reports",
+        "description": "Sales, top products, peak hours. Data that drives decisions."
+      },
+      {
+        "title": "Live operation",
+        "description": "Monitor every transaction as it happens. Zero surprises."
+      },
+      {
+        "title": "Safe and reliable",
+        "description": "Robust infrastructure prepared for the most intense peaks."
+      },
+      {
+        "title": "Total scalability",
+        "description": "From 100 to 100,000 attendees. The platform grows with you."
+      }
+    ],
+    "dashboard": {
+      "live": "Dashboard • Live",
+      "salesToday": "Sales today",
+      "transactions": "Transactions",
+      "avgTicket": "Avg. ticket",
+      "recentOrders": "Recent orders",
+      "lowStock": "Low stock",
+      "units": "units"
+    }
+  },
+  "differentiators": {
+    "label": "Why Ronda",
+    "title": "It's not just a QR.",
+    "titleHighlight": "It's much more.",
+    "subtitle": "Ronda Privé is a complete operation and monetization platform, designed to scale in any market worldwide.",
+    "tableHeader": {
+      "feature": "Feature",
+      "ronda": "Ronda Privé",
+      "others": "Other solutions"
+    },
+    "features": [
+      "Mobile purchases",
+      "Real-time dashboard",
+      "Integrated inventory control",
+      "VIP table management",
+      "Built for high volume",
+      "24/7 global support"
+    ],
+    "stats": {
+      "endToEnd": "End-to-end platform",
+      "global": "Scalable in any market",
+      "support": "Support during events"
+    }
+  },
+  "socialProof": {
+    "subtitle": "Designed together with real event organizers",
+    "testimonial": "\"Ronda Privé transformed the way we operate. We sell more, with less effort and total visibility.\"",
+    "attribution": "— Event organizer, Mexico City"
+  },
+  "cta": {
+    "title": "Take your event to the",
+    "titleHighlight": "next level",
+    "subtitle": "Schedule a personalized demo and discover how Ronda Privé can transform the experience at your events.",
+    "benefit1": "Personalized demo with no commitment",
+    "benefit2": "Fast and guided implementation",
+    "benefit3": "Dedicated support for your first event",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "company": "Company / Venue",
+      "companyPlaceholder": "Venue or event name",
+      "submit": "Schedule your demo"
+    }
+  },
+  "footer": {
+    "tagline": "Technology for premium events",
+    "copyright": "© {{year}} Ronda Privé. All rights reserved."
+  },
+  "language": {
+    "es": "Español",
+    "en": "English",
+    "pt": "Português",
+    "fr": "Français"
+  }
+}

@@ -1,10 +1,14 @@
+import { useTranslation } from "react-i18next";
+
 const SocialProofSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-16 border-y border-border/50">
       <div className="container">
         <div className="text-center">
           <p className="text-muted-foreground text-sm uppercase tracking-wider mb-8">
-            Diseñado junto a organizadores de eventos reales
+            {t("socialProof.subtitle")}
           </p>
           
           {/* Logo placeholders */}
@@ -20,10 +24,10 @@ const SocialProofSection = () => {
           </div>
 
           <p className="mt-10 text-lg text-muted-foreground italic max-w-2xl mx-auto">
-            "Ronda Privé transformó la forma en que operamos. Vendemos más, con menos esfuerzo y total visibilidad."
+            {t("socialProof.testimonial")}
           </p>
           <p className="mt-4 text-sm text-primary font-semibold">
-            — Organizador de eventos, Ciudad de México
+            {t("socialProof.attribution")}
           </p>
         </div>
       </div>

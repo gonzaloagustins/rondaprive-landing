@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, Building, User } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const CTASection = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,11 +33,11 @@ const CTASection = () => {
               {/* Left - Content */}
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Lleva tu evento al{" "}
-                  <span className="text-gradient-gold">siguiente nivel</span>
+                  {t("cta.title")}{" "}
+                  <span className="text-gradient-gold">{t("cta.titleHighlight")}</span>
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Agenda una demo personalizada y descubre cómo Ronda Privé puede transformar la experiencia en tus eventos.
+                  {t("cta.subtitle")}
                 </p>
 
                 <div className="space-y-4">
@@ -43,19 +45,19 @@ const CTASection = () => {
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <ArrowRight className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-sm">Demo personalizada sin compromiso</span>
+                    <span className="text-sm">{t("cta.benefit1")}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <ArrowRight className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-sm">Implementación rápida y guiada</span>
+                    <span className="text-sm">{t("cta.benefit2")}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <ArrowRight className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-sm">Soporte dedicado para tu primer evento</span>
+                    <span className="text-sm">{t("cta.benefit3")}</span>
                   </div>
                 </div>
               </div>
@@ -63,12 +65,12 @@ const CTASection = () => {
               {/* Right - Form */}
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Nombre</label>
+                  <label className="block text-sm font-medium mb-2">{t("cta.form.name")}</label>
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                     <input
                       type="text"
-                      placeholder="Tu nombre"
+                      placeholder={t("cta.form.namePlaceholder")}
                       className="w-full pl-11 pr-4 py-3 bg-secondary border border-border rounded-xl focus:outline-none focus:border-primary transition-colors"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -78,12 +80,12 @@ const CTASection = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <label className="block text-sm font-medium mb-2">{t("cta.form.email")}</label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                     <input
                       type="email"
-                      placeholder="tu@email.com"
+                      placeholder={t("cta.form.emailPlaceholder")}
                       className="w-full pl-11 pr-4 py-3 bg-secondary border border-border rounded-xl focus:outline-none focus:border-primary transition-colors"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -93,12 +95,12 @@ const CTASection = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Empresa / Venue</label>
+                  <label className="block text-sm font-medium mb-2">{t("cta.form.company")}</label>
                   <div className="relative">
                     <Building className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                     <input
                       type="text"
-                      placeholder="Nombre del venue o evento"
+                      placeholder={t("cta.form.companyPlaceholder")}
                       className="w-full pl-11 pr-4 py-3 bg-secondary border border-border rounded-xl focus:outline-none focus:border-primary transition-colors"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -108,7 +110,7 @@ const CTASection = () => {
                 </div>
 
                 <Button type="submit" variant="gold" size="lg" className="w-full mt-6">
-                  Agenda tu demo
+                  {t("cta.form.submit")}
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </form>
