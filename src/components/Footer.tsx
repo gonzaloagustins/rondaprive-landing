@@ -1,14 +1,19 @@
+import logoRondaPrive from "@/assets/logo-ronda-prive.png";
+
 const Footer = () => {
   return (
     <footer className="py-12 border-t border-border/50">
       <div className="container">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
-          <div>
-            <h3 className="text-2xl font-bold">
-              Ronda <span className="text-gradient-gold">Privé</span>
-            </h3>
-            <p className="text-sm text-muted-foreground mt-1">
+          <div className="flex flex-col items-center md:items-start">
+            <img 
+              src={logoRondaPrive} 
+              alt="Ronda Privé" 
+              className="h-8 w-auto"
+              loading="lazy"
+            />
+            <p className="text-sm text-muted-foreground mt-2">
               Tecnología para eventos premium
             </p>
           </div>
