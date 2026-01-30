@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import logoRondaPrive from "@/assets/logo-ronda-prive.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,8 +24,13 @@ const Navbar = () => {
       <div className="container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="text-xl font-bold">
-            Ronda <span className="text-gradient-gold">Privé</span>
+          <a href="#" className="flex items-center">
+            <img 
+              src={logoRondaPrive} 
+              alt="Ronda Privé" 
+              className="h-8 w-auto"
+              loading="eager"
+            />
           </a>
 
           {/* Desktop Navigation */}
