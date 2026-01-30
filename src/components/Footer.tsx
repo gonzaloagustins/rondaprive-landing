@@ -36,7 +36,7 @@ const Footer = () => {
 
           {/* Social / Contact */}
           <div className="text-sm text-muted-foreground">
-            © 2025 Ronda Privé. Todos los derechos reservados.
+            © {new Date().getFullYear()} Ronda Privé. Todos los derechos reservados.
           </div>
         </div>
       </div>
