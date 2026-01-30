@@ -3,15 +3,38 @@ import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import logoRondaPrive from "@/assets/logo-ronda-prive.png";
 
+const navItems = [
+  { href: "#como-funciona", label: "Cómo funciona" },
+  { href: "#beneficios", label: "Beneficios" },
+  { href: "#para-quien", label: "Para quién" },
+  { href: "#plataforma", label: "Plataforma" },
+];
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Scroll spy logic
+      const sections = navItems.map(item => item.href.slice(1));
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          return;
+        }
+      }
+      setActiveSection("");
     };
+
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -35,18 +58,19 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#como-funciona" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Cómo funciona
-            </a>
-            <a href="#beneficios" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Beneficios
-            </a>
-            <a href="#para-quien" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Para quién
-            </a>
-            <a href="#plataforma" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Plataforma
-            </a>
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`text-sm transition-colors ${
+                  activeSection === item.href.slice(1)
+                    ? "text-gold font-medium"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
 
           {/* CTA */}
@@ -73,34 +97,20 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden py-6 border-t border-border/50 animate-fade-in">
             <nav className="flex flex-col gap-4">
-              <a 
-                href="#como-funciona" 
-                className="text-muted-foreground hover:text-foreground transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Cómo funciona
-              </a>
-              <a 
-                href="#beneficios" 
-                className="text-muted-foreground hover:text-foreground transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Beneficios
-              </a>
-              <a 
-                href="#para-quien" 
-                className="text-muted-foreground hover:text-foreground transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Para quién
-              </a>
-              <a 
-                href="#plataforma" 
-                className="text-muted-foreground hover:text-foreground transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Plataforma
-              </a>
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`transition-colors py-2 ${
+                    activeSection === item.href.slice(1)
+                      ? "text-gold font-medium"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
               <Button variant="gold" className="mt-4" asChild>
                 <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>
                   Solicitar demo
