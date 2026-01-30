@@ -6,7 +6,7 @@ const comparisons = [
   { feature: "Control de inventario integrado", ronda: true, others: false },
   { feature: "Gestión de mesas VIP", ronda: true, others: false },
   { feature: "Pensado para alto volumen", ronda: true, others: false },
-  { feature: "Soporte local en LATAM", ronda: true, others: false },
+  { feature: "Soporte global 24/7", ronda: true, others: false },
 ];
 
 const DifferentiatorsSection = () => {
@@ -25,7 +25,7 @@ const DifferentiatorsSection = () => {
               <span className="text-gradient-gold">Es mucho más.</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Ronda Privé es una plataforma completa de operación y monetización, diseñada específicamente para la realidad de LATAM.
+              Ronda Privé es una plataforma completa de operación y monetización, diseñada para escalar en cualquier mercado del mundo.
             </p>
           </div>
 
@@ -76,8 +76,8 @@ const DifferentiatorsSection = () => {
               <p className="text-muted-foreground text-sm">Plataforma end-to-end</p>
             </div>
             <div className="text-center p-6">
-              <div className="text-4xl font-bold text-gradient-gold mb-2">LATAM</div>
-              <p className="text-muted-foreground text-sm">Pensado para la región</p>
+              <div className="text-4xl font-bold text-gradient-gold mb-2">Global</div>
+              <p className="text-muted-foreground text-sm">Escalable en cualquier mercado</p>
             </div>
             <div className="text-center p-6">
               <div className="text-4xl font-bold text-gradient-gold mb-2">24/7</div>
