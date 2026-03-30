@@ -56,7 +56,7 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 sm:gap-8 mt-12 sm:mt-16 pt-8 sm:pt-16 border-t border-border/50 max-w-2xl mx-auto animate-fade-in-delay-3">
             <div>
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient-gold">+40%</p>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient-gold">+80%</p>
               <p className="text-xs sm:text-sm text-muted-foreground mt-1">{t("hero.statSales")}</p>
             </div>
             <div>
