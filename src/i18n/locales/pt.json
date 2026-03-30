@@ -1,199 +1,419 @@
 {
   "navbar": {
+    "events": "Eventos",
+    "solutions": "Soluções",
+    "industries": "Indústrias",
     "howItWorks": "Como funciona",
-    "benefits": "Benefícios",
-    "forWho": "Para quem",
-    "platform": "Plataforma",
+    "insights": "Insights",
+    "exploreEvents": "Explorar eventos",
     "requestDemo": "Solicitar demo"
   },
   "hero": {
-    "badge": "Tecnologia para eventos premium",
-    "headline": "A forma mais inteligente de",
-    "headlineHighlight": "vender drinks",
-    "headlineEnd": "e experiências em eventos",
-    "subheadline": "Ronda Privé permite que os participantes comprem pelo celular e os organizadores vendam mais, com controle total em tempo real.",
+    "badge": "Tecnologia premium para eventos",
+    "headline": "Elimine as filas.",
+    "headlineHighlight": "Maximize suas vendas.",
+    "subheadline": "A plataforma que transforma a venda de alimentos e bebidas em eventos de alta demanda. Compra digital pelo celular, controle operacional em tempo real, sem infraestrutura adicional.",
     "ctaDemo": "Solicitar demo",
+    "ctaExplore": "Explorar eventos",
     "ctaVideo": "Veja como funciona",
     "statSales": "Vendas por participante",
-    "statQueue": "Tempo em filas",
-    "statControl": "Controle em tempo real"
+    "statQueue": "Tempo nas filas",
+    "statControl": "Controle em tempo real",
+    "eventsTitle": "Eventos ativos",
+    "eventsSubtitle": "Descubra eventos com Ronda Privé"
+  },
+  "problem": {
+    "label": "O problema",
+    "title": "As filas",
+    "titleHighlight": "acabam com suas vendas",
+    "items": [
+      {
+        "title": "Receita perdida",
+        "description": "Os participantes desistem da fila antes de comprar. Cada minuto de espera é dinheiro que fica na mesa."
+      },
+      {
+        "title": "Experiência arruinada",
+        "description": "Ninguém quer perder o show por causa de uma bebida. A frustração reduz o consumo e a satisfação."
+      },
+      {
+        "title": "Equipe sobrecarregada",
+        "description": "Gargalos, estresse e erros nos pedidos. A operação colapsa nos momentos de pico."
+      },
+      {
+        "title": "Zero visibilidade",
+        "description": "Sem dados em tempo real, sem controle de estoque, sem capacidade de reagir a picos de demanda."
+      }
+    ]
+  },
+  "solutionsOverview": {
+    "label": "Soluções",
+    "title": "Três formas de",
+    "titleHighlight": "vender mais",
+    "subtitle": "Cada modalidade se adapta ao tipo de evento, recinto e experiência que você precisa oferecer.",
+    "pickup": {
+      "title": "Pick Up Express",
+      "description": "O participante compra pelo celular e retira no ponto de venda quando o pedido estiver pronto. Sem filas, sem espera.",
+      "cta": "Ver detalhes"
+    },
+    "seat": {
+      "title": "Compra do seu assento",
+      "description": "Escaneie o QR no seu assento, mesa ou setor. Compre e receba seu pedido diretamente na sua localização.",
+      "cta": "Ver detalhes"
+    },
+    "preorder": {
+      "title": "Compra antecipada",
+      "description": "Compre antes do evento, pague antecipadamente e no dia basta retirar apresentando seu QR.",
+      "cta": "Ver detalhes"
+    }
   },
   "howItWorks": {
     "label": "Como funciona",
-    "title": "Três passos para",
-    "titleHighlight": "transformar",
-    "titleEnd": "seu evento",
-    "subtitle": "Sem complicações. Sem treinamento extensivo. Apenas resultados.",
-    "step": "Passo",
-    "steps": [
-      {
-        "title": "Escaneie ou acesse",
-        "description": "Os participantes acessam pelo celular com um simples código QR ou link direto. Sem apps, sem fricção."
-      },
-      {
-        "title": "Compra fácil",
-        "description": "Escolhem drinks, mesas VIP ou itens do cardápio. Pagamento digital integrado em segundos."
-      },
-      {
-        "title": "Entrega eficiente",
-        "description": "O pedido vai direto para a equipe. Você controla tudo em tempo real pelo dashboard."
-      }
-    ]
+    "title": "Simples para todos.",
+    "titleHighlight": "Poderoso para sua operação.",
+    "subtitle": "Do primeiro pedido à entrega, cada etapa é projetada para maximizar velocidade e controle.",
+    "tabs": {
+      "attendee": "Para participantes",
+      "kitchen": "Para bar e cozinha",
+      "organizer": "Para organizadores"
+    },
+    "attendee": {
+      "steps": [
+        { "title": "Acesse o Ronda Privé", "description": "Escaneie o QR do evento ou entre pelo link direto." },
+        { "title": "Explore o cardápio digital", "description": "Veja os produtos disponíveis, preços e opções de cada ponto de venda." },
+        { "title": "Faça seu pedido", "description": "Selecione, pague pelo celular e receba um QR de confirmação." },
+        { "title": "Retire ou receba", "description": "Vá até o ponto de retirada ou receba no seu assento. Sem filas." }
+      ]
+    },
+    "kitchen": {
+      "steps": [
+        { "title": "Receba o pedido", "description": "A equipe operacional visualiza cada pedido com detalhes de produtos, cliente e localização." },
+        { "title": "Inicie a preparação", "description": "O staff atualiza o status: recebido, em preparação, pronto." },
+        { "title": "Escaneie e entregue", "description": "No Pick Up, o QR do cliente é escaneado. No Seat Delivery, o pedido é vinculado à localização." },
+        { "title": "Atualize o status", "description": "O sistema atualiza em tempo real: pronto, entregue. Rastreabilidade completa." }
+      ]
+    },
+    "organizer": {
+      "steps": [
+        { "title": "Configure seu evento", "description": "Defina pontos de venda, produtos, preços e modalidades habilitadas." },
+        { "title": "Monitore em tempo real", "description": "Acompanhe vendas, estoque, pedidos ativos e padrões de consumo ao vivo." },
+        { "title": "Controle a operação", "description": "Ajuste preços, ative promoções e gerencie estoque pelo dashboard." },
+        { "title": "Analise resultados", "description": "Acesse relatórios detalhados, métricas de desempenho e dados acionáveis." }
+      ]
+    }
   },
   "benefits": {
     "label": "Benefícios",
-    "title": "Tudo que você precisa para",
-    "titleHighlight": "maximizar",
-    "titleEnd": "seu evento",
-    "subtitle": "Projetado por e para organizadores de eventos que buscam resultados.",
-    "items": [
-      {
-        "title": "Mais vendas por participante",
-        "description": "Aumente o ticket médio em até 40% com compras sem fricção."
-      },
-      {
-        "title": "Menos filas e fricção",
-        "description": "Elimine as filas de espera. Mais tempo curtindo, mais consumo."
-      },
-      {
-        "title": "Controle de estoque",
-        "description": "Visualize o estoque em tempo real. Tome decisões com dados precisos."
-      },
-      {
-        "title": "Menos carga para a equipe",
-        "description": "Otimize a operação. Sua equipe foca na experiência."
-      },
-      {
-        "title": "Pagamentos digitais integrados",
-        "description": "Múltiplos métodos de pagamento. Zero dinheiro, zero problemas."
-      },
-      {
-        "title": "Experiência premium",
-        "description": "Seus participantes vivem um evento de primeiro nível pelo celular."
-      }
-    ]
-  },
-  "targetAudience": {
-    "label": "Para quem é Ronda",
-    "title": "Criado para quem",
-    "titleHighlight": "move",
-    "titleEnd": "a indústria",
-    "subtitle": "De clubs íntimos a arenas massivas. Ronda se adapta à sua operação.",
-    "items": [
-      {
-        "title": "Arenas e estádios",
-        "description": "Gerencie milhares de transações simultâneas sem sobrecarregar a operação."
-      },
-      {
-        "title": "Produtoras de eventos",
-        "description": "Controle total de múltiplos bares e pontos de venda em um único dashboard."
-      },
-      {
-        "title": "Clubs & nightlife",
-        "description": "Experiência VIP para seus clientes mais exclusivos. Mesas, garrafas, sem espera."
-      },
-      {
-        "title": "Festivais",
-        "description": "Escale sem limites. Ideal para eventos massivos com alta demanda."
-      },
-      {
-        "title": "Eventos corporativos",
-        "description": "Imagem profissional com tecnologia de ponta para seus clientes empresariais."
-      }
-    ]
-  },
-  "platform": {
-    "label": "Plataforma",
-    "title": "Tecnologia que",
-    "titleHighlight": "potencializa",
-    "titleEnd": "sua operação",
-    "subtitle": "Você não precisa ser especialista em tecnologia. Ronda Privé foi projetado para que qualquer equipe opere sem complicações.",
-    "features": [
-      {
-        "title": "Dashboard intuitivo",
-        "description": "Painel de controle projetado para você ver tudo o que importa de relance."
-      },
-      {
-        "title": "Relatórios em tempo real",
-        "description": "Vendas, produtos top, horários de pico. Dados que impulsionam decisões."
-      },
-      {
-        "title": "Operação ao vivo",
-        "description": "Monitore cada transação enquanto acontece. Zero surpresas."
-      },
-      {
-        "title": "Seguro e confiável",
-        "description": "Infraestrutura robusta preparada para os picos mais intensos."
-      },
-      {
-        "title": "Escalabilidade total",
-        "description": "De 100 a 100.000 participantes. A plataforma cresce com você."
-      }
-    ],
-    "dashboard": {
-      "live": "Dashboard • Ao vivo",
-      "salesToday": "Vendas hoje",
-      "transactions": "Transações",
-      "avgTicket": "Ticket médio",
-      "recentOrders": "Pedidos recentes",
-      "lowStock": "Estoque baixo",
-      "units": "unidades"
+    "title": "Resultados que",
+    "titleHighlight": "transformam seu evento",
+    "commercial": {
+      "title": "Comerciais",
+      "items": [
+        { "title": "+80% vendas por participante", "description": "Aumente o consumo capturando vendas que antes se perdiam nas filas." },
+        { "title": "Momentos de pico aproveitados", "description": "Maximize a receita nos momentos de maior demanda do evento." },
+        { "title": "Ticket médio mais alto", "description": "A compra digital sem fricção aumenta naturalmente o valor por transação." }
+      ]
+    },
+    "experience": {
+      "title": "Experiência do participante",
+      "items": [
+        { "title": "-70% tempo de espera", "description": "Elimine as filas e a frustração. Mais tempo curtindo, menos tempo esperando." },
+        { "title": "Compre pelo celular", "description": "Sem baixar apps. Acesso instantâneo, pagamento rápido, retirada organizada." },
+        { "title": "Entrega no assento", "description": "Em estádios, suítes e VIP, o pedido chega diretamente à localização do participante." }
+      ]
+    },
+    "operational": {
+      "title": "Operacionais",
+      "items": [
+        { "title": "Controle total em tempo real", "description": "Centralize pedidos, estoque e métricas em um único painel operacional." },
+        { "title": "Operação mais eficiente", "description": "Menos pessoal no caixa, melhor coordenação e rastreabilidade completa." },
+        { "title": "Estoque inteligente", "description": "Monitoramento de estoque ao vivo com alertas e capacidade de reação imediata." }
+      ]
+    },
+    "technical": {
+      "title": "Tecnológicos",
+      "items": [
+        { "title": "Sem infraestrutura adicional", "description": "Não requer totens, caixas registradoras nem hardware especializado." },
+        { "title": "Implementação flexível", "description": "Adapta-se a qualquer recinto, formato de evento e volume de participantes." },
+        { "title": "Integração sem fricção", "description": "Compatível com sua operação atual. Implementação em dias, não meses." }
+      ]
     }
   },
-  "differentiators": {
-    "label": "Por que Ronda",
-    "title": "Não é só um QR.",
-    "titleHighlight": "É muito mais.",
-    "subtitle": "Ronda Privé é uma plataforma completa de operação e monetização, projetada para escalar em qualquer mercado do mundo.",
-    "tableHeader": {
-      "feature": "Característica",
-      "ronda": "Ronda Privé",
-      "others": "Outras soluções"
+  "industries": {
+    "label": "Indústrias",
+    "title": "Projetado para cada",
+    "titleHighlight": "tipo de recinto",
+    "subtitle": "Cada indústria tem desafios únicos. Ronda Privé se adapta com soluções específicas para maximizar resultados.",
+    "nightclubs": {
+      "title": "Nightclubs",
+      "description": "Otimize as vendas em barra e mesas VIP. Menos congestionamento, mais rotatividade, maior consumo por mesa.",
+      "problem": "Barras congestionadas, perda de vendas nos momentos de pico, dificuldade para atender mesas VIP com agilidade.",
+      "solution": "Pedidos da mesa ou zona VIP direto pelo celular. Pick Up Express para reduzir filas na barra. Dashboard com métricas ao vivo.",
+      "useCases": "Pedidos da mesa VIP • Pick Up na barra principal • Promoções em tempo real • Controle de estoque de garrafas"
     },
-    "features": [
-      "Compras pelo celular",
-      "Dashboard em tempo real",
-      "Controle de estoque integrado",
-      "Gestão de mesas VIP",
-      "Feito para alto volume",
-      "Suporte global 24/7"
+    "festivals": {
+      "title": "Festivais",
+      "description": "Maior velocidade nos pontos de alta demanda. Compra antecipada para reduzir congestionamento e planejar estoque.",
+      "problem": "Milhares de participantes, múltiplos pontos de venda, filas intermináveis e perda massiva de receita potencial.",
+      "solution": "Pick Up Express em todos os pontos. Compra antecipada pré-evento. Estoque centralizado com alertas.",
+      "useCases": "Compra antecipada de combos • Pick Up em barras múltiplas • Estoque multi-ponto • Relatórios por zona"
+    },
+    "stadiums": {
+      "title": "Estádios e Concertos",
+      "description": "QR nos assentos, suítes e hospitalidade. Compra do assento com entrega direta sem perder o espetáculo.",
+      "problem": "Participantes abandonam seus assentos para comprar e perdem o show. Suítes e hospitalidade sem atendimento ágil.",
+      "solution": "QR em cada assento ou setor. Compra pelo celular com entrega no assento. Pick Up para setores gerais.",
+      "useCases": "Entrega no assento • QR por setor • Serviço em suítes • Pick Up nas lanchonetes • Compra antecipada"
+    },
+    "bars": {
+      "title": "Bares e Venues",
+      "description": "Fluxo de pedidos mais ordenado, operação eficiente e maior rotatividade em noites de alta demanda.",
+      "problem": "Barras lotadas nos horários de pico, erros nos pedidos, falta de controle de estoque e caixa.",
+      "solution": "Pedidos via QR na mesa ou barra. Preparação ordenada por prioridade. Dashboard de vendas e estoque em tempo real.",
+      "useCases": "QR nas mesas • Pick Up na barra • Controle de estoque ao vivo • Métricas de consumo por hora"
+    }
+  },
+  "dashboard": {
+    "label": "Dashboard",
+    "title": "Controle total.",
+    "titleHighlight": "Decisões em tempo real.",
+    "subtitle": "O painel de controle que centraliza toda a operação do seu evento em uma única visão.",
+    "modules": [
+      { "title": "Estatísticas rápidas", "description": "Vendas totais, transações, ticket médio e tendências em um relance." },
+      { "title": "Gestão de eventos", "description": "Configure produtos, preços, pontos de venda e modalidades por evento." },
+      { "title": "Estoque ao vivo", "description": "Estoque atualizado em tempo real com alertas de baixo inventário." },
+      { "title": "Monitoramento de vendas", "description": "Visualize vendas por produto, ponto de venda, horário e tendência." },
+      { "title": "Controle de pedidos", "description": "Acompanhe cada pedido desde a compra até a entrega." }
     ],
     "stats": {
-      "endToEnd": "Plataforma end-to-end",
-      "global": "Escalável em qualquer mercado",
-      "support": "Suporte durante eventos"
+      "revenue": "$47.320",
+      "transactions": "1.847",
+      "avgTicket": "$25,60",
+      "revenueLabel": "Vendas totais",
+      "transactionsLabel": "Transações",
+      "avgTicketLabel": "Ticket médio"
     }
   },
   "socialProof": {
-    "subtitle": "Projetado junto com organizadores de eventos reais",
-    "testimonial": "\"Ronda Privé transformou a forma como operamos. Vendemos mais, com menos esforço e total visibilidade.\"",
-    "attribution": "— Organizador de eventos, Cidade do México"
+    "label": "Depoimentos",
+    "title": "O que dizem nossos",
+    "titleHighlight": "clientes",
+    "testimonials": [
+      {
+        "quote": "Ronda Privé transformou completamente nossa operação. Aumentamos as vendas em 65% e eliminamos as filas na barra.",
+        "author": "Carlos M.",
+        "role": "Diretor de Operações",
+        "company": "Arena Santiago"
+      },
+      {
+        "quote": "A compra do assento em nossas suítes VIP elevou a experiência a outro nível. Os clientes não param de elogiar o serviço.",
+        "author": "Maria L.",
+        "role": "Gerente de Hospitalidade",
+        "company": "Estádio Nacional"
+      }
+    ]
   },
   "cta": {
-    "title": "Leve seu evento ao",
-    "titleHighlight": "próximo nível",
-    "subtitle": "Agende uma demo personalizada e descubra como Ronda Privé pode transformar a experiência em seus eventos.",
-    "benefit1": "Demo personalizada sem compromisso",
-    "benefit2": "Implementação rápida e guiada",
-    "benefit3": "Suporte dedicado para seu primeiro evento",
+    "label": "Comece agora",
+    "title": "Transforme a operação do seu evento",
+    "titleHighlight": "desde o primeiro pedido",
+    "subtitle": "Agende uma demo personalizada e descubra como Ronda Privé maximiza suas vendas sem infraestrutura adicional.",
+    "benefits": [
+      "Implementação em menos de 48 horas",
+      "Sem hardware ou infraestrutura adicional",
+      "Suporte dedicado 24/7"
+    ],
     "form": {
-      "name": "Nome",
-      "namePlaceholder": "Seu nome",
-      "email": "Email",
-      "emailPlaceholder": "voce@email.com",
-      "company": "Empresa / Venue",
-      "companyPlaceholder": "Nome do venue ou evento",
-      "submit": "Agende sua demo"
+      "name": "Nome completo",
+      "email": "Email corporativo",
+      "company": "Empresa ou organização",
+      "venueType": "Tipo de recinto",
+      "venueTypes": {
+        "nightclub": "Nightclub",
+        "festival": "Festival",
+        "stadium": "Estádio / Concerto",
+        "bar": "Bar / Venue",
+        "other": "Outro"
+      },
+      "message": "Mensagem (opcional)",
+      "submit": "Solicitar demo",
+      "scheduling": "Ou agende diretamente uma reunião"
     }
   },
-  "footer": {
-    "tagline": "Tecnologia para eventos premium",
-    "copyright": "© {{year}} Ronda Privé. Todos os direitos reservados."
+  "events": {
+    "heroTitle": "Descubra",
+    "heroHighlight": "eventos ativos",
+    "heroSubtitle": "Explore os eventos que já utilizam Ronda Privé. Compre sem filas, retire na hora.",
+    "active": "Eventos ativos",
+    "upcoming": "Próximos eventos",
+    "all": "Todos",
+    "features": {
+      "pickup": "Pick Up Express",
+      "seat": "Do seu assento",
+      "preorder": "Compra antecipada"
+    },
+    "viewEvent": "Ver evento",
+    "viewMenu": "Ver cardápio",
+    "vendors": "Pontos de venda",
+    "backToEvents": "\u2190 Voltar aos eventos"
   },
-  "language": {
-    "es": "Español",
-    "en": "English",
-    "pt": "Português",
-    "fr": "Français"
+  "solutions": {
+    "heroTitle": "Soluções que",
+    "heroHighlight": "transformam sua operação",
+    "heroSubtitle": "Três modalidades de venda digital projetadas para maximizar receita e eliminar fricção em eventos de alta demanda.",
+    "pickup": {
+      "title": "Pick Up Express",
+      "subtitle": "Compra digital com retirada no ponto de venda",
+      "steps": [
+        { "title": "Acesse o Ronda Privé", "description": "O participante entra escaneando um QR ou pelo link direto." },
+        { "title": "Explore e compre", "description": "Veja o cardápio digital, selecione produtos e pague pelo celular." },
+        { "title": "Receba seu QR", "description": "Um código QR único é gerado como comprovante do pedido." },
+        { "title": "Vá até o ponto de retirada", "description": "O participante se dirige ao ponto de venda sem enfrentar fila." },
+        { "title": "Escaneio e preparação", "description": "O staff escaneia o QR e só então inicia a preparação." },
+        { "title": "Retire seu pedido", "description": "O pedido é entregue pronto. Sem espera, sem congestionamento." }
+      ]
+    },
+    "seat": {
+      "title": "Compra do seu assento",
+      "subtitle": "Entrega direta à sua localização dentro do recinto",
+      "steps": [
+        { "title": "Escaneie o QR do assento", "description": "Cada assento, mesa ou setor tem um QR único que identifica a localização." },
+        { "title": "Confirme sua localização", "description": "O sistema detecta automaticamente seu setor, fileira e assento." },
+        { "title": "Explore e compre", "description": "Acesse o cardápio digital e faça seu pedido pelo celular." },
+        { "title": "O pedido é criado", "description": "O pedido é gerado com um código único vinculado à sua localização." },
+        { "title": "Preparação em tempo real", "description": "O pedido é preparado e você pode acompanhar o status ao vivo." },
+        { "title": "Entrega no seu assento", "description": "O pedido é entregue diretamente na sua localização." }
+      ]
+    },
+    "preorder": {
+      "title": "Compra antecipada",
+      "subtitle": "Compre antes do evento, retire no dia do show",
+      "steps": [
+        { "title": "Compre antes do evento", "description": "Acesse o cardápio do evento dias antes e selecione seus produtos." },
+        { "title": "Pague antecipadamente", "description": "Realize o pagamento com antecedência e garanta seu pedido." },
+        { "title": "Receba seu QR", "description": "Um código QR é gerado como comprovante da sua compra antecipada." },
+        { "title": "No dia do evento, retire", "description": "Apresente seu QR no ponto de retirada e receba seu pedido sem esperar." }
+      ]
+    },
+    "kitchen": {
+      "title": "Operação de bar e cozinha",
+      "subtitle": "Fluxo operacional projetado para velocidade e controle",
+      "description": "Quando um pedido entra, a equipe operacional visualiza os detalhes completos. O pessoal de bar ou cozinha vê cada pedido por produto, cliente ou localização. O sistema permite acompanhar a preparação, atualizar status e manter rastreabilidade completa.",
+      "statuses": ["Recebido", "Em preparação", "Pronto", "Entregue"],
+      "benefits": ["Controle total do fluxo", "Maior velocidade de preparação", "Coordenação entre equipes", "Rastreabilidade de cada pedido"]
+    }
+  },
+  "faq": {
+    "heroTitle": "Perguntas",
+    "heroHighlight": "frequentes",
+    "heroSubtitle": "Tudo o que você precisa saber sobre Ronda Privé e como funciona para seu evento.",
+    "categories": {
+      "general": "Geral",
+      "attendees": "Para participantes",
+      "organizers": "Para organizadores",
+      "technical": "Técnico"
+    },
+    "all": "Todas",
+    "q1": "É necessária infraestrutura adicional?",
+    "a1": "Não. Ronda Privé funciona 100% pelo celular dos participantes. Não são necessários totens, caixas registradoras ou hardware adicional. Você só precisa de conexão à internet no recinto.",
+    "q2": "São necessários totens?",
+    "a2": "Não. Diferente de outras soluções, Ronda Privé elimina a necessidade de totens ou terminais de autoatendimento. Tudo funciona pelo dispositivo móvel do participante.",
+    "q3": "Quanto tempo leva a implementação?",
+    "a3": "A implementação é rápida e flexível. Na maioria dos casos, um evento pode estar operacional em menos de 48 horas. Nossa equipe acompanha todo o processo.",
+    "q4": "Integra com meu POS atual?",
+    "a4": "Sim. Ronda Privé integra de forma flexível com os sistemas de ponto de venda mais utilizados na indústria. Nossa equipe técnica configura a integração de acordo com sua infraestrutura.",
+    "q5": "Como funciona para a equipe de bar e cozinha?",
+    "a5": "A equipe recebe os pedidos em uma tela ou dispositivo dedicado. Cada pedido exibe os produtos, localização do cliente e status. A equipe pode atualizar os estados: recebido, em preparação, pronto e entregue.",
+    "q6": "Como é implementado em um evento?",
+    "a6": "Configuramos seu evento na plataforma: pontos de venda, produtos, preços e modalidades. Geramos os QRs necessários e treinamos sua equipe. No dia do evento, tudo está pronto para operar.",
+    "q7": "Pode ser usado em recintos com setores ou assentos?",
+    "a7": "Sim. A modalidade de compra do assento é projetada especificamente para estádios, suítes, hospitalidade e qualquer recinto com setores identificados.",
+    "q8": "Pode ser personalizado por evento?",
+    "a8": "Completamente. Cada evento pode ter seu próprio cardápio, preços, pontos de venda, modalidades habilitadas e configuração operacional.",
+    "q9": "Como o estoque é controlado?",
+    "a9": "O dashboard exibe o estoque em tempo real por produto e ponto de venda. Inclui alertas de estoque baixo e capacidade de ajustar quantidades instantaneamente.",
+    "q10": "O que acontece em alta demanda?",
+    "a10": "A plataforma é projetada para escalar. Suporta milhares de transações concorrentes sem degradar o desempenho. A arquitetura cloud garante estabilidade nos picos de demanda.",
+    "q11": "Funciona com múltiplos pontos de venda?",
+    "a11": "Sim. Você pode configurar quantos pontos de venda precisar, cada um com seu próprio cardápio, estoque e equipe operacional. Tudo centralizado em um único dashboard.",
+    "q12": "Quais métodos de pagamento são aceitos?",
+    "a12": "Aceitamos cartões de crédito, débito e os principais meios de pagamento digital disponíveis em cada mercado. A integração de pagamentos é segura e está em conformidade com padrões internacionais.",
+    "q13": "Permite compra antecipada?",
+    "a13": "Sim. A compra antecipada permite que os participantes comprem antes do evento, paguem antecipadamente e retirem no dia do show apresentando seu QR. Isso melhora o planejamento operacional e reduz o congestionamento."
+  },
+  "insights": {
+    "heroTitle": "Insights &",
+    "heroHighlight": "tendências",
+    "heroSubtitle": "Ideias, estratégias e melhores práticas para a indústria de eventos e hospitalidade.",
+    "categories": {
+      "all": "Todos",
+      "trends": "Tendências",
+      "cases": "Casos de uso",
+      "product": "Produto",
+      "industry": "Indústria"
+    },
+    "readMore": "Ler mais",
+    "minRead": "min de leitura",
+    "post1": {
+      "title": "Como aumentar as vendas de F&B em eventos de grande porte",
+      "excerpt": "Estratégias comprovadas para maximizar o consumo por participante e capturar receita perdida nas filas."
+    },
+    "post2": {
+      "title": "O futuro da tecnologia F&B em eventos",
+      "excerpt": "Tendências globais na digitalização da venda de alimentos e bebidas na indústria de eventos."
+    },
+    "post3": {
+      "title": "Como reduzir filas em estádios: estudo de caso",
+      "excerpt": "Análise de como a implementação de compra digital reduziu 70% dos tempos de espera em um estádio."
+    },
+    "post4": {
+      "title": "Gestão de estoque em tempo real para eventos",
+      "excerpt": "Melhores práticas para controlar estoque, evitar rupturas e otimizar a operação durante um evento."
+    },
+    "post5": {
+      "title": "Inovação em nightclubs: a nova era da venda digital",
+      "excerpt": "Como os nightclubs mais exclusivos estão transformando a experiência de compra com tecnologia móvel."
+    },
+    "post6": {
+      "title": "Compra antecipada: a estratégia que maximiza a receita",
+      "excerpt": "Por que a venda pré-evento é a ferramenta mais poderosa para aumentar previsibilidade e receita."
+    }
+  },
+  "contact": {
+    "heroTitle": "Vamos conversar sobre seu",
+    "heroHighlight": "próximo evento",
+    "heroSubtitle": "Agende uma demo personalizada e descubra como Ronda Privé transforma a operação do seu evento.",
+    "formTitle": "Solicite uma demo",
+    "formSubtitle": "Preencha o formulário e nossa equipe entrará em contato em menos de 24 horas.",
+    "successTitle": "Mensagem enviada!",
+    "successMessage": "Nossa equipe entrará em contato em menos de 24 horas para agendar sua demo personalizada."
+  },
+  "footer": {
+    "tagline": "A plataforma que transforma a venda de alimentos e bebidas em eventos de alta demanda.",
+    "productTitle": "Produto",
+    "resourcesTitle": "Recursos",
+    "contactTitle": "Contato",
+    "solutions": "Soluções",
+    "industries": "Indústrias",
+    "howItWorks": "Como funciona",
+    "benefits": "Benefícios",
+    "events": "Eventos",
+    "insights": "Insights",
+    "faq": "FAQ",
+    "contact": "Contato",
+    "scheduleDemo": "Agendar demo",
+    "rights": "Todos os direitos reservados.",
+    "privacy": "Privacidade",
+    "terms": "Termos"
+  },
+  "common": {
+    "learnMore": "Saiba mais",
+    "contactUs": "Fale conosco",
+    "backToHome": "Voltar ao início",
+    "viewAll": "Ver todos",
+    "close": "Fechar",
+    "loading": "Carregando...",
+    "notFound": "Página não encontrada",
+    "notFoundMessage": "A página que você procura não existe ou foi movida.",
+    "goHome": "Ir para o início"
   }
 }

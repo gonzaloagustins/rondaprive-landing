@@ -58,9 +58,14 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         gold: {
-          DEFAULT: "hsl(43 74% 49%)",
-          dark: "hsl(38 60% 35%)",
-          light: "hsl(45 80% 60%)",
+          DEFAULT: "#D5A85A",
+          dark: "#A07D3A",
+          light: "#E8C97A",
+        },
+        arena: {
+          DEFAULT: "#D5A85A",
+          dark: "#A07D3A",
+          light: "#E8C97A",
         },
       },
       borderRadius: {
@@ -95,8 +100,8 @@ export default {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-gold": "linear-gradient(135deg, hsl(43 74% 49%) 0%, hsl(38 60% 35%) 100%)",
-        "gradient-dark": "linear-gradient(180deg, hsl(240 10% 4%) 0%, hsl(240 10% 8%) 100%)",
+        "gradient-gold": "linear-gradient(135deg, #D5A85A 0%, #A07D3A 100%)",
+        "gradient-dark": "linear-gradient(180deg, #0E0E0E 0%, #161616 100%)",
       },
     },
   },

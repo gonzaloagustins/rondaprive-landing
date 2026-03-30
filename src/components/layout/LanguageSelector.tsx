@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { Globe } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,10 +8,10 @@ import {
 import { Button } from '@/components/ui/button';
 
 const languages = [
-  { code: 'es', label: 'ES', name: 'Español' },
-  { code: 'en', label: 'EN', name: 'English' },
-  { code: 'pt', label: 'PT', name: 'Português' },
-  { code: 'fr', label: 'FR', name: 'Français' },
+  { code: 'es', flag: '🇪🇸', name: 'Español' },
+  { code: 'en', flag: '🇬🇧', name: 'English' },
+  { code: 'pt', flag: '🇧🇷', name: 'Português' },
+  { code: 'fr', flag: '🇫🇷', name: 'Français' },
 ];
 
 interface LanguageSelectorProps {
@@ -21,7 +20,6 @@ interface LanguageSelectorProps {
 
 const LanguageSelector = ({ variant = 'desktop' }: LanguageSelectorProps) => {
   const { i18n } = useTranslation();
-
   const currentLang = languages.find(lang => lang.code === i18n.language) || languages[0];
 
   const handleLanguageChange = (langCode: string) => {
@@ -35,13 +33,14 @@ const LanguageSelector = ({ variant = 'desktop' }: LanguageSelectorProps) => {
           <button
             key={lang.code}
             onClick={() => handleLanguageChange(lang.code)}
-            className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
+            className={`px-3 py-1.5 rounded-lg text-sm transition-colors flex items-center gap-1.5 ${
               i18n.language === lang.code
                 ? 'bg-primary/20 text-primary border border-primary/30'
                 : 'bg-secondary text-muted-foreground hover:text-foreground'
             }`}
           >
-            {lang.label}
+            <span className="text-base">{lang.flag}</span>
+            <span>{lang.code.toUpperCase()}</span>
           </button>
         ))}
       </div>
@@ -51,26 +50,21 @@ const LanguageSelector = ({ variant = 'desktop' }: LanguageSelectorProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button 
-          variant="ghost" 
-          size="sm"
-          className="gap-1.5 text-muted-foreground hover:text-foreground"
-        >
-          <Globe className="w-4 h-4" />
-          <span className="text-sm font-medium">{currentLang.label}</span>
+        <Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground hover:text-foreground">
+          <span className="text-base">{currentLang.flag}</span>
+          <span className="text-sm font-medium">{currentLang.code.toUpperCase()}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[140px]">
+      <DropdownMenuContent align="end" className="min-w-[160px]">
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
             onClick={() => handleLanguageChange(lang.code)}
-            className={`cursor-pointer ${
-              i18n.language === lang.code ? 'text-primary' : ''
-            }`}
+            className={`cursor-pointer ${i18n.language === lang.code ? 'text-primary' : ''}`}
           >
-            <span className="font-medium mr-2">{lang.label}</span>
-            <span className="text-muted-foreground">{lang.name}</span>
+            <span className="text-base mr-2">{lang.flag}</span>
+            <span className="font-medium mr-2">{lang.code.toUpperCase()}</span>
+            <span className="text-muted-foreground text-xs">{lang.name}</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

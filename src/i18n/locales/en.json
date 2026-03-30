@@ -1,199 +1,419 @@
 {
   "navbar": {
+    "events": "Events",
+    "solutions": "Solutions",
+    "industries": "Industries",
     "howItWorks": "How it works",
-    "benefits": "Benefits",
-    "forWho": "Who it's for",
-    "platform": "Platform",
-    "requestDemo": "Request demo"
+    "insights": "Insights",
+    "exploreEvents": "Explore events",
+    "requestDemo": "Request a demo"
   },
   "hero": {
-    "badge": "Technology for premium events",
-    "headline": "The smartest way to",
-    "headlineHighlight": "sell drinks",
-    "headlineEnd": "and experiences at events",
-    "subheadline": "Ronda Privé enables attendees to purchase from their phone and organizers to sell more, with full real-time control.",
-    "ctaDemo": "Request demo",
+    "badge": "Premium event technology",
+    "headline": "Eliminate the queues.",
+    "headlineHighlight": "Maximize your revenue.",
+    "subheadline": "The platform that transforms food and beverage sales at high-demand events. Digital ordering from any phone, real-time operational control, no additional infrastructure.",
+    "ctaDemo": "Request a demo",
+    "ctaExplore": "Explore events",
     "ctaVideo": "See how it works",
     "statSales": "Sales per attendee",
     "statQueue": "Time in queues",
-    "statControl": "Real-time control"
+    "statControl": "Real-time control",
+    "eventsTitle": "Active events",
+    "eventsSubtitle": "Discover events powered by Ronda Prive"
+  },
+  "problem": {
+    "label": "The problem",
+    "title": "Queues are",
+    "titleHighlight": "killing your sales",
+    "items": [
+      {
+        "title": "Lost revenue",
+        "description": "Attendees abandon the line before purchasing. Every minute of waiting is money left on the table."
+      },
+      {
+        "title": "Ruined experiences",
+        "description": "Nobody wants to miss the show for a drink. Frustration reduces spending and satisfaction."
+      },
+      {
+        "title": "Overwhelmed staff",
+        "description": "Bottlenecks, stress, and order errors. Operations collapse during peak demand."
+      },
+      {
+        "title": "Zero visibility",
+        "description": "No real-time data, no inventory control, no ability to react to demand surges."
+      }
+    ]
+  },
+  "solutionsOverview": {
+    "label": "Solutions",
+    "title": "Three ways to",
+    "titleHighlight": "sell more",
+    "subtitle": "Each mode adapts to the type of event, venue, and experience you need to deliver.",
+    "pickup": {
+      "title": "Pick Up Express",
+      "description": "Attendees order from their phone and collect at the point of sale when their order is ready. No lines, no waiting.",
+      "cta": "View details"
+    },
+    "seat": {
+      "title": "Order from your seat",
+      "description": "Scan the QR at your seat, table, or section. Order and receive your items delivered directly to your location.",
+      "cta": "View details"
+    },
+    "preorder": {
+      "title": "Pre-event ordering",
+      "description": "Purchase before the event, pay in advance, and on the day simply collect by presenting your QR code.",
+      "cta": "View details"
+    }
   },
   "howItWorks": {
     "label": "How it works",
-    "title": "Three steps to",
-    "titleHighlight": "transform",
-    "titleEnd": "your event",
-    "subtitle": "No complications. No extensive training. Just results.",
-    "step": "Step",
-    "steps": [
-      {
-        "title": "Scan or access",
-        "description": "Attendees access from their phone with a simple QR code or direct link. No apps, no friction."
-      },
-      {
-        "title": "Easy purchase",
-        "description": "They choose drinks, VIP tables, or menu items. Integrated digital payment in seconds."
-      },
-      {
-        "title": "Efficient delivery",
-        "description": "The order goes directly to staff. You control everything in real-time from the dashboard."
-      }
-    ]
+    "title": "Simple for everyone.",
+    "titleHighlight": "Powerful for your operation.",
+    "subtitle": "From the first order to delivery, every step is engineered to maximize speed and control.",
+    "tabs": {
+      "attendee": "For attendees",
+      "kitchen": "For bar & kitchen",
+      "organizer": "For organizers"
+    },
+    "attendee": {
+      "steps": [
+        { "title": "Access Ronda Prive", "description": "Scan the event QR or enter through a direct link." },
+        { "title": "Browse the digital menu", "description": "View available products, pricing, and options at each point of sale." },
+        { "title": "Place your order", "description": "Select items, pay from your phone, and receive a QR confirmation code." },
+        { "title": "Pick up or receive", "description": "Head to the collection point or receive at your seat. No queues." }
+      ]
+    },
+    "kitchen": {
+      "steps": [
+        { "title": "Receive the order", "description": "The operations team sees each order with full product, customer, and location details." },
+        { "title": "Start preparation", "description": "Staff updates the status: received, in preparation, ready." },
+        { "title": "Scan and deliver", "description": "For Pick Up, the customer's QR is scanned. For Seat Delivery, the order is linked to the location." },
+        { "title": "Update status", "description": "The system updates in real time: ready, delivered. Complete traceability." }
+      ]
+    },
+    "organizer": {
+      "steps": [
+        { "title": "Configure your event", "description": "Define points of sale, products, pricing, and enabled order modes." },
+        { "title": "Monitor in real time", "description": "Track sales, inventory, active orders, and consumption patterns live." },
+        { "title": "Control operations", "description": "Adjust pricing, activate promotions, and manage stock from the dashboard." },
+        { "title": "Analyze results", "description": "Access detailed reports, performance metrics, and actionable data." }
+      ]
+    }
   },
   "benefits": {
     "label": "Benefits",
-    "title": "Everything you need to",
-    "titleHighlight": "maximize",
-    "titleEnd": "your event",
-    "subtitle": "Designed by and for event organizers who seek results.",
-    "items": [
-      {
-        "title": "More sales per attendee",
-        "description": "Increase average ticket by up to 40% with frictionless purchases."
-      },
-      {
-        "title": "Fewer lines and friction",
-        "description": "Eliminate waiting queues. More time enjoying, more consumption."
-      },
-      {
-        "title": "Inventory control",
-        "description": "View stock in real-time. Make decisions with precise data."
-      },
-      {
-        "title": "Less staff burden",
-        "description": "Optimize operations. Your team focuses on the experience."
-      },
-      {
-        "title": "Integrated digital payments",
-        "description": "Multiple payment methods. Zero cash, zero problems."
-      },
-      {
-        "title": "Premium experience",
-        "description": "Your attendees enjoy a first-class event from their phone."
-      }
-    ]
-  },
-  "targetAudience": {
-    "label": "Who Ronda is for",
-    "title": "Created for those who",
-    "titleHighlight": "move",
-    "titleEnd": "the industry",
-    "subtitle": "From intimate clubs to massive arenas. Ronda adapts to your operation.",
-    "items": [
-      {
-        "title": "Arenas and stadiums",
-        "description": "Manage thousands of simultaneous transactions without overwhelming operations."
-      },
-      {
-        "title": "Event producers",
-        "description": "Full control of multiple bars and points of sale in a single dashboard."
-      },
-      {
-        "title": "Clubs & nightlife",
-        "description": "VIP experience for your most exclusive clients. Tables, bottles, no waiting."
-      },
-      {
-        "title": "Festivals",
-        "description": "Scale without limits. Ideal for massive events with high demand."
-      },
-      {
-        "title": "Corporate events",
-        "description": "Professional image with cutting-edge technology for your business clients."
-      }
-    ]
-  },
-  "platform": {
-    "label": "Platform",
-    "title": "Technology that",
-    "titleHighlight": "powers",
-    "titleEnd": "your operation",
-    "subtitle": "You don't need to be a tech expert. Ronda Privé is designed so any team can operate it without complications.",
-    "features": [
-      {
-        "title": "Intuitive dashboard",
-        "description": "Control panel designed so you see everything that matters at a glance."
-      },
-      {
-        "title": "Real-time reports",
-        "description": "Sales, top products, peak hours. Data that drives decisions."
-      },
-      {
-        "title": "Live operation",
-        "description": "Monitor every transaction as it happens. Zero surprises."
-      },
-      {
-        "title": "Safe and reliable",
-        "description": "Robust infrastructure prepared for the most intense peaks."
-      },
-      {
-        "title": "Total scalability",
-        "description": "From 100 to 100,000 attendees. The platform grows with you."
-      }
-    ],
-    "dashboard": {
-      "live": "Dashboard • Live",
-      "salesToday": "Sales today",
-      "transactions": "Transactions",
-      "avgTicket": "Avg. ticket",
-      "recentOrders": "Recent orders",
-      "lowStock": "Low stock",
-      "units": "units"
+    "title": "Results that",
+    "titleHighlight": "transform your event",
+    "commercial": {
+      "title": "Commercial",
+      "items": [
+        { "title": "+80% sales per attendee", "description": "Increase spending by capturing sales previously lost in queues." },
+        { "title": "Peak moments capitalized", "description": "Maximize revenue during the highest-demand moments of the event." },
+        { "title": "Higher average ticket", "description": "Frictionless digital purchasing naturally increases transaction value." }
+      ]
+    },
+    "experience": {
+      "title": "Attendee experience",
+      "items": [
+        { "title": "-70% wait time", "description": "Eliminate queues and frustration. More time enjoying, less time waiting." },
+        { "title": "Order from your phone", "description": "No app downloads. Instant access, fast payment, organized collection." },
+        { "title": "Delivery to your seat", "description": "In stadiums, suites, and VIP areas, orders arrive directly at the attendee's location." }
+      ]
+    },
+    "operational": {
+      "title": "Operational",
+      "items": [
+        { "title": "Total real-time control", "description": "Centralize orders, inventory, and metrics in a single operations panel." },
+        { "title": "Streamlined operations", "description": "Fewer staff at registers, better coordination, and complete traceability." },
+        { "title": "Intelligent inventory", "description": "Live stock monitoring with alerts and immediate response capability." }
+      ]
+    },
+    "technical": {
+      "title": "Technical",
+      "items": [
+        { "title": "No additional infrastructure", "description": "No kiosks, cash registers, or specialized hardware required." },
+        { "title": "Flexible deployment", "description": "Adapts to any venue, event format, and attendee volume." },
+        { "title": "Frictionless integration", "description": "Compatible with your current setup. Implementation in days, not months." }
+      ]
     }
   },
-  "differentiators": {
-    "label": "Why Ronda",
-    "title": "It's not just a QR.",
-    "titleHighlight": "It's much more.",
-    "subtitle": "Ronda Privé is a complete operation and monetization platform, designed to scale in any market worldwide.",
-    "tableHeader": {
-      "feature": "Feature",
-      "ronda": "Ronda Privé",
-      "others": "Other solutions"
+  "industries": {
+    "label": "Industries",
+    "title": "Designed for every",
+    "titleHighlight": "type of venue",
+    "subtitle": "Every industry has unique challenges. Ronda Prive adapts with tailored solutions to maximize results.",
+    "nightclubs": {
+      "title": "Nightclubs",
+      "description": "Optimize bar and VIP table sales. Less congestion, faster turnover, higher spend per table.",
+      "problem": "Congested bars, lost sales during peak moments, difficulty serving VIP tables efficiently.",
+      "solution": "Orders from tables or VIP zones straight to the phone. Pick Up Express to reduce bar queues. Dashboard with live metrics.",
+      "useCases": "VIP table orders • Pick Up at main bar • Real-time promotions • Bottle stock control"
     },
-    "features": [
-      "Mobile purchases",
-      "Real-time dashboard",
-      "Integrated inventory control",
-      "VIP table management",
-      "Built for high volume",
-      "24/7 global support"
+    "festivals": {
+      "title": "Festivals",
+      "description": "Greater speed at high-demand points. Pre-event purchasing to reduce congestion and plan inventory.",
+      "problem": "Thousands of attendees, multiple points of sale, endless queues, and massive loss of potential revenue.",
+      "solution": "Pick Up Express at every point. Pre-event purchasing. Centralized inventory with stock alerts.",
+      "useCases": "Pre-event combo purchases • Multi-bar Pick Up • Multi-point inventory • Zone-based reporting"
+    },
+    "stadiums": {
+      "title": "Stadiums & Concerts",
+      "description": "QR codes at seats, suites, and hospitality areas. Order from your seat with direct delivery without missing the action.",
+      "problem": "Attendees leave their seats to buy and miss the show. Suites and hospitality lack agile service.",
+      "solution": "QR at every seat or section. Mobile ordering with seat delivery. Pick Up for general admission areas.",
+      "useCases": "Seat delivery • QR by section • Suite service • Pick Up at concessions • Pre-event ordering"
+    },
+    "bars": {
+      "title": "Bars & Venues",
+      "description": "Streamlined order flow, efficient operations, and faster turnover during high-demand nights.",
+      "problem": "Overcrowded bars during peak hours, order errors, lack of inventory and register control.",
+      "solution": "Orders via QR at tables or bar. Priority-based preparation. Real-time sales and stock dashboard.",
+      "useCases": "Table QR codes • Bar Pick Up • Live stock control • Hourly consumption metrics"
+    }
+  },
+  "dashboard": {
+    "label": "Dashboard",
+    "title": "Total control.",
+    "titleHighlight": "Real-time decisions.",
+    "subtitle": "The command center that consolidates your entire event operation in a single view.",
+    "modules": [
+      { "title": "Quick stats", "description": "Total sales, transactions, average ticket, and trends at a glance." },
+      { "title": "Event management", "description": "Configure products, pricing, points of sale, and order modes per event." },
+      { "title": "Live inventory", "description": "Stock updated in real time with low-inventory alerts." },
+      { "title": "Sales monitoring", "description": "Visualize sales by product, point of sale, time slot, and trend." },
+      { "title": "Order tracking", "description": "Follow every order from purchase through delivery." }
     ],
     "stats": {
-      "endToEnd": "End-to-end platform",
-      "global": "Scalable in any market",
-      "support": "Support during events"
+      "revenue": "$47,320",
+      "transactions": "1,847",
+      "avgTicket": "$25.60",
+      "revenueLabel": "Total sales",
+      "transactionsLabel": "Transactions",
+      "avgTicketLabel": "Average ticket"
     }
   },
   "socialProof": {
-    "subtitle": "Designed together with real event organizers",
-    "testimonial": "\"Ronda Privé transformed the way we operate. We sell more, with less effort and total visibility.\"",
-    "attribution": "— Event organizer, Mexico City"
+    "label": "Testimonials",
+    "title": "What our",
+    "titleHighlight": "clients say",
+    "testimonials": [
+      {
+        "quote": "Ronda Prive completely transformed our operation. We increased sales by 65% and eliminated bar queues entirely.",
+        "author": "Carlos M.",
+        "role": "Director of Operations",
+        "company": "Arena Santiago"
+      },
+      {
+        "quote": "Seat ordering in our VIP suites elevated the experience to another level. Clients can't stop praising the service.",
+        "author": "Maria L.",
+        "role": "Hospitality Manager",
+        "company": "National Stadium"
+      }
+    ]
   },
   "cta": {
-    "title": "Take your event to the",
-    "titleHighlight": "next level",
-    "subtitle": "Schedule a personalized demo and discover how Ronda Privé can transform the experience at your events.",
-    "benefit1": "Personalized demo with no commitment",
-    "benefit2": "Fast and guided implementation",
-    "benefit3": "Dedicated support for your first event",
+    "label": "Get started",
+    "title": "Transform your event operation",
+    "titleHighlight": "from the very first order",
+    "subtitle": "Book a personalized demo and discover how Ronda Prive maximizes your revenue without additional infrastructure.",
+    "benefits": [
+      "Implementation in under 48 hours",
+      "No hardware or additional infrastructure",
+      "Dedicated 24/7 support"
+    ],
     "form": {
-      "name": "Name",
-      "namePlaceholder": "Your name",
-      "email": "Email",
-      "emailPlaceholder": "you@email.com",
-      "company": "Company / Venue",
-      "companyPlaceholder": "Venue or event name",
-      "submit": "Schedule your demo"
+      "name": "Full name",
+      "email": "Business email",
+      "company": "Company or organization",
+      "venueType": "Venue type",
+      "venueTypes": {
+        "nightclub": "Nightclub",
+        "festival": "Festival",
+        "stadium": "Stadium / Concert",
+        "bar": "Bar / Venue",
+        "other": "Other"
+      },
+      "message": "Message (optional)",
+      "submit": "Request a demo",
+      "scheduling": "Or schedule a meeting directly"
     }
   },
-  "footer": {
-    "tagline": "Technology for premium events",
-    "copyright": "© {{year}} Ronda Privé. All rights reserved."
+  "events": {
+    "heroTitle": "Discover",
+    "heroHighlight": "active events",
+    "heroSubtitle": "Explore the events already using Ronda Prive. Order without queues, collect instantly.",
+    "active": "Active events",
+    "upcoming": "Upcoming events",
+    "all": "All",
+    "features": {
+      "pickup": "Pick Up Express",
+      "seat": "From your seat",
+      "preorder": "Pre-event ordering"
+    },
+    "viewEvent": "View event",
+    "viewMenu": "View menu",
+    "vendors": "Points of sale",
+    "backToEvents": "\u2190 Back to events"
   },
-  "language": {
-    "es": "Español",
-    "en": "English",
-    "pt": "Português",
-    "fr": "Français"
+  "solutions": {
+    "heroTitle": "Solutions that",
+    "heroHighlight": "transform your operation",
+    "heroSubtitle": "Three digital sales modes designed to maximize revenue and eliminate friction at high-demand events.",
+    "pickup": {
+      "title": "Pick Up Express",
+      "subtitle": "Digital ordering with point-of-sale collection",
+      "steps": [
+        { "title": "Access Ronda Prive", "description": "The attendee enters by scanning a QR code or through a direct link." },
+        { "title": "Browse and order", "description": "View the digital menu, select products, and pay from the phone." },
+        { "title": "Receive your QR", "description": "A unique QR code is generated as your order receipt." },
+        { "title": "Head to the collection point", "description": "The attendee goes to the point of sale without standing in line." },
+        { "title": "Scan and preparation", "description": "Staff scans the QR and only then begins preparation." },
+        { "title": "Collect your order", "description": "The order is delivered ready. No waiting, no congestion." }
+      ]
+    },
+    "seat": {
+      "title": "Order from your seat",
+      "subtitle": "Direct delivery to your location within the venue",
+      "steps": [
+        { "title": "Scan the seat QR", "description": "Each seat, table, or section has a unique QR that identifies the location." },
+        { "title": "Confirm your location", "description": "The system automatically detects your section, row, and seat." },
+        { "title": "Browse and order", "description": "Access the digital menu and place your order from the phone." },
+        { "title": "Order is created", "description": "The order is generated with a unique code linked to your location." },
+        { "title": "Real-time preparation", "description": "The order is prepared and you can track its status live." },
+        { "title": "Delivery to your seat", "description": "Your order is delivered directly to your location." }
+      ]
+    },
+    "preorder": {
+      "title": "Pre-event ordering",
+      "subtitle": "Purchase before the event, collect on the day of the show",
+      "steps": [
+        { "title": "Order before the event", "description": "Access the event menu days in advance and select your items." },
+        { "title": "Pay in advance", "description": "Complete payment ahead of time and secure your order." },
+        { "title": "Receive your QR", "description": "A QR code is generated as proof of your pre-event purchase." },
+        { "title": "Collect on event day", "description": "Present your QR at the collection point and receive your order without waiting." }
+      ]
+    },
+    "kitchen": {
+      "title": "Bar & kitchen operations",
+      "subtitle": "Operational workflow designed for speed and control",
+      "description": "When an order comes in, the operations team sees the full details. Bar or kitchen staff view each order by product, customer, or location. The system enables preparation tracking, status updates, and complete traceability.",
+      "statuses": ["Received", "In preparation", "Ready", "Delivered"],
+      "benefits": ["Total workflow control", "Faster preparation times", "Cross-team coordination", "Full order traceability"]
+    }
+  },
+  "faq": {
+    "heroTitle": "Frequently asked",
+    "heroHighlight": "questions",
+    "heroSubtitle": "Everything you need to know about Ronda Prive and how it works for your event.",
+    "categories": {
+      "general": "General",
+      "attendees": "For attendees",
+      "organizers": "For organizers",
+      "technical": "Technical"
+    },
+    "all": "All",
+    "q1": "Is additional infrastructure required?",
+    "a1": "No. Ronda Prive runs 100% from attendees' phones. No kiosks, cash registers, or additional hardware are needed. You only need internet connectivity at the venue.",
+    "q2": "Are kiosks required?",
+    "a2": "No. Unlike other solutions, Ronda Prive eliminates the need for kiosks or self-service terminals. Everything runs from the attendee's mobile device.",
+    "q3": "How long does implementation take?",
+    "a3": "Implementation is fast and flexible. In most cases, an event can be operational in under 48 hours. Our team supports you through the entire process.",
+    "q4": "Does it integrate with my current POS?",
+    "a4": "Yes. Ronda Prive integrates flexibly with the most widely used point-of-sale systems in the industry. Our technical team configures the integration based on your infrastructure.",
+    "q5": "How does it work for bar and kitchen staff?",
+    "a5": "Staff receives orders on a dedicated screen or device. Each order displays the products, customer location, and status. The team can update statuses: received, in preparation, ready, and delivered.",
+    "q6": "How is it implemented at an event?",
+    "a6": "We configure your event on the platform: points of sale, products, pricing, and order modes. We generate the necessary QR codes and train your team. On event day, everything is ready to go.",
+    "q7": "Can it be used at venues with sections or assigned seating?",
+    "a7": "Yes. The seat ordering mode is designed specifically for stadiums, suites, hospitality areas, and any venue with identified sections.",
+    "q8": "Can it be customized per event?",
+    "a8": "Absolutely. Each event can have its own menu, pricing, points of sale, enabled modes, and operational configuration.",
+    "q9": "How is inventory controlled?",
+    "a9": "The dashboard displays real-time inventory by product and point of sale. It includes low-stock alerts and the ability to adjust quantities instantly.",
+    "q10": "What happens during high demand?",
+    "a10": "The platform is built to scale. It supports thousands of concurrent transactions without performance degradation. Cloud architecture ensures stability during demand peaks.",
+    "q11": "Does it work with multiple points of sale?",
+    "a11": "Yes. You can configure as many points of sale as needed, each with its own menu, inventory, and operations team. Everything is centralized in a single dashboard.",
+    "q12": "What payment methods are accepted?",
+    "a12": "We accept credit cards, debit cards, and the leading digital payment methods available in each market. Payment integration is secure and complies with international standards.",
+    "q13": "Is pre-event ordering available?",
+    "a13": "Yes. Pre-event ordering allows attendees to purchase before the event, pay in advance, and collect on the day by presenting their QR code. This improves operational planning and reduces congestion."
+  },
+  "insights": {
+    "heroTitle": "Insights &",
+    "heroHighlight": "trends",
+    "heroSubtitle": "Ideas, strategies, and best practices for the events and hospitality industry.",
+    "categories": {
+      "all": "All",
+      "trends": "Trends",
+      "cases": "Case studies",
+      "product": "Product",
+      "industry": "Industry"
+    },
+    "readMore": "Read more",
+    "minRead": "min read",
+    "post1": {
+      "title": "How to increase F&B sales at large-scale events",
+      "excerpt": "Proven strategies to maximize per-attendee spending and capture revenue lost in queues."
+    },
+    "post2": {
+      "title": "The future of F&B technology at events",
+      "excerpt": "Global trends in digitizing food and beverage sales across the events industry."
+    },
+    "post3": {
+      "title": "How to reduce queues in stadiums: a case study",
+      "excerpt": "Analysis of how digital ordering implementation reduced wait times by 70% at a stadium."
+    },
+    "post4": {
+      "title": "Real-time inventory management for events",
+      "excerpt": "Best practices for stock control, avoiding stockouts, and optimizing operations during an event."
+    },
+    "post5": {
+      "title": "Innovation in nightclubs: the new era of digital sales",
+      "excerpt": "How the most exclusive nightclubs are transforming the purchase experience with mobile technology."
+    },
+    "post6": {
+      "title": "Pre-event ordering: the strategy that maximizes revenue",
+      "excerpt": "Why pre-event sales are the most powerful tool for increasing predictability and revenue."
+    }
+  },
+  "contact": {
+    "heroTitle": "Let's talk about your",
+    "heroHighlight": "next event",
+    "heroSubtitle": "Book a personalized demo and discover how Ronda Prive transforms your event operations.",
+    "formTitle": "Request a demo",
+    "formSubtitle": "Complete the form and our team will contact you within 24 hours.",
+    "successTitle": "Message sent!",
+    "successMessage": "Our team will contact you within 24 hours to arrange your personalized demo."
+  },
+  "footer": {
+    "tagline": "The platform that transforms food and beverage sales at high-demand events.",
+    "productTitle": "Product",
+    "resourcesTitle": "Resources",
+    "contactTitle": "Contact",
+    "solutions": "Solutions",
+    "industries": "Industries",
+    "howItWorks": "How it works",
+    "benefits": "Benefits",
+    "events": "Events",
+    "insights": "Insights",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "scheduleDemo": "Schedule a demo",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "contactUs": "Contact us",
+    "backToHome": "Back to home",
+    "viewAll": "View all",
+    "close": "Close",
+    "loading": "Loading...",
+    "notFound": "Page not found",
+    "notFoundMessage": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go to home"
   }
 }
