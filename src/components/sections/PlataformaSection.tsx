@@ -50,7 +50,7 @@ const PlataformaSection = () => {
         setTimeout(() => {
           setDisplayedId(next.id);
           setFading(false);
-        }, 200);
+        }, 600);
         return next.id;
       });
     }, 7000);
@@ -108,7 +108,7 @@ const PlataformaSection = () => {
                 return (
                   <div
                     key={product.id}
-                    className={`rounded-2xl border transition-all duration-300 ${
+                    className={`rounded-2xl border transition-all duration-700 ${
                       isOpen
                         ? "bg-[#F0EBE3]/50 border-primary/20 shadow-sm"
                         : "bg-transparent border-border/50 hover:border-border"
@@ -167,7 +167,7 @@ const PlataformaSection = () => {
                 key={activeProduct.id}
                 src={activeProduct.image}
                 alt={activeProduct.imageAlt}
-                className={`w-full h-[500px] object-cover transition-opacity duration-200 ${fading ? "opacity-0" : "opacity-100"}`}
+                className={`w-full h-[500px] object-cover transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
                 loading="lazy"
               />
             </div>
