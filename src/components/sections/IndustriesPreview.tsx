@@ -1,88 +1,133 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { Music, Tent, Trophy, Wine, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import SectionHeader from "@/components/shared/SectionHeader";
+import { Music, Tent, Trophy, Wine } from "lucide-react";
 import { industries } from "@/data/industries";
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
-  Music, Tent, Trophy, Wine,
+  Music,
+  Tent,
+  Trophy,
+  Wine,
+};
+
+const tabLabels: Record<string, string> = {
+  nightclubs: "Nightclubs",
+  festivals: "Festivales",
+  stadiums: "Estadios y Conciertos",
+  bars: "Bares y Venues",
+};
+
+const problemTexts: Record<string, string> = {
+  nightclubs: "Barras congestionadas, pérdida de ventas en momentos peak, dificultad para atender mesas VIP con agilidad.",
+  festivals: "Miles de personas, puntos de venta insuficientes, largas filas bajo el sol, ventas perdidas.",
+  stadiums: "Asistentes abandonan sus asientos para comprar, pierden el espectáculo. Suites sin servicio ágil.",
+  bars: "Barras saturadas en horarios pico, errores en pedidos, falta de control de inventario.",
+};
+
+const solutionTexts: Record<string, string> = {
+  nightclubs: "Pedidos desde mesa o zona VIP directo al celular. Pick Up Express para reducir filas en barra.",
+  festivals: "Mayor velocidad en puntos de alta demanda. Compra anticipada y retiro express para multiplicar capacidad.",
+  stadiums: "QR en cada asiento o sector. Compra desde el celular con entrega al asiento. Pick Up para sectores generales.",
+  bars: "Pedidos desde QR en mesa o barra. Preparación ordenada por prioridad. Dashboard de ventas en tiempo real.",
+};
+
+const useCasePills: Record<string, string[]> = {
+  nightclubs: ["Pedidos desde mesa VIP", "Pick Up en barra", "Promociones en tiempo real", "Control de stock"],
+  festivals: ["Puntos de retiro express", "Compra anticipada masiva", "Reducción de filas 80%", "Más ventas por persona"],
+  stadiums: ["Delivery al asiento", "QR por sector", "Servicio en suites", "Compra anticipada"],
+  bars: ["QR en mesas", "Pick Up en barra", "Control de stock en vivo", "Métricas por hora"],
 };
 
 const IndustriesPreview = () => {
-  const { t } = useTranslation();
-  const [activeId, setActiveId] = useState(industries[0].id);
-  const active = industries.find(i => i.id === activeId) || industries[0];
+  const [activeId, setActiveId] = useState("festivals");
+  const active = industries.find((i) => i.id === activeId) || industries[1];
   const ActiveIcon = iconMap[active.icon] || Music;
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="section-dark py-24" id="soluciones">
       <div className="section-container">
-        <SectionHeader
-          label={t("industries.label")}
-          title={t("industries.title")}
-          titleHighlight={t("industries.titleHighlight")}
-          subtitle={t("industries.subtitle")}
-        />
+        {/* Header */}
+        <div className="text-center mb-12">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+            Adaptable a tu recinto
+          </span>
+          <h2 className="font-display text-4xl sm:text-5xl font-bold mt-4">
+            Una solución, múltiples formatos
+          </h2>
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg">
+            Selecciona tu tipo de recinto y descubre cómo Ronda Privé se adapta
+            a tus necesidades específicas
+          </p>
+        </div>
 
-        {/* Industry tabs */}
+        {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-3 mt-12">
           {industries.map((ind) => {
             const IndIcon = iconMap[ind.icon] || Music;
+            const isActive = activeId === ind.id;
             return (
               <button
                 key={ind.id}
                 onClick={() => setActiveId(ind.id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeId === ind.id
-                    ? 'bg-primary text-primary-foreground shadow-lg'
-                    : 'glass-card text-muted-foreground hover:text-foreground'
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  isActive
+                    ? "bg-[#F0EBE3] text-[#1A1814] shadow-sm"
+                    : "border border-[hsl(28,10%,20%)] text-muted-foreground hover:text-foreground hover:border-primary/30"
                 }`}
               >
                 <IndIcon className="w-4 h-4" />
-                {t(ind.titleKey)}
+                {tabLabels[ind.id]}
               </button>
             );
           })}
         </div>
 
-        {/* Active industry detail */}
-        <div className="mt-12 grid lg:grid-cols-2 gap-8 items-center">
+        {/* Content */}
+        <div className="mt-12 grid lg:grid-cols-2 gap-12 items-center">
+          {/* Image */}
           <div className="rounded-2xl overflow-hidden aspect-[16/10]">
             <img
               src={active.image}
-              alt={t(active.titleKey)}
+              alt={tabLabels[active.id]}
               className="w-full h-full object-cover transition-all duration-500"
               loading="lazy"
             />
           </div>
+
+          {/* Text */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                <ActiveIcon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold">{t(active.titleKey)}</h3>
-            </div>
-            <p className="text-muted-foreground leading-relaxed">{t(active.descriptionKey)}</p>
-
-            <div className="space-y-3">
-              <div className="card-premium p-4">
-                <p className="text-xs uppercase tracking-wider text-red-400 font-semibold mb-1">Problema</p>
-                <p className="text-sm text-muted-foreground">{t(active.problemKey)}</p>
-              </div>
-              <div className="card-premium p-4">
-                <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">Solución</p>
-                <p className="text-sm text-muted-foreground">{t(active.solutionKey)}</p>
-              </div>
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                El problema
+              </span>
+              <p className="mt-2 text-muted-foreground leading-relaxed">
+                {problemTexts[activeId]}
+              </p>
             </div>
 
-            <Button variant="gold-outline" className="group" asChild>
-              <Link to="/industrias">
-                {t("common.learnMore")}
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                Nuestra solución
+              </span>
+              <p className="mt-2 font-medium leading-relaxed">
+                {solutionTexts[activeId]}
+              </p>
+            </div>
+
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                Ejemplos de uso
+              </span>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {useCasePills[activeId]?.map((pill, i) => (
+                  <span
+                    key={i}
+                    className="border border-[hsl(28,10%,25%)] text-xs px-3 py-1.5 rounded-full text-muted-foreground"
+                  >
+                    • {pill}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

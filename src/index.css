@@ -3,46 +3,39 @@
 @tailwind utilities;
 
 /* Ronda Prive - Premium Event Platform Design System */
-/* Arena Gold: #D5A85A | Dark: #0E0E0E | Glass: rgba(255,255,255,0.07) */
+/* Light cream theme with gold accents. Dark sections use .section-dark scoping. */
 
 @layer base {
   :root {
-    --background: 0 0% 5.5%;
-    --foreground: 0 0% 96%;
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 96%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 96%;
+    --background: 30 25% 95%;
+    --foreground: 30 10% 15%;
+    --card: 30 20% 98%;
+    --card-foreground: 30 10% 15%;
+    --popover: 30 20% 98%;
+    --popover-foreground: 30 10% 15%;
     --primary: 40 58% 59%;
-    --primary-foreground: 0 0% 5.5%;
-    --secondary: 0 0% 11%;
-    --secondary-foreground: 0 0% 96%;
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 50%;
+    --primary-foreground: 30 10% 15%;
+    --secondary: 30 15% 90%;
+    --secondary-foreground: 30 10% 25%;
+    --muted: 30 10% 85%;
+    --muted-foreground: 30 8% 45%;
     --accent: 40 58% 59%;
-    --accent-foreground: 0 0% 5.5%;
+    --accent-foreground: 30 10% 15%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 16%;
-    --input: 0 0% 14%;
+    --border: 30 10% 85%;
+    --input: 30 15% 92%;
     --ring: 40 58% 59%;
     --radius: 0.75rem;
-    --glass-bg: rgba(255, 255, 255, 0.07);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --gradient-gold: linear-gradient(135deg, #D5A85A 0%, #A07D3A 100%);
-    --gradient-dark: linear-gradient(180deg, #0E0E0E 0%, #161616 100%);
-    --gradient-card: linear-gradient(145deg, #161616 0%, #0E0E0E 100%);
-    --gradient-glow: radial-gradient(ellipse at center, rgba(213, 168, 90, 0.15) 0%, transparent 70%);
-    --shadow-gold: 0 0 60px rgba(213, 168, 90, 0.2);
-    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
-    --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.5);
-    --sidebar-background: 0 0% 8%;
-    --sidebar-foreground: 0 0% 96%;
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --shadow-elevated: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --sidebar-background: 30 20% 98%;
+    --sidebar-foreground: 30 10% 15%;
     --sidebar-primary: 40 58% 59%;
-    --sidebar-primary-foreground: 0 0% 5.5%;
-    --sidebar-accent: 0 0% 11%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 16%;
+    --sidebar-primary-foreground: 30 10% 15%;
+    --sidebar-accent: 30 15% 90%;
+    --sidebar-accent-foreground: 30 10% 25%;
+    --sidebar-border: 30 10% 85%;
     --sidebar-ring: 40 58% 59%;
   }
 }
@@ -60,49 +53,36 @@
   }
 }
 
+/* Scoped dark section: re-declares CSS variables so all children (including shadcn) auto-inherit */
+.section-dark {
+  --background: 28 12% 10%;
+  --foreground: 30 10% 92%;
+  --card: 28 12% 14%;
+  --card-foreground: 30 10% 92%;
+  --popover: 28 12% 14%;
+  --popover-foreground: 30 10% 92%;
+  --primary: 40 58% 59%;
+  --primary-foreground: 28 12% 10%;
+  --secondary: 28 10% 18%;
+  --secondary-foreground: 30 10% 85%;
+  --muted: 28 10% 20%;
+  --muted-foreground: 30 8% 55%;
+  --border: 28 10% 20%;
+  --input: 28 10% 18%;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
 @layer components {
-  .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--glass-border);
-  }
-  .glass-card {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  .card-premium {
+    @apply rounded-2xl;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
   }
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, #D5A85A 0%, #E8C97A 50%, #D5A85A 100%);
-  }
-  .glow-gold {
-    box-shadow: 0 0 40px rgba(213, 168, 90, 0.25);
-  }
-  .glow-gold-strong {
-    box-shadow: 0 0 60px rgba(213, 168, 90, 0.35);
-  }
-  .card-premium {
-    @apply rounded-2xl;
-    background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: var(--shadow-card);
-  }
-  .border-gradient {
-    position: relative;
-  }
-  .border-gradient::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, #D5A85A 0%, rgba(213, 168, 90, 0.2) 50%, #D5A85A 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
   }
   .section-container {
     @apply mx-auto max-w-7xl px-6 lg:px-8;
@@ -140,18 +120,6 @@
     animation: fadeInUp 0.6s ease-out 0.5s forwards;
     opacity: 0;
   }
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  .animate-pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
-  }
-  .animate-scale-in {
-    animation: scaleIn 0.5s ease-out forwards;
-  }
-  .animate-slide-up {
-    animation: slideUp 0.5s ease-out forwards;
-  }
 }
 
 @keyframes fadeIn {
@@ -162,23 +130,7 @@
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(213, 168, 90, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(213, 168, 90, 0.5); }
-}
 @keyframes scaleIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
-}
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes orbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

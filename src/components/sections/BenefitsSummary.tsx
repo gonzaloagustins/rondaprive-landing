@@ -1,52 +1,85 @@
-import { useTranslation } from "react-i18next";
-import { TrendingUp, Smile, Settings, Cpu } from "lucide-react";
-import SectionHeader from "@/components/shared/SectionHeader";
+import { TrendingUp, Smile, Settings, Cpu, ArrowUpRight } from "lucide-react";
 
 const categories = [
-  { key: 'commercial', icon: TrendingUp, color: 'text-green-400 bg-green-500/10' },
-  { key: 'experience', icon: Smile, color: 'text-blue-400 bg-blue-500/10' },
-  { key: 'operational', icon: Settings, color: 'text-amber-400 bg-amber-500/10' },
-  { key: 'technical', icon: Cpu, color: 'text-purple-400 bg-purple-500/10' },
+  {
+    icon: TrendingUp,
+    title: "Beneficios Comerciales",
+    items: [
+      "Más ventas durante el evento",
+      "Captura de ventas perdidas en filas",
+      "Incremento del consumo por asistente",
+      "Mejor aprovechamiento de momentos peak",
+    ],
+  },
+  {
+    icon: Smile,
+    title: "Para el Usuario Final",
+    items: [
+      "Mejor experiencia general",
+      "Menos tiempo de espera",
+      "Compra rápida y simple",
+      "Retiro ordenado o entrega al asiento",
+    ],
+  },
+  {
+    icon: Settings,
+    title: "Beneficios Operativos",
+    items: [
+      "Mayor control del evento",
+      "Mejor gestión de inventario",
+      "Centralización de pedidos",
+      "Visibilidad en tiempo real",
+    ],
+  },
+  {
+    icon: Cpu,
+    title: "Beneficios Tecnológicos",
+    items: [
+      "Sin infraestructura adicional",
+      "Sin tótems ni cajas tradicionales",
+      "Implementación flexible",
+      "Adaptable a cualquier formato",
+    ],
+  },
 ];
 
 const BenefitsSummary = () => {
-  const { t } = useTranslation();
-
   return (
-    <section className="py-24 relative">
-      <div className="pointer-events-none absolute inset-0 -z-10" style={{
-        background: 'linear-gradient(180deg, transparent, rgba(213,168,90,0.03) 50%, transparent)',
-      }} />
-
+    <section className="py-24" id="beneficios">
       <div className="section-container">
-        <SectionHeader
-          label={t("benefits.label")}
-          title={t("benefits.title")}
-          titleHighlight={t("benefits.titleHighlight")}
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-          {categories.map(({ key, icon: Icon, color }) => {
-            const items = t(`benefits.${key}.items`, { returnObjects: true }) as { title: string; description: string }[];
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {categories.map((cat, i) => {
+            const Icon = cat.icon;
             return (
-              <div key={key} className="card-premium p-8 space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${color}`}>
-                    <Icon className="w-5 h-5" />
+              <div
+                key={i}
+                className="bg-white rounded-2xl border border-border/50 p-8 hover:shadow-md transition-all duration-300"
+              >
+                {/* Header */}
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-lg font-bold">{t(`benefits.${key}.title`)}</h3>
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground/40" />
                 </div>
-                <div className="space-y-4">
-                  {items.map((item, i) => (
-                    <div key={i} className="flex gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium text-sm">{item.title}</p>
-                        <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
-                      </div>
-                    </div>
+
+                {/* Title */}
+                <h3 className="font-display text-xl font-bold mb-5">
+                  {cat.title}
+                </h3>
+
+                {/* Items */}
+                <ul className="space-y-3">
+                  {cat.items.map((item, j) => (
+                    <li
+                      key={j}
+                      className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                    >
+                      <span className="text-foreground/30 mt-0.5">•</span>
+                      {item}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             );
           })}

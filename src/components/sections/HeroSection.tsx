@@ -1,130 +1,136 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Calendar, MapPin } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { ArrowRight, Play, Clock, Zap, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
-import { getFeaturedEvents } from "@/data/events";
+// Use a vibrant outdoor festival photo
+const heroEvent = "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80";
 
 const HeroSection = () => {
-  const { t } = useTranslation();
-  const featuredEvents = getFeaturedEvents();
-
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0 -z-30" style={{ backgroundColor: '#0E0E0E' }} />
-      <div className="pointer-events-none absolute inset-0 -z-20 opacity-50" style={{
-        backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(213,168,90,0.05) 0.7px, transparent 1px), radial-gradient(circle at 75% 75%, rgba(213,168,90,0.03) 0.7px, transparent 1px)',
-        backgroundSize: '16px 16px',
-      }} />
-      <div className="pointer-events-none absolute top-0 left-1/4 w-[600px] h-[600px] -z-10" style={{
-        background: 'radial-gradient(ellipse at center, rgba(213,168,90,0.1), transparent 70%)',
-        filter: 'blur(60px)',
-      }} />
+      {/* Background photo */}
+      <div className="absolute inset-0 -z-20">
+        <img
+          src={heroEvent}
+          alt=""
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
+        {/* Gradient overlays to blend into cream */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F5F0EB] via-[#F5F0EB]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F5F0EB]/50 via-transparent to-[#F5F0EB]/40" />
+      </div>
 
       <div className="section-container w-full pt-28 pb-16 lg:pt-32 lg:pb-24">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          {/* Left: B2B Content */}
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          {/* Left: Headline + CTAs */}
           <div className="space-y-8 animate-fade-in-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              {t("hero.badge")}
-            </span>
-
-            <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              {t("hero.headline")}{" "}
-              <span className="text-gradient-gold">{t("hero.headlineHighlight")}</span>
+            <h1 className="font-display text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl md:text-7xl">
+              Experiencia{" "}
+              <span className="text-gradient-gold italic">sin filas</span>
+              <br />
+              en cada evento
             </h1>
 
-            <p className="max-w-xl text-lg text-muted-foreground md:text-xl leading-relaxed">
-              {t("hero.subheadline")}
-            </p>
-
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button variant="gold" size="lg" className="group" asChild>
+              <Button variant="dark-solid" size="lg" className="group rounded-full" asChild>
                 <Link to="/contacto">
-                  {t("hero.ctaDemo")}
+                  Solicitar Demo
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button variant="gold-outline" size="lg" className="group" asChild>
+              <Button variant="light-outline" size="lg" className="group rounded-full" asChild>
                 <Link to="/como-funciona">
-                  <Play className="w-5 h-5" />
-                  {t("hero.ctaVideo")}
+                  <Play className="w-4 h-4" />
+                  Ver Video
                 </Link>
               </Button>
             </div>
-
-            <div className="flex gap-8 pt-6 border-t border-border/50">
-              <div>
-                <p className="text-2xl font-bold text-gradient-gold md:text-3xl">+80%</p>
-                <p className="text-xs text-muted-foreground mt-1">{t("hero.statSales")}</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-gradient-gold md:text-3xl">-70%</p>
-                <p className="text-xs text-muted-foreground mt-1">{t("hero.statQueue")}</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-gradient-gold md:text-3xl">100%</p>
-                <p className="text-xs text-muted-foreground mt-1">{t("hero.statControl")}</p>
-              </div>
-            </div>
           </div>
 
-          {/* Right: B2C Events Preview */}
-          <div className="space-y-4 animate-fade-in-delay-2">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
-                {t("hero.eventsTitle")}
-              </h3>
-              <Link to="/eventos" className="text-xs text-muted-foreground hover:text-primary transition-colors">
-                {t("common.viewAll")} →
-              </Link>
-            </div>
+          {/* Right: Phone mockup */}
+          <div className="relative flex justify-center animate-fade-in-delay-2">
+            {/* Phone frame */}
+            <div className="relative w-[280px] sm:w-[300px]">
+              <div className="rounded-[2.5rem] border-[8px] border-[#1A1814] bg-[#FBF8F4] shadow-2xl overflow-hidden">
+                {/* Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#1A1814] rounded-b-2xl z-10" />
 
-            <div className="space-y-3">
-              {featuredEvents.map((event, i) => (
-                <Link
-                  key={event.id}
-                  to={`/eventos/${event.id}`}
-                  className={`block glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5 animate-fade-in-delay-${i + 2}`}
-                >
-                  <div className="flex gap-4 p-3">
-                    <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
-                      <img src={event.image} alt={event.name} className="w-full h-full object-cover" loading="lazy" />
+                {/* Screen content */}
+                <div className="pt-8 pb-4 px-4 space-y-4">
+                  {/* Welcome */}
+                  <div>
+                    <p className="text-[10px] text-muted-foreground">Bienvenido a</p>
+                    <p className="font-display text-lg font-bold text-foreground">Ronda Privé</p>
+                  </div>
+
+                  {/* Event card */}
+                  <div className="bg-[#F0EBE3] rounded-2xl p-4 text-center">
+                    <h3 className="font-display text-xl font-bold text-foreground">Festival 2026</h3>
+                    <p className="text-xs text-muted-foreground mt-1">26-30 Marzo</p>
+                  </div>
+
+                  {/* Feature icons */}
+                  <div className="flex justify-center gap-4">
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-10 h-10 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
+                        <Clock className="w-4 h-4 text-foreground/70" />
+                      </div>
+                      <span className="text-[8px] text-muted-foreground">Anticipada</span>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${
-                          event.status === 'active' ? 'bg-green-500/20 text-green-400' : 'bg-primary/20 text-primary'
-                        }`}>
-                          {event.status === 'active' ? t("events.active") : t("events.upcoming")}
-                        </span>
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-10 h-10 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
+                        <ShoppingBag className="w-4 h-4 text-foreground/70" />
                       </div>
-                      <h4 className="font-semibold text-sm truncate">{event.name}</h4>
-                      <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{event.date}</span>
-                        <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{event.city}</span>
+                      <span className="text-[8px] text-muted-foreground">En Asiento</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-10 h-10 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
+                        <Zap className="w-4 h-4 text-foreground/70" />
                       </div>
+                      <span className="text-[8px] text-muted-foreground">Express</span>
                     </div>
                   </div>
-                </Link>
-              ))}
+
+                  {/* Order button */}
+                  <button className="w-full bg-[#1A1814] text-white rounded-xl py-3 text-sm font-semibold flex items-center justify-center gap-2">
+                    <Zap className="w-4 h-4" />
+                    Pedir Ahora
+                  </button>
+                </div>
+              </div>
             </div>
 
-            <Link
-              to="/eventos"
-              className="block text-center py-3 glass-card rounded-xl text-sm text-primary hover:bg-primary/10 transition-colors"
-            >
-              {t("hero.ctaExplore")} →
-            </Link>
-          </div>
-        </div>
-      </div>
+            {/* Floating badges */}
+            <div className="absolute -left-4 top-1/4 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 animate-fade-in-delay-3">
+              <div className="w-8 h-8 rounded-full bg-[#F0EBE3] flex items-center justify-center">
+                <Clock className="w-4 h-4 text-foreground/70" />
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground leading-none">3 min</p>
+                <p className="text-[10px] text-muted-foreground">Tiempo pedido</p>
+              </div>
+            </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-primary/50 flex items-start justify-center p-2">
-          <div className="w-1 h-2 bg-primary rounded-full animate-pulse" />
+            <div className="absolute -right-4 top-8 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 animate-fade-in-delay-4">
+              <div className="w-8 h-8 rounded-full bg-[#F0EBE3] flex items-center justify-center text-xs font-bold">
+                📈
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground leading-none">+40%</p>
+                <p className="text-[10px] text-muted-foreground">Aumento ventas</p>
+              </div>
+            </div>
+
+            <div className="absolute -right-2 bottom-12 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 animate-fade-in-delay-5">
+              <div className="w-8 h-8 rounded-full bg-[#F0EBE3] flex items-center justify-center text-xs">
+                ⭐
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground leading-none">98%</p>
+                <p className="text-[10px] text-muted-foreground">Satisfacción</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
