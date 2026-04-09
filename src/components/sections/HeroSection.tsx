@@ -38,21 +38,13 @@ const HeroSection = () => {
           {/* Left: Headline + CTAs */}
           <div className="hero-text-card space-y-8 animate-fade-in-up">
             <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl space-y-3">
-              <span className="block">
-                <span className="inline-block bg-white/60 backdrop-blur-md rounded-2xl px-5 py-2 leading-tight">
-                  Experiencia
-                </span>
-              </span>
+              <span className="block">Experiencia</span>
               <span className="block">
                 <span className="inline-block bg-white/60 backdrop-blur-md rounded-2xl px-5 py-2 leading-tight">
                   <span className="text-gradient-gold italic">sin filas</span>
                 </span>
               </span>
-              <span className="block">
-                <span className="inline-block bg-white/60 backdrop-blur-md rounded-2xl px-5 py-2 leading-tight">
-                  en cada evento
-                </span>
-              </span>
+              <span className="block">en cada evento</span>
             </h1>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">

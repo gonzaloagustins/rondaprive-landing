@@ -20,7 +20,7 @@
     "statQueue": "Time in queues",
     "statControl": "Real-time control",
     "eventsTitle": "Active events",
-    "eventsSubtitle": "Discover events powered by Ronda Prive"
+    "eventsSubtitle": "Discover events powered by Ronda Privé"
   },
   "problem": {
     "label": "The problem",
@@ -78,7 +78,7 @@
     },
     "attendee": {
       "steps": [
-        { "title": "Access Ronda Prive", "description": "Scan the event QR or enter through a direct link." },
+        { "title": "Access Ronda Privé", "description": "Scan the event QR or enter through a direct link." },
         { "title": "Browse the digital menu", "description": "View available products, pricing, and options at each point of sale." },
         { "title": "Place your order", "description": "Select items, pay from your phone, and receive a QR confirmation code." },
         { "title": "Pick up or receive", "description": "Head to the collection point or receive at your seat. No queues." }
@@ -142,7 +142,7 @@
     "label": "Industries",
     "title": "Designed for every",
     "titleHighlight": "type of venue",
-    "subtitle": "Every industry has unique challenges. Ronda Prive adapts with tailored solutions to maximize results.",
+    "subtitle": "Every industry has unique challenges. Ronda Privé adapts with tailored solutions to maximize results.",
     "nightclubs": {
       "title": "Nightclubs",
       "description": "Optimize bar and VIP table sales. Less congestion, faster turnover, higher spend per table.",
@@ -199,7 +199,7 @@
     "titleHighlight": "clients say",
     "testimonials": [
       {
-        "quote": "Ronda Prive completely transformed our operation. We increased sales by 65% and eliminated bar queues entirely.",
+        "quote": "Ronda Privé completely transformed our operation. We increased sales by 65% and eliminated bar queues entirely.",
         "author": "Carlos M.",
         "role": "Director of Operations",
         "company": "Arena Santiago"
@@ -216,7 +216,7 @@
     "label": "Get started",
     "title": "Transform your event operation",
     "titleHighlight": "from the very first order",
-    "subtitle": "Book a personalized demo and discover how Ronda Prive maximizes your revenue without additional infrastructure.",
+    "subtitle": "Book a personalized demo and discover how Ronda Privé maximizes your revenue without additional infrastructure.",
     "benefits": [
       "Implementation in under 48 hours",
       "No hardware or additional infrastructure",
@@ -242,7 +242,7 @@
   "events": {
     "heroTitle": "Discover",
     "heroHighlight": "active events",
-    "heroSubtitle": "Explore the events already using Ronda Prive. Order without queues, collect instantly.",
+    "heroSubtitle": "Explore the events already using Ronda Privé. Order without queues, collect instantly.",
     "active": "Active events",
     "upcoming": "Upcoming events",
     "all": "All",
@@ -264,7 +264,7 @@
       "title": "Pick Up Express",
       "subtitle": "Digital ordering with point-of-sale collection",
       "steps": [
-        { "title": "Access Ronda Prive", "description": "The attendee enters by scanning a QR code or through a direct link." },
+        { "title": "Access Ronda Privé", "description": "The attendee enters by scanning a QR code or through a direct link." },
         { "title": "Browse and order", "description": "View the digital menu, select products, and pay from the phone." },
         { "title": "Receive your QR", "description": "A unique QR code is generated as your order receipt." },
         { "title": "Head to the collection point", "description": "The attendee goes to the point of sale without standing in line." },
@@ -305,7 +305,7 @@
   "faq": {
     "heroTitle": "Frequently asked",
     "heroHighlight": "questions",
-    "heroSubtitle": "Everything you need to know about Ronda Prive and how it works for your event.",
+    "heroSubtitle": "Everything you need to know about Ronda Privé and how it works for your event.",
     "categories": {
       "general": "General",
       "attendees": "For attendees",
@@ -314,13 +314,13 @@
     },
     "all": "All",
     "q1": "Is additional infrastructure required?",
-    "a1": "No. Ronda Prive runs 100% from attendees' phones. No kiosks, cash registers, or additional hardware are needed. You only need internet connectivity at the venue.",
+    "a1": "No. Ronda Privé runs 100% from attendees' phones. No kiosks, cash registers, or additional hardware are needed. You only need internet connectivity at the venue.",
     "q2": "Are kiosks required?",
-    "a2": "No. Unlike other solutions, Ronda Prive eliminates the need for kiosks or self-service terminals. Everything runs from the attendee's mobile device.",
+    "a2": "No. Unlike other solutions, Ronda Privé eliminates the need for kiosks or self-service terminals. Everything runs from the attendee's mobile device.",
     "q3": "How long does implementation take?",
     "a3": "Implementation is fast and flexible. In most cases, an event can be operational in under 48 hours. Our team supports you through the entire process.",
     "q4": "Does it integrate with my current POS?",
-    "a4": "Yes. Ronda Prive integrates flexibly with the most widely used point-of-sale systems in the industry. Our technical team configures the integration based on your infrastructure.",
+    "a4": "Yes. Ronda Privé integrates flexibly with the most widely used point-of-sale systems in the industry. Our technical team configures the integration based on your infrastructure.",
     "q5": "How does it work for bar and kitchen staff?",
     "a5": "Staff receives orders on a dedicated screen or device. Each order displays the products, customer location, and status. The team can update statuses: received, in preparation, ready, and delivered.",
     "q6": "How is it implemented at an event?",
@@ -381,7 +381,7 @@
   "contact": {
     "heroTitle": "Let's talk about your",
     "heroHighlight": "next event",
-    "heroSubtitle": "Book a personalized demo and discover how Ronda Prive transforms your event operations.",
+    "heroSubtitle": "Book a personalized demo and discover how Ronda Privé transforms your event operations.",
     "formTitle": "Request a demo",
     "formSubtitle": "Complete the form and our team will contact you within 24 hours.",
     "successTitle": "Message sent!",

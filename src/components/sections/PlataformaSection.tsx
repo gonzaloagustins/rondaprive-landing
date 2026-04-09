@@ -40,7 +40,7 @@ const PlataformaSection = () => {
             Plataforma para eventos
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg">
-            Ronda prive es una plataforma que permite a los asistentes comprar
+            Ronda Privé es una plataforma que permite a los asistentes comprar
             consumo en eventos de distinto tipo, entregando al mismo tiempo
             soluciones efectivas a los organizadores para optimizar gestión.
           </p>
