@@ -1,14 +1,25 @@
 import { Button } from "@/components/ui/button";
 import IPhoneMockup from "@/components/ui/iphone-mockup";
 import { ArrowRight, Play, Clock, Zap, ShoppingBag } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.play().catch(() => {});
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background video */}
-      <div className="absolute inset-0 -z-20">
+      <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
@@ -22,7 +33,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5F0EB]/30 via-transparent to-[#F5F0EB]/30" />
       </div>
 
-      <div className="section-container w-full pt-28 pb-16 lg:pt-32 lg:pb-24">
+      <div className="section-container relative z-10 w-full pt-28 pb-16 lg:pt-32 lg:pb-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left: Headline + CTAs */}
           <div className="space-y-8 animate-fade-in-up">
