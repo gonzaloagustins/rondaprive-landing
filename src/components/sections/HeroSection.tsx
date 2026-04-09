@@ -51,17 +51,18 @@ const HeroSection = () => {
 
           {/* Right: Phone mockup */}
           <div className="relative flex justify-center animate-fade-in-delay-2">
-            {/* Sized container matching scaled phone dimensions: 417×876 * 0.7 = 292×613 */}
-            <div className="relative" style={{ width: 292, height: 613 }}>
+            {/* Sized container matching scaled phone dimensions: 417×876 * 0.56 = 234×491 */}
+            <div className="relative" style={{ width: 234, height: 491 }}>
               <IPhoneMockup
                 model="15-pro"
                 color="black"
-                scale={0.7}
+                scale={0.56}
                 screenBg="#FBF8F4"
+                innerShadow={false}
                 style={{ transformOrigin: 'top left', position: 'absolute', top: 0, left: 0 }}
               >
                 {/* App UI — sized for the 393px logical coordinate space */}
-                <div className="h-full flex flex-col px-5 pt-4 pb-2 gap-4">
+                <div className="h-full flex flex-col px-5 py-5 justify-between">
                   {/* Welcome */}
                   <div>
                     <p className="text-[14px] text-muted-foreground">Bienvenido a</p>
