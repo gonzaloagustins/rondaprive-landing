@@ -1,20 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Clock, Zap, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
-// Use a vibrant outdoor festival photo
-const heroEvent = "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background photo */}
+      {/* Background video */}
       <div className="absolute inset-0 -z-20">
-        <img
-          src={heroEvent}
-          alt=""
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-          loading="eager"
-        />
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
         {/* Gradient overlays to blend into cream */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#F5F0EB] via-[#F5F0EB]/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5F0EB]/50 via-transparent to-[#F5F0EB]/40" />
