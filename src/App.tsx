@@ -27,7 +27,7 @@ const LoadingFallback = () => (
   </div>
 );
 
-const basename = import.meta.env.MODE === "production" ? "/rondaprive-landing" : "";
+const basename = "";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
