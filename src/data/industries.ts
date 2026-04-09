@@ -17,7 +17,7 @@ export const industries: Industry[] = [
     problemKey: 'industries.nightclubs.problem',
     solutionKey: 'industries.nightclubs.solution',
     useCasesKey: 'industries.nightclubs.useCases',
-    image: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d2a?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80',
     icon: 'Music',
   },
   {

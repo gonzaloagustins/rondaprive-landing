@@ -9,6 +9,8 @@ const products = [
     subtitle: "Ordena antes del evento",
     description:
       "Compra antes del evento, paga por adelantado y retira el día del show presentando tu QR. Ideal para planificar tu experiencia con anticipación.",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+    imageAlt: "Persona realizando compra anticipada desde su celular",
   },
   {
     id: "seat",
@@ -17,6 +19,8 @@ const products = [
     subtitle: "Sin perder un momento",
     description:
       "Escanea el QR de tu asiento, compra desde tu celular y recibe directamente en tu ubicación. Perfecto para estadios, suites y zonas VIP.",
+    image: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&q=80",
+    imageAlt: "Asistentes disfrutando de un evento en estadio",
   },
   {
     id: "pickup",
@@ -25,11 +29,30 @@ const products = [
     subtitle: "Rapido y sin filas",
     description:
       "Ordena desde tu celular y recoge en el punto mas cercano. Fila VIP exclusiva para pedidos digitales.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    imageAlt: "Persona retirando pedido express sin filas",
   },
 ];
 
 const PlataformaSection = () => {
   const [openId, setOpenId] = useState("pickup");
+  const [displayedId, setDisplayedId] = useState("pickup");
+  const [fading, setFading] = useState(false);
+
+  const handleSelect = (id: string) => {
+    if (id === openId) {
+      setOpenId("");
+      return;
+    }
+    setFading(true);
+    setTimeout(() => {
+      setDisplayedId(id);
+      setFading(false);
+    }, 200);
+    setOpenId(id);
+  };
+
+  const activeProduct = products.find((p) => p.id === displayedId) ?? products[2];
 
   return (
     <section className="py-24" id="producto">
@@ -67,7 +90,7 @@ const PlataformaSection = () => {
                     }`}
                   >
                     <button
-                      onClick={() => setOpenId(isOpen ? "" : product.id)}
+                      onClick={() => handleSelect(product.id)}
                       className="w-full flex items-center justify-between p-5"
                     >
                       <div className="flex items-center gap-4">
@@ -116,9 +139,10 @@ const PlataformaSection = () => {
           <div className="relative">
             <div className="rounded-3xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80"
-                alt="Persona usando Ronda Privé en su celular"
-                className="w-full h-[500px] object-cover"
+                key={activeProduct.id}
+                src={activeProduct.image}
+                alt={activeProduct.imageAlt}
+                className={`w-full h-[500px] object-cover transition-opacity duration-200 ${fading ? "opacity-0" : "opacity-100"}`}
                 loading="lazy"
               />
             </div>
