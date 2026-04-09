@@ -14,11 +14,11 @@ const HeroSection = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}hero-video.mp4`} type="video/mp4" />
         </video>
         {/* Gradient overlays to blend into cream */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F5F0EB] via-[#F5F0EB]/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F5F0EB]/50 via-transparent to-[#F5F0EB]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F5F0EB] via-[#F5F0EB]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F5F0EB]/30 via-transparent to-[#F5F0EB]/30" />
       </div>
 
       <div className="section-container w-full pt-28 pb-16 lg:pt-32 lg:pb-24">
