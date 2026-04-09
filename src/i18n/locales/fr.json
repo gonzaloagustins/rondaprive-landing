@@ -385,7 +385,9 @@
     "formTitle": "Demandez une démo",
     "formSubtitle": "Remplissez le formulaire et notre équipe vous contactera sous 24 heures.",
     "successTitle": "Message envoyé !",
-    "successMessage": "Notre équipe vous contactera sous 24 heures pour organiser votre démo personnalisée."
+    "successMessage": "Notre équipe vous contactera sous 24 heures pour organiser votre démo personnalisée.",
+    "sending": "Envoi en cours...",
+    "errorMessage": "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer."
   },
   "footer": {
     "tagline": "La plateforme qui transforme la vente de restauration et boissons lors d'événements à forte affluence.",

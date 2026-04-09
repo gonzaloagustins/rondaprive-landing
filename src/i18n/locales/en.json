@@ -385,7 +385,9 @@
     "formTitle": "Request a demo",
     "formSubtitle": "Complete the form and our team will contact you within 24 hours.",
     "successTitle": "Message sent!",
-    "successMessage": "Our team will contact you within 24 hours to arrange your personalized demo."
+    "successMessage": "Our team will contact you within 24 hours to arrange your personalized demo.",
+    "sending": "Sending...",
+    "errorMessage": "An error occurred while sending your message. Please try again."
   },
   "footer": {
     "tagline": "The platform that transforms food and beverage sales at high-demand events.",
