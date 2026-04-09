@@ -1,8 +1,28 @@
 import { Button } from "@/components/ui/button";
+import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import IPhoneMockup from "@/components/ui/iphone-mockup";
 import { ArrowRight, Play, Clock, Zap, ShoppingBag } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+
+const HERO_PHRASES = [
+  "sin filas",
+  "sin esperas",
+  "premium",
+  "única",
+  "fluida",
+  "instantánea",
+  "VIP",
+  "sin interrupciones",
+  "perfecta",
+  "memorable",
+  "de lujo",
+  "inigualable",
+  "personalizada",
+  "5 estrellas",
+  "sin demoras",
+  "excepcional",
+];
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -40,9 +60,11 @@ const HeroSection = () => {
             <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl space-y-3">
               <span className="block">Experiencia</span>
               <span className="block">
-                <span className="inline-block bg-white/60 backdrop-blur-md rounded-2xl px-5 py-2 leading-tight">
-                  <span className="text-gradient-gold italic">sin filas</span>
-                </span>
+                <ContainerTextFlip
+                  words={HERO_PHRASES}
+                  interval={2800}
+                  className="font-display text-5xl sm:text-6xl md:text-7xl italic px-5 leading-tight"
+                />
               </span>
               <span className="block">en cada evento</span>
             </h1>
