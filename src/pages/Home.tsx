@@ -1,24 +1,22 @@
 import HeroSection from "@/components/sections/HeroSection";
-import ProblemSection from "@/components/sections/ProblemSection";
-import SolutionsOverview from "@/components/sections/SolutionsOverview";
-import HowItWorksPreview from "@/components/sections/HowItWorksPreview";
-import BenefitsSummary from "@/components/sections/BenefitsSummary";
-import IndustriesPreview from "@/components/sections/IndustriesPreview";
+import EventosActivos from "@/components/sections/EventosActivos";
+import PlataformaSection from "@/components/sections/PlataformaSection";
 import DashboardPreview from "@/components/sections/DashboardPreview";
-import SocialProofSection from "@/components/sections/SocialProofSection";
+import BenefitsSummary from "@/components/sections/BenefitsSummary";
+import StatsBar from "@/components/sections/StatsBar";
+import IndustriesPreview from "@/components/sections/IndustriesPreview";
 import CTASection from "@/components/sections/CTASection";
 
 const Home = () => {
   return (
     <>
       <HeroSection />
-      <ProblemSection />
-      <SolutionsOverview />
-      <HowItWorksPreview />
-      <BenefitsSummary />
-      <IndustriesPreview />
+      <EventosActivos />
+      <PlataformaSection />
       <DashboardPreview />
-      <SocialProofSection />
+      <BenefitsSummary />
+      <StatsBar />
+      <IndustriesPreview />
       <CTASection />
     </>
   );
