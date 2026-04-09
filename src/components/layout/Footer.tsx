@@ -16,6 +16,7 @@ const Footer = () => {
   ];
 
   const empresaLinks = [
+    { to: "/eventos", label: "Eventos activos" },
     { to: "/contacto", label: "Nosotros" },
     { to: "/contacto", label: "Contacto" },
   ];

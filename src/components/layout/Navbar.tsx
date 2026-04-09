@@ -14,6 +14,7 @@ const Navbar = () => {
     { to: "/#producto", label: "Producto", sectionId: "producto" },
     { to: "/#soluciones", label: "Soluciones", sectionId: "soluciones" },
     { to: "/#beneficios", label: "Beneficios", sectionId: "beneficios" },
+    { to: "/eventos", label: "Eventos", sectionId: "" },
     { to: "/contacto", label: "Contacto", sectionId: "" },
   ];
 

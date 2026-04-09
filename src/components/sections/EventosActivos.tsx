@@ -1,5 +1,6 @@
-import { Zap, MapPin, Calendar, Star, Check } from "lucide-react";
+import { Zap, MapPin, Calendar, Star, Check, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import { getHomeEvents } from "@/data/events";
 
 const categoryColors: Record<string, { bg: string; text: string }> = {
@@ -153,6 +154,16 @@ const EventosActivos = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* CTA */}
+        <div className="flex justify-center mt-12">
+          <Button variant="dark-solid" size="lg" asChild>
+            <Link to="/eventos">
+              Ver todos los eventos
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
