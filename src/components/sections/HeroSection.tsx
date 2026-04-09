@@ -88,6 +88,7 @@ const HeroSection = () => {
           {/* Right: Phone mockup */}
           <div className="relative flex justify-center animate-fade-in-delay-2">
             {/* Sized container matching scaled phone dimensions: 417×876 * 0.56 = 234×491 */}
+            {/* Badges are inside this div so positions are relative to the phone */}
             <div className="relative" style={{ width: 234, height: 491 }}>
               <IPhoneMockup
                 model="15-pro"
@@ -140,36 +141,39 @@ const HeroSection = () => {
                   </button>
                 </div>
               </IPhoneMockup>
-            </div>
 
-            {/* Floating badges */}
-            <div className="absolute -left-4 top-1/4 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 animate-fade-in-delay-3">
-              <div className="w-8 h-8 rounded-full bg-[#F0EBE3] flex items-center justify-center">
-                <Clock className="w-4 h-4 text-foreground/70" />
+              {/* Floating badges — anchored to the phone container */}
+              {/* Left: tiempo de pedido — straddling left edge, top-quarter */}
+              <div className="absolute -left-16 top-28 bg-white rounded-2xl shadow-lg px-3 py-2.5 flex items-center gap-2.5 animate-fade-in-delay-3">
+                <div className="w-7 h-7 rounded-full bg-[#F0EBE3] flex items-center justify-center">
+                  <Clock className="w-3.5 h-3.5 text-foreground/70" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-foreground leading-none">3 min</p>
+                  <p className="text-[9px] text-muted-foreground">Tiempo pedido</p>
+                </div>
               </div>
-              <div>
-                <p className="text-lg font-bold text-foreground leading-none">3 min</p>
-                <p className="text-[10px] text-muted-foreground">Tiempo pedido</p>
-              </div>
-            </div>
 
-            <div className="absolute -right-4 top-8 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 animate-fade-in-delay-4">
-              <div className="w-8 h-8 rounded-full bg-[#F0EBE3] flex items-center justify-center text-xs font-bold">
-                📈
+              {/* Right: aumento ventas — straddling right edge, top-quarter */}
+              <div className="absolute -right-24 top-16 bg-white rounded-2xl shadow-lg px-3 py-2.5 flex items-center gap-2.5 animate-fade-in-delay-4">
+                <div className="w-7 h-7 rounded-full bg-[#F0EBE3] flex items-center justify-center text-xs font-bold">
+                  📈
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-foreground leading-none">+40%</p>
+                  <p className="text-[9px] text-muted-foreground">Aumento ventas</p>
+                </div>
               </div>
-              <div>
-                <p className="text-lg font-bold text-foreground leading-none">+40%</p>
-                <p className="text-[10px] text-muted-foreground">Aumento ventas</p>
-              </div>
-            </div>
 
-            <div className="absolute -right-2 bottom-12 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 animate-fade-in-delay-5">
-              <div className="w-8 h-8 rounded-full bg-[#F0EBE3] flex items-center justify-center text-xs">
-                ⭐
-              </div>
-              <div>
-                <p className="text-lg font-bold text-foreground leading-none">98%</p>
-                <p className="text-[10px] text-muted-foreground">Satisfacción</p>
+              {/* Right: satisfacción — straddling right edge, above button */}
+              <div className="absolute -right-16 bottom-20 bg-white rounded-2xl shadow-lg px-3 py-2.5 flex items-center gap-2.5 animate-fade-in-delay-5">
+                <div className="w-7 h-7 rounded-full bg-[#F0EBE3] flex items-center justify-center text-xs">
+                  ⭐
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-foreground leading-none">98%</p>
+                  <p className="text-[9px] text-muted-foreground">Satisfacción</p>
+                </div>
               </div>
             </div>
           </div>
