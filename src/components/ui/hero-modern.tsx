@@ -146,7 +146,7 @@ const HeroModern: React.FC<HeroModernProps> = ({
                 <div className="flex items-start justify-between">
                   <div className="space-y-2">
                     <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Platform</p>
-                    <h2 className="text-xl font-semibold">Ronda Prive</h2>
+                    <h2 className="text-xl font-semibold">Ronda Privé</h2>
                   </div>
                   <OrbitGlyph />
                 </div>
