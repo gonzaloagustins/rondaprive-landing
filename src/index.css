@@ -122,6 +122,12 @@
   }
 }
 
+@supports not (backdrop-filter: blur(1px)) {
+  .hero-text-card {
+    background-color: rgba(245, 240, 235, 0.92) !important;
+  }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
