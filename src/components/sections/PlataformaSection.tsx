@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Clock, MapPin, CheckSquare, ChevronDown } from "lucide-react";
 
 const products = [
@@ -35,9 +35,33 @@ const products = [
 ];
 
 const PlataformaSection = () => {
-  const [openId, setOpenId] = useState("pickup");
-  const [displayedId, setDisplayedId] = useState("pickup");
+  const [openId, setOpenId] = useState("preorder");
+  const [displayedId, setDisplayedId] = useState("preorder");
   const [fading, setFading] = useState(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startAutoRotate = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setOpenId((prev) => {
+        const idx = products.findIndex((p) => p.id === prev);
+        const next = products[(idx + 1) % products.length];
+        setFading(true);
+        setTimeout(() => {
+          setDisplayedId(next.id);
+          setFading(false);
+        }, 600);
+        return next.id;
+      });
+    }, 7000);
+  };
+
+  useEffect(() => {
+    startAutoRotate();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
 
   const handleSelect = (id: string) => {
     if (id === openId) {
@@ -50,9 +74,10 @@ const PlataformaSection = () => {
       setFading(false);
     }, 200);
     setOpenId(id);
+    startAutoRotate();
   };
 
-  const activeProduct = products.find((p) => p.id === displayedId) ?? products[2];
+  const activeProduct = products.find((p) => p.id === displayedId) ?? products[0];
 
   return (
     <section className="py-24" id="producto">
@@ -73,7 +98,7 @@ const PlataformaSection = () => {
           {/* Left: Accordion */}
           <div>
             <h3 className="font-display text-2xl sm:text-3xl font-bold mb-8">
-              Tres formas de pedir / Productos
+              3 funcionalidades clave
             </h3>
 
             <div className="space-y-3">
@@ -83,7 +108,7 @@ const PlataformaSection = () => {
                 return (
                   <div
                     key={product.id}
-                    className={`rounded-2xl border transition-all duration-300 ${
+                    className={`rounded-2xl border transition-all duration-700 ${
                       isOpen
                         ? "bg-[#F0EBE3]/50 border-primary/20 shadow-sm"
                         : "bg-transparent border-border/50 hover:border-border"
@@ -142,7 +167,7 @@ const PlataformaSection = () => {
                 key={activeProduct.id}
                 src={activeProduct.image}
                 alt={activeProduct.imageAlt}
-                className={`w-full h-[500px] object-cover transition-opacity duration-200 ${fading ? "opacity-0" : "opacity-100"}`}
+                className={`w-full h-[500px] object-cover transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
                 loading="lazy"
               />
             </div>
