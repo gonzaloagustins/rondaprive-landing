@@ -29,10 +29,7 @@ const HeroSection = () => {
           <source src={`${import.meta.env.BASE_URL}hero-video.mp4`} type="video/mp4" />
         </video>
         {/* Gradient overlays to blend into cream */}
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, #F5F0EB 35%, rgba(245,240,235,0.85) 60%, transparent 100%)" }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F5F0EB] via-[#F5F0EB]/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5F0EB]/30 via-transparent to-[#F5F0EB]/30" />
       </div>
 
