@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import IPhoneMockup from "@/components/ui/iphone-mockup";
 import { ArrowRight, Play, Clock, Zap, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -50,55 +51,58 @@ const HeroSection = () => {
 
           {/* Right: Phone mockup */}
           <div className="relative flex justify-center animate-fade-in-delay-2">
-            {/* Phone frame */}
-            <div className="relative w-[280px] sm:w-[300px]">
-              <div className="rounded-[2.5rem] border-[8px] border-[#1A1814] bg-[#FBF8F4] shadow-2xl overflow-hidden">
-                {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#1A1814] rounded-b-2xl z-10" />
-
-                {/* Screen content */}
-                <div className="pt-8 pb-4 px-4 space-y-4">
+            {/* Sized container matching scaled phone dimensions: 417×876 * 0.7 = 292×613 */}
+            <div className="relative" style={{ width: 292, height: 613 }}>
+              <IPhoneMockup
+                model="15-pro"
+                color="black"
+                scale={0.7}
+                screenBg="#FBF8F4"
+                style={{ transformOrigin: 'top left', position: 'absolute', top: 0, left: 0 }}
+              >
+                {/* App UI — sized for the 393px logical coordinate space */}
+                <div className="h-full flex flex-col px-5 pt-4 pb-2 gap-4">
                   {/* Welcome */}
                   <div>
-                    <p className="text-[10px] text-muted-foreground">Bienvenido a</p>
-                    <p className="font-display text-lg font-bold text-foreground">Ronda Privé</p>
+                    <p className="text-[14px] text-muted-foreground">Bienvenido a</p>
+                    <p className="font-display text-3xl font-bold text-foreground">Ronda Privé</p>
                   </div>
 
                   {/* Event card */}
-                  <div className="bg-[#F0EBE3] rounded-2xl p-4 text-center">
-                    <h3 className="font-display text-xl font-bold text-foreground">Festival 2026</h3>
-                    <p className="text-xs text-muted-foreground mt-1">26-30 Marzo</p>
+                  <div className="bg-[#F0EBE3] rounded-2xl p-5 text-center">
+                    <h3 className="font-display text-2xl font-bold text-foreground">Festival 2026</h3>
+                    <p className="text-[14px] text-muted-foreground mt-1">26-30 Marzo</p>
                   </div>
 
                   {/* Feature icons */}
-                  <div className="flex justify-center gap-4">
+                  <div className="flex justify-center gap-6">
                     <div className="flex flex-col items-center gap-1">
-                      <div className="w-10 h-10 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
-                        <Clock className="w-4 h-4 text-foreground/70" />
+                      <div className="w-14 h-14 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
+                        <Clock className="w-6 h-6 text-foreground/70" />
                       </div>
-                      <span className="text-[8px] text-muted-foreground">Anticipada</span>
+                      <span className="text-[11px] text-muted-foreground">Anticipada</span>
                     </div>
                     <div className="flex flex-col items-center gap-1">
-                      <div className="w-10 h-10 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
-                        <ShoppingBag className="w-4 h-4 text-foreground/70" />
+                      <div className="w-14 h-14 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
+                        <ShoppingBag className="w-6 h-6 text-foreground/70" />
                       </div>
-                      <span className="text-[8px] text-muted-foreground">En Asiento</span>
+                      <span className="text-[11px] text-muted-foreground">En Asiento</span>
                     </div>
                     <div className="flex flex-col items-center gap-1">
-                      <div className="w-10 h-10 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
-                        <Zap className="w-4 h-4 text-foreground/70" />
+                      <div className="w-14 h-14 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
+                        <Zap className="w-6 h-6 text-foreground/70" />
                       </div>
-                      <span className="text-[8px] text-muted-foreground">Express</span>
+                      <span className="text-[11px] text-muted-foreground">Express</span>
                     </div>
                   </div>
 
                   {/* Order button */}
-                  <button className="w-full bg-[#1A1814] text-white rounded-xl py-3 text-sm font-semibold flex items-center justify-center gap-2">
-                    <Zap className="w-4 h-4" />
+                  <button className="w-full bg-[#1A1814] text-white rounded-xl py-4 text-lg font-semibold flex items-center justify-center gap-2">
+                    <Zap className="w-5 h-5" />
                     Pedir Ahora
                   </button>
                 </div>
-              </div>
+              </IPhoneMockup>
             </div>
 
             {/* Floating badges */}
