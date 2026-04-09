@@ -29,19 +29,33 @@ const HeroSection = () => {
           <source src={`${import.meta.env.BASE_URL}hero-video.mp4`} type="video/mp4" />
         </video>
         {/* Gradient overlays to blend into cream */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F5F0EB] via-[#F5F0EB]/40 to-transparent" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to right, #F5F0EB 35%, rgba(245,240,235,0.85) 60%, transparent 100%)" }}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5F0EB]/30 via-transparent to-[#F5F0EB]/30" />
       </div>
 
       <div className="section-container relative z-10 w-full pt-28 pb-16 lg:pt-32 lg:pb-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left: Headline + CTAs */}
-          <div className="space-y-8 animate-fade-in-up">
-            <h1 className="font-display text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl md:text-7xl">
-              Experiencia{" "}
-              <span className="text-gradient-gold italic">sin filas</span>
-              <br />
-              en cada evento
+          <div className="hero-text-card space-y-8 animate-fade-in-up">
+            <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl space-y-3">
+              <span className="block">
+                <span className="inline-block bg-white/60 backdrop-blur-md rounded-2xl px-5 py-2 leading-tight">
+                  Experiencia
+                </span>
+              </span>
+              <span className="block">
+                <span className="inline-block bg-white/60 backdrop-blur-md rounded-2xl px-5 py-2 leading-tight">
+                  <span className="text-gradient-gold italic">sin filas</span>
+                </span>
+              </span>
+              <span className="block">
+                <span className="inline-block bg-white/60 backdrop-blur-md rounded-2xl px-5 py-2 leading-tight">
+                  en cada evento
+                </span>
+              </span>
             </h1>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -51,7 +65,7 @@ const HeroSection = () => {
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button variant="light-outline" size="lg" className="group rounded-full" asChild>
+              <Button variant="light-outline" size="lg" className="group rounded-full border-[#1A1814]/40" asChild>
                 <Link to="/como-funciona">
                   <Play className="w-4 h-4" />
                   Ver Video
