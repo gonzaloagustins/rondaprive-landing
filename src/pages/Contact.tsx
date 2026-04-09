@@ -1,17 +1,33 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowRight, Check, User, Mail, Building, MessageSquare } from "lucide-react";
+import { ArrowRight, Check, User, Mail, Building, MessageSquare, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({ name: '', email: '', company: '', venueType: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Contact form submitted:', formData);
+    setLoading(true);
+    setError(null);
+
+    const { error: fnError } = await supabase.functions.invoke('send-contact-email', {
+      body: formData,
+    });
+
+    setLoading(false);
+
+    if (fnError) {
+      setError(t("contact.errorMessage"));
+      return;
+    }
+
     setSubmitted(true);
   };
 
@@ -67,8 +83,15 @@ const Contact = () => {
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       className="w-full pl-11 pr-4 py-3 rounded-xl bg-secondary border border-border/50 text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors resize-none" />
                   </div>
-                  <Button variant="gold" size="lg" className="w-full group" type="submit">
-                    {t("cta.form.submit")} <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  {error && (
+                    <div className="flex items-center gap-2 text-sm text-red-400">
+                      <AlertCircle className="w-4 h-4 shrink-0" />
+                      <span>{error}</span>
+                    </div>
+                  )}
+                  <Button variant="gold" size="lg" className="w-full group" type="submit" disabled={loading}>
+                    {loading ? t("contact.sending") : t("cta.form.submit")}
+                    {!loading && <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
                   </Button>
                 </form>
               </>

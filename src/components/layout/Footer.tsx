@@ -20,6 +20,8 @@ const Footer = () => {
     { to: "/contacto", label: "Contacto" },
   ];
 
+  const contactEmail = "info@rondaprive.com";
+
   return (
     <footer className="border-t border-border/50 bg-background">
       <div className="section-container py-16">
@@ -94,6 +96,14 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {contactEmail}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
