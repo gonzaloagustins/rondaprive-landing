@@ -8,20 +8,44 @@ const Navbar = () => {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   const navItems = [
-    { to: "/#producto", label: "Producto" },
-    { to: "/#soluciones", label: "Soluciones" },
-    { to: "/#beneficios", label: "Beneficios" },
-    { to: "/contacto", label: "Contacto" },
+    { to: "/#producto", label: "Producto", sectionId: "producto" },
+    { to: "/#soluciones", label: "Soluciones", sectionId: "soluciones" },
+    { to: "/#beneficios", label: "Beneficios", sectionId: "beneficios" },
+    { to: "/contacto", label: "Contacto", sectionId: "" },
   ];
 
+  const sectionIds = navItems.map((i) => i.sectionId).filter(Boolean);
+
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+
+      if (location.pathname !== "/") return;
+
+      const offset = 120;
+      let current = "";
+      let closestTop = -Infinity;
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top <= offset && top > closestTop) {
+          closestTop = top;
+          current = id;
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -48,15 +72,25 @@ const Navbar = () => {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive =
+                item.sectionId
+                  ? activeSection === item.sectionId
+                  : location.pathname === "/contacto";
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`text-sm transition-colors font-medium ${
+                    isActive
+                      ? "text-foreground"
+                      : "text-foreground/70 hover:text-foreground"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
@@ -89,15 +123,25 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden py-6 border-t border-border/50 animate-fade-in bg-[#F5F0EB]">
             <nav className="flex flex-col gap-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className="py-2 text-foreground/70 hover:text-foreground transition-colors font-medium"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive =
+                  item.sectionId
+                    ? activeSection === item.sectionId
+                    : location.pathname === "/contacto";
+                return (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className={`py-2 transition-colors font-medium ${
+                      isActive
+                        ? "text-foreground"
+                        : "text-foreground/70 hover:text-foreground"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border/50">
                 <Link
                   to="/contacto"
