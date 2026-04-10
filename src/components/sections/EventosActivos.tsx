@@ -161,7 +161,7 @@ const EventosActivos = () => {
         </div>
 
         {/* CTA */}
-        <div className="flex justify-center -mt-36 md:-mt-20 relative z-20">
+        <div className="flex justify-center -mt-56 md:-mt-20 relative z-20">
           <Button variant="dark-solid" size="lg" asChild>
             <Link to="/eventos">
               Ver todos los eventos
