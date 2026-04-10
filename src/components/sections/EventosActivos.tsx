@@ -1,6 +1,7 @@
 import { Zap, MapPin, Calendar, Star, Check, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { GradientBlurBg } from "@/components/ui/gradient-blur-bg";
 import { getHomeEvents } from "@/data/events";
 
 const categoryColors: Record<string, { bg: string; text: string }> = {
@@ -51,6 +52,7 @@ const EventosActivos = () => {
         </h2>
 
         {/* Events grid */}
+        <div className="relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {homeEvents.map((event) => {
             const catStyle = categoryColors[event.category || "festival"];
@@ -155,9 +157,11 @@ const EventosActivos = () => {
             );
           })}
         </div>
+        <GradientBlurBg className="h-[65%]" />
+        </div>
 
         {/* CTA */}
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center -mt-4 relative z-20">
           <Button variant="dark-solid" size="lg" asChild>
             <Link to="/eventos">
               Ver todos los eventos
