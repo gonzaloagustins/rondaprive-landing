@@ -19,7 +19,7 @@ const products = [
     subtitle: "Sin perder un momento",
     description:
       "Escanea el QR de tu asiento, compra desde tu celular y recibe directamente en tu ubicación. Perfecto para estadios, suites y zonas VIP.",
-    image: "/63c981e7-a291-4216-b0a3-0d802f37fcf1.png",
+    image: "/b6de591f-348e-49b6-aa2d-470d3e546f76.png",
     imageAlt: "Asistentes disfrutando de un evento en estadio",
   },
   {
