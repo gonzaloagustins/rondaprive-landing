@@ -15,17 +15,16 @@ const CTASection = () => {
 
           {/* Title */}
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold max-w-3xl mx-auto leading-tight">
-            Listo para eliminar{" "}
+            Cada minuto en la fila es{" "}
             <span className="relative inline-block">
-              las filas?
+              dinero que no vuelve
               <span className="absolute left-0 bottom-1 w-full h-[6px] bg-primary/20 -z-10 rounded-full" />
             </span>
           </h2>
 
           {/* Subtitle */}
           <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
-            Unete a los eventos que ya están transformando la experiencia de sus
-            asistentes
+            Los venues que eliminaron la fricción en la entrada aumentaron su tasa de retorno de asistentes. El tuyo puede ser el siguiente.
           </p>
 
           {/* CTAs */}
