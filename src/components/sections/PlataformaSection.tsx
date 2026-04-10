@@ -29,7 +29,7 @@ const products = [
     subtitle: "Rapido y sin filas",
     description:
       "Ordena desde tu celular y recoge en el punto mas cercano. Fila VIP exclusiva para pedidos digitales.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    image: "/ced74dd7-17e7-4743-8703-f1b7d42e9673.png",
     imageAlt: "Persona retirando pedido express sin filas",
   },
 ];
