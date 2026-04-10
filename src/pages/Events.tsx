@@ -1,19 +1,45 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Calendar, MapPin, Zap, Armchair, ShoppingBag, Search, X, CalendarOff } from "lucide-react";
+import { Calendar, MapPin, Zap, Armchair, ShoppingBag, Search, X, CalendarOff, ArrowRight } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
 import { events } from "@/data/events";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+  PaginationEllipsis,
+} from "@/components/ui/pagination";
 
 const featureIcons = { pickup: Zap, seat: Armchair, preorder: ShoppingBag };
 
 const countries = Array.from(new Set(events.map(e => e.country).filter(Boolean))) as string[];
+
+const EVENTS_PER_PAGE = 30;
+
+const parseDateForSort = (date: string): number => {
+  const months: Record<string, number> = {
+    enero: 0, febrero: 1, marzo: 2, abril: 3, mayo: 4, junio: 5,
+    julio: 6, agosto: 7, septiembre: 8, octubre: 9, noviembre: 10, diciembre: 11,
+  };
+  const match = date.match(/(\d+)\s+(\w+)\s+(\d{4})/i);
+  if (match) {
+    const month = months[match[2].toLowerCase()] ?? 0;
+    return new Date(+match[3], month, +match[1]).getTime();
+  }
+  return Infinity;
+};
 
 const Events = () => {
   const { t } = useTranslation();
   const [filter, setFilter] = useState<'all' | 'active' | 'upcoming'>('all');
   const [search, setSearch] = useState("");
   const [country, setCountry] = useState<string>("all");
+  const [sort, setSort] = useState<'date' | 'name'>('date');
+  const [page, setPage] = useState(1);
 
   const filtered = useMemo(() => {
     let result = events;
@@ -27,16 +53,28 @@ const Events = () => {
         e.city.toLowerCase().includes(q)
       );
     }
+    result = [...result].sort((a, b) =>
+      sort === 'name'
+        ? a.name.localeCompare(b.name)
+        : parseDateForSort(a.date) - parseDateForSort(b.date)
+    );
     return result;
-  }, [filter, country, search]);
+  }, [filter, country, search, sort]);
+
+  // Reset page when filters change
+  useEffect(() => { setPage(1); }, [filter, country, search, sort]);
+
+  const totalPages = Math.ceil(filtered.length / EVENTS_PER_PAGE);
+  const paginated = filtered.slice((page - 1) * EVENTS_PER_PAGE, page * EVENTS_PER_PAGE);
 
   const clearFilters = () => {
     setFilter('all');
     setCountry('all');
     setSearch('');
+    setSort('date');
   };
 
-  const hasActiveFilters = filter !== 'all' || country !== 'all' || search.trim() !== '';
+  const hasActiveFilters = filter !== 'all' || country !== 'all' || search.trim() !== '' || sort !== 'date';
 
   return (
     <>
@@ -88,6 +126,16 @@ const Events = () => {
               ))}
             </select>
 
+            {/* Sort */}
+            <select
+              value={sort}
+              onChange={e => setSort(e.target.value as 'date' | 'name')}
+              className="px-4 py-2 rounded-full text-sm font-medium glass-card text-muted-foreground hover:text-foreground transition-all bg-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[center_right_12px] pr-8"
+            >
+              <option value="date">Más próximos</option>
+              <option value="name">A-Z</option>
+            </select>
+
             {/* Results count + clear */}
             <div className="flex items-center gap-3 ml-auto text-sm text-muted-foreground">
               <span>{filtered.length} de {events.length} eventos</span>
@@ -101,8 +149,9 @@ const Events = () => {
 
           {/* Grid or empty state */}
           {filtered.length > 0 ? (
+            <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map(event => (
+              {paginated.map(event => (
                 <Link key={event.id} to={`/eventos/${event.id}`}
                   className="card-premium overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
                   <div className="aspect-[16/9] overflow-hidden">
@@ -122,20 +171,60 @@ const Events = () => {
                       <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{event.date}</span>
                       <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{event.city}</span>
                     </div>
-                    <div className="flex gap-2 pt-2">
-                      {event.features.map(f => {
-                        const Icon = featureIcons[f];
-                        return (
-                          <span key={f} className="flex items-center gap-1 text-[10px] text-muted-foreground glass-card px-2 py-1 rounded-full">
-                            <Icon className="w-3 h-3" />{t(`events.features.${f}`)}
-                          </span>
-                        );
-                      })}
+                    <div className="flex items-center justify-between pt-2">
+                      <div className="flex gap-2">
+                        {event.features.map(f => {
+                          const Icon = featureIcons[f];
+                          return (
+                            <span key={f} className="flex items-center gap-1 text-[10px] text-muted-foreground glass-card px-2 py-1 rounded-full">
+                              <Icon className="w-3 h-3" />{t(`events.features.${f}`)}
+                            </span>
+                          );
+                        })}
+                      </div>
+                      <span className="flex items-center gap-1 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        Ver evento <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
                     </div>
                   </div>
                 </Link>
               ))}
             </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <Pagination className="mt-12">
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious
+                      onClick={() => setPage(p => Math.max(1, p - 1))}
+                      className={page === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                    />
+                  </PaginationItem>
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => {
+                    if (totalPages <= 7 || p === 1 || p === totalPages || Math.abs(p - page) <= 1) {
+                      return (
+                        <PaginationItem key={p}>
+                          <PaginationLink onClick={() => setPage(p)} isActive={p === page} className="cursor-pointer">
+                            {p}
+                          </PaginationLink>
+                        </PaginationItem>
+                      );
+                    }
+                    if (p === 2 && page > 4) return <PaginationEllipsis key="start-ellipsis" />;
+                    if (p === totalPages - 1 && page < totalPages - 3) return <PaginationEllipsis key="end-ellipsis" />;
+                    return null;
+                  })}
+                  <PaginationItem>
+                    <PaginationNext
+                      onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                      className={page === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            )}
+            </>
           ) : (
             <div className="flex flex-col items-center justify-center py-24 text-center">
               <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center mb-5">
