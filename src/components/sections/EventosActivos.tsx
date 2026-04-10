@@ -54,12 +54,12 @@ const EventosActivos = () => {
         {/* Events grid */}
         <div className="relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {homeEvents.map((event) => {
+          {homeEvents.map((event, index) => {
             const catStyle = categoryColors[event.category || "festival"];
             return (
               <div
                 key={event.id}
-                className="bg-white rounded-2xl overflow-hidden border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                className={`bg-white rounded-2xl overflow-hidden border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 ${index >= 3 ? "hidden md:block" : ""}`}
               >
                 {/* Photo */}
                 <div className="relative h-48 overflow-hidden">
