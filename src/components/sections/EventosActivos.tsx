@@ -157,7 +157,7 @@ const EventosActivos = () => {
             );
           })}
         </div>
-        <GradientBlurBg className="h-[75%]" />
+        <GradientBlurBg className="h-[65%]" />
         </div>
 
         {/* CTA */}
