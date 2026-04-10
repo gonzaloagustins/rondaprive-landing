@@ -50,6 +50,9 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    if (location.pathname !== "/") {
+      setActiveSection("");
+    }
   }, [location.pathname]);
 
   return (
