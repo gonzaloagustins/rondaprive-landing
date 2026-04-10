@@ -9,8 +9,8 @@ const products = [
     subtitle: "Ordena antes del evento",
     description:
       "Compra antes del evento, paga por adelantado y retira el día del show presentando tu QR. Ideal para planificar tu experiencia con anticipación.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
-    imageAlt: "Persona realizando compra anticipada desde su celular",
+    image: "/compra-anticipada.jpg",
+    imageAlt: "Persona revisando eventos activos en laptop con Ronda Privé",
   },
   {
     id: "seat",
@@ -19,8 +19,8 @@ const products = [
     subtitle: "Sin perder un momento",
     description:
       "Escanea el QR de tu asiento, compra desde tu celular y recibe directamente en tu ubicación. Perfecto para estadios, suites y zonas VIP.",
-    image: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&q=80",
-    imageAlt: "Asistentes disfrutando de un evento en estadio",
+    image: "/seat-delivery.jpg",
+    imageAlt: "Mozo entregando bebida en asiento VIP durante concierto",
   },
   {
     id: "pickup",
@@ -29,8 +29,8 @@ const products = [
     subtitle: "Rapido y sin filas",
     description:
       "Ordena desde tu celular y recoge en el punto mas cercano. Fila VIP exclusiva para pedidos digitales.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-    imageAlt: "Persona retirando pedido express sin filas",
+    image: "/pickup-express.jpg",
+    imageAlt: "Persona retirando pedido express con QR en bar VIP de festival",
   },
 ];
 
