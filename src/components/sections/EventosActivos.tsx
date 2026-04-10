@@ -36,7 +36,7 @@ const EventosActivos = () => {
   const homeEvents = getHomeEvents();
 
   return (
-    <section className="pt-24 pb-6 md:pb-20" id="eventos">
+    <section className="pt-24 pb-6 md:pb-14" id="eventos">
       <div className="section-container">
         {/* Tag */}
         <div className="text-center mb-6">
