@@ -80,7 +80,7 @@ const PlataformaSection = () => {
   const activeProduct = products.find((p) => p.id === displayedId) ?? products[0];
 
   return (
-    <section className="py-24" id="producto">
+    <section className="relative z-30 py-24" id="producto">
       <div className="section-container">
         {/* Title */}
         <div className="text-center mb-12">

@@ -36,7 +36,7 @@ const EventosActivos = () => {
   const homeEvents = getHomeEvents();
 
   return (
-    <section className="py-24" id="eventos">
+    <section className="pt-24 pb-6 md:pb-14" id="eventos">
       <div className="section-container">
         {/* Tag */}
         <div className="text-center mb-6">
@@ -54,12 +54,12 @@ const EventosActivos = () => {
         {/* Events grid */}
         <div className="relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {homeEvents.map((event) => {
+          {homeEvents.map((event, index) => {
             const catStyle = categoryColors[event.category || "festival"];
             return (
               <div
                 key={event.id}
-                className="bg-white rounded-2xl overflow-hidden border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                className={`bg-white rounded-2xl overflow-hidden border border-border/50 transition-all duration-300 ${index >= 3 ? "hidden md:block shadow-none" : index === 2 ? "shadow-none md:shadow-sm md:hover:shadow-md md:hover:-translate-y-1" : "shadow-sm hover:shadow-md hover:-translate-y-1"}`}
               >
                 {/* Photo */}
                 <div className="relative h-48 overflow-hidden">
@@ -161,7 +161,7 @@ const EventosActivos = () => {
         </div>
 
         {/* CTA */}
-        <div className="flex justify-center -mt-4 relative z-20">
+        <div className="flex justify-center -mt-56 md:-mt-52 relative z-20">
           <Button variant="dark-solid" size="lg" asChild>
             <Link to="/eventos">
               Ver todos los eventos
