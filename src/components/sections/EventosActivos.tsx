@@ -59,7 +59,7 @@ const EventosActivos = () => {
             return (
               <div
                 key={event.id}
-                className={`bg-white rounded-2xl overflow-hidden border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 ${index >= 3 ? "hidden md:block" : ""}`}
+                className={`bg-white rounded-2xl overflow-hidden border border-border/50 transition-all duration-300 ${index >= 3 ? "hidden md:block shadow-none" : index === 2 ? "shadow-none md:shadow-sm md:hover:shadow-md md:hover:-translate-y-1" : "shadow-sm hover:shadow-md hover:-translate-y-1"}`}
               >
                 {/* Photo */}
                 <div className="relative h-48 overflow-hidden">
