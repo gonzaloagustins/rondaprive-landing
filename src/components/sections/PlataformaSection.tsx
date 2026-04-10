@@ -9,7 +9,7 @@ const products = [
     subtitle: "Ordena antes del evento",
     description:
       "Compra antes del evento, paga por adelantado y retira el día del show presentando tu QR. Ideal para planificar tu experiencia con anticipación.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+    image: "/0a57a404-0ae4-461c-8d39-8560ebf3ca3d.png",
     imageAlt: "Persona realizando compra anticipada desde su celular",
   },
   {
