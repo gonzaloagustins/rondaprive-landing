@@ -59,11 +59,7 @@ const EventosActivos = () => {
             return (
               <div
                 key={event.id}
-                className={index >= 3 ? "hidden md:block" : ""}
-              >
-              <div
-                key={event.id}
-                className="bg-white rounded-2xl overflow-hidden border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                className={`bg-white rounded-2xl overflow-hidden border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 ${index >= 3 ? "hidden md:block" : ""}`}
               >
                 {/* Photo */}
                 <div className="relative h-48 overflow-hidden">
