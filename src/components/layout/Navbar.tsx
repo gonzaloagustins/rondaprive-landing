@@ -77,7 +77,7 @@ const Navbar = () => {
               const isActive =
                 item.sectionId
                   ? activeSection === item.sectionId
-                  : location.pathname === "/contacto";
+                  : location.pathname === item.to;
               return (
                 <Link
                   key={item.to}
@@ -128,7 +128,7 @@ const Navbar = () => {
                 const isActive =
                   item.sectionId
                     ? activeSection === item.sectionId
-                    : location.pathname === "/contacto";
+                    : location.pathname === item.to;
                 return (
                   <Link
                     key={item.to}
