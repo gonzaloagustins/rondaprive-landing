@@ -53,7 +53,7 @@ const EventosActivos = () => {
                   className={`max-w-none h-[380px] ${
                     isDecorative
                       ? "hidden md:block pointer-events-none shadow-none !hover:shadow-none !hover:translate-y-0 [&_img]:!group-hover:scale-100"
-                      : index === 2 ? "shadow-none md:shadow-lg" : ""
+                      : index === 2 ? "shadow-none md:shadow-lg md:hover:shadow-2xl md:hover:-translate-y-2 hover:shadow-none hover:translate-y-0 [&_img]:hover:scale-100 md:[&_img]:hover:scale-110" : ""
                   }`}
                 />
               );
