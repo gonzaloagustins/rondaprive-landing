@@ -98,12 +98,6 @@ const Navbar = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Link
-              to="/contacto"
-              className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium"
-            >
-              Iniciar sesión
-            </Link>
             <Button variant="dark-solid" size="sm" asChild>
               <Link to="/contacto">
                 Solicitar Demo
@@ -147,12 +141,6 @@ const Navbar = () => {
                 );
               })}
               <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border/50">
-                <Link
-                  to="/contacto"
-                  className="py-2 text-foreground/70 hover:text-foreground transition-colors font-medium"
-                >
-                  Iniciar sesión
-                </Link>
                 <Button variant="dark-solid" asChild>
                   <Link to="/contacto">
                     Solicitar Demo
