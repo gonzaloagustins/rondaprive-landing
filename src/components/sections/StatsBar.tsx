@@ -7,7 +7,7 @@ const stats = [
 
 const StatsBar = () => {
   return (
-    <section className="py-8">
+    <section className="pt-0 pb-8">
       <div className="section-container">
         <div className="bg-[#1A1814] rounded-2xl px-8 py-10 sm:px-12 flex flex-col sm:flex-row items-center justify-between gap-8">
           {stats.map((stat, i) => (
