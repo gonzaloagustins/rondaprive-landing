@@ -1,8 +1,9 @@
 import { useState, useMemo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { Calendar, MapPin, Zap, Armchair, ShoppingBag, Search, X, CalendarOff, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Search, X, CalendarOff, Music, Trophy, PartyPopper, Mic, Wine } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
+import { EventCard } from "@/components/ui/card-7";
 import { events } from "@/data/events";
 import {
   Pagination,
@@ -14,7 +15,13 @@ import {
   PaginationEllipsis,
 } from "@/components/ui/pagination";
 
-const featureIcons = { pickup: Zap, seat: Armchair, preorder: ShoppingBag };
+const categoryIcons: Record<string, React.ReactNode> = {
+  festival: <PartyPopper className="h-6 w-6 text-white/80" />,
+  concert: <Mic className="h-6 w-6 text-white/80" />,
+  nightclub: <Music className="h-6 w-6 text-white/80" />,
+  conference: <Trophy className="h-6 w-6 text-white/80" />,
+  bar: <Wine className="h-6 w-6 text-white/80" />,
+};
 
 const countries = Array.from(new Set(events.map(e => e.country).filter(Boolean))) as string[];
 
@@ -35,6 +42,7 @@ const parseDateForSort = (date: string): number => {
 
 const Events = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [filter, setFilter] = useState<'all' | 'active' | 'upcoming'>('all');
   const [search, setSearch] = useState("");
   const [country, setCountry] = useState<string>("all");
@@ -61,7 +69,6 @@ const Events = () => {
     return result;
   }, [filter, country, search, sort]);
 
-  // Reset page when filters change
   useEffect(() => { setPage(1); }, [filter, country, search, sort]);
 
   const totalPages = Math.ceil(filtered.length / EVENTS_PER_PAGE);
@@ -101,7 +108,6 @@ const Events = () => {
 
           {/* Filters row */}
           <div className="flex flex-wrap items-center gap-3 mb-8">
-            {/* Status pills */}
             {(['all', 'active', 'upcoming'] as const).map(f => (
               <button key={f} onClick={() => setFilter(f)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
@@ -111,10 +117,8 @@ const Events = () => {
               </button>
             ))}
 
-            {/* Separator */}
             <div className="w-px h-6 bg-border/60 hidden sm:block" />
 
-            {/* Country filter */}
             <select
               value={country}
               onChange={e => setCountry(e.target.value)}
@@ -126,7 +130,6 @@ const Events = () => {
               ))}
             </select>
 
-            {/* Sort */}
             <select
               value={sort}
               onChange={e => setSort(e.target.value as 'date' | 'name')}
@@ -136,7 +139,6 @@ const Events = () => {
               <option value="name">A-Z</option>
             </select>
 
-            {/* Results count + clear */}
             <div className="flex items-center gap-3 ml-auto text-sm text-muted-foreground">
               <span>{filtered.length} de {events.length} eventos</span>
               {hasActiveFilters && (
@@ -150,80 +152,57 @@ const Events = () => {
           {/* Grid or empty state */}
           {filtered.length > 0 ? (
             <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {paginated.map(event => (
-                <Link key={event.id} to={`/eventos/${event.id}`}
-                  className="card-premium overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
-                  <div className="aspect-[16/9] overflow-hidden">
-                    <img src={event.image} alt={event.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                  </div>
-                  <div className="p-5 space-y-3">
-                    <div className="flex items-center gap-2">
-                      <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${
-                        event.status === 'active' ? 'bg-green-500/20 text-green-400' : 'bg-primary/20 text-primary'
-                      }`}>
-                        {event.status === 'active' ? t("events.active") : t("events.upcoming")}
-                      </span>
-                    </div>
-                    <h3 className="font-bold text-lg">{event.name}</h3>
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{event.date}</span>
-                      <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{event.city}</span>
-                    </div>
-                    <div className="flex items-center justify-between pt-2">
-                      <div className="flex gap-2">
-                        {event.features.map(f => {
-                          const Icon = featureIcons[f];
-                          return (
-                            <span key={f} className="flex items-center gap-1 text-[10px] text-muted-foreground glass-card px-2 py-1 rounded-full">
-                              <Icon className="w-3 h-3" />{t(`events.features.${f}`)}
-                            </span>
-                          );
-                        })}
-                      </div>
-                      <span className="flex items-center gap-1 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        Ver evento <ArrowRight className="w-3.5 h-3.5" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {paginated.map(event => (
+                  <EventCard
+                    key={event.id}
+                    imageUrl={event.image}
+                    imageAlt={event.name}
+                    logo={categoryIcons[event.category || "festival"]}
+                    title={event.name}
+                    location={`${event.city}${event.country ? `, ${event.country}` : ""}`}
+                    overview={event.description}
+                    date={event.date}
+                    badgeText={event.badgeText}
+                    onViewEvent={() => navigate(`/eventos/${event.id}`)}
+                    className="max-w-none h-[380px]"
+                  />
+                ))}
+              </div>
 
-            {/* Pagination */}
-            {totalPages > 1 && (
-              <Pagination className="mt-12">
-                <PaginationContent>
-                  <PaginationItem>
-                    <PaginationPrevious
-                      onClick={() => setPage(p => Math.max(1, p - 1))}
-                      className={page === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
-                    />
-                  </PaginationItem>
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => {
-                    if (totalPages <= 7 || p === 1 || p === totalPages || Math.abs(p - page) <= 1) {
-                      return (
-                        <PaginationItem key={p}>
-                          <PaginationLink onClick={() => setPage(p)} isActive={p === page} className="cursor-pointer">
-                            {p}
-                          </PaginationLink>
-                        </PaginationItem>
-                      );
-                    }
-                    if (p === 2 && page > 4) return <PaginationEllipsis key="start-ellipsis" />;
-                    if (p === totalPages - 1 && page < totalPages - 3) return <PaginationEllipsis key="end-ellipsis" />;
-                    return null;
-                  })}
-                  <PaginationItem>
-                    <PaginationNext
-                      onClick={() => setPage(p => Math.min(totalPages, p + 1))}
-                      className={page === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
-                    />
-                  </PaginationItem>
-                </PaginationContent>
-              </Pagination>
-            )}
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <Pagination className="mt-12">
+                  <PaginationContent>
+                    <PaginationItem>
+                      <PaginationPrevious
+                        onClick={() => setPage(p => Math.max(1, p - 1))}
+                        className={page === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                      />
+                    </PaginationItem>
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => {
+                      if (totalPages <= 7 || p === 1 || p === totalPages || Math.abs(p - page) <= 1) {
+                        return (
+                          <PaginationItem key={p}>
+                            <PaginationLink onClick={() => setPage(p)} isActive={p === page} className="cursor-pointer">
+                              {p}
+                            </PaginationLink>
+                          </PaginationItem>
+                        );
+                      }
+                      if (p === 2 && page > 4) return <PaginationEllipsis key="start-ellipsis" />;
+                      if (p === totalPages - 1 && page < totalPages - 3) return <PaginationEllipsis key="end-ellipsis" />;
+                      return null;
+                    })}
+                    <PaginationItem>
+                      <PaginationNext
+                        onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                        className={page === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                      />
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
+              )}
             </>
           ) : (
             <div className="flex flex-col items-center justify-center py-24 text-center">
