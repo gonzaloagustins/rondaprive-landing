@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 import logoRondaPrive from "@/assets/logo-ronda-prive.png";
 
 const Footer = () => {
@@ -42,15 +42,26 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground max-w-xs">
               Plataforma tecnologica premium para la industria de eventos.
             </p>
-            <a
-              href="https://instagram.com/rondapriveapp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Instagram className="h-4 w-4" />
-              @rondapriveapp
-            </a>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://instagram.com/rondapriveapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/ronda-prive-app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
           {/* Producto */}
