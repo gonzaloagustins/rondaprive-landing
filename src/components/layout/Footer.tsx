@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Instagram } from "lucide-react";
 import logoRondaPrive from "@/assets/logo-ronda-prive.png";
 
 const Footer = () => {
