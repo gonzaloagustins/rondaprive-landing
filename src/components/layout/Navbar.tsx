@@ -21,10 +21,15 @@ const Navbar = () => {
   const sectionIds = navItems.map((i) => i.sectionId).filter(Boolean);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const compute = () => {
       setIsScrolled(window.scrollY > 50);
 
-      if (location.pathname !== "/") return;
+      if (location.pathname !== "/") {
+        ticking = false;
+        return;
+      }
 
       const offset = 120;
       let current = "";
@@ -41,10 +46,17 @@ const Navbar = () => {
       }
 
       setActiveSection(current);
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(compute);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    compute();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [location.pathname]);
 

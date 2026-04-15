@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import IPhoneMockup from "@/components/ui/iphone-mockup";
 import { ArrowRight, Play, Clock, Zap, ShoppingBag } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const HERO_PHRASES = [
@@ -26,25 +26,47 @@ const HERO_PHRASES = [
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoReady, setIsVideoReady] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
     video.muted = true;
+    // If video was already buffered (e.g. cached), fire ready state immediately
+    if (video.readyState >= 3) {
+      setIsVideoReady(true);
+    }
     video.play().catch(() => {});
   }, []);
 
+  const posterUrl = `${import.meta.env.BASE_URL}hero-poster.jpg`;
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background video */}
+      {/* Background video + poster. Poster loads instantly; video fades in on top once ready. */}
       <div className="absolute inset-0 z-0">
+        {/* Poster layer: always rendered so LCP paints immediately */}
+        <img
+          src={posterUrl}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          preload="metadata"
+          poster={posterUrl}
+          onCanPlay={() => setIsVideoReady(true)}
+          onLoadedData={() => setIsVideoReady(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
+            isVideoReady ? "opacity-100" : "opacity-0"
+          }`}
         >
           <source src={`${import.meta.env.BASE_URL}hero-video.mp4`} type="video/mp4" />
         </video>

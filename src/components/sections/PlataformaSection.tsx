@@ -39,9 +39,21 @@ const PlataformaSection = () => {
   const [displayedId, setDisplayedId] = useState("preorder");
   const [fading, setFading] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisibleRef = useRef(false);
+
+  const stopAutoRotate = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
 
   const startAutoRotate = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
+    stopAutoRotate();
+    // Only schedule the rotation if the section is currently visible. The
+    // IntersectionObserver will re-call startAutoRotate when it enters view.
+    if (!isVisibleRef.current) return;
     intervalRef.current = setInterval(() => {
       setOpenId((prev) => {
         const idx = products.findIndex((p) => p.id === prev);
@@ -57,9 +69,27 @@ const PlataformaSection = () => {
   };
 
   useEffect(() => {
-    startAutoRotate();
+    const target = sectionRef.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          isVisibleRef.current = entry.isIntersecting;
+          if (entry.isIntersecting) {
+            startAutoRotate();
+          } else {
+            stopAutoRotate();
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(target);
+
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
+      stopAutoRotate();
+      observer.disconnect();
     };
   }, []);
 
@@ -80,7 +110,7 @@ const PlataformaSection = () => {
   const activeProduct = products.find((p) => p.id === displayedId) ?? products[0];
 
   return (
-    <section className="relative z-30 py-24" id="producto">
+    <section ref={sectionRef} className="relative z-30 py-24" id="producto">
       <div className="section-container">
         {/* Title */}
         <div className="text-center mb-12">
@@ -169,6 +199,7 @@ const PlataformaSection = () => {
                 alt={activeProduct.imageAlt}
                 className={`w-full h-[500px] object-cover transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
                 loading="lazy"
+                decoding="async"
               />
             </div>
             {/* Phone overlay mockup */}

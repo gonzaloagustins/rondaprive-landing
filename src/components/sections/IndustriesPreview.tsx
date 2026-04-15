@@ -90,6 +90,7 @@ const IndustriesPreview = () => {
               alt={tabLabels[active.id]}
               className="w-full h-full object-cover transition-all duration-500"
               loading="lazy"
+              decoding="async"
             />
           </div>
 

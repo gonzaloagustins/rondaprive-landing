@@ -22,7 +22,7 @@ const Industries = () => {
             return (
               <div key={ind.id} className={`grid lg:grid-cols-2 gap-10 items-center ${isReverse ? 'lg:grid-flow-dense' : ''}`}>
                 <div className={`rounded-2xl overflow-hidden aspect-[16/10] ${isReverse ? 'lg:col-start-2' : ''}`}>
-                  <img src={ind.image} alt={t(ind.titleKey)} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={ind.image} alt={t(ind.titleKey)} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 </div>
                 <div className="space-y-6">
                   <div className="flex items-center gap-3">

@@ -48,6 +48,7 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
           alt={imageAlt}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
           loading="lazy"
+          decoding="async"
         />
 
         {/* Gradient Overlay for Text Readability */}
