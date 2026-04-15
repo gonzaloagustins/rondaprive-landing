@@ -46,6 +46,8 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
         <img
           src={imageUrl}
           alt={imageAlt}
+          width={800}
+          height={600}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
           loading="lazy"
           decoding="async"

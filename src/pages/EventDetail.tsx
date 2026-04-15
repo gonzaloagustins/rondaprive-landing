@@ -40,7 +40,15 @@ const EventDetail = () => {
       <section className="pt-20">
         {/* Banner image */}
         <div className="relative w-full h-56 md:h-80 overflow-hidden">
-          <img src={event.image} alt={event.name} className="w-full h-full object-cover" />
+          <img
+            src={event.image}
+            alt={event.name}
+            width={1600}
+            height={900}
+            decoding="async"
+            fetchPriority="high"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
         </div>
 

@@ -10,6 +10,7 @@ const products = [
     description:
       "Compra antes del evento, paga por adelantado y retira el día del show presentando tu QR. Ideal para planificar tu experiencia con anticipación.",
     image: "/compra-anticipada.jpg",
+    imageWebp: "/compra-anticipada.webp",
     imageAlt: "Persona revisando eventos activos en laptop con Ronda Privé",
   },
   {
@@ -20,6 +21,7 @@ const products = [
     description:
       "Escanea el QR de tu asiento, compra desde tu celular y recibe directamente en tu ubicación. Perfecto para estadios, suites y zonas VIP.",
     image: "/seat-delivery.jpg",
+    imageWebp: "/seat-delivery.webp",
     imageAlt: "Mozo entregando bebida en asiento VIP durante concierto",
   },
   {
@@ -30,6 +32,7 @@ const products = [
     description:
       "Ordena desde tu celular y recoge en el punto mas cercano. Fila VIP exclusiva para pedidos digitales.",
     image: "/pickup-express.jpg",
+    imageWebp: "/pickup-express.webp",
     imageAlt: "Persona retirando pedido express con QR en bar VIP de festival",
   },
 ];
@@ -192,15 +195,19 @@ const PlataformaSection = () => {
 
           {/* Right: Image */}
           <div className="relative">
-            <div className="rounded-3xl overflow-hidden">
-              <img
-                key={activeProduct.id}
-                src={activeProduct.image}
-                alt={activeProduct.imageAlt}
-                className={`w-full h-[500px] object-cover transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="rounded-3xl overflow-hidden h-[500px]">
+              <picture key={activeProduct.id}>
+                <source srcSet={activeProduct.imageWebp} type="image/webp" />
+                <img
+                  src={activeProduct.image}
+                  alt={activeProduct.imageAlt}
+                  width={896}
+                  height={1200}
+                  className={`w-full h-[500px] object-cover transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </div>
             {/* Phone overlay mockup */}
             <div className="absolute bottom-8 left-8 w-48 bg-white rounded-2xl shadow-2xl p-4">

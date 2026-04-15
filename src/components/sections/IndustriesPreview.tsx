@@ -88,6 +88,8 @@ const IndustriesPreview = () => {
             <img
               src={active.image}
               alt={tabLabels[active.id]}
+              width={1200}
+              height={750}
               className="w-full h-full object-cover transition-all duration-500"
               loading="lazy"
               decoding="async"

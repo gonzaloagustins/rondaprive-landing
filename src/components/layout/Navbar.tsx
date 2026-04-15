@@ -81,9 +81,13 @@ const Navbar = () => {
             <img
               src={logoRondaPrive}
               alt="Ronda Privé"
+              width={160}
+              height={32}
               className="h-8 w-auto"
               style={{ filter: "brightness(0)" }}
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </Link>
 

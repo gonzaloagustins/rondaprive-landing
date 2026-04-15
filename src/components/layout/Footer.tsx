@@ -34,9 +34,12 @@ const Footer = () => {
               <img
                 src={logoRondaPrive}
                 alt="Ronda Privé"
+                width={160}
+                height={32}
                 className="h-8 w-auto"
                 style={{ filter: "brightness(0)" }}
                 loading="lazy"
+                decoding="async"
               />
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">

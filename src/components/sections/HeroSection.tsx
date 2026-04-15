@@ -24,11 +24,35 @@ const HERO_PHRASES = [
   "excepcional",
 ];
 
+// Decide whether to load the background video. Respects Save-Data, slow
+// connections, and reduced-motion preferences so mobile users on mobile data
+// or users with motion sensitivity only see the poster image.
+const shouldLoadHeroVideo = (): boolean => {
+  if (typeof window === "undefined") return true;
+  // Users who asked the OS for reduced motion don't want background video.
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+    return false;
+  }
+  // Network Information API — not supported on Safari, defaults to load.
+  const conn = (navigator as Navigator & {
+    connection?: { saveData?: boolean; effectiveType?: string };
+  }).connection;
+  if (conn?.saveData) return false;
+  if (conn?.effectiveType && /(^|-)(2g|slow-2g)$/.test(conn.effectiveType)) {
+    return false;
+  }
+  return true;
+};
+
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
+  // Computed once on mount so the initial HTML / first render is stable and
+  // doesn't re-evaluate on every re-render.
+  const [shouldPlayVideo] = useState(shouldLoadHeroVideo);
 
   useEffect(() => {
+    if (!shouldPlayVideo) return;
     const video = videoRef.current;
     if (!video) return;
     video.muted = true;
@@ -37,7 +61,7 @@ const HeroSection = () => {
       setIsVideoReady(true);
     }
     video.play().catch(() => {});
-  }, []);
+  }, [shouldPlayVideo]);
 
   const posterUrl = `${import.meta.env.BASE_URL}hero-poster.jpg`;
 
@@ -52,24 +76,31 @@ const HeroSection = () => {
           aria-hidden="true"
           fetchPriority="high"
           decoding="async"
+          width={1280}
+          height={720}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster={posterUrl}
-          onCanPlay={() => setIsVideoReady(true)}
-          onLoadedData={() => setIsVideoReady(true)}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
-            isVideoReady ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <source src={`${import.meta.env.BASE_URL}hero-video.mp4`} type="video/mp4" />
-        </video>
+        {shouldPlayVideo && (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster={posterUrl}
+            onCanPlay={() => setIsVideoReady(true)}
+            onLoadedData={() => setIsVideoReady(true)}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
+              isVideoReady ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {/* WebM first for Chrome/Firefox/Edge/modern Safari — smaller + more efficient.
+                MP4 fallback for older Safari / iOS versions without VP9 support. */}
+            <source src={`${import.meta.env.BASE_URL}hero-video.webm`} type="video/webm" />
+            <source src={`${import.meta.env.BASE_URL}hero-video.mp4`} type="video/mp4" />
+          </video>
+        )}
         {/* Gradient overlays to blend into cream */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#F5F0EB] via-[#F5F0EB]/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5F0EB]/30 via-transparent to-[#F5F0EB]/30" />
