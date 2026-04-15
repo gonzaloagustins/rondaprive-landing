@@ -29,7 +29,7 @@ const Insights = () => {
             {filtered.map(post => (
               <article key={post.id} className="card-premium overflow-hidden group hover:border-primary/30 transition-all duration-300">
                 <div className="aspect-[16/9] overflow-hidden">
-                  <img src={post.image} alt={t(post.titleKey)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <img src={post.image} alt={t(post.titleKey)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                 </div>
                 <div className="p-5 space-y-3">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">{t(`insights.categories.${post.category}`)}</span>

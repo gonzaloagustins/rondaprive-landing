@@ -26,6 +26,7 @@ export function ContainerTextFlip({
   const [animKey, setAnimKey] = useState(0);
   // Measurer lives INSIDE the container so it inherits italic, font-size, etc.
   const measureRef = useRef<HTMLSpanElement>(null);
+  const containerRef = useRef<HTMLSpanElement>(null);
 
   const updateWidth = useCallback(() => {
     if (measureRef.current) {
@@ -39,11 +40,41 @@ export function ContainerTextFlip({
   }, [currentWordIndex, updateWidth]);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setCurrentWordIndex((prev) => (prev + 1) % words.length);
-      setAnimKey((prev) => prev + 1);
-    }, interval);
-    return () => clearInterval(id);
+    // Pause the rotation when the component is off-screen to save CPU/GPU.
+    const target = containerRef.current;
+    if (!target) return;
+
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+
+    const start = () => {
+      if (intervalId) return;
+      intervalId = setInterval(() => {
+        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        setAnimKey((prev) => prev + 1);
+      }, interval);
+    };
+    const stop = () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) start();
+          else stop();
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(target);
+
+    return () => {
+      stop();
+      observer.disconnect();
+    };
   }, [words, interval]);
 
   const currentWord = words[currentWordIndex];
@@ -52,8 +83,8 @@ export function ContainerTextFlip({
     <>
       <style>{`
         @keyframes wordFadeIn {
-          from { opacity: 0; filter: blur(8px); transform: translateY(4px); }
-          to   { opacity: 1; filter: blur(0px); transform: translateY(0); }
+          from { opacity: 0; transform: translate3d(0, 6px, 0) scale(0.98); }
+          to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
         }
         .word-flip-text {
           background-image: linear-gradient(135deg, #D5A85A 0%, #E8C97A 50%, #D5A85A 100%);
@@ -62,11 +93,13 @@ export function ContainerTextFlip({
           background-clip: text;
         }
         .word-flip-animate {
-          animation: wordFadeIn var(--flip-duration, 500ms) ease both;
+          animation: wordFadeIn var(--flip-duration, 500ms) ease-out both;
+          will-change: transform, opacity;
         }
       `}</style>
 
       <span
+        ref={containerRef}
         className={cn(
           "relative inline-block rounded-2xl pt-2 pb-3 text-center font-bold overflow-visible",
           "[background:linear-gradient(to_bottom,rgba(255,255,255,0.85),rgba(245,240,235,0.7))]",
