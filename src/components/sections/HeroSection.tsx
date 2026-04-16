@@ -63,15 +63,21 @@ const HeroSection = () => {
     video.play().catch(() => {});
   }, [shouldPlayVideo]);
 
-  const posterUrl = `${import.meta.env.BASE_URL}hero-poster.jpg`;
+  const base = import.meta.env.BASE_URL;
+  const posterUrl = `${base}hero-poster.jpg`;
+  const posterSmUrl = `${base}hero-poster-sm.jpg`;
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background video + poster. Poster loads instantly; video fades in on top once ready. */}
       <div className="absolute inset-0 z-0">
-        {/* Poster layer: always rendered so LCP paints immediately */}
+        {/* Poster layer: always rendered so LCP paints immediately.
+            srcset: phones get the 35 KB 768w variant, larger screens get the
+            full 79 KB 1280w source. Matches <link rel="preload" imagesrcset> in index.html. */}
         <img
           src={posterUrl}
+          srcSet={`${posterSmUrl} 768w, ${posterUrl} 1280w`}
+          sizes="100vw"
           alt=""
           aria-hidden="true"
           fetchPriority="high"
@@ -95,10 +101,13 @@ const HeroSection = () => {
               isVideoReady ? "opacity-100" : "opacity-0"
             }`}
           >
-            {/* WebM first for Chrome/Firefox/Edge/modern Safari — smaller + more efficient.
-                MP4 fallback for older Safari / iOS versions without VP9 support. */}
-            <source src={`${import.meta.env.BASE_URL}hero-video.webm`} type="video/webm" />
-            <source src={`${import.meta.env.BASE_URL}hero-video.mp4`} type="video/mp4" />
+            {/* Source order matters: browsers pick the first matching <source>
+                they can play. Per-viewport variants go first so phones grab the
+                lighter 360p file; desktops fall through to the 720p file. */}
+            <source media="(max-width: 768px)" src={`${base}hero-video-sm.webm`} type="video/webm" />
+            <source media="(max-width: 768px)" src={`${base}hero-video-sm.mp4`} type="video/mp4" />
+            <source src={`${base}hero-video.webm`} type="video/webm" />
+            <source src={`${base}hero-video.mp4`} type="video/mp4" />
           </video>
         )}
         {/* Gradient overlays to blend into cream */}
