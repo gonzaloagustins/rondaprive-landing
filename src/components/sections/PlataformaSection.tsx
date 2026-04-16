@@ -11,6 +11,8 @@ const products = [
       "Compra antes del evento, paga por adelantado y retira el día del show presentando tu QR. Ideal para planificar tu experiencia con anticipación.",
     image: "/compra-anticipada.jpg",
     imageWebp: "/compra-anticipada.webp",
+    imageWebpMd: "/compra-anticipada-900w.webp",
+    imageWebpSm: "/compra-anticipada-600w.webp",
     imageAlt: "Persona revisando eventos activos en laptop con Ronda Privé",
   },
   {
@@ -22,6 +24,8 @@ const products = [
       "Escanea el QR de tu asiento, compra desde tu celular y recibe directamente en tu ubicación. Perfecto para estadios, suites y zonas VIP.",
     image: "/seat-delivery.jpg",
     imageWebp: "/seat-delivery.webp",
+    imageWebpMd: "/seat-delivery-900w.webp",
+    imageWebpSm: "/seat-delivery-600w.webp",
     imageAlt: "Mozo entregando bebida en asiento VIP durante concierto",
   },
   {
@@ -33,6 +37,8 @@ const products = [
       "Ordena desde tu celular y recoge en el punto mas cercano. Fila VIP exclusiva para pedidos digitales.",
     image: "/pickup-express.jpg",
     imageWebp: "/pickup-express.webp",
+    imageWebpMd: "/pickup-express-900w.webp",
+    imageWebpSm: "/pickup-express-600w.webp",
     imageAlt: "Persona retirando pedido express con QR en bar VIP de festival",
   },
 ];
@@ -197,7 +203,19 @@ const PlataformaSection = () => {
           <div className="relative">
             <div className="rounded-3xl overflow-hidden h-[500px]">
               <picture key={activeProduct.id}>
-                <source srcSet={activeProduct.imageWebp} type="image/webp" />
+                {/* WebP responsive srcset. The browser picks the smallest file
+                    that still covers CSS-px × DPR:
+                    - phone 1x → 600w (~35-62 KB)
+                    - phone 2x / tablet → 900w (~53-98 KB)
+                    - desktop 2x → full (~85-146 KB)
+                    Sizes reflects the layout: 100vw below lg breakpoint,
+                    50vw above (where grid-cols-2 kicks in). */}
+                <source
+                  type="image/webp"
+                  srcSet={`${activeProduct.imageWebpSm} 600w, ${activeProduct.imageWebpMd} 900w, ${activeProduct.imageWebp} 1200w`}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                {/* JPG fallback for browsers without WebP (<1% of traffic). */}
                 <img
                   src={activeProduct.image}
                   alt={activeProduct.imageAlt}
