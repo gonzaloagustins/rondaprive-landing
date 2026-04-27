@@ -1,14 +1,28 @@
-import { useState, useEffect, useRef } from "react";
-import { Clock, MapPin, CheckSquare, ChevronDown } from "lucide-react";
+import { Clock, MapPin, CheckSquare, Check } from "lucide-react";
 
-const products = [
+type Product = {
+  id: string;
+  icon: typeof Clock;
+  label: string;
+  title: string;
+  bullets: string[];
+  image: string;
+  imageWebp: string;
+  imageWebpMd: string;
+  imageWebpSm: string;
+  imageAlt: string;
+  highlight?: boolean;
+  badge?: string;
+};
+
+// Order applies Serial-Position + Peak-End: soft entry → hero → tangible close.
+const products: Product[] = [
   {
     id: "preorder",
     icon: Clock,
-    title: "Compra Anticipada",
-    subtitle: "Ordena antes del evento",
-    description:
-      "Compra antes del evento, paga por adelantado y retira el día del show presentando tu QR. Ideal para planificar tu experiencia con anticipación.",
+    label: "ANTICIPADO",
+    title: "Asegura tu pedido antes del evento",
+    bullets: ["Disponibilidad garantizada", "Ahorra tiempo el día del show"],
     image: "/compra-anticipada.jpg",
     imageWebp: "/compra-anticipada.webp",
     imageWebpMd: "/compra-anticipada-900w.webp",
@@ -18,23 +32,23 @@ const products = [
   {
     id: "seat",
     icon: MapPin,
-    title: "Entrega en Asiento",
-    subtitle: "Sin perder un momento",
-    description:
-      "Escanea el QR de tu asiento, compra desde tu celular y recibe directamente en tu ubicación. Perfecto para estadios, suites y zonas VIP.",
+    label: "EN TU UBICACIÓN",
+    title: "Recibe sin moverte de tu asiento",
+    bullets: ["Sin filas", "Te llevamos tu pedido"],
     image: "/seat-delivery.jpg",
     imageWebp: "/seat-delivery.webp",
     imageWebpMd: "/seat-delivery-900w.webp",
     imageWebpSm: "/seat-delivery-600w.webp",
     imageAlt: "Mozo entregando bebida en asiento VIP durante concierto",
+    highlight: true,
+    badge: "Exclusivo de Ronda Privé",
   },
   {
     id: "pickup",
     icon: CheckSquare,
-    title: "Pickup Express",
-    subtitle: "Rapido y sin filas",
-    description:
-      "Ordena desde tu celular y recoge en el punto mas cercano. Fila VIP exclusiva para pedidos digitales.",
+    label: "RETIRO RÁPIDO",
+    title: "Tu pedido listo, sin esperar",
+    bullets: ["Fila VIP para pedidos digitales", "Retiro ágil y seguro"],
     image: "/pickup-express.jpg",
     imageWebp: "/pickup-express.webp",
     imageWebpMd: "/pickup-express-900w.webp",
@@ -44,202 +58,95 @@ const products = [
 ];
 
 const PlataformaSection = () => {
-  const [openId, setOpenId] = useState("preorder");
-  const [displayedId, setDisplayedId] = useState("preorder");
-  const [fading, setFading] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const isVisibleRef = useRef(false);
-
-  const stopAutoRotate = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-  };
-
-  const startAutoRotate = () => {
-    stopAutoRotate();
-    // Only schedule the rotation if the section is currently visible. The
-    // IntersectionObserver will re-call startAutoRotate when it enters view.
-    if (!isVisibleRef.current) return;
-    intervalRef.current = setInterval(() => {
-      setOpenId((prev) => {
-        const idx = products.findIndex((p) => p.id === prev);
-        const next = products[(idx + 1) % products.length];
-        setFading(true);
-        setTimeout(() => {
-          setDisplayedId(next.id);
-          setFading(false);
-        }, 600);
-        return next.id;
-      });
-    }, 7000);
-  };
-
-  useEffect(() => {
-    const target = sectionRef.current;
-    if (!target) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          isVisibleRef.current = entry.isIntersecting;
-          if (entry.isIntersecting) {
-            startAutoRotate();
-          } else {
-            stopAutoRotate();
-          }
-        }
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(target);
-
-    return () => {
-      stopAutoRotate();
-      observer.disconnect();
-    };
-  }, []);
-
-  const handleSelect = (id: string) => {
-    if (id === openId) {
-      setOpenId("");
-      return;
-    }
-    setFading(true);
-    setTimeout(() => {
-      setDisplayedId(id);
-      setFading(false);
-    }, 200);
-    setOpenId(id);
-    startAutoRotate();
-  };
-
-  const activeProduct = products.find((p) => p.id === displayedId) ?? products[0];
-
   return (
-    <section ref={sectionRef} className="relative z-30 py-24" id="producto">
+    <section className="relative z-30 py-24" id="producto">
       <div className="section-container">
-        {/* Title */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="font-display text-4xl sm:text-5xl font-bold">
-            Plataforma para eventos
+            Una plataforma. Tres formas de eliminar las filas.
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg">
-            Ronda Privé es una plataforma que permite a los asistentes comprar
-            consumo en eventos de distinto tipo, entregando al mismo tiempo
-            soluciones efectivas a los organizadores para optimizar gestión.
+          <p className="mt-4 text-muted-foreground text-lg">
+            La forma más rápida, segura y cómoda de disfrutar cada momento.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mt-16">
-          {/* Left: Accordion */}
-          <div>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold mb-8">
-              3 funcionalidades clave
-            </h3>
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {products.map((product) => {
+            const Icon = product.icon;
+            const isHighlight = product.highlight;
+            return (
+              <article
+                key={product.id}
+                className={`relative flex flex-col rounded-3xl overflow-hidden bg-white border transition-all duration-300 ${
+                  isHighlight
+                    ? "border-primary/40 shadow-lg md:-translate-y-2"
+                    : "border-border/60 shadow-sm hover:shadow-md"
+                }`}
+              >
+                {product.badge && (
+                  <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-primary text-primary-foreground text-[11px] font-semibold tracking-wide shadow">
+                    {product.badge}
+                  </div>
+                )}
 
-            <div className="space-y-3">
-              {products.map((product) => {
-                const Icon = product.icon;
-                const isOpen = openId === product.id;
-                return (
-                  <div
-                    key={product.id}
-                    className={`rounded-2xl border transition-all duration-700 ${
-                      isOpen
-                        ? "bg-[#F0EBE3]/50 border-primary/20 shadow-sm"
-                        : "bg-transparent border-border/50 hover:border-border"
-                    }`}
-                  >
-                    <button
-                      onClick={() => handleSelect(product.id)}
-                      className="w-full flex items-center justify-between p-5"
+                <div className="aspect-[4/3] overflow-hidden bg-muted">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcSet={`${product.imageWebpSm} 600w, ${product.imageWebpMd} 900w, ${product.imageWebp} 1200w`}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <img
+                      src={product.image}
+                      alt={product.imageAlt}
+                      width={896}
+                      height={672}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                </div>
+
+                <div className="flex flex-col flex-1 p-6 lg:p-7">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                        isHighlight ? "bg-primary/15" : "bg-muted"
+                      }`}
                     >
-                      <div className="flex items-center gap-4">
-                        <div
-                          className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                            isOpen
-                              ? "bg-primary/10"
-                              : "bg-muted/50"
-                          }`}
-                        >
-                          <Icon
-                            className={`w-5 h-5 ${
-                              isOpen ? "text-primary" : "text-muted-foreground"
-                            }`}
-                          />
-                        </div>
-                        <div className="text-left">
-                          <p className="font-semibold text-foreground">
-                            {product.title}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {product.subtitle}
-                          </p>
-                        </div>
-                      </div>
-                      <ChevronDown
-                        className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${
-                          isOpen ? "rotate-180" : ""
+                      <Icon
+                        className={`w-5 h-5 ${
+                          isHighlight ? "text-primary" : "text-muted-foreground"
                         }`}
                       />
-                    </button>
-                    {isOpen && (
-                      <div className="px-5 pb-5 pt-0">
-                        <p className="text-sm text-muted-foreground leading-relaxed ml-14">
-                          {product.description}
-                        </p>
-                      </div>
-                    )}
+                    </div>
+                    <span className="text-[11px] font-semibold tracking-[0.12em] text-muted-foreground">
+                      {product.label}
+                    </span>
                   </div>
-                );
-              })}
-            </div>
-          </div>
 
-          {/* Right: Image */}
-          <div className="relative">
-            <div className="rounded-3xl overflow-hidden h-[500px]">
-              <picture key={activeProduct.id}>
-                {/* WebP responsive srcset. The browser picks the smallest file
-                    that still covers CSS-px × DPR:
-                    - phone 1x → 600w (~35-62 KB)
-                    - phone 2x / tablet → 900w (~53-98 KB)
-                    - desktop 2x → full (~85-146 KB)
-                    Sizes reflects the layout: 100vw below lg breakpoint,
-                    50vw above (where grid-cols-2 kicks in). */}
-                <source
-                  type="image/webp"
-                  srcSet={`${activeProduct.imageWebpSm} 600w, ${activeProduct.imageWebpMd} 900w, ${activeProduct.imageWebp} 1200w`}
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                {/* JPG fallback for browsers without WebP (<1% of traffic). */}
-                <img
-                  src={activeProduct.image}
-                  alt={activeProduct.imageAlt}
-                  width={896}
-                  height={1200}
-                  className={`w-full h-[500px] object-cover transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </picture>
-            </div>
-            {/* Phone overlay mockup */}
-            <div className="absolute bottom-8 left-8 w-48 bg-white rounded-2xl shadow-2xl p-4">
-              <div className="space-y-2">
-                <p className="text-[10px] text-muted-foreground">Bienvenido a</p>
-                <p className="font-display text-sm font-bold">Ronda Privé</p>
-                <div className="h-px bg-border" />
-                <div className="bg-[#F0EBE3] rounded-xl p-3 text-center">
-                  <p className="text-xs font-semibold">Festival 2026</p>
-                  <p className="text-[10px] text-muted-foreground">Menu disponible</p>
+                  <h3 className="font-display text-xl lg:text-2xl font-bold leading-snug mb-5">
+                    {product.title}
+                  </h3>
+
+                  <ul className="space-y-2.5 mt-auto">
+                    {product.bullets.map((bullet) => (
+                      <li
+                        key={bullet}
+                        className="flex items-center gap-3 text-sm text-foreground/80"
+                      >
+                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
+                          <Check className="w-3 h-3 text-primary" strokeWidth={3} />
+                        </span>
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            </div>
-          </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
