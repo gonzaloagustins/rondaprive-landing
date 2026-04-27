@@ -6,10 +6,10 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const HERO_PHRASES = [
-  "comprar",
-  "vender",
-  "gestionar",
-  "adquirir",
+  "festival",
+  "estadio",
+  "nightclub",
+  "bar",
 ];
 
 // Decide whether to load the background video. Respects Save-Data, slow
@@ -108,7 +108,7 @@ const HeroSection = () => {
           {/* Left: Headline + CTAs */}
           <div className="hero-text-card space-y-8 animate-fade-in-up">
             <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl space-y-3">
-              <span className="block">Transformando la forma de</span>
+              <span className="block">Cero filas para tu</span>
               <span className="block">
                 <ContainerTextFlip
                   words={HERO_PHRASES}
@@ -116,8 +116,12 @@ const HeroSection = () => {
                   className="font-display text-5xl sm:text-6xl md:text-7xl italic px-5 leading-tight"
                 />
               </span>
-              <span className="block">en recintos comerciales</span>
             </h1>
+
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl">
+              Tus asistentes piden, pagan y reciben sin moverse. Tu venue
+              vende más con el mismo personal.
+            </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button variant="dark-solid" size="lg" className="group rounded-full" asChild>
@@ -195,17 +199,6 @@ const HeroSection = () => {
                 <div>
                   <p className="text-sm font-bold text-foreground leading-none">3 min</p>
                   <p className="text-[9px] text-muted-foreground">Tiempo pedido</p>
-                </div>
-              </div>
-
-              {/* Right: aumento ventas — straddling right edge, top-quarter */}
-              <div className="absolute -right-24 top-16 bg-white rounded-2xl shadow-lg px-3 py-2.5 flex items-center gap-2.5 animate-fade-in-delay-4">
-                <div className="w-7 h-7 rounded-full bg-[#F0EBE3] flex items-center justify-center text-xs font-bold">
-                  📈
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-foreground leading-none">+40%</p>
-                  <p className="text-[9px] text-muted-foreground">Aumento ventas</p>
                 </div>
               </div>
 

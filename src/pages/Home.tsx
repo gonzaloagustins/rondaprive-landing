@@ -6,28 +6,27 @@ import LazySection from "@/components/LazySection";
 // Their JS chunks won't even start downloading until the user scrolls
 // within 300px of each placeholder, keeping the initial load focused
 // on HeroSection only.
-const EventosActivos = lazy(() => import("@/components/sections/EventosActivos"));
+const LogoBar = lazy(() => import("@/components/sections/LogoBar"));
+const StatsBar = lazy(() => import("@/components/sections/StatsBar"));
 const PlataformaSection = lazy(() => import("@/components/sections/PlataformaSection"));
 const DashboardPreview = lazy(() => import("@/components/sections/DashboardPreview"));
 const BenefitsSummary = lazy(() => import("@/components/sections/BenefitsSummary"));
-const StatsBar = lazy(() => import("@/components/sections/StatsBar"));
 const IndustriesPreview = lazy(() => import("@/components/sections/IndustriesPreview"));
+const SocialProofSection = lazy(() => import("@/components/sections/SocialProofSection"));
+const FAQSection = lazy(() => import("@/components/sections/FAQSection"));
 const CTASection = lazy(() => import("@/components/sections/CTASection"));
 
 const Home = () => (
   <>
     <HeroSection />
-    <div className="py-12 text-center">
-      <p className="font-display text-2xl italic text-foreground/70 sm:text-3xl">
-        "La plataforma elegida por los recintos que priorizan la experiencia."
-      </p>
-    </div>
-    <LazySection component={EventosActivos} id="eventos" minHeight="600px" />
+    <LazySection component={LogoBar} minHeight="160px" />
+    <LazySection component={StatsBar} minHeight="160px" />
     <LazySection component={PlataformaSection} id="producto" minHeight="700px" />
     <LazySection component={DashboardPreview} id="dashboard" minHeight="700px" />
     <LazySection component={BenefitsSummary} id="beneficios" minHeight="500px" />
-    <LazySection component={StatsBar} minHeight="120px" />
     <LazySection component={IndustriesPreview} id="soluciones" minHeight="500px" />
+    <LazySection component={SocialProofSection} minHeight="400px" />
+    <LazySection component={FAQSection} id="faq" minHeight="500px" />
     <LazySection component={CTASection} minHeight="300px" />
   </>
 );

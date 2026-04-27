@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const CTASection = () => {
@@ -7,27 +7,24 @@ const CTASection = () => {
     <section className="py-24">
       <div className="section-container">
         <div className="bg-[#F0EBE3]/50 rounded-3xl py-20 px-8 text-center">
-          {/* Label */}
-          <span className="inline-flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <Zap className="w-4 h-4 text-primary" />
-            Comienza hoy
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-6">
+            Para venues, festivales y estadios en LATAM
           </span>
 
-          {/* Title */}
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold max-w-3xl mx-auto leading-tight">
-            Cada minuto en la fila es{" "}
+            Cada fila en tu recinto es{" "}
             <span className="relative inline-block">
-              dinero que no vuelve
-              <span className="absolute left-0 bottom-1 w-full h-[6px] bg-primary/20 -z-10 rounded-full" />
+              ticket promedio que no vuelve
+              <span className="absolute left-0 bottom-1 w-full h-[6px] bg-primary/25 -z-10 rounded-full" />
             </span>
+            .
           </h2>
 
-          {/* Subtitle */}
           <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
-            Los venues que eliminaron la fricción en la entrada aumentaron su tasa de retorno de asistentes. El tuyo puede ser el siguiente.
+            Arena Santiago incrementó sus ventas un 65% al eliminar las filas en
+            barra. El tuyo puede ser el siguiente.
           </p>
 
-          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
             <Button
               variant="dark-solid"
@@ -36,18 +33,16 @@ const CTASection = () => {
               asChild
             >
               <Link to="/contacto">
-                Solicitar Demo
+                Agendar demo de 20 min
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <Button
-              variant="light-outline"
-              size="lg"
-              className="group rounded-full"
-              asChild
+            <Link
+              to="/contacto"
+              className="text-sm font-medium text-foreground/80 hover:text-foreground underline-offset-4 hover:underline transition-colors"
             >
-              <Link to="/contacto">Contactar Ventas</Link>
-            </Button>
+              Ver caso de éxito →
+            </Link>
           </div>
         </div>
       </div>

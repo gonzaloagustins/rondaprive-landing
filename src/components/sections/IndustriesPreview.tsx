@@ -37,6 +37,13 @@ const useCasePills: Record<string, string[]> = {
   bars: ["QR en mesas", "Pick Up en barra", "Control de stock en vivo", "Métricas por hora"],
 };
 
+const headlineByFormat: Record<string, string> = {
+  nightclubs: "Mesas VIP atendidas sin saturar la barra",
+  festivals: "Multiplica tus puntos de venta sin sumar personal",
+  stadiums: "Tus asistentes ya no se pierden el espectáculo",
+  bars: "Tu barra ordenada en horarios pico",
+};
+
 const IndustriesPreview = () => {
   const [activeId, setActiveId] = useState("festivals");
   const active = industries.find((i) => i.id === activeId) || industries[1];
@@ -59,8 +66,8 @@ const IndustriesPreview = () => {
           </p>
         </div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mt-12">
+        {/* Overview cards — at-a-glance benefit per format. Click to deep-dive. */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
           {industries.map((ind) => {
             const IndIcon = iconMap[ind.icon] || Music;
             const isActive = activeId === ind.id;
@@ -68,14 +75,35 @@ const IndustriesPreview = () => {
               <button
                 key={ind.id}
                 onClick={() => setActiveId(ind.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                className={`text-left rounded-2xl p-5 transition-all duration-300 ${
                   isActive
-                    ? "bg-[#F0EBE3] text-[#1A1814] shadow-sm"
-                    : "border border-[hsl(28,10%,20%)] text-muted-foreground hover:text-foreground hover:border-primary/30"
+                    ? "bg-[#F0EBE3] text-[#1A1814] shadow-md -translate-y-1"
+                    : "border border-[hsl(28,10%,20%)] hover:border-primary/40 hover:-translate-y-0.5"
                 }`}
               >
-                <IndIcon className="w-4 h-4" />
-                {tabLabels[ind.id]}
+                <div
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${
+                    isActive ? "bg-primary/20" : "bg-primary/10"
+                  }`}
+                >
+                  <IndIcon
+                    className={`w-5 h-5 ${isActive ? "text-primary" : "text-primary/80"}`}
+                  />
+                </div>
+                <p
+                  className={`text-sm font-semibold ${
+                    isActive ? "text-[#1A1814]" : "text-foreground"
+                  }`}
+                >
+                  {tabLabels[ind.id]}
+                </p>
+                <p
+                  className={`text-xs mt-1.5 leading-snug ${
+                    isActive ? "text-[#1A1814]/70" : "text-muted-foreground"
+                  }`}
+                >
+                  {headlineByFormat[ind.id]}
+                </p>
               </button>
             );
           })}
