@@ -6,22 +6,10 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const HERO_PHRASES = [
-  "sin filas",
-  "sin esperas",
-  "premium",
-  "única",
-  "fluida",
-  "instantánea",
-  "VIP",
-  "sin interrupciones",
-  "perfecta",
-  "memorable",
-  "de lujo",
-  "inigualable",
-  "personalizada",
-  "5 estrellas",
-  "sin demoras",
-  "excepcional",
+  "comprar",
+  "vender",
+  "gestionar",
+  "adquirir",
 ];
 
 // Decide whether to load the background video. Respects Save-Data, slow
@@ -120,7 +108,8 @@ const HeroSection = () => {
           {/* Left: Headline + CTAs */}
           <div className="hero-text-card space-y-8 animate-fade-in-up">
             <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl space-y-3">
-              <span className="block">Experiencia</span>
+              <span className="block">Transformando la</span>
+              <span className="block">forma de</span>
               <span className="block">
                 <ContainerTextFlip
                   words={HERO_PHRASES}
@@ -128,7 +117,8 @@ const HeroSection = () => {
                   className="font-display text-5xl sm:text-6xl md:text-7xl italic px-5 leading-tight"
                 />
               </span>
-              <span className="block">en cada evento</span>
+              <span className="block">consumo en recintos</span>
+              <span className="block">comerciales</span>
             </h1>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
