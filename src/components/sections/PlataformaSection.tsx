@@ -1,4 +1,7 @@
-import { Clock, MapPin, CheckSquare, Check } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Clock, MapPin, CheckSquare, Check, ChevronDown, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type Product = {
   id: string;
@@ -6,6 +9,7 @@ type Product = {
   label: string;
   title: string;
   bullets: string[];
+  steps: string[];
   image: string;
   imageWebp: string;
   imageWebpMd: string;
@@ -21,8 +25,13 @@ const products: Product[] = [
     id: "preorder",
     icon: Clock,
     label: "ANTICIPADO",
-    title: "Asegura tu pedido antes del evento",
-    bullets: ["Disponibilidad garantizada", "Ahorra tiempo el día del show"],
+    title: "Asegura tu pedido antes de que se agote",
+    bullets: ["Disponibilidad garantizada", "Skip el día del show con tu QR"],
+    steps: [
+      "Elige tu evento y arma tu pedido",
+      "Paga por adelantado en segundos",
+      "Retira con tu QR el día del show",
+    ],
     image: "/compra-anticipada.jpg",
     imageWebp: "/compra-anticipada.webp",
     imageWebpMd: "/compra-anticipada-900w.webp",
@@ -34,7 +43,12 @@ const products: Product[] = [
     icon: MapPin,
     label: "EN TU UBICACIÓN",
     title: "Recibe sin moverte de tu asiento",
-    bullets: ["Sin filas", "Te llevamos tu pedido"],
+    bullets: ["Cero filas, cero interrupciones", "Llega directo a tu mano"],
+    steps: [
+      "Escanea el QR de tu asiento",
+      "Compra desde tu celular",
+      "Recibe en tu ubicación sin moverte",
+    ],
     image: "/seat-delivery.jpg",
     imageWebp: "/seat-delivery.webp",
     imageWebpMd: "/seat-delivery-900w.webp",
@@ -47,8 +61,13 @@ const products: Product[] = [
     id: "pickup",
     icon: CheckSquare,
     label: "RETIRO RÁPIDO",
-    title: "Tu pedido listo, sin esperar",
-    bullets: ["Fila VIP para pedidos digitales", "Retiro ágil y seguro"],
+    title: "Tu pedido listo cuando llegas",
+    bullets: ["Fila VIP para pedidos digitales", "Sin esperar, sin filas"],
+    steps: [
+      "Pide desde tu celular en cualquier momento",
+      "Recibe el aviso de \"listo para retirar\"",
+      "Retira en la fila VIP exclusiva",
+    ],
     image: "/pickup-express.jpg",
     imageWebp: "/pickup-express.webp",
     imageWebpMd: "/pickup-express-900w.webp",
@@ -58,6 +77,12 @@ const products: Product[] = [
 ];
 
 const PlataformaSection = () => {
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const toggle = (id: string) => {
+    setExpandedId((prev) => (prev === id ? null : id));
+  };
+
   return (
     <section className="relative z-30 py-24" id="producto">
       <div className="section-container">
@@ -74,13 +99,14 @@ const PlataformaSection = () => {
           {products.map((product) => {
             const Icon = product.icon;
             const isHighlight = product.highlight;
+            const isExpanded = expandedId === product.id;
             return (
               <article
                 key={product.id}
-                className={`relative flex flex-col rounded-3xl overflow-hidden bg-white border transition-all duration-300 ${
+                className={`group relative flex flex-col rounded-3xl overflow-hidden bg-white border transition-all duration-300 ease-out hover:shadow-2xl ${
                   isHighlight
-                    ? "border-primary/40 shadow-lg md:-translate-y-2"
-                    : "border-border/60 shadow-sm hover:shadow-md"
+                    ? "border-primary/40 shadow-lg md:-translate-y-2 md:hover:-translate-y-4"
+                    : "border-border/60 shadow-sm hover:-translate-y-2"
                 }`}
               >
                 {product.badge && (
@@ -101,7 +127,7 @@ const PlataformaSection = () => {
                       alt={product.imageAlt}
                       width={896}
                       height={672}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                       decoding="async"
                     />
@@ -111,12 +137,12 @@ const PlataformaSection = () => {
                 <div className="flex flex-col flex-1 p-6 lg:p-7">
                   <div className="flex items-center gap-3 mb-4">
                     <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300 group-hover:bg-primary/15 ${
                         isHighlight ? "bg-primary/15" : "bg-muted"
                       }`}
                     >
                       <Icon
-                        className={`w-5 h-5 ${
+                        className={`w-5 h-5 transition-colors duration-300 group-hover:text-primary ${
                           isHighlight ? "text-primary" : "text-muted-foreground"
                         }`}
                       />
@@ -130,7 +156,7 @@ const PlataformaSection = () => {
                     {product.title}
                   </h3>
 
-                  <ul className="space-y-2.5 mt-auto">
+                  <ul className="space-y-2.5">
                     {product.bullets.map((bullet) => (
                       <li
                         key={bullet}
@@ -143,10 +169,63 @@ const PlataformaSection = () => {
                       </li>
                     ))}
                   </ul>
+
+                  <div className="mt-6 pt-5 border-t border-border/60">
+                    <button
+                      type="button"
+                      onClick={() => toggle(product.id)}
+                      aria-expanded={isExpanded}
+                      aria-controls={`steps-${product.id}`}
+                      className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                    >
+                      {isExpanded ? "Ocultar pasos" : "Ver cómo funciona"}
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          isExpanded ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <div
+                      id={`steps-${product.id}`}
+                      className={`grid transition-all duration-300 ease-out ${
+                        isExpanded
+                          ? "grid-rows-[1fr] opacity-100 mt-4"
+                          : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <ol className="overflow-hidden space-y-3">
+                        {product.steps.map((step, idx) => (
+                          <li key={step} className="flex gap-3 text-sm text-foreground/80">
+                            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center">
+                              {idx + 1}
+                            </span>
+                            <span className="leading-relaxed pt-0.5">{step}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  </div>
                 </div>
               </article>
             );
           })}
+        </div>
+
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <p className="text-muted-foreground">
+            ¿Quieres esto en tu próximo evento?
+          </p>
+          <Button
+            variant="dark-solid"
+            size="lg"
+            className="group rounded-full"
+            asChild
+          >
+            <Link to="/contacto">
+              Agendar demo
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
