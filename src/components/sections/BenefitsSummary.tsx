@@ -7,9 +7,6 @@ const categories = [
     title: "Beneficios Comerciales",
     metric: "+40%",
     metricLabel: "más ventas",
-    accentBg: "bg-emerald-500/10",
-    accentText: "text-emerald-600",
-    borderColor: "border-t-emerald-500",
     items: [
       "Más ventas durante el evento",
       "Captura de ventas perdidas en filas",
@@ -22,9 +19,6 @@ const categories = [
     title: "Para el Usuario Final",
     metric: "-70%",
     metricLabel: "tiempo de espera",
-    accentBg: "bg-blue-500/10",
-    accentText: "text-blue-600",
-    borderColor: "border-t-blue-500",
     items: [
       "Mejor experiencia general",
       "Menos tiempo de espera",
@@ -37,9 +31,6 @@ const categories = [
     title: "Beneficios Operativos",
     metric: "100%",
     metricLabel: "visibilidad",
-    accentBg: "bg-amber-500/10",
-    accentText: "text-amber-600",
-    borderColor: "border-t-amber-500",
     items: [
       "Mayor control del evento",
       "Mejor gestión de inventario",
@@ -52,9 +43,6 @@ const categories = [
     title: "Beneficios Tecnológicos",
     metric: "0",
     metricLabel: "infraestructura extra",
-    accentBg: "bg-violet-500/10",
-    accentText: "text-violet-600",
-    borderColor: "border-t-violet-500",
     items: [
       "Sin infraestructura adicional",
       "Sin tótems ni cajas tradicionales",
@@ -119,14 +107,14 @@ const BenefitsSummary = () => {
             return (
               <div
                 key={i}
-                className={`bg-white rounded-2xl border border-border/50 border-t-2 ${cat.borderColor} p-8 hover:shadow-md transition-all duration-300 ${
+                className={`bg-white rounded-2xl border border-border/50 border-t-2 border-t-primary/60 p-8 hover:shadow-md hover:border-primary/30 transition-all duration-300 ${
                   visible ? delayClasses[i] : "opacity-0"
                 }`}
               >
                 {/* Icon */}
                 <div className="mb-6">
-                  <div className={`w-10 h-10 rounded-xl ${cat.accentBg} flex items-center justify-center`}>
-                    <Icon className={`w-5 h-5 ${cat.accentText}`} />
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-primary" />
                   </div>
                 </div>
 

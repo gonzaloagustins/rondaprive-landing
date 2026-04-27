@@ -2,22 +2,18 @@ import {
   BarChart3,
   Layers,
   BarChart,
-  PieChart,
-  Activity,
   Brain,
   ShoppingCart,
-  Zap,
+  PieChart,
 } from "lucide-react";
 
 const modules = [
-  { icon: BarChart3, title: "Estadísticas rápidas", subtitle: "KPIs en tiempo real" },
-  { icon: Layers, title: "Gestión de productos", subtitle: "Menús y precios" },
-  { icon: BarChart, title: "Inventario en vivo", subtitle: "Stock actualizado" },
-  { icon: PieChart, title: "Analíticas", subtitle: "Insights de consumo" },
-  { icon: Activity, title: "Monitoreo de ventas", subtitle: "Seguimiento continuo" },
-  { icon: Brain, title: "Comportamiento", subtitle: "Patrones de consumo" },
+  { icon: BarChart3, title: "KPIs en vivo", subtitle: "Ventas y ticket promedio" },
   { icon: ShoppingCart, title: "Control de pedidos", subtitle: "Estado en tiempo real" },
-  { icon: Zap, title: "Decisiones rápidas", subtitle: "Datos para actuar" },
+  { icon: BarChart, title: "Inventario en vivo", subtitle: "Stock actualizado" },
+  { icon: Layers, title: "Gestión de productos", subtitle: "Menús y precios" },
+  { icon: PieChart, title: "Analíticas", subtitle: "Insights de consumo" },
+  { icon: Brain, title: "Comportamiento", subtitle: "Patrones por hora y zona" },
 ];
 
 const orders = [

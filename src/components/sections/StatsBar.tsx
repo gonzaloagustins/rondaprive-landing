@@ -1,5 +1,8 @@
+// Single source of truth for landing-page metrics. Any section that
+// shows the same number (Industries pills, Hero badges, Benefits cards)
+// must reference these values to stay consistent.
 const stats = [
-  { value: "85%", label: "Reducción de filas" },
+  { value: "80%", label: "Reducción de filas" },
   { value: "+40%", label: "Más ventas" },
   { value: "3x", label: "Velocidad de servicio" },
   { value: "0", label: "Infraestructura extra" },
