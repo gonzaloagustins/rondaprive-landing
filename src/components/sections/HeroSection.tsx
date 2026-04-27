@@ -108,8 +108,7 @@ const HeroSection = () => {
           {/* Left: Headline + CTAs */}
           <div className="hero-text-card space-y-8 animate-fade-in-up">
             <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl space-y-3">
-              <span className="block">Transformando la</span>
-              <span className="block">forma de</span>
+              <span className="block">Transformando la forma de</span>
               <span className="block">
                 <ContainerTextFlip
                   words={HERO_PHRASES}
@@ -117,8 +116,7 @@ const HeroSection = () => {
                   className="font-display text-5xl sm:text-6xl md:text-7xl italic px-5 leading-tight"
                 />
               </span>
-              <span className="block">consumo en recintos</span>
-              <span className="block">comerciales</span>
+              <span className="block">en recintos comerciales</span>
             </h1>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
