@@ -103,10 +103,10 @@ const PlataformaSection = () => {
             return (
               <article
                 key={product.id}
-                className={`group relative flex flex-col rounded-3xl overflow-hidden bg-white border transition-all duration-300 ${
+                className={`group relative flex flex-col rounded-3xl overflow-hidden bg-white border transition-all duration-300 ease-out hover:shadow-2xl ${
                   isHighlight
-                    ? "border-primary/40 shadow-lg md:-translate-y-2"
-                    : "border-border/60 shadow-sm hover:shadow-md hover:-translate-y-1"
+                    ? "border-primary/40 shadow-lg md:-translate-y-2 md:hover:-translate-y-4"
+                    : "border-border/60 shadow-sm hover:-translate-y-2"
                 }`}
               >
                 {product.badge && (
@@ -127,7 +127,7 @@ const PlataformaSection = () => {
                       alt={product.imageAlt}
                       width={896}
                       height={672}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                       decoding="async"
                     />
@@ -137,12 +137,12 @@ const PlataformaSection = () => {
                 <div className="flex flex-col flex-1 p-6 lg:p-7">
                   <div className="flex items-center gap-3 mb-4">
                     <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300 group-hover:bg-primary/15 ${
                         isHighlight ? "bg-primary/15" : "bg-muted"
                       }`}
                     >
                       <Icon
-                        className={`w-5 h-5 ${
+                        className={`w-5 h-5 transition-colors duration-300 group-hover:text-primary ${
                           isHighlight ? "text-primary" : "text-muted-foreground"
                         }`}
                       />
