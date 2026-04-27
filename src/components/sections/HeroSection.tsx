@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import IPhoneMockup from "@/components/ui/iphone-mockup";
-import { ArrowRight, Play, Clock, Zap, ShoppingBag } from "lucide-react";
+import { ArrowRight, Clock, Zap, ShoppingBag } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -124,12 +124,6 @@ const HeroSection = () => {
                 <Link to="/contacto">
                   Solicitar Demo
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button variant="light-outline" size="lg" className="group rounded-full border-[#1A1814]/40" asChild>
-                <Link to="/como-funciona">
-                  <Play className="w-4 h-4" />
-                  Ver Video
                 </Link>
               </Button>
             </div>

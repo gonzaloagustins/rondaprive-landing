@@ -17,6 +17,11 @@ const CTASection = lazy(() => import("@/components/sections/CTASection"));
 const Home = () => (
   <>
     <HeroSection />
+    <div className="py-12 text-center">
+      <p className="font-display text-2xl italic text-foreground/70 sm:text-3xl">
+        "La plataforma elegida por los recintos que priorizan la experiencia."
+      </p>
+    </div>
     <LazySection component={EventosActivos} id="eventos" minHeight="600px" />
     <LazySection component={PlataformaSection} id="producto" minHeight="700px" />
     <LazySection component={DashboardPreview} id="dashboard" minHeight="700px" />
