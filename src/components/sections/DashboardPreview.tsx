@@ -7,7 +7,10 @@ import {
   Brain,
   ShoppingCart,
   Zap,
+  ArrowRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const modules = [
   { icon: BarChart3, title: "Estadísticas rápidas", subtitle: "KPIs en tiempo real" },
@@ -151,7 +154,30 @@ const DashboardPreview = () => {
                 Actualización en vivo
               </span>
             </div>
+
+            {/* Demo disclaimer — keeps the visitor honest about the data */}
+            <p className="text-center text-[10px] text-muted-foreground/70 italic">
+              Datos demostrativos · ejemplo de festival con 10K asistentes
+            </p>
           </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 flex flex-col items-center justify-center gap-4 text-center sm:flex-row">
+          <p className="text-muted-foreground">
+            ¿Quieres verlo con los datos de tu venue?
+          </p>
+          <Button
+            variant="gold"
+            size="lg"
+            className="group rounded-full"
+            asChild
+          >
+            <Link to="/contacto">
+              Pedir una demo
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
