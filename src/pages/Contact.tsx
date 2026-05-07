@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ArrowRight, Check, User, Mail, Building, MessageSquare, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
+import SEO from "@/components/shared/SEO";
 import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
@@ -33,6 +34,10 @@ const Contact = () => {
 
   return (
     <>
+      <SEO
+        title="Contacto"
+        description="Hablemos de tu evento o venue. Solicitá una demo personalizada de Ronda Privé y armamos juntos el setup que necesitás."
+      />
       <PageHero title={t("contact.heroTitle")} titleHighlight={t("contact.heroHighlight")} subtitle={t("contact.heroSubtitle")} />
       <section className="pb-24">
         <div className="section-container max-w-2xl">

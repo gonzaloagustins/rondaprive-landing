@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Calendar, MapPin, Zap, Armchair, ShoppingBag, ArrowLeft, ArrowRight, UtensilsCrossed, Wine, Crown, Star, Users } from "lucide-react";
+import SEO from "@/components/shared/SEO";
 import { getEventById } from "@/data/events";
 import { useState } from "react";
 import type { MenuItem } from "@/data/events";
@@ -36,6 +37,10 @@ const EventDetail = () => {
 
   return (
     <>
+      <SEO
+        title={event.name}
+        description={`${event.name} en Ronda Privé. Compra desde el celular antes y durante el show — sin filas, sin tótems.`}
+      />
       {/* Hero */}
       <section className="pt-20">
         {/* Banner image */}

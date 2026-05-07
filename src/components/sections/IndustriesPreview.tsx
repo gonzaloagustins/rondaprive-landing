@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Music, Tent, Trophy, Wine } from "lucide-react";
 import { industries } from "@/data/industries";
+
+const VALID_IDS = ["nightclubs", "festivals", "stadiums", "bars"] as const;
+const DEFAULT_ID = "festivals";
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Music,
@@ -38,9 +41,22 @@ const useCasePills: Record<string, string[]> = {
 };
 
 const IndustriesPreview = () => {
-  const [activeId, setActiveId] = useState("festivals");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tipo = searchParams.get("tipo") ?? DEFAULT_ID;
+  const activeId = (VALID_IDS as readonly string[]).includes(tipo) ? tipo : DEFAULT_ID;
   const active = industries.find((i) => i.id === activeId) || industries[1];
   const ActiveIcon = iconMap[active.icon] || Music;
+
+  const selectTab = (id: string) => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        next.set("tipo", id);
+        return next;
+      },
+      { replace: true, preventScrollReset: true }
+    );
+  };
 
   return (
     <section className="section-dark py-24" id="soluciones">
@@ -67,7 +83,7 @@ const IndustriesPreview = () => {
             return (
               <button
                 key={ind.id}
-                onClick={() => setActiveId(ind.id)}
+                onClick={() => selectTab(ind.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                   isActive
                     ? "bg-[#F0EBE3] text-[#1A1814] shadow-sm"

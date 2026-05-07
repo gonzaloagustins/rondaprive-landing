@@ -4,6 +4,7 @@ import { Smartphone, ChefHat, BarChart3, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
+import SEO from "@/components/shared/SEO";
 
 const tabs = [
   { key: 'attendee', icon: Smartphone },
@@ -18,6 +19,10 @@ const HowItWorks = () => {
 
   return (
     <>
+      <SEO
+        title="Cómo funciona"
+        description="Cómo funciona Ronda Privé para asistentes, equipo de cocina y organizadores. Flujo end-to-end de compra, preparación y control de pedidos."
+      />
       <PageHero title={t("howItWorks.label")} titleHighlight={t("howItWorks.titleHighlight")} subtitle={t("howItWorks.subtitle")} />
 
       <section className="pb-24">

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Search, X, CalendarOff, Music, Trophy, PartyPopper, Mic, Wine } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
+import SEO from "@/components/shared/SEO";
 import { EventCard } from "@/components/ui/card-7";
 import { events } from "@/data/events";
 import {
@@ -85,6 +86,10 @@ const Events = () => {
 
   return (
     <>
+      <SEO
+        title="Eventos activos"
+        description="Eventos en vivo donde Ronda Privé está operando. Compra anticipada, entrega al asiento y retiro express."
+      />
       <PageHero title={t("events.heroTitle")} titleHighlight={t("events.heroHighlight")} subtitle={t("events.heroSubtitle")} />
 
       <section className="pb-24">

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { TrendingUp, Smile, Settings, Cpu, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
+import SEO from "@/components/shared/SEO";
 
 const categories = [
   { key: 'commercial', icon: TrendingUp, color: 'text-green-400 bg-green-500/10' },
@@ -16,6 +17,10 @@ const Benefits = () => {
 
   return (
     <>
+      <SEO
+        title="Beneficios"
+        description="Más ventas, mejor experiencia y control total. Beneficios comerciales, operativos, técnicos y de experiencia con Ronda Privé."
+      />
       <PageHero title={t("benefits.title")} titleHighlight={t("benefits.titleHighlight")} />
 
       <section className="pb-24">
