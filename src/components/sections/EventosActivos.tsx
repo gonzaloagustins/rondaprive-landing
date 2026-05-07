@@ -27,14 +27,14 @@ const EventosActivos = () => {
         {/* Header */}
         <div className="text-center mx-auto max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            Tracción
+            Formatos
           </span>
           <h2 className="mt-6 font-display text-4xl font-bold tracking-tight sm:text-5xl">
             Diseñado para eventos a cualquier escala
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
-            Festivales, estadios, clubs y bares. La plataforma se adapta al
-            formato y crece con vos.
+            Festivales, estadios, clubs y bares. La plataforma se adapta a
+            cualquier formato y crece junto a tu evento.
           </p>
         </div>
 
