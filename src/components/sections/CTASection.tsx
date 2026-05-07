@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight, Mail, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const CTASection = () => {
@@ -24,7 +24,9 @@ const CTASection = () => {
 
           {/* Subtitle */}
           <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
-            Los venues que eliminaron la fricción en la entrada aumentaron su tasa de retorno de asistentes. El tuyo puede ser el siguiente.
+            Los venues que sumaron Ronda Privé aumentan sus ventas un{" "}
+            <span className="font-semibold text-foreground">40% promedio</span>.
+            El tuyo puede ser el siguiente.
           </p>
 
           {/* CTAs */}
@@ -43,10 +45,13 @@ const CTASection = () => {
             <Button
               variant="light-outline"
               size="lg"
-              className="group rounded-full"
+              className="rounded-full"
               asChild
             >
-              <Link to="/contacto">Contactar Ventas</Link>
+              <a href="mailto:info@rondaprive.com">
+                <Mail className="w-5 h-5" />
+                Mandar un mail
+              </a>
             </Button>
           </div>
         </div>
