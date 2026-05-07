@@ -1,16 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import IPhoneMockup from "@/components/ui/iphone-mockup";
 import { ArrowRight, Clock, Zap, ShoppingBag } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-
-const HERO_PHRASES = [
-  "comprar",
-  "vender",
-  "gestionar",
-  "adquirir",
-];
 
 // Decide whether to load the background video. Respects Save-Data, slow
 // connections, and reduced-motion preferences so mobile users on mobile data
@@ -98,8 +90,14 @@ const HeroSection = () => {
             <source src={`${base}hero-video.mp4`} type="video/mp4" />
           </video>
         )}
-        {/* Gradient overlays to blend into cream */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F5F0EB] via-[#F5F0EB]/40 to-transparent" />
+        {/* Gradient overlays to blend into cream and ensure text legibility */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, #F5F0EB 0%, #F5F0EB 40%, rgba(245,240,235,0.65) 60%, transparent 82%)",
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5F0EB]/30 via-transparent to-[#F5F0EB]/30" />
       </div>
 
@@ -107,17 +105,23 @@ const HeroSection = () => {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left: Headline + CTAs */}
           <div className="hero-text-card space-y-8 animate-fade-in-up">
-            <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl space-y-3">
-              <span className="block">Transformando la forma de</span>
-              <span className="block">
-                <ContainerTextFlip
-                  words={HERO_PHRASES}
-                  interval={2800}
-                  className="font-display text-5xl sm:text-6xl md:text-7xl italic px-5 leading-tight"
-                />
+            <div className="space-y-5">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+                Plataforma móvil para eventos y venues
               </span>
-              <span className="block">en recintos comerciales</span>
-            </h1>
+              <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl">
+                <span className="block">Elimina la espera.</span>
+                <span
+                  className="block bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(135deg, #A07D3A 0%, #C4924D 50%, #A07D3A 100%)",
+                  }}
+                >
+                  Maximiza las ventas.
+                </span>
+              </h1>
+            </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button variant="dark-solid" size="lg" className="group rounded-full" asChild>
@@ -198,25 +202,14 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Right: aumento ventas — straddling right edge, top-quarter */}
-              <div className="absolute -right-24 top-16 bg-white rounded-2xl shadow-lg px-3 py-2.5 flex items-center gap-2.5 animate-fade-in-delay-4">
+              {/* Right: aumento ventas — straddling right edge, above button */}
+              <div className="absolute -right-16 bottom-20 bg-white rounded-2xl shadow-lg px-3 py-2.5 flex items-center gap-2.5 animate-fade-in-delay-4">
                 <div className="w-7 h-7 rounded-full bg-[#F0EBE3] flex items-center justify-center text-xs font-bold">
                   📈
                 </div>
                 <div>
                   <p className="text-sm font-bold text-foreground leading-none">+40%</p>
                   <p className="text-[9px] text-muted-foreground">Aumento ventas</p>
-                </div>
-              </div>
-
-              {/* Right: satisfacción — straddling right edge, above button */}
-              <div className="absolute -right-16 bottom-20 bg-white rounded-2xl shadow-lg px-3 py-2.5 flex items-center gap-2.5 animate-fade-in-delay-5">
-                <div className="w-7 h-7 rounded-full bg-[#F0EBE3] flex items-center justify-center text-xs">
-                  ⭐
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-foreground leading-none">98%</p>
-                  <p className="text-[9px] text-muted-foreground">Satisfacción</p>
                 </div>
               </div>
             </div>
