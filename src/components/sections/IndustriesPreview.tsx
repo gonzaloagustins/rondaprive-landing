@@ -1,5 +1,6 @@
-import { useSearchParams } from "react-router-dom";
-import { Music, Tent, Trophy, Wine } from "lucide-react";
+import { Link, useSearchParams } from "react-router-dom";
+import { ArrowRight, Music, Tent, Trophy, Wine } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { industries } from "@/data/industries";
 
 const VALID_IDS = ["nightclubs", "festivals", "stadiums", "bars"] as const;
@@ -146,6 +147,20 @@ const IndustriesPreview = () => {
                   </span>
                 ))}
               </div>
+            </div>
+
+            <div className="pt-2">
+              <Button
+                variant="gold"
+                size="lg"
+                className="group rounded-full"
+                asChild
+              >
+                <Link to={`/contacto?industria=${activeId}`}>
+                  Hablemos sobre {tabLabels[activeId].toLowerCase()}
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
