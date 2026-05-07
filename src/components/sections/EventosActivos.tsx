@@ -1,75 +1,118 @@
-import { Zap, ArrowRight, Music, Trophy, PartyPopper, Mic, Wine } from "lucide-react";
+import { ArrowRight, Clock, MapPin, ShoppingBag } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { GradientBlurBg } from "@/components/ui/gradient-blur-bg";
-import { EventCard } from "@/components/ui/card-7";
 import { getHomeEvents } from "@/data/events";
 
-const categoryIcons: Record<string, React.ReactNode> = {
-  festival: <PartyPopper className="h-6 w-6 text-white/80" />,
-  concert: <Mic className="h-6 w-6 text-white/80" />,
-  nightclub: <Music className="h-6 w-6 text-white/80" />,
-  conference: <Trophy className="h-6 w-6 text-white/80" />,
-  bar: <Wine className="h-6 w-6 text-white/80" />,
+const categoryLabels: Record<string, string> = {
+  festival: "Festival",
+  concert: "Concierto",
+  nightclub: "Nightclub",
+  conference: "Conferencia",
+  bar: "Bar",
+};
+
+const featureLabels: Record<string, { label: string; Icon: typeof Clock }> = {
+  preorder: { label: "Anticipada", Icon: Clock },
+  seat: { label: "En asiento", Icon: MapPin },
+  pickup: { label: "Pickup", Icon: ShoppingBag },
 };
 
 const EventosActivos = () => {
-  const homeEvents = getHomeEvents();
+  const homeEvents = getHomeEvents().slice(0, 3);
   const navigate = useNavigate();
 
   return (
-    <section className="pt-24 pb-6 md:pb-14" id="eventos">
+    <section className="py-24" id="eventos">
       <div className="section-container">
-        {/* Tag */}
-        <div className="text-center mb-6">
-          <span className="inline-flex items-center gap-2 rounded-full bg-[#F0EBE3] px-4 py-2 text-xs font-semibold text-foreground/70">
-            <Zap className="w-3.5 h-3.5 text-primary" />
-            Tecnología para Eventos
+        {/* Header */}
+        <div className="text-center mx-auto max-w-3xl">
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+            Tracción
           </span>
+          <h2 className="mt-6 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+            Diseñado para eventos a cualquier escala
+          </h2>
+          <p className="mt-5 text-lg text-muted-foreground">
+            Festivales, estadios, clubs y bares. La plataforma se adapta al
+            formato y crece con vos.
+          </p>
         </div>
 
-        {/* Title */}
-        <h2 className="font-display text-4xl sm:text-5xl font-bold text-center mb-16">
-          Eventos activos
-        </h2>
+        {/* Cards */}
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {homeEvents.map((event) => {
+            const categoryLabel = categoryLabels[event.category || "festival"];
+            return (
+              <article
+                key={event.id}
+                onClick={() => navigate(`/eventos/${event.id}`)}
+                className="group relative flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-border/60 bg-white shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                  <img
+                    src={event.image}
+                    alt={event.name}
+                    width={896}
+                    height={672}
+                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="absolute right-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-foreground/80 shadow-sm backdrop-blur">
+                    {categoryLabel}
+                  </span>
+                </div>
 
-        {/* Events grid */}
-        <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {homeEvents.map((event, index) => {
-              const isDecorative = index >= 3;
-              return (
-                <EventCard
-                  key={event.id}
-                  imageUrl={event.image}
-                  imageAlt={event.name}
-                  logo={categoryIcons[event.category || "festival"]}
-                  title={event.name}
-                  location={`${event.city}${event.country ? `, ${event.country}` : ""}`}
-                  overview={event.description}
-                  date={event.date}
-                  badgeText={event.badgeText}
-                  onViewEvent={() => navigate(`/eventos/${event.id}`)}
-                  className={`max-w-none h-[380px] ${
-                    isDecorative
-                      ? "hidden md:block pointer-events-none shadow-none !hover:shadow-none !hover:translate-y-0 [&_img]:!group-hover:scale-100"
-                      : index === 2 ? "shadow-none md:shadow-lg md:hover:shadow-2xl md:hover:-translate-y-2 hover:shadow-none hover:translate-y-0 [&_img]:hover:scale-100 md:[&_img]:hover:scale-110" : ""
-                  }`}
-                />
-              );
-            })}
-          </div>
-          <GradientBlurBg className="h-[65%]" />
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-display text-xl font-bold leading-snug">
+                    {event.name}
+                  </h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">
+                    {event.venue} · {event.city}
+                    {event.country ? `, ${event.country}` : ""}
+                  </p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {event.features.map((f) => {
+                      const meta = featureLabels[f];
+                      if (!meta) return null;
+                      const { label, Icon } = meta;
+                      return (
+                        <span
+                          key={f}
+                          className="inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1 text-xs font-medium text-foreground/80"
+                        >
+                          <Icon className="h-3 w-3 text-primary" aria-hidden />
+                          {label}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         {/* CTA */}
-        <div className="flex justify-center -mt-56 md:-mt-52 relative z-20">
-          <Button variant="dark-solid" size="lg" asChild>
-            <Link to="/eventos">
-              Ver todos los eventos
-              <ArrowRight className="w-4 h-4" />
+        <div className="mt-14 flex flex-col items-center justify-center gap-3 text-center">
+          <Button
+            variant="dark-solid"
+            size="lg"
+            className="group rounded-full"
+            asChild
+          >
+            <Link to="/contacto">
+              Hablemos de tu evento
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
+          <Link
+            to="/eventos"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            o explorar eventos donde estamos →
+          </Link>
         </div>
       </div>
     </section>
