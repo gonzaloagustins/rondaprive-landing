@@ -417,5 +417,39 @@
     "notFound": "Page not found",
     "notFoundMessage": "The page you're looking for doesn't exist or has been moved.",
     "goHome": "Go to home"
+  },
+  "benefitsSummary": {
+    "label": "Benefits",
+    "titleStart": "Designed to make everything",
+    "titleHighlight": "flow",
+    "subtitle": "More sales, better experience, and full control. No friction, no lines, no limits.",
+    "cards": {
+      "sales": {
+        "title": "More sales, less friction",
+        "description": "Turn every interaction into a purchase opportunity."
+      },
+      "experience": {
+        "title": "An uninterrupted experience",
+        "description": "Your guests live the event, not the lines."
+      },
+      "control": {
+        "title": "Full control in real time",
+        "description": "Clear, up-to-date data to make better decisions."
+      },
+      "scale": {
+        "title": "Scales to the whole venue",
+        "description": "A robust solution that adapts to any event and grows with you."
+      }
+    },
+    "mocks": {
+      "salesLabel": "Live sales",
+      "passTitle": "Digital pass",
+      "passReady": "You're in! Enjoy the event",
+      "dashboardTitle": "Event overview",
+      "dashboardToday": "Today",
+      "dashboardSales": "Sales",
+      "dashboardOrders": "Orders",
+      "dashboardProducts": "Sold"
+    }
   }
 }

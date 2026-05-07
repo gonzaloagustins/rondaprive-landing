@@ -417,5 +417,39 @@
     "notFound": "Page introuvable",
     "notFoundMessage": "La page que vous recherchez n'existe pas ou a été déplacée.",
     "goHome": "Retour à l'accueil"
+  },
+  "benefitsSummary": {
+    "label": "Avantages",
+    "titleStart": "Conçu pour que tout",
+    "titleHighlight": "coule",
+    "subtitle": "Plus de ventes, meilleure expérience et contrôle total. Sans friction, sans files, sans limites.",
+    "cards": {
+      "sales": {
+        "title": "Plus de ventes, moins de friction",
+        "description": "Transformez chaque interaction en opportunité d'achat."
+      },
+      "experience": {
+        "title": "Une expérience sans interruptions",
+        "description": "Vos invités vivent l'événement, pas les files d'attente."
+      },
+      "control": {
+        "title": "Contrôle total en temps réel",
+        "description": "Des données claires et à jour pour prendre de meilleures décisions."
+      },
+      "scale": {
+        "title": "S'adapte à toute la salle",
+        "description": "Une solution robuste qui s'adapte à chaque événement et grandit avec vous."
+      }
+    },
+    "mocks": {
+      "salesLabel": "Ventes en direct",
+      "passTitle": "Pass numérique",
+      "passReady": "C'est prêt ! Profitez de l'événement",
+      "dashboardTitle": "Résumé de l'événement",
+      "dashboardToday": "Aujourd'hui",
+      "dashboardSales": "Ventes",
+      "dashboardOrders": "Commandes",
+      "dashboardProducts": "Vendus"
+    }
   }
 }

@@ -417,5 +417,39 @@
     "notFound": "Página não encontrada",
     "notFoundMessage": "A página que você procura não existe ou foi movida.",
     "goHome": "Ir para o início"
+  },
+  "benefitsSummary": {
+    "label": "Benefícios",
+    "titleStart": "Desenhado para que tudo",
+    "titleHighlight": "flua",
+    "subtitle": "Mais vendas, melhor experiência e controle total. Sem fricção, sem filas, sem limites.",
+    "cards": {
+      "sales": {
+        "title": "Mais vendas, menos fricção",
+        "description": "Converta cada interação em uma oportunidade de compra."
+      },
+      "experience": {
+        "title": "Experiência sem interrupções",
+        "description": "Seus convidados vivem o evento, não as filas."
+      },
+      "control": {
+        "title": "Controle total em tempo real",
+        "description": "Dados claros e atualizados para tomar melhores decisões."
+      },
+      "scale": {
+        "title": "Escalável para todo o recinto",
+        "description": "Uma solução robusta que se adapta a qualquer evento e cresce com você."
+      }
+    },
+    "mocks": {
+      "salesLabel": "Vendas ao vivo",
+      "passTitle": "Passe digital",
+      "passReady": "Pronto! Aproveite o evento",
+      "dashboardTitle": "Resumo do evento",
+      "dashboardToday": "Hoje",
+      "dashboardSales": "Vendas",
+      "dashboardOrders": "Pedidos",
+      "dashboardProducts": "Vendidos"
+    }
   }
 }
