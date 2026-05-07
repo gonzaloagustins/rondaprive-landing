@@ -3,6 +3,7 @@ import { Zap, Armchair, ShoppingBag, ChefHat, ArrowRight, Check } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/shared/PageHero";
+import SEO from "@/components/shared/SEO";
 
 const solutionSections = [
   { key: 'pickup', icon: Zap, id: 'pickup' },
@@ -15,6 +16,10 @@ const Solutions = () => {
 
   return (
     <>
+      <SEO
+        title="Soluciones"
+        description="Compra anticipada, entrega al asiento y pickup express. Las tres formas de Ronda Privé para eliminar las filas en eventos y venues."
+      />
       <PageHero title={t("solutions.heroTitle")} titleHighlight={t("solutions.heroHighlight")} subtitle={t("solutions.heroSubtitle")} />
 
       {solutionSections.map(({ key, icon: Icon, id }, sIdx) => {

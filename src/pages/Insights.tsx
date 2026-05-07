@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Clock } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
+import SEO from "@/components/shared/SEO";
 import { insights } from "@/data/insights";
 
 const Insights = () => {
@@ -12,6 +13,10 @@ const Insights = () => {
 
   return (
     <>
+      <SEO
+        title="Insights"
+        description="Tendencias, casos de uso y novedades sobre comercio móvil en eventos y venues. Lecturas para organizadores y operadores."
+      />
       <PageHero title={t("insights.heroTitle")} titleHighlight={t("insights.heroHighlight")} subtitle={t("insights.heroSubtitle")} />
       <section className="pb-24">
         <div className="section-container">

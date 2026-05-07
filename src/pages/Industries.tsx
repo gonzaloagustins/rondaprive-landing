@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Music, Tent, Trophy, Wine, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
+import SEO from "@/components/shared/SEO";
 import { industries } from "@/data/industries";
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = { Music, Tent, Trophy, Wine };
@@ -27,6 +28,10 @@ const Industries = () => {
 
   return (
     <>
+      <SEO
+        title="Soluciones por industria"
+        description="Cómo Ronda Privé se adapta a festivales, estadios, nightclubs, bares y venues. Casos por tipo de recinto."
+      />
       <PageHero title={t("industries.label")} titleHighlight={t("industries.titleHighlight")} subtitle={t("industries.subtitle")} />
 
       <section className="pb-24">

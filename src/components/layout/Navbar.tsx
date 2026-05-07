@@ -101,13 +101,20 @@ const Navbar = () => {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className={`text-sm transition-colors font-medium ${
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative text-sm font-medium transition-colors ${
                     isActive
                       ? "text-foreground"
                       : "text-foreground/70 hover:text-foreground"
                   }`}
                 >
                   {item.label}
+                  <span
+                    aria-hidden
+                    className={`pointer-events-none absolute -bottom-1.5 left-0 right-0 mx-auto h-[2px] rounded-full bg-primary transition-all duration-300 ease-out ${
+                      isActive ? "w-full opacity-100" : "w-0 opacity-0"
+                    }`}
+                  />
                 </Link>
               );
             })}
@@ -146,10 +153,12 @@ const Navbar = () => {
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`py-2 transition-colors font-medium ${
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`relative py-2 pl-3 transition-colors font-medium border-l-2 ${
                       isActive
-                        ? "text-foreground"
-                        : "text-foreground/70 hover:text-foreground"
+                        ? "text-foreground border-primary"
+                        : "text-foreground/70 hover:text-foreground border-transparent"
                     }`}
                   >
                     {item.label}
