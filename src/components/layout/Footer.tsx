@@ -10,15 +10,14 @@ const Footer = () => {
   ];
 
   const solucionesLinks = [
-    { to: "/industrias", label: "Festivales" },
-    { to: "/industrias", label: "Estadios" },
-    { to: "/industrias", label: "Nightclubs" },
-    { to: "/industrias", label: "Bares y Venues" },
+    { to: "/industrias#festivals", label: "Festivales" },
+    { to: "/industrias#stadiums", label: "Estadios" },
+    { to: "/industrias#nightclubs", label: "Nightclubs" },
+    { to: "/industrias#bars", label: "Bares y Venues" },
   ];
 
   const empresaLinks = [
     { to: "/eventos", label: "Eventos activos" },
-    { to: "/contacto", label: "Nosotros" },
     { to: "/contacto", label: "Contacto" },
   ];
 
@@ -43,7 +42,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Plataforma tecnologica premium para la industria de eventos.
+              Plataforma tecnológica premium para eventos y venues.
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -135,26 +134,10 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="border-t border-border/50 mt-12 pt-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-muted-foreground">
-              &copy; {new Date().getFullYear()} Ronda Priv&eacute;. Todos los
-              derechos reservados.
-            </p>
-            <div className="flex items-center gap-6">
-              <a
-                href="#"
-                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Privacidad
-              </a>
-              <a
-                href="#"
-                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Términos
-              </a>
-            </div>
-          </div>
+          <p className="text-xs text-muted-foreground text-center md:text-left">
+            &copy; {new Date().getFullYear()} Ronda Priv&eacute;. Todos los
+            derechos reservados.
+          </p>
         </div>
       </div>
     </footer>
