@@ -14,10 +14,15 @@ const Navbar = () => {
   // is it for me (Soluciones) → does it work (Eventos = concrete proof) →
   // why is it good (Beneficios = abstract value) → close (Contacto).
   // Concrete proof (Eventos) intentionally precedes abstract value (Beneficios).
+  //
+  // sectionId tracks the corresponding home-page section for scroll-spy.
+  // "Eventos" maps to the EventosActivos section (id="eventos") so scroll-spy
+  // highlights it when the visitor scrolls past it on home, in addition to
+  // matching when they're on the /eventos page itself.
   const navItems = [
     { to: "/#producto", label: "Producto", sectionId: "producto" },
     { to: "/#soluciones", label: "Soluciones", sectionId: "soluciones" },
-    { to: "/eventos", label: "Eventos", sectionId: "" },
+    { to: "/eventos", label: "Eventos", sectionId: "eventos" },
     { to: "/#beneficios", label: "Beneficios", sectionId: "beneficios" },
     { to: "/contacto", label: "Contacto", sectionId: "" },
   ];
@@ -97,10 +102,16 @@ const Navbar = () => {
 
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => {
+              // An item is active when either (a) the home-page scroll-spy
+              // picked its section, or (b) the visitor is on its dedicated
+              // route. Eventos uses both — highlights when scrolled past the
+              // home section AND when the user is on /eventos.
+              const isPathMatch =
+                location.pathname === item.to ||
+                location.pathname.startsWith(item.to + "/");
               const isActive =
-                item.sectionId
-                  ? activeSection === item.sectionId
-                  : location.pathname === item.to || location.pathname.startsWith(item.to + '/');
+                (item.sectionId && activeSection === item.sectionId) ||
+                isPathMatch;
               return (
                 <Link
                   key={item.to}
@@ -149,10 +160,12 @@ const Navbar = () => {
           <div className="lg:hidden py-6 border-t border-border/50 animate-fade-in bg-[#F5F0EB]">
             <nav className="flex flex-col gap-3">
               {navItems.map((item) => {
+                const isPathMatch =
+                  location.pathname === item.to ||
+                  location.pathname.startsWith(item.to + "/");
                 const isActive =
-                  item.sectionId
-                    ? activeSection === item.sectionId
-                    : location.pathname === item.to || location.pathname.startsWith(item.to + '/');
+                  (item.sectionId && activeSection === item.sectionId) ||
+                  isPathMatch;
                 return (
                   <Link
                     key={item.to}
