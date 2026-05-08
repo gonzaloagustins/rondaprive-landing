@@ -10,20 +10,21 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
 
-  // Order follows the visitor's intent funnel: what is it (Producto) →
-  // is it for me (Soluciones) → does it work (Eventos = concrete proof) →
-  // why is it good (Beneficios = abstract value) → close (Contacto).
-  // Concrete proof (Eventos) intentionally precedes abstract value (Beneficios).
+  // Order mirrors the home-page scroll order so the visitor sees nav items
+  // light up sequentially as they scroll down: Hero → EventosActivos (eventos)
+  // → PlataformaSection (producto) → DashboardPreview (no nav) →
+  // BenefitsSummary (beneficios) → StatsBar (no nav) → IndustriesPreview
+  // (soluciones) → CTASection (no nav). Contacto is a separate page so it
+  // closes the row.
   //
   // sectionId tracks the corresponding home-page section for scroll-spy.
-  // "Eventos" maps to the EventosActivos section (id="eventos") so scroll-spy
-  // highlights it when the visitor scrolls past it on home, in addition to
-  // matching when they're on the /eventos page itself.
+  // "Eventos" maps to the EventosActivos section so it lights up both when
+  // scrolling past on home and when on the /eventos page itself.
   const navItems = [
-    { to: "/#producto", label: "Producto", sectionId: "producto" },
-    { to: "/#soluciones", label: "Soluciones", sectionId: "soluciones" },
     { to: "/eventos", label: "Eventos", sectionId: "eventos" },
+    { to: "/#producto", label: "Producto", sectionId: "producto" },
     { to: "/#beneficios", label: "Beneficios", sectionId: "beneficios" },
+    { to: "/#soluciones", label: "Soluciones", sectionId: "soluciones" },
     { to: "/contacto", label: "Contacto", sectionId: "" },
   ];
 
