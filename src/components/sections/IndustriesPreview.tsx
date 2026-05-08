@@ -21,10 +21,10 @@ const tabLabels: Record<string, string> = {
 };
 
 const problemTexts: Record<string, string> = {
-  nightclubs: "Barras congestionadas, pérdida de ventas en momentos peak, dificultad para atender mesas VIP con agilidad.",
-  festivals: "Miles de personas, puntos de venta insuficientes, largas filas bajo el sol, ventas perdidas.",
-  stadiums: "Asistentes abandonan sus asientos para comprar, pierden el espectáculo. Suites sin servicio ágil.",
-  bars: "Barras saturadas en horarios pico, errores en pedidos, falta de control de inventario.",
+  nightclubs: "Barras saturadas, mesas VIP descuidadas, ventas perdidas en peak.",
+  festivals: "Largas filas, puntos de venta insuficientes, ventas perdidas bajo el sol.",
+  stadiums: "Asistentes pierden el show cuando van a comprar. Suites sin atención ágil.",
+  bars: "Barras saturadas en peak, errores en pedidos, sin control de stock.",
 };
 
 const solutionTexts: Record<string, string> = {

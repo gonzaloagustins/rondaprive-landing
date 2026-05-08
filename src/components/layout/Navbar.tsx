@@ -10,11 +10,15 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
 
+  // Order follows the visitor's intent funnel: what is it (Producto) →
+  // is it for me (Soluciones) → does it work (Eventos = concrete proof) →
+  // why is it good (Beneficios = abstract value) → close (Contacto).
+  // Concrete proof (Eventos) intentionally precedes abstract value (Beneficios).
   const navItems = [
     { to: "/#producto", label: "Producto", sectionId: "producto" },
     { to: "/#soluciones", label: "Soluciones", sectionId: "soluciones" },
-    { to: "/#beneficios", label: "Beneficios", sectionId: "beneficios" },
     { to: "/eventos", label: "Eventos", sectionId: "" },
+    { to: "/#beneficios", label: "Beneficios", sectionId: "beneficios" },
     { to: "/contacto", label: "Contacto", sectionId: "" },
   ];
 
