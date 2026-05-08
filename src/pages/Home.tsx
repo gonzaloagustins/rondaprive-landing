@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import HeroSection from "@/components/sections/HeroSection";
 import LazySection from "@/components/LazySection";
 import SEO from "@/components/shared/SEO";
+import { trackEvent } from "@/lib/analytics";
 
 // Fixed navbar height (h-20 = 80 px) plus a small breathing offset.
 const NAVBAR_OFFSET_PX = 96;
@@ -30,6 +31,7 @@ const Home = () => {
   useEffect(() => {
     if (!location.hash) return;
     const id = location.hash.replace(/^#/, "");
+    trackEvent("nav_section_click", { section: id });
     const timeout = setTimeout(() => {
       const el = document.getElementById(id);
       if (!el) return;

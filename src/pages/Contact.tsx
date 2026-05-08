@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
 import { supabase } from "@/integrations/supabase/client";
+import { trackEvent } from "@/lib/analytics";
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -29,6 +30,10 @@ const Contact = () => {
       return;
     }
 
+    trackEvent("generate_lead", {
+      form_id: "contact",
+      venue_type: formData.venueType || "unspecified",
+    });
     setSubmitted(true);
   };
 

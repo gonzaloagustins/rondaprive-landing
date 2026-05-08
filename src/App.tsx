@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import ConsentBanner from "@/components/ConsentBanner";
+import { useGTMPageview } from "@/hooks/useGTMPageview";
 import Home from "./pages/Home";
 
 const Events = lazy(() => import("./pages/Events"));
@@ -29,31 +31,41 @@ const LoadingFallback = () => (
 
 const basename = "";
 
+const RouterShell = () => {
+  useGTMPageview();
+  return (
+    <>
+      <ScrollToTop />
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes>
+          <Route element={<PageLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/eventos" element={<Events />} />
+            <Route path="/eventos/:id" element={<EventDetail />} />
+            <Route path="/soluciones" element={<Solutions />} />
+            <Route path="/industrias" element={<Industries />} />
+            <Route path="/como-funciona" element={<HowItWorks />} />
+            <Route path="/beneficios" element={<Benefits />} />
+            <Route path="/insights" element={<Insights />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/contacto" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter basename={basename}>
-        <ScrollToTop />
-        <Suspense fallback={<LoadingFallback />}>
-          <Routes>
-            <Route element={<PageLayout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/eventos" element={<Events />} />
-              <Route path="/eventos/:id" element={<EventDetail />} />
-              <Route path="/soluciones" element={<Solutions />} />
-              <Route path="/industrias" element={<Industries />} />
-              <Route path="/como-funciona" element={<HowItWorks />} />
-              <Route path="/beneficios" element={<Benefits />} />
-              <Route path="/insights" element={<Insights />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/contacto" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
-          </Routes>
-        </Suspense>
+        <RouterShell />
       </BrowserRouter>
+      <ConsentBanner />
     </TooltipProvider>
   </QueryClientProvider>
 );
