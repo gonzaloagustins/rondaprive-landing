@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import { trackEvent } from "@/lib/analytics";
 
 const CTASection = () => {
   return (
@@ -37,7 +38,15 @@ const CTASection = () => {
               className="group rounded-full"
               asChild
             >
-              <Link to="/contacto">
+              <Link
+                to="/contacto"
+                onClick={() =>
+                  trackEvent("cta_click", {
+                    cta_id: "solicitar_demo",
+                    location: "cta_section",
+                  })
+                }
+              >
                 Solicitar Demo
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
@@ -48,7 +57,15 @@ const CTASection = () => {
               className="rounded-full"
               asChild
             >
-              <a href="mailto:info@rondaprive.com">
+              <a
+                href="mailto:info@rondaprive.com"
+                onClick={() =>
+                  trackEvent("cta_click", {
+                    cta_id: "mailto",
+                    location: "cta_section",
+                  })
+                }
+              >
                 <Mail className="w-5 h-5" />
                 Mandar un mail
               </a>

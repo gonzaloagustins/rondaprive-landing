@@ -110,6 +110,14 @@ export default defineConfig(({ mode }) => ({
               expiration: { maxEntries: 40, maxAgeSeconds: 60 * 60 * 24 * 14 },
             },
           },
+          {
+            urlPattern: /^https:\/\/(www\.)?googletagmanager\.com\//,
+            handler: "StaleWhileRevalidate",
+            options: {
+              cacheName: "gtm-scripts",
+              expiration: { maxEntries: 4, maxAgeSeconds: 60 * 60 * 24 },
+            },
+          },
         ],
       },
     }),
