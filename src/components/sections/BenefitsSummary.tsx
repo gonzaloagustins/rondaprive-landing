@@ -5,9 +5,6 @@ import {
   Users,
   Monitor,
   Network,
-  Smartphone,
-  Laptop,
-  Wifi,
   ChevronDown,
   type LucideIcon,
 } from "lucide-react";
@@ -158,29 +155,20 @@ const DashboardMock = ({
   </div>
 );
 
-const ScaleMock = (_props: { t: ReturnType<typeof useTranslation>["t"] }) => (
-  <div className="relative h-44 w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#FBF6EC] to-[#F0E4CC]">
-    {/* Radial glow */}
-    <div className="pointer-events-none absolute inset-0 [background:radial-gradient(circle_at_50%_55%,rgba(213,168,90,0.35),transparent_60%)]" />
-    {/* Center venue block */}
-    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      <div className="relative h-14 w-20 rotate-[18deg] skew-x-[-12deg] rounded-md bg-gradient-to-br from-[#2a2218] to-[#0f0c08] shadow-lg ring-1 ring-primary/30">
-        <span className="absolute inset-x-2 top-2 h-1 rounded-sm bg-primary/70" />
-        <span className="absolute inset-x-2 top-4 h-0.5 rounded-sm bg-primary/40" />
-        <span className="absolute inset-x-2 top-6 h-0.5 rounded-sm bg-primary/40" />
-        <span className="absolute inset-x-2 top-8 h-0.5 rounded-sm bg-primary/30" />
-      </div>
-    </div>
-    {/* Floating device badges */}
-    <span className="absolute left-3 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-border/60">
-      <Smartphone className="h-4 w-4 text-foreground" aria-hidden />
-    </span>
-    <span className="absolute right-3 top-6 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-border/60">
-      <Laptop className="h-4 w-4 text-foreground" aria-hidden />
-    </span>
-    <span className="absolute bottom-4 right-6 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-border/60">
-      <Wifi className="h-4 w-4 text-foreground" aria-hidden />
-    </span>
+const ScaleMock = ({ t }: { t: ReturnType<typeof useTranslation>["t"] }) => (
+  <div className="relative h-44 w-full overflow-hidden rounded-2xl bg-[#1f1a14]">
+    <img
+      src="/scale-venue-800w.webp"
+      srcSet="/scale-venue-480w.webp 480w, /scale-venue-800w.webp 800w"
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+      alt={t("benefitsSummary.cards.scale.title") as string}
+      width={800}
+      height={450}
+      loading="lazy"
+      decoding="async"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
   </div>
 );
 
