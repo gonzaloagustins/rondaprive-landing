@@ -22,7 +22,7 @@ const EventosActivos = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24" id="eventos">
+    <section className="pt-24 pb-[4.8rem]" id="eventos">
       <div className="section-container">
         {/* Header */}
         <div className="text-center mx-auto max-w-3xl">
