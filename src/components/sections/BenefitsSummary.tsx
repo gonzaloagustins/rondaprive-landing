@@ -5,9 +5,6 @@ import {
   Users,
   Monitor,
   Network,
-  Smartphone,
-  Laptop,
-  Wifi,
   ChevronDown,
   type LucideIcon,
 } from "lucide-react";
