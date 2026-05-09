@@ -84,7 +84,7 @@ const PlataformaSection = () => {
   };
 
   return (
-    <section className="relative z-30 py-24" id="producto">
+    <section className="relative z-30 pt-10 pb-24 sm:pt-12" id="producto">
       <div className="section-container">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="font-display text-4xl sm:text-5xl font-bold">
