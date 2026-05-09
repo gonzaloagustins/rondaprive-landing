@@ -444,7 +444,7 @@
     "mocks": {
       "salesLabel": "Ventes en direct",
       "passTitle": "Pass numérique",
-      "passReady": "C'est prêt ! Profitez de l'événement",
+      "passReady": "\n",
       "dashboardTitle": "Résumé de l'événement",
       "dashboardToday": "Aujourd'hui",
       "dashboardSales": "Ventes",
