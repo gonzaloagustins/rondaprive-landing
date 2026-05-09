@@ -80,8 +80,8 @@ export default defineConfig(({ mode }) => ({
             // Same-origin images — first visit pays network, repeat visits
             // are instant. We include all image types (WebP + JPG fallback +
             // PNG icons) and expire after a month.
-            urlPattern: ({ request, url }) =>
-              request.destination === "image" && url.origin === self.location.origin,
+            urlPattern: ({ request, sameOrigin }) =>
+              request.destination === "image" && sameOrigin,
             handler: "CacheFirst",
             options: {
               cacheName: "local-images",
