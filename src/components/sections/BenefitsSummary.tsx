@@ -62,84 +62,20 @@ const SalesMock = ({ t }: { t: ReturnType<typeof useTranslation>["t"] }) => (
 );
 
 const PassMock = ({ t }: { t: ReturnType<typeof useTranslation>["t"] }) => (
-  <div className="relative h-44 w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#1f1a14] via-[#2a2218] to-[#0f0c08]">
-    <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_30%_20%,rgba(213,168,90,0.45),transparent_55%),radial-gradient(circle_at_75%_80%,rgba(232,201,122,0.25),transparent_60%)]" />
-    <div className="relative flex h-full items-center justify-center">
-      <div className="w-[58%] rounded-xl bg-white/95 p-3 shadow-xl backdrop-blur">
-        <svg viewBox="0 0 110 110" className="mx-auto h-16 w-16" aria-hidden>
-          {(() => {
-            // Stylized QR-like grid: three corner markers + scattered modules.
-            const cells: JSX.Element[] = [];
-            const corner = (cx: number, cy: number) => {
-              cells.push(
-                <rect
-                  key={`c-${cx}-${cy}`}
-                  x={cx}
-                  y={cy}
-                  width="28"
-                  height="28"
-                  rx="3"
-                  fill="#1f1a14"
-                />
-              );
-              cells.push(
-                <rect
-                  key={`ci-${cx}-${cy}`}
-                  x={cx + 8}
-                  y={cy + 8}
-                  width="12"
-                  height="12"
-                  rx="1.5"
-                  fill="#fff"
-                />
-              );
-              cells.push(
-                <rect
-                  key={`cd-${cx}-${cy}`}
-                  x={cx + 11}
-                  y={cy + 11}
-                  width="6"
-                  height="6"
-                  rx="1"
-                  fill="#1f1a14"
-                />
-              );
-            };
-            corner(0, 0);
-            corner(82, 0);
-            corner(0, 82);
-            // Scattered modules in the body
-            const dots = [
-              [40, 6], [56, 6], [44, 14], [62, 16], [38, 22],
-              [50, 24], [60, 28], [70, 24], [42, 36], [54, 38],
-              [66, 36], [78, 42], [90, 42], [38, 50], [50, 52],
-              [62, 50], [74, 54], [86, 56], [42, 64], [56, 64],
-              [68, 66], [80, 68], [38, 76], [54, 78], [70, 80],
-              [86, 82], [98, 84], [44, 90], [60, 90], [76, 92],
-              [92, 96], [56, 102], [80, 102],
-            ];
-            dots.forEach(([x, y], i) => {
-              cells.push(
-                <rect
-                  key={`d-${i}`}
-                  x={x}
-                  y={y}
-                  width="6"
-                  height="6"
-                  rx="1"
-                  fill="#1f1a14"
-                />
-              );
-            });
-            return cells;
-          })()}
-        </svg>
-        <p className="mt-1 text-center font-display text-[11px] font-bold text-foreground">
-          {t("benefitsSummary.mocks.passTitle")}
-        </p>
-      </div>
-    </div>
-    <p className="absolute inset-x-0 bottom-2 text-center text-[10px] font-medium text-white/80">
+  <div className="relative h-44 w-full overflow-hidden rounded-2xl bg-[#1f1a14]">
+    <img
+      src="/seamless-experience-800w.webp"
+      srcSet="/seamless-experience-480w.webp 480w, /seamless-experience-800w.webp 800w"
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+      alt={t("benefitsSummary.mocks.passTitle") as string}
+      width={800}
+      height={450}
+      loading="lazy"
+      decoding="async"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+    <p className="absolute inset-x-0 bottom-2 text-center text-[10px] font-medium text-white/90">
       {t("benefitsSummary.mocks.passReady")}
     </p>
   </div>
