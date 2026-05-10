@@ -84,26 +84,62 @@
     },
     "attendee": {
       "steps": [
-        { "title": "Accede a Ronda Privé", "description": "Escanea el QR del evento o ingresa desde el link directo." },
-        { "title": "Explora la carta digital", "description": "Ve los productos disponibles, precios y opciones de cada punto de venta." },
-        { "title": "Realiza tu compra", "description": "Selecciona, paga desde tu celular y recibe un código QR de confirmación." },
-        { "title": "Retira o recibe", "description": "Acércate al punto de retiro o recibe en tu asiento. Sin filas." }
+        {
+          "title": "Accede a Ronda Privé",
+          "description": "Escanea el QR del evento o ingresa desde el link directo."
+        },
+        {
+          "title": "Explora la carta digital",
+          "description": "Ve los productos disponibles, precios y opciones de cada punto de venta."
+        },
+        {
+          "title": "Realiza tu compra",
+          "description": "Selecciona, paga desde tu celular y recibe un código QR de confirmación."
+        },
+        {
+          "title": "Retira o recibe",
+          "description": "Acércate al punto de retiro o recibe en tu asiento. Sin filas."
+        }
       ]
     },
     "kitchen": {
       "steps": [
-        { "title": "Recibe el pedido", "description": "El equipo operativo visualiza cada pedido con detalle de productos, cliente y ubicación." },
-        { "title": "Inicia preparación", "description": "El personal marca el estado: recibido, en preparación, listo." },
-        { "title": "Escanea y entrega", "description": "En Pick Up se escanea el QR del cliente. En Seat Delivery se asocia a la ubicación." },
-        { "title": "Actualiza estado", "description": "El sistema actualiza en tiempo real: listo, entregado. Trazabilidad completa." }
+        {
+          "title": "Recibe el pedido",
+          "description": "El equipo operativo visualiza cada pedido con detalle de productos, cliente y ubicación."
+        },
+        {
+          "title": "Inicia preparación",
+          "description": "El personal marca el estado: recibido, en preparación, listo."
+        },
+        {
+          "title": "Escanea y entrega",
+          "description": "En Pick Up se escanea el QR del cliente. En Seat Delivery se asocia a la ubicación."
+        },
+        {
+          "title": "Actualiza estado",
+          "description": "El sistema actualiza en tiempo real: listo, entregado. Trazabilidad completa."
+        }
       ]
     },
     "organizer": {
       "steps": [
-        { "title": "Configura tu evento", "description": "Define puntos de venta, productos, precios y modalidades habilitadas." },
-        { "title": "Monitorea en tiempo real", "description": "Visualiza ventas, inventario, pedidos activos y comportamiento de consumo." },
-        { "title": "Controla la operación", "description": "Ajusta precios, activa promociones, gestiona stock desde el dashboard." },
-        { "title": "Analiza resultados", "description": "Accede a reportes detallados, métricas de rendimiento y data accionable." }
+        {
+          "title": "Configura tu evento",
+          "description": "Define puntos de venta, productos, precios y modalidades habilitadas."
+        },
+        {
+          "title": "Monitorea en tiempo real",
+          "description": "Visualiza ventas, inventario, pedidos activos y comportamiento de consumo."
+        },
+        {
+          "title": "Controla la operación",
+          "description": "Ajusta precios, activa promociones, gestiona stock desde el dashboard."
+        },
+        {
+          "title": "Analiza resultados",
+          "description": "Accede a reportes detallados, métricas de rendimiento y data accionable."
+        }
       ]
     }
   },
@@ -114,33 +150,69 @@
     "commercial": {
       "title": "Comerciales",
       "items": [
-        { "title": "+80% ventas por asistente", "description": "Incrementa el consumo capturando ventas que antes se perdían en filas." },
-        { "title": "Momentos peak aprovechados", "description": "Maximiza la venta en los momentos de mayor demanda del evento." },
-        { "title": "Mayor ticket promedio", "description": "La compra digital sin fricción incrementa naturalmente el valor por transacción." }
+        {
+          "title": "+80% ventas por asistente",
+          "description": "Incrementa el consumo capturando ventas que antes se perdían en filas."
+        },
+        {
+          "title": "Momentos peak aprovechados",
+          "description": "Maximiza la venta en los momentos de mayor demanda del evento."
+        },
+        {
+          "title": "Mayor ticket promedio",
+          "description": "La compra digital sin fricción incrementa naturalmente el valor por transacción."
+        }
       ]
     },
     "experience": {
       "title": "Experiencia del asistente",
       "items": [
-        { "title": "-70% tiempo de espera", "description": "Elimina las filas y la frustración. Más tiempo disfrutando, menos esperando." },
-        { "title": "Compra desde el celular", "description": "Sin descargar apps. Acceso inmediato, pago rápido, retiro ordenado." },
-        { "title": "Entrega al asiento", "description": "En estadios, suites y VIP, el consumo llega directamente a la ubicación del asistente." }
+        {
+          "title": "-70% tiempo de espera",
+          "description": "Elimina las filas y la frustración. Más tiempo disfrutando, menos esperando."
+        },
+        {
+          "title": "Compra desde el celular",
+          "description": "Sin descargar apps. Acceso inmediato, pago rápido, retiro ordenado."
+        },
+        {
+          "title": "Entrega al asiento",
+          "description": "En estadios, suites y VIP, el consumo llega directamente a la ubicación del asistente."
+        }
       ]
     },
     "operational": {
       "title": "Operativos",
       "items": [
-        { "title": "Control total en tiempo real", "description": "Centraliza pedidos, inventario y métricas en un solo panel operativo." },
-        { "title": "Operación más eficiente", "description": "Menos personal en caja, mejor coordinación y trazabilidad completa." },
-        { "title": "Inventario inteligente", "description": "Monitoreo de stock en vivo con alertas y capacidad de reacción inmediata." }
+        {
+          "title": "Control total en tiempo real",
+          "description": "Centraliza pedidos, inventario y métricas en un solo panel operativo."
+        },
+        {
+          "title": "Operación más eficiente",
+          "description": "Menos personal en caja, mejor coordinación y trazabilidad completa."
+        },
+        {
+          "title": "Inventario inteligente",
+          "description": "Monitoreo de stock en vivo con alertas y capacidad de reacción inmediata."
+        }
       ]
     },
     "technical": {
       "title": "Tecnológicos",
       "items": [
-        { "title": "Sin infraestructura adicional", "description": "No requiere tótems, cajas registradoras ni hardware especializado." },
-        { "title": "Implementación flexible", "description": "Se adapta a cualquier recinto, formato de evento y volumen de asistentes." },
-        { "title": "Integración sin fricción", "description": "Compatible con tu operación actual. Implementación en días, no meses." }
+        {
+          "title": "Sin infraestructura adicional",
+          "description": "No requiere tótems, cajas registradoras ni hardware especializado."
+        },
+        {
+          "title": "Implementación flexible",
+          "description": "Se adapta a cualquier recinto, formato de evento y volumen de asistentes."
+        },
+        {
+          "title": "Integración sin fricción",
+          "description": "Compatible con tu operación actual. Implementación en días, no meses."
+        }
       ]
     }
   },
@@ -184,11 +256,26 @@
     "titleHighlight": "Decisiones en tiempo real.",
     "subtitle": "El panel de control que centraliza toda la operación de tu evento en una sola vista.",
     "modules": [
-      { "title": "Estadísticas rápidas", "description": "Ventas totales, transacciones, ticket promedio y tendencias al instante." },
-      { "title": "Gestión de eventos", "description": "Configura productos, precios, puntos de venta y modalidades por evento." },
-      { "title": "Inventario en vivo", "description": "Stock actualizado en tiempo real con alertas de bajo inventario." },
-      { "title": "Monitoreo de ventas", "description": "Visualiza ventas por producto, punto de venta, horario y tendencia." },
-      { "title": "Control de pedidos", "description": "Seguimiento de cada pedido desde la compra hasta la entrega." }
+      {
+        "title": "Estadísticas rápidas",
+        "description": "Ventas totales, transacciones, ticket promedio y tendencias al instante."
+      },
+      {
+        "title": "Gestión de eventos",
+        "description": "Configura productos, precios, puntos de venta y modalidades por evento."
+      },
+      {
+        "title": "Inventario en vivo",
+        "description": "Stock actualizado en tiempo real con alertas de bajo inventario."
+      },
+      {
+        "title": "Monitoreo de ventas",
+        "description": "Visualiza ventas por producto, punto de venta, horario y tendencia."
+      },
+      {
+        "title": "Control de pedidos",
+        "description": "Seguimiento de cada pedido desde la compra hasta la entrega."
+      }
     ],
     "stats": {
       "revenue": "$47,320",
@@ -243,7 +330,10 @@
       "message": "Mensaje (opcional)",
       "submit": "Solicitar demo",
       "scheduling": "O agenda directamente una reunión"
-    }
+    },
+    "eyebrow": "Comienza hoy",
+    "titleStart": "Cada minuto en la fila es",
+    "sendEmail": "Mandar un mail"
   },
   "events": {
     "heroTitle": "Descubre",
@@ -260,7 +350,18 @@
     "viewEvent": "Ver evento",
     "viewMenu": "Ver carta",
     "vendors": "Puntos de venta",
-    "backToEvents": "Volver a eventos"
+    "backToEvents": "Volver a eventos",
+    "searchPlaceholder": "Buscar por evento, venue o ciudad...",
+    "allCountries": "Todos los países",
+    "sortDate": "Más próximos",
+    "sortName": "A-Z",
+    "countOf": "{{count}} de {{total}} eventos",
+    "clearFilters": "Limpiar filtros",
+    "emptyTitle": "No se encontraron eventos",
+    "emptyBody": "No hay eventos que coincidan con tu búsqueda. Prueba con otros filtros o explora todos los eventos disponibles.",
+    "viewAll": "Ver todos los eventos",
+    "implementTitle": "¿Quieres implementar esto en tu evento?",
+    "implementSubtitle": "Conoce la plataforma Ronda Privé"
   },
   "solutions": {
     "heroTitle": "Soluciones que",
@@ -270,43 +371,102 @@
       "title": "Pick Up Express",
       "subtitle": "Compra digital con retiro en punto de venta",
       "steps": [
-        { "title": "Accede a Ronda Privé", "description": "El asistente ingresa escaneando un QR o desde un link directo." },
-        { "title": "Explora y compra", "description": "Ve la carta digital, selecciona productos y paga desde el celular." },
-        { "title": "Recibe tu QR", "description": "Se genera un código QR único como comprobante del pedido." },
-        { "title": "Acércate al punto de retiro", "description": "El asistente se dirige al punto de venta sin hacer fila." },
-        { "title": "Escaneo y preparación", "description": "El personal escanea el QR y recién ahí inicia la preparación." },
-        { "title": "Retira tu pedido", "description": "El pedido se entrega listo. Sin esperas, sin congestión." }
+        {
+          "title": "Accede a Ronda Privé",
+          "description": "El asistente ingresa escaneando un QR o desde un link directo."
+        },
+        {
+          "title": "Explora y compra",
+          "description": "Ve la carta digital, selecciona productos y paga desde el celular."
+        },
+        {
+          "title": "Recibe tu QR",
+          "description": "Se genera un código QR único como comprobante del pedido."
+        },
+        {
+          "title": "Acércate al punto de retiro",
+          "description": "El asistente se dirige al punto de venta sin hacer fila."
+        },
+        {
+          "title": "Escaneo y preparación",
+          "description": "El personal escanea el QR y recién ahí inicia la preparación."
+        },
+        {
+          "title": "Retira tu pedido",
+          "description": "El pedido se entrega listo. Sin esperas, sin congestión."
+        }
       ]
     },
     "seat": {
       "title": "Compra desde el asiento",
       "subtitle": "Delivery directo a tu ubicación dentro del recinto",
       "steps": [
-        { "title": "Escanea el QR del asiento", "description": "Cada asiento, mesa o sector tiene un QR único que identifica la ubicación." },
-        { "title": "Confirma tu ubicación", "description": "El sistema detecta automáticamente tu sector, fila y asiento." },
-        { "title": "Explora y compra", "description": "Accede a la carta digital y realiza tu compra desde el celular." },
-        { "title": "Se genera el pedido", "description": "El pedido se crea con un código único asociado a tu ubicación." },
-        { "title": "Preparación en tiempo real", "description": "El pedido se prepara y puedes seguir su estado en vivo." },
-        { "title": "Entrega en tu asiento", "description": "El consumo se entrega directamente en tu ubicación." }
+        {
+          "title": "Escanea el QR del asiento",
+          "description": "Cada asiento, mesa o sector tiene un QR único que identifica la ubicación."
+        },
+        {
+          "title": "Confirma tu ubicación",
+          "description": "El sistema detecta automáticamente tu sector, fila y asiento."
+        },
+        {
+          "title": "Explora y compra",
+          "description": "Accede a la carta digital y realiza tu compra desde el celular."
+        },
+        {
+          "title": "Se genera el pedido",
+          "description": "El pedido se crea con un código único asociado a tu ubicación."
+        },
+        {
+          "title": "Preparación en tiempo real",
+          "description": "El pedido se prepara y puedes seguir su estado en vivo."
+        },
+        {
+          "title": "Entrega en tu asiento",
+          "description": "El consumo se entrega directamente en tu ubicación."
+        }
       ]
     },
     "preorder": {
       "title": "Compra anticipada",
       "subtitle": "Compra antes del evento, retira el día del show",
       "steps": [
-        { "title": "Compra antes del evento", "description": "Accede a la carta del evento días antes y selecciona tus productos." },
-        { "title": "Paga por adelantado", "description": "Realiza el pago con anticipación y asegura tu consumo." },
-        { "title": "Recibe tu QR", "description": "Un código QR se genera como comprobante de tu compra anticipada." },
-        { "title": "El día del evento, retira", "description": "Presenta tu QR en el punto de retiro y recibe tu pedido sin esperar." }
+        {
+          "title": "Compra antes del evento",
+          "description": "Accede a la carta del evento días antes y selecciona tus productos."
+        },
+        {
+          "title": "Paga por adelantado",
+          "description": "Realiza el pago con anticipación y asegura tu consumo."
+        },
+        {
+          "title": "Recibe tu QR",
+          "description": "Un código QR se genera como comprobante de tu compra anticipada."
+        },
+        {
+          "title": "El día del evento, retira",
+          "description": "Presenta tu QR en el punto de retiro y recibe tu pedido sin esperar."
+        }
       ]
     },
     "kitchen": {
       "title": "Operación de barra y cocina",
       "subtitle": "Flujo operativo diseñado para velocidad y control",
       "description": "Cuando entra un pedido, el equipo operativo visualiza el detalle completo. El personal de barra o cocina ve cada pedido por producto, cliente o ubicación. El sistema permite iniciar preparación, actualizar estados y mantener trazabilidad completa.",
-      "statuses": ["Recibido", "En preparación", "Listo", "Entregado"],
-      "benefits": ["Control total del flujo", "Mayor velocidad de preparación", "Coordinación entre equipos", "Trazabilidad de cada pedido"]
-    }
+      "statuses": [
+        "Recibido",
+        "En preparación",
+        "Listo",
+        "Entregado"
+      ],
+      "benefits": [
+        "Control total del flujo",
+        "Mayor velocidad de preparación",
+        "Coordinación entre equipos",
+        "Trazabilidad de cada pedido"
+      ]
+    },
+    "ctaTitle": "¿Listo para transformar tu operación?"
   },
   "faq": {
     "heroTitle": "Preguntas",
@@ -473,7 +633,8 @@
     },
     "eventDetail": {
       "title": "Evento",
-      "description": "Compra desde el celular antes y durante el show, sin filas ni tótems."
+      "description": "Compra desde el celular antes y durante el show, sin filas ni tótems.",
+      "descriptionWithName": "{{name}} en Ronda Privé. Compra desde el celular antes y durante el show — sin filas, sin tótems."
     },
     "solutions": {
       "title": "Soluciones",
@@ -539,5 +700,24 @@
       "description": "El festival Lollapalooza llega a Chile con lineup internacional.",
       "badgeText": "Favorito"
     }
+  },
+  "eventCategories": {
+    "festival": "Festival",
+    "concert": "Concierto",
+    "nightclub": "Nightclub",
+    "conference": "Conferencia",
+    "bar": "Bar"
+  },
+  "eventFeatures": {
+    "preorder": "Anticipada",
+    "seat": "En asiento",
+    "pickup": "Pickup"
+  },
+  "eventosActivos": {
+    "eyebrow": "Formatos",
+    "title": "Diseñado para eventos a cualquier escala",
+    "subtitle": "Festivales, estadios, clubs y bares. La plataforma se adapta a cualquier formato y crece junto a tu evento.",
+    "ctaPrimary": "Hablemos de tu evento",
+    "ctaSecondary": "o explorar eventos donde estamos →"
   }
 }

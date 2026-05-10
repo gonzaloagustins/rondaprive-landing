@@ -84,26 +84,62 @@
     },
     "attendee": {
       "steps": [
-        { "title": "Access Ronda Privé", "description": "Scan the event QR or enter through a direct link." },
-        { "title": "Browse the digital menu", "description": "View available products, pricing, and options at each point of sale." },
-        { "title": "Place your order", "description": "Select items, pay from your phone, and receive a QR confirmation code." },
-        { "title": "Pick up or receive", "description": "Head to the collection point or receive at your seat. No queues." }
+        {
+          "title": "Access Ronda Privé",
+          "description": "Scan the event QR or enter through a direct link."
+        },
+        {
+          "title": "Browse the digital menu",
+          "description": "View available products, pricing, and options at each point of sale."
+        },
+        {
+          "title": "Place your order",
+          "description": "Select items, pay from your phone, and receive a QR confirmation code."
+        },
+        {
+          "title": "Pick up or receive",
+          "description": "Head to the collection point or receive at your seat. No queues."
+        }
       ]
     },
     "kitchen": {
       "steps": [
-        { "title": "Receive the order", "description": "The operations team sees each order with full product, customer, and location details." },
-        { "title": "Start preparation", "description": "Staff updates the status: received, in preparation, ready." },
-        { "title": "Scan and deliver", "description": "For Pick Up, the customer's QR is scanned. For Seat Delivery, the order is linked to the location." },
-        { "title": "Update status", "description": "The system updates in real time: ready, delivered. Complete traceability." }
+        {
+          "title": "Receive the order",
+          "description": "The operations team sees each order with full product, customer, and location details."
+        },
+        {
+          "title": "Start preparation",
+          "description": "Staff updates the status: received, in preparation, ready."
+        },
+        {
+          "title": "Scan and deliver",
+          "description": "For Pick Up, the customer's QR is scanned. For Seat Delivery, the order is linked to the location."
+        },
+        {
+          "title": "Update status",
+          "description": "The system updates in real time: ready, delivered. Complete traceability."
+        }
       ]
     },
     "organizer": {
       "steps": [
-        { "title": "Configure your event", "description": "Define points of sale, products, pricing, and enabled order modes." },
-        { "title": "Monitor in real time", "description": "Track sales, inventory, active orders, and consumption patterns live." },
-        { "title": "Control operations", "description": "Adjust pricing, activate promotions, and manage stock from the dashboard." },
-        { "title": "Analyze results", "description": "Access detailed reports, performance metrics, and actionable data." }
+        {
+          "title": "Configure your event",
+          "description": "Define points of sale, products, pricing, and enabled order modes."
+        },
+        {
+          "title": "Monitor in real time",
+          "description": "Track sales, inventory, active orders, and consumption patterns live."
+        },
+        {
+          "title": "Control operations",
+          "description": "Adjust pricing, activate promotions, and manage stock from the dashboard."
+        },
+        {
+          "title": "Analyze results",
+          "description": "Access detailed reports, performance metrics, and actionable data."
+        }
       ]
     }
   },
@@ -114,33 +150,69 @@
     "commercial": {
       "title": "Commercial",
       "items": [
-        { "title": "+80% sales per attendee", "description": "Increase spending by capturing sales previously lost in queues." },
-        { "title": "Peak moments capitalized", "description": "Maximize revenue during the highest-demand moments of the event." },
-        { "title": "Higher average ticket", "description": "Frictionless digital purchasing naturally increases transaction value." }
+        {
+          "title": "+80% sales per attendee",
+          "description": "Increase spending by capturing sales previously lost in queues."
+        },
+        {
+          "title": "Peak moments capitalized",
+          "description": "Maximize revenue during the highest-demand moments of the event."
+        },
+        {
+          "title": "Higher average ticket",
+          "description": "Frictionless digital purchasing naturally increases transaction value."
+        }
       ]
     },
     "experience": {
       "title": "Attendee experience",
       "items": [
-        { "title": "-70% wait time", "description": "Eliminate queues and frustration. More time enjoying, less time waiting." },
-        { "title": "Order from your phone", "description": "No app downloads. Instant access, fast payment, organized collection." },
-        { "title": "Delivery to your seat", "description": "In stadiums, suites, and VIP areas, orders arrive directly at the attendee's location." }
+        {
+          "title": "-70% wait time",
+          "description": "Eliminate queues and frustration. More time enjoying, less time waiting."
+        },
+        {
+          "title": "Order from your phone",
+          "description": "No app downloads. Instant access, fast payment, organized collection."
+        },
+        {
+          "title": "Delivery to your seat",
+          "description": "In stadiums, suites, and VIP areas, orders arrive directly at the attendee's location."
+        }
       ]
     },
     "operational": {
       "title": "Operational",
       "items": [
-        { "title": "Total real-time control", "description": "Centralize orders, inventory, and metrics in a single operations panel." },
-        { "title": "Streamlined operations", "description": "Fewer staff at registers, better coordination, and complete traceability." },
-        { "title": "Intelligent inventory", "description": "Live stock monitoring with alerts and immediate response capability." }
+        {
+          "title": "Total real-time control",
+          "description": "Centralize orders, inventory, and metrics in a single operations panel."
+        },
+        {
+          "title": "Streamlined operations",
+          "description": "Fewer staff at registers, better coordination, and complete traceability."
+        },
+        {
+          "title": "Intelligent inventory",
+          "description": "Live stock monitoring with alerts and immediate response capability."
+        }
       ]
     },
     "technical": {
       "title": "Technical",
       "items": [
-        { "title": "No additional infrastructure", "description": "No kiosks, cash registers, or specialized hardware required." },
-        { "title": "Flexible deployment", "description": "Adapts to any venue, event format, and attendee volume." },
-        { "title": "Frictionless integration", "description": "Compatible with your current setup. Implementation in days, not months." }
+        {
+          "title": "No additional infrastructure",
+          "description": "No kiosks, cash registers, or specialized hardware required."
+        },
+        {
+          "title": "Flexible deployment",
+          "description": "Adapts to any venue, event format, and attendee volume."
+        },
+        {
+          "title": "Frictionless integration",
+          "description": "Compatible with your current setup. Implementation in days, not months."
+        }
       ]
     }
   },
@@ -184,11 +256,26 @@
     "titleHighlight": "Real-time decisions.",
     "subtitle": "The command center that consolidates your entire event operation in a single view.",
     "modules": [
-      { "title": "Quick stats", "description": "Total sales, transactions, average ticket, and trends at a glance." },
-      { "title": "Event management", "description": "Configure products, pricing, points of sale, and order modes per event." },
-      { "title": "Live inventory", "description": "Stock updated in real time with low-inventory alerts." },
-      { "title": "Sales monitoring", "description": "Visualize sales by product, point of sale, time slot, and trend." },
-      { "title": "Order tracking", "description": "Follow every order from purchase through delivery." }
+      {
+        "title": "Quick stats",
+        "description": "Total sales, transactions, average ticket, and trends at a glance."
+      },
+      {
+        "title": "Event management",
+        "description": "Configure products, pricing, points of sale, and order modes per event."
+      },
+      {
+        "title": "Live inventory",
+        "description": "Stock updated in real time with low-inventory alerts."
+      },
+      {
+        "title": "Sales monitoring",
+        "description": "Visualize sales by product, point of sale, time slot, and trend."
+      },
+      {
+        "title": "Order tracking",
+        "description": "Follow every order from purchase through delivery."
+      }
     ],
     "stats": {
       "revenue": "$47,320",
@@ -243,7 +330,10 @@
       "message": "Message (optional)",
       "submit": "Request a demo",
       "scheduling": "Or schedule a meeting directly"
-    }
+    },
+    "eyebrow": "Start today",
+    "titleStart": "Every minute in line is",
+    "sendEmail": "Send an email"
   },
   "events": {
     "heroTitle": "Discover",
@@ -260,7 +350,18 @@
     "viewEvent": "View event",
     "viewMenu": "View menu",
     "vendors": "Points of sale",
-    "backToEvents": "Back to events"
+    "backToEvents": "Back to events",
+    "searchPlaceholder": "Search by event, venue or city...",
+    "allCountries": "All countries",
+    "sortDate": "Soonest",
+    "sortName": "A-Z",
+    "countOf": "{{count}} of {{total}} events",
+    "clearFilters": "Clear filters",
+    "emptyTitle": "No events found",
+    "emptyBody": "No events match your search. Try other filters or explore all available events.",
+    "viewAll": "View all events",
+    "implementTitle": "Want this at your event?",
+    "implementSubtitle": "Get to know the Ronda Privé platform"
   },
   "solutions": {
     "heroTitle": "Solutions that",
@@ -270,43 +371,102 @@
       "title": "Pick Up Express",
       "subtitle": "Digital ordering with point-of-sale collection",
       "steps": [
-        { "title": "Access Ronda Privé", "description": "The attendee enters by scanning a QR code or through a direct link." },
-        { "title": "Browse and order", "description": "View the digital menu, select products, and pay from the phone." },
-        { "title": "Receive your QR", "description": "A unique QR code is generated as your order receipt." },
-        { "title": "Head to the collection point", "description": "The attendee goes to the point of sale without standing in line." },
-        { "title": "Scan and preparation", "description": "Staff scans the QR and only then begins preparation." },
-        { "title": "Collect your order", "description": "The order is delivered ready. No waiting, no congestion." }
+        {
+          "title": "Access Ronda Privé",
+          "description": "The attendee enters by scanning a QR code or through a direct link."
+        },
+        {
+          "title": "Browse and order",
+          "description": "View the digital menu, select products, and pay from the phone."
+        },
+        {
+          "title": "Receive your QR",
+          "description": "A unique QR code is generated as your order receipt."
+        },
+        {
+          "title": "Head to the collection point",
+          "description": "The attendee goes to the point of sale without standing in line."
+        },
+        {
+          "title": "Scan and preparation",
+          "description": "Staff scans the QR and only then begins preparation."
+        },
+        {
+          "title": "Collect your order",
+          "description": "The order is delivered ready. No waiting, no congestion."
+        }
       ]
     },
     "seat": {
       "title": "Order from your seat",
       "subtitle": "Direct delivery to your location within the venue",
       "steps": [
-        { "title": "Scan the seat QR", "description": "Each seat, table, or section has a unique QR that identifies the location." },
-        { "title": "Confirm your location", "description": "The system automatically detects your section, row, and seat." },
-        { "title": "Browse and order", "description": "Access the digital menu and place your order from the phone." },
-        { "title": "Order is created", "description": "The order is generated with a unique code linked to your location." },
-        { "title": "Real-time preparation", "description": "The order is prepared and you can track its status live." },
-        { "title": "Delivery to your seat", "description": "Your order is delivered directly to your location." }
+        {
+          "title": "Scan the seat QR",
+          "description": "Each seat, table, or section has a unique QR that identifies the location."
+        },
+        {
+          "title": "Confirm your location",
+          "description": "The system automatically detects your section, row, and seat."
+        },
+        {
+          "title": "Browse and order",
+          "description": "Access the digital menu and place your order from the phone."
+        },
+        {
+          "title": "Order is created",
+          "description": "The order is generated with a unique code linked to your location."
+        },
+        {
+          "title": "Real-time preparation",
+          "description": "The order is prepared and you can track its status live."
+        },
+        {
+          "title": "Delivery to your seat",
+          "description": "Your order is delivered directly to your location."
+        }
       ]
     },
     "preorder": {
       "title": "Pre-event ordering",
       "subtitle": "Purchase before the event, collect on the day of the show",
       "steps": [
-        { "title": "Order before the event", "description": "Access the event menu days in advance and select your items." },
-        { "title": "Pay in advance", "description": "Complete payment ahead of time and secure your order." },
-        { "title": "Receive your QR", "description": "A QR code is generated as proof of your pre-event purchase." },
-        { "title": "Collect on event day", "description": "Present your QR at the collection point and receive your order without waiting." }
+        {
+          "title": "Order before the event",
+          "description": "Access the event menu days in advance and select your items."
+        },
+        {
+          "title": "Pay in advance",
+          "description": "Complete payment ahead of time and secure your order."
+        },
+        {
+          "title": "Receive your QR",
+          "description": "A QR code is generated as proof of your pre-event purchase."
+        },
+        {
+          "title": "Collect on event day",
+          "description": "Present your QR at the collection point and receive your order without waiting."
+        }
       ]
     },
     "kitchen": {
       "title": "Bar & kitchen operations",
       "subtitle": "Operational workflow designed for speed and control",
       "description": "When an order comes in, the operations team sees the full details. Bar or kitchen staff view each order by product, customer, or location. The system enables preparation tracking, status updates, and complete traceability.",
-      "statuses": ["Received", "In preparation", "Ready", "Delivered"],
-      "benefits": ["Total workflow control", "Faster preparation times", "Cross-team coordination", "Full order traceability"]
-    }
+      "statuses": [
+        "Received",
+        "In preparation",
+        "Ready",
+        "Delivered"
+      ],
+      "benefits": [
+        "Total workflow control",
+        "Faster preparation times",
+        "Cross-team coordination",
+        "Full order traceability"
+      ]
+    },
+    "ctaTitle": "Ready to transform your operation?"
   },
   "faq": {
     "heroTitle": "Frequently asked",
@@ -473,7 +633,8 @@
     },
     "eventDetail": {
       "title": "Event",
-      "description": "Order from your phone before and during the show — no lines, no kiosks."
+      "description": "Order from your phone before and during the show — no lines, no kiosks.",
+      "descriptionWithName": "{{name}} on Ronda Privé. Order from your phone before and during the show — no lines, no kiosks."
     },
     "solutions": {
       "title": "Solutions",
@@ -539,5 +700,24 @@
       "description": "Lollapalooza lands in Chile with an international lineup.",
       "badgeText": "Favorite"
     }
+  },
+  "eventCategories": {
+    "festival": "Festival",
+    "concert": "Concert",
+    "nightclub": "Nightclub",
+    "conference": "Conference",
+    "bar": "Bar"
+  },
+  "eventFeatures": {
+    "preorder": "Pre-order",
+    "seat": "At seat",
+    "pickup": "Pickup"
+  },
+  "eventosActivos": {
+    "eyebrow": "Formats",
+    "title": "Built for events at any scale",
+    "subtitle": "Festivals, stadiums, clubs and bars. The platform adapts to any format and grows with your event.",
+    "ctaPrimary": "Let's talk about your event",
+    "ctaSecondary": "or explore events where we operate →"
   }
 }
