@@ -13,10 +13,7 @@ const FAQ = () => {
 
   return (
     <>
-      <SEO
-        title="Preguntas frecuentes"
-        description="Resolvemos las preguntas más comunes sobre Ronda Privé: cómo se implementa, qué necesita el venue, cómo se cobra, integraciones y más."
-      />
+      <SEO pageKey="faq" />
       <PageHero title={t("faq.heroTitle")} titleHighlight={t("faq.heroHighlight")} subtitle={t("faq.heroSubtitle")} />
       <section className="pb-24">
         <div className="section-container max-w-3xl">

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Clock, MapPin, CheckSquare, Check, ChevronDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 type Product = {
   id: string;
@@ -77,6 +79,8 @@ const products: Product[] = [
 ];
 
 const PlataformaSection = () => {
+  const { t } = useTranslation();
+  const { path } = useLocalizedPath();
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const toggle = (id: string) => {
@@ -221,8 +225,8 @@ const PlataformaSection = () => {
             className="group rounded-full"
             asChild
           >
-            <Link to="/contacto">
-              Agendar demo
+            <Link to={path("contact")}>
+              {t("footer.scheduleDemo", "Agendar demo")}
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>

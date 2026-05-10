@@ -1,25 +1,29 @@
 import { ArrowRight, Clock, MapPin, ShoppingBag } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { getHomeEvents } from "@/data/events";
-
-const categoryLabels: Record<string, string> = {
-  festival: "Festival",
-  concert: "Concierto",
-  nightclub: "Nightclub",
-  conference: "Conferencia",
-  bar: "Bar",
-};
-
-const featureLabels: Record<string, { label: string; Icon: typeof Clock }> = {
-  preorder: { label: "Anticipada", Icon: Clock },
-  seat: { label: "En asiento", Icon: MapPin },
-  pickup: { label: "Pickup", Icon: ShoppingBag },
-};
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const EventosActivos = () => {
-  const homeEvents = getHomeEvents().slice(0, 3);
+  const { t } = useTranslation();
+  const { path } = useLocalizedPath();
   const navigate = useNavigate();
+  const homeEvents = getHomeEvents(t).slice(0, 3);
+
+  const categoryLabels: Record<string, string> = {
+    festival: t("eventCategories.festival", "Festival"),
+    concert: t("eventCategories.concert", "Concierto"),
+    nightclub: t("eventCategories.nightclub", "Nightclub"),
+    conference: t("eventCategories.conference", "Conferencia"),
+    bar: t("eventCategories.bar", "Bar"),
+  };
+
+  const featureLabels: Record<string, { label: string; Icon: typeof Clock }> = {
+    preorder: { label: t("eventFeatures.preorder", "Anticipada"), Icon: Clock },
+    seat: { label: t("eventFeatures.seat", "En asiento"), Icon: MapPin },
+    pickup: { label: t("eventFeatures.pickup", "Pickup"), Icon: ShoppingBag },
+  };
 
   return (
     <section className="pt-24 pb-[4.8rem]" id="eventos">
@@ -27,14 +31,16 @@ const EventosActivos = () => {
         {/* Header */}
         <div className="text-center mx-auto max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            Formatos
+            {t("eventosActivos.eyebrow", "Formatos")}
           </span>
           <h2 className="mt-6 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-            Diseñado para eventos a cualquier escala
+            {t("eventosActivos.title", "Diseñado para eventos a cualquier escala")}
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
-            Festivales, estadios, clubs y bares. La plataforma se adapta a
-            cualquier formato y crece junto a tu evento.
+            {t(
+              "eventosActivos.subtitle",
+              "Festivales, estadios, clubs y bares. La plataforma se adapta a cualquier formato y crece junto a tu evento.",
+            )}
           </p>
         </div>
 
@@ -45,7 +51,7 @@ const EventosActivos = () => {
             return (
               <article
                 key={event.id}
-                onClick={() => navigate(`/eventos/${event.id}`)}
+                onClick={() => navigate(path("eventDetail", `/${event.id}`))}
                 className="group relative flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-border/60 bg-white shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-muted">
@@ -102,16 +108,16 @@ const EventosActivos = () => {
             className="group rounded-full"
             asChild
           >
-            <Link to="/contacto">
-              Hablemos de tu evento
+            <Link to={path("contact")}>
+              {t("eventosActivos.ctaPrimary", "Hablemos de tu evento")}
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
           <Link
-            to="/eventos"
+            to={path("events")}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            o explorar eventos donde estamos →
+            {t("eventosActivos.ctaSecondary", "o explorar eventos donde estamos →")}
           </Link>
         </div>
       </div>

@@ -6,7 +6,10 @@
     "howItWorks": "Como funciona",
     "insights": "Insights",
     "exploreEvents": "Explorar eventos",
-    "requestDemo": "Solicitar demo"
+    "requestDemo": "Solicitar demo",
+    "product": "Produto",
+    "benefits": "Benefícios",
+    "contact": "Contato"
   },
   "hero": {
     "badge": "Tecnologia premium para eventos",
@@ -450,6 +453,88 @@
       "dashboardSales": "Vendas",
       "dashboardOrders": "Pedidos",
       "dashboardProducts": "Vendidos"
+    }
+  },
+  "seo": {
+    "default": {
+      "title": "Ronda Privé | Tecnologia premium para eventos e venues",
+      "description": "Plataforma móvel para eventos e venues. Acabe com as filas, aumente as vendas. Compra antecipada, entrega no assento e retirada expressa — sem totens nem infraestrutura adicional."
+    },
+    "home": {
+      "title": "Tecnologia premium para eventos e venues",
+      "description": "Plataforma móvel para eventos e venues. Acabe com as filas e aumente as vendas com compra antecipada, entrega no assento e retirada expressa."
+    },
+    "events": {
+      "title": "Eventos ativos",
+      "description": "Eventos ao vivo com Ronda Privé. Compra antecipada, entrega no assento e retirada expressa."
+    },
+    "eventDetail": {
+      "title": "Evento",
+      "description": "Compre pelo celular antes e durante o show — sem filas e sem totens."
+    },
+    "solutions": {
+      "title": "Soluções",
+      "description": "Compra antecipada, entrega no assento e retirada expressa. As três modalidades do Ronda Privé para acabar com as filas em eventos e venues."
+    },
+    "industries": {
+      "title": "Soluções por setor",
+      "description": "Como o Ronda Privé se adapta a festivais, estádios, baladas, bares e venues. Casos por tipo de local."
+    },
+    "howItWorks": {
+      "title": "Como funciona",
+      "description": "Como o Ronda Privé funciona para o público, a cozinha e os organizadores. Fluxo completo do pedido à entrega."
+    },
+    "benefits": {
+      "title": "Benefícios",
+      "description": "Mais vendas, melhor experiência, controle total. Benefícios comerciais, operacionais, técnicos e de experiência com Ronda Privé."
+    },
+    "insights": {
+      "title": "Insights",
+      "description": "Tendências, casos de uso e novidades sobre comércio móvel em eventos e venues. Leituras para organizadores e operadores."
+    },
+    "faq": {
+      "title": "Perguntas frequentes",
+      "description": "Respondemos as perguntas mais comuns sobre o Ronda Privé: implementação, requisitos do venue, preços, integrações e mais."
+    },
+    "contact": {
+      "title": "Contato",
+      "description": "Fale sobre o seu evento ou venue. Peça uma demo personalizada do Ronda Privé e montamos o setup ideal juntos."
+    }
+  },
+  "eventsData": {
+    "estereo-picnic-2026": {
+      "date": "28-30 de março de 2026",
+      "country": "Colômbia",
+      "description": "O maior festival de música da Colômbia, com artistas internacionais.",
+      "badgeText": "Mais vendido"
+    },
+    "copa-libertadores-2026": {
+      "date": "15 de novembro de 2026",
+      "country": "Argentina",
+      "description": "A grande final da Copa Libertadores.",
+      "badgeText": "Todas as sessões"
+    },
+    "tomorrowland-winter-2026": {
+      "date": "14-21 de março de 2026",
+      "country": "França",
+      "description": "A edição de inverno do maior festival do mundo."
+    },
+    "club-prive-madrid": {
+      "date": "Todos os fins de semana",
+      "country": "Espanha",
+      "description": "A experiência noturna mais exclusiva de Madri.",
+      "badgeText": "VIP exclusivo"
+    },
+    "tech-summit-2026": {
+      "date": "3-5 de junho de 2026",
+      "country": "",
+      "description": "O principal evento de tecnologia e inovação."
+    },
+    "lollapalooza-chile-2026": {
+      "date": "14-16 de março de 2026",
+      "country": "Chile",
+      "description": "O Lollapalooza chega ao Chile com line-up internacional.",
+      "badgeText": "Favorito"
     }
   }
 }

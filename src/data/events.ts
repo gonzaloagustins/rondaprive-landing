@@ -1,3 +1,5 @@
+import type { TFunction } from "i18next";
+
 export interface MenuItem {
   id: string;
   name: string;
@@ -31,22 +33,24 @@ export interface Event {
   badgeText?: string;
 }
 
-export const events: Event[] = [
+// Static, language-agnostic event data. Translatable copy (description, date
+// label, country and the optional badge) is resolved through i18n at render
+// time — see `localizeEvents` below. Names of real events, venues and cities
+// are proper nouns and intentionally not translated.
+const rawEvents: Event[] = [
   {
     id: 'estereo-picnic-2026',
     name: 'Festival Estéreo Picnic 2026',
-    date: '28-30 Marzo 2026',
+    date: '',
     venue: 'Parque Simón Bolívar',
     city: 'Bogotá',
-    country: 'Colombia',
     image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80',
     features: ['pickup', 'seat', 'preorder'],
     status: 'active',
-    description: 'El festival de música más grande de Colombia con artistas internacionales.',
+    description: '',
     category: 'festival',
     rating: 4.9,
     attendees: '85,000',
-    badgeText: 'Más vendido',
     vendors: [
       {
         id: 'bar-central',
@@ -63,18 +67,16 @@ export const events: Event[] = [
   {
     id: 'copa-libertadores-2026',
     name: 'Final Copa Libertadores',
-    date: '15 Noviembre 2026',
+    date: '',
     venue: 'Estadio Monumental',
     city: 'Buenos Aires',
-    country: 'Argentina',
     image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=800&q=80',
     features: ['pickup', 'seat'],
     status: 'active',
-    description: 'La gran final de la Copa Libertadores de América.',
+    description: '',
     category: 'concert',
     rating: 4.8,
     attendees: '72,000',
-    badgeText: 'Todas las funciones',
     vendors: [
       {
         id: 'cantina',
@@ -90,14 +92,13 @@ export const events: Event[] = [
   {
     id: 'tomorrowland-winter-2026',
     name: 'Tomorrowland Winter',
-    date: '14-21 Marzo 2026',
+    date: '',
     venue: 'Alpe d\'Huez',
     city: 'Alpe d\'Huez',
-    country: 'Francia',
     image: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80',
     features: ['pickup', 'preorder'],
     status: 'active',
-    description: 'La edición invernal del festival más grande del mundo.',
+    description: '',
     category: 'festival',
     rating: 4.8,
     attendees: '30,000',
@@ -115,17 +116,15 @@ export const events: Event[] = [
   {
     id: 'club-prive-madrid',
     name: 'Club Privé Madrid',
-    date: 'Todos los fines de semana',
+    date: '',
     venue: 'Club Privé',
     city: 'Madrid',
-    country: 'España',
     image: 'https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=800&q=80',
     features: ['pickup', 'seat'],
     status: 'active',
-    description: 'La experiencia nocturna más exclusiva de Madrid.',
+    description: '',
     category: 'nightclub',
     rating: 4.7,
-    badgeText: 'VIP Exclusivo',
     vendors: [
       {
         id: 'vip-madrid',
@@ -140,13 +139,13 @@ export const events: Event[] = [
   {
     id: 'tech-summit-2026',
     name: 'Tech Summit 2026',
-    date: '3-5 Junio 2026',
+    date: '',
     venue: 'Fira Barcelona',
     city: 'Miami, USA',
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
     features: ['pickup', 'preorder'],
     status: 'upcoming',
-    description: 'El evento de tecnología e innovación más importante.',
+    description: '',
     category: 'conference',
     rating: 4.6,
     vendors: [
@@ -163,17 +162,15 @@ export const events: Event[] = [
   {
     id: 'lollapalooza-chile-2026',
     name: 'Lollapalooza Chile',
-    date: '14-16 Marzo 2026',
+    date: '',
     venue: 'Parque Cerrillos',
     city: 'Santiago',
-    country: 'Chile',
     image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
     features: ['pickup', 'preorder'],
     status: 'upcoming',
-    description: 'El festival Lollapalooza llega a Chile con lineup internacional.',
+    description: '',
     category: 'festival',
     rating: 4.8,
-    badgeText: 'Favorito',
     vendors: [
       {
         id: 'bar-lolla',
@@ -187,8 +184,30 @@ export const events: Event[] = [
   },
 ];
 
-export const getActiveEvents = () => events.filter(e => e.status === 'active');
-export const getUpcomingEvents = () => events.filter(e => e.status === 'upcoming');
-export const getEventById = (id: string) => events.find(e => e.id === id);
-export const getFeaturedEvents = () => events.slice(0, 3);
-export const getHomeEvents = () => events.slice(0, 6);
+const localize = (event: Event, t: TFunction): Event => {
+  const date = t(`eventsData.${event.id}.date`, { defaultValue: "" });
+  const country = t(`eventsData.${event.id}.country`, { defaultValue: "" });
+  const description = t(`eventsData.${event.id}.description`, { defaultValue: "" });
+  const badgeText = t(`eventsData.${event.id}.badgeText`, { defaultValue: "" });
+  return {
+    ...event,
+    date,
+    country: country || undefined,
+    description,
+    badgeText: badgeText || undefined,
+  };
+};
+
+export const getEvents = (t: TFunction): Event[] => rawEvents.map((e) => localize(e, t));
+export const getActiveEvents = (t: TFunction) => getEvents(t).filter((e) => e.status === "active");
+export const getUpcomingEvents = (t: TFunction) => getEvents(t).filter((e) => e.status === "upcoming");
+export const getEventById = (id: string, t: TFunction) => {
+  const raw = rawEvents.find((e) => e.id === id);
+  return raw ? localize(raw, t) : undefined;
+};
+export const getFeaturedEvents = (t: TFunction) => getEvents(t).slice(0, 3);
+export const getHomeEvents = (t: TFunction) => getEvents(t).slice(0, 6);
+
+// Legacy export for callers that don't have a t() handy. Returns events
+// without their translatable fields populated.
+export const events = rawEvents;

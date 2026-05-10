@@ -6,11 +6,9 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // on-demand via dynamic imports when the user switches languages, keeping the
 // initial JS payload ~70KB lighter.
 import es from './locales/es.json';
+import { SUPPORTED_LANGS, isLang, type Lang } from './routes';
 
-const supportedLngs = ['es', 'en', 'pt', 'fr'] as const;
-type SupportedLng = typeof supportedLngs[number];
-
-const localeLoaders: Record<Exclude<SupportedLng, 'es'>, () => Promise<{ default: Record<string, unknown> }>> = {
+const localeLoaders: Record<Exclude<Lang, 'es'>, () => Promise<{ default: Record<string, unknown> }>> = {
   en: () => import('./locales/en.json'),
   pt: () => import('./locales/pt.json'),
   fr: () => import('./locales/fr.json'),
@@ -24,10 +22,13 @@ i18n
       es: { translation: es },
     },
     fallbackLng: 'es',
-    supportedLngs: [...supportedLngs],
+    supportedLngs: [...SUPPORTED_LANGS],
 
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      // The URL is the source of truth: we read the first path segment
+      // (`/en/...`) first, then fall back to user preference and browser.
+      order: ['path', 'localStorage', 'navigator', 'htmlTag'],
+      lookupFromPathIndex: 0,
       caches: ['localStorage'],
       lookupLocalStorage: 'i18nextLng',
     },
@@ -43,18 +44,20 @@ i18n
 
 // Lazily load the resolved language (if not already bundled) before i18next
 // first reads its bundle, preventing a flash of untranslated content.
-const loadLocale = async (lng: string) => {
-  const base = lng.split('-')[0] as SupportedLng;
-  if (base === 'es' || !localeLoaders[base as Exclude<SupportedLng, 'es'>]) return;
+export const loadLocale = async (lng: string): Promise<void> => {
+  const base = lng.split('-')[0];
+  if (!isLang(base) || base === 'es') return;
   if (i18n.hasResourceBundle(base, 'translation')) return;
-  const mod = await localeLoaders[base as Exclude<SupportedLng, 'es'>]();
+  const mod = await localeLoaders[base as Exclude<Lang, 'es'>]();
   i18n.addResourceBundle(base, 'translation', mod.default, true, true);
 };
 
-// Kick off the initial locale load, and swap in new locales on change.
 void loadLocale(i18n.language);
 i18n.on('languageChanged', (lng) => {
   void loadLocale(lng);
+  if (typeof document !== 'undefined') {
+    document.documentElement.lang = lng;
+  }
 });
 
 export default i18n;

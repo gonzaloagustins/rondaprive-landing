@@ -39,10 +39,7 @@ const Contact = () => {
 
   return (
     <>
-      <SEO
-        title="Contacto"
-        description="Hablemos de tu evento o venue. Solicita una demo personalizada de Ronda Privé y armamos juntos el setup que necesitas."
-      />
+      <SEO pageKey="contact" />
       <PageHero title={t("contact.heroTitle")} titleHighlight={t("contact.heroHighlight")} subtitle={t("contact.heroSubtitle")} />
       <section className="pb-24">
         <div className="section-container max-w-2xl">

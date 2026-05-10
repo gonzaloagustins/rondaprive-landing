@@ -5,6 +5,7 @@ import SEO from "@/components/shared/SEO";
 import { getEventById } from "@/data/events";
 import { useState } from "react";
 import type { MenuItem } from "@/data/events";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const featureIcons = { pickup: Zap, seat: Armchair, preorder: ShoppingBag };
 const vendorTypeIcons = { bar: Wine, food: UtensilsCrossed, vip: Crown };
@@ -12,7 +13,8 @@ const vendorTypeIcons = { bar: Wine, food: UtensilsCrossed, vip: Crown };
 const EventDetail = () => {
   const { id } = useParams();
   const { t } = useTranslation();
-  const event = getEventById(id || '');
+  const { path } = useLocalizedPath();
+  const event = getEventById(id || '', t);
   const [activeVendor, setActiveVendor] = useState(0);
 
   if (!event) {
@@ -20,7 +22,7 @@ const EventDetail = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center space-y-4">
           <h1 className="text-2xl font-bold">{t("common.notFound")}</h1>
-          <Link to="/eventos" className="text-primary hover:underline">{t("events.backToEvents")}</Link>
+          <Link to={path("events")} className="text-primary hover:underline">{t("events.backToEvents")}</Link>
         </div>
       </div>
     );
@@ -38,8 +40,13 @@ const EventDetail = () => {
   return (
     <>
       <SEO
+        pageKey="eventDetail"
         title={event.name}
-        description={`${event.name} en Ronda Privé. Compra desde el celular antes y durante el show — sin filas, sin tótems.`}
+        description={t("seo.eventDetail.descriptionWithName", {
+          name: event.name,
+          defaultValue: "{{name}} en Ronda Privé. Compra desde el celular antes y durante el show — sin filas, sin tótems.",
+        })}
+        pathSuffix={`/${event.id}`}
       />
       {/* Hero */}
       <section className="pt-20">
@@ -58,7 +65,7 @@ const EventDetail = () => {
         </div>
 
         <div className="section-container -mt-16 relative z-10 pb-12">
-          <Link to="/eventos" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
+          <Link to={path("events")} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" />{t("events.backToEvents")}
           </Link>
 
@@ -158,11 +165,11 @@ const EventDetail = () => {
           {/* Inline CTA — desktop */}
           <div className="card-premium p-6 mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <p className="font-semibold">¿Quieres implementar esto en tu evento?</p>
-              <p className="text-sm text-muted-foreground">Conoce la plataforma Ronda Privé</p>
+              <p className="font-semibold">{t("events.implementTitle", "¿Quieres implementar esto en tu evento?")}</p>
+              <p className="text-sm text-muted-foreground">{t("events.implementSubtitle", "Conoce la plataforma Ronda Privé")}</p>
             </div>
-            <Link to="/contacto" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors px-5 py-2.5 rounded-xl text-sm font-semibold shrink-0 flex items-center gap-2">
-              Solicitar Demo <ArrowRight className="w-4 h-4" />
+            <Link to={path("contact")} className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors px-5 py-2.5 rounded-xl text-sm font-semibold shrink-0 flex items-center gap-2">
+              {t("navbar.requestDemo")} <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -170,8 +177,8 @@ const EventDetail = () => {
 
       {/* Sticky CTA — mobile only */}
       <div className="fixed bottom-0 inset-x-0 z-50 p-4 bg-background/95 backdrop-blur border-t border-border md:hidden">
-        <Link to="/contacto" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold">
-          Solicitar Demo <ArrowRight className="w-4 h-4" />
+        <Link to={path("contact")} className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold">
+          {t("navbar.requestDemo")} <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </>

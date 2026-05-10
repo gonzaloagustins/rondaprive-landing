@@ -6,11 +6,13 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
 import { industries } from "@/data/industries";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = { Music, Tent, Trophy, Wine };
 
 const Industries = () => {
   const { t } = useTranslation();
+  const { path } = useLocalizedPath();
   const { hash } = useLocation();
 
   useEffect(() => {
@@ -28,10 +30,7 @@ const Industries = () => {
 
   return (
     <>
-      <SEO
-        title="Soluciones por industria"
-        description="Cómo Ronda Privé se adapta a festivales, estadios, nightclubs, bares y venues. Casos por tipo de recinto."
-      />
+      <SEO pageKey="industries" />
       <PageHero title={t("industries.label")} titleHighlight={t("industries.titleHighlight")} subtitle={t("industries.subtitle")} />
 
       <section className="pb-24">
@@ -71,7 +70,7 @@ const Industries = () => {
       <section className="py-16">
         <div className="section-container text-center space-y-6">
           <Button variant="gold" size="lg" className="group" asChild>
-            <Link to="/contacto">{t("navbar.requestDemo")} <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" /></Link>
+            <Link to={path("contact")}>{t("navbar.requestDemo")} <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" /></Link>
           </Button>
         </div>
       </section>

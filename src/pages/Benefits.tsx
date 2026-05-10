@@ -4,6 +4,7 @@ import { TrendingUp, Smile, Settings, Cpu, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const categories = [
   { key: 'commercial', icon: TrendingUp, color: 'text-green-400 bg-green-500/10' },
@@ -14,13 +15,11 @@ const categories = [
 
 const Benefits = () => {
   const { t } = useTranslation();
+  const { path } = useLocalizedPath();
 
   return (
     <>
-      <SEO
-        title="Beneficios"
-        description="Más ventas, mejor experiencia y control total. Beneficios comerciales, operativos, técnicos y de experiencia con Ronda Privé."
-      />
+      <SEO pageKey="benefits" />
       <PageHero title={t("benefits.title")} titleHighlight={t("benefits.titleHighlight")} />
 
       <section className="pb-24">
@@ -49,7 +48,7 @@ const Benefits = () => {
 
           <div className="text-center pt-8">
             <Button variant="gold" size="lg" className="group" asChild>
-              <Link to="/contacto">{t("navbar.requestDemo")} <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" /></Link>
+              <Link to={path("contact")}>{t("navbar.requestDemo")} <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" /></Link>
             </Button>
           </div>
         </div>
