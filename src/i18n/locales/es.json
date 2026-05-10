@@ -12,18 +12,21 @@
     "contact": "Contacto"
   },
   "hero": {
-    "badge": "Tecnología premium para eventos",
-    "headline": "Elimina las filas.",
-    "headlineHighlight": "Maximiza las ventas.",
-    "subheadline": "La plataforma que transforma la venta de alimentos y bebidas en eventos de alta demanda. Compra digital desde el celular, control operativo en tiempo real, sin infraestructura adicional.",
+    "badge": "Plataforma móvil para eventos y venues",
+    "headlineLine1": "Elimina la espera.",
+    "headlineLine2": "Maximiza las ventas.",
     "ctaDemo": "Solicitar demo",
-    "ctaExplore": "Explorar eventos",
-    "ctaVideo": "Ver cómo funciona",
-    "statSales": "Ventas por asistente",
-    "statQueue": "Tiempo en filas",
-    "statControl": "Control en tiempo real",
-    "eventsTitle": "Eventos activos",
-    "eventsSubtitle": "Descubre eventos con Ronda Privé"
+    "mockup": {
+      "welcome": "Bienvenido a",
+      "festivalName": "Festival 2026",
+      "festivalDate": "26-30 Marzo",
+      "featurePreorder": "Anticipada",
+      "featureSeat": "En asiento",
+      "featureExpress": "Express",
+      "orderNow": "Pedir ahora",
+      "orderTime": "Tiempo pedido",
+      "salesIncrease": "Aumento ventas"
+    }
   },
   "problem": {
     "label": "El problema",

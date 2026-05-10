@@ -12,18 +12,21 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Premium event technology",
-    "headline": "Eliminate the queues.",
-    "headlineHighlight": "Maximize your revenue.",
-    "subheadline": "The platform that transforms food and beverage sales at high-demand events. Digital ordering from any phone, real-time operational control, no additional infrastructure.",
+    "badge": "Mobile platform for events and venues",
+    "headlineLine1": "Cut the wait.",
+    "headlineLine2": "Lift your sales.",
     "ctaDemo": "Request a demo",
-    "ctaExplore": "Explore events",
-    "ctaVideo": "See how it works",
-    "statSales": "Sales per attendee",
-    "statQueue": "Time in queues",
-    "statControl": "Real-time control",
-    "eventsTitle": "Active events",
-    "eventsSubtitle": "Discover events powered by Ronda Privé"
+    "mockup": {
+      "welcome": "Welcome to",
+      "festivalName": "Festival 2026",
+      "festivalDate": "March 26-30",
+      "featurePreorder": "Pre-order",
+      "featureSeat": "At seat",
+      "featureExpress": "Express",
+      "orderNow": "Order now",
+      "orderTime": "Order time",
+      "salesIncrease": "Sales lift"
+    }
   },
   "problem": {
     "label": "The problem",

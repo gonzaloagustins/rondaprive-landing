@@ -101,10 +101,14 @@ const Navbar = () => {
 
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => {
-              const basePath = item.to.split("#")[0];
+              const [basePath, hash] = item.to.split("#");
+              // Hash anchors (e.g. "/en#producto") share the home pathname,
+              // so matching by pathname would light them all up at once.
+              // Anchors rely on scroll-spy; only dedicated routes match by path.
               const isPathMatch =
-                location.pathname === basePath ||
-                location.pathname.startsWith(basePath + "/");
+                !hash &&
+                (location.pathname === basePath ||
+                  location.pathname.startsWith(basePath + "/"));
               const isActive =
                 (item.sectionId && activeSection === item.sectionId) ||
                 isPathMatch;

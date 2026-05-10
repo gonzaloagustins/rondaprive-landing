@@ -12,18 +12,21 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Technologie premium pour événements",
-    "headline": "Éliminez les files d'attente.",
-    "headlineHighlight": "Maximisez vos revenus.",
-    "subheadline": "La plateforme qui transforme la vente de restauration et boissons lors d'événements à forte affluence. Commande digitale depuis le téléphone, contrôle opérationnel en temps réel, sans infrastructure supplémentaire.",
+    "badge": "Plateforme mobile pour événements et lieux",
+    "headlineLine1": "Finies les files.",
+    "headlineLine2": "Boostez vos ventes.",
     "ctaDemo": "Demander une démo",
-    "ctaExplore": "Explorer les événements",
-    "ctaVideo": "Découvrez comment ça marche",
-    "statSales": "Ventes par participant",
-    "statQueue": "Temps d'attente",
-    "statControl": "Contrôle en temps réel",
-    "eventsTitle": "Événements actifs",
-    "eventsSubtitle": "Découvrez les événements avec Ronda Privé"
+    "mockup": {
+      "welcome": "Bienvenue sur",
+      "festivalName": "Festival 2026",
+      "festivalDate": "26-30 mars",
+      "featurePreorder": "Précommande",
+      "featureSeat": "À la place",
+      "featureExpress": "Express",
+      "orderNow": "Commander",
+      "orderTime": "Temps de commande",
+      "salesIncrease": "Hausse ventes"
+    }
   },
   "problem": {
     "label": "Le problème",

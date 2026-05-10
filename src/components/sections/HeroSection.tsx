@@ -3,6 +3,7 @@ import IPhoneMockup from "@/components/ui/iphone-mockup";
 import { ArrowRight, Clock, Zap, ShoppingBag } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 // Decide whether to load the background video. Respects Save-Data, slow
@@ -26,6 +27,7 @@ const shouldLoadHeroVideo = (): boolean => {
 };
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   const { path } = useLocalizedPath();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
@@ -109,10 +111,10 @@ const HeroSection = () => {
           <div className="hero-text-card space-y-8 animate-fade-in-up">
             <div className="space-y-5">
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-                Plataforma móvil para eventos y venues
+                {t("hero.badge")}
               </span>
               <h1 className="font-display text-5xl font-bold tracking-tight sm:text-6xl">
-                <span className="block">Elimina la espera.</span>
+                <span className="block">{t("hero.headlineLine1")}</span>
                 <span
                   className="block bg-clip-text text-transparent"
                   style={{
@@ -120,7 +122,7 @@ const HeroSection = () => {
                       "linear-gradient(135deg, #A07D3A 0%, #C4924D 50%, #A07D3A 100%)",
                   }}
                 >
-                  Maximiza las ventas.
+                  {t("hero.headlineLine2")}
                 </span>
               </h1>
             </div>
@@ -128,7 +130,7 @@ const HeroSection = () => {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button variant="dark-solid" size="lg" className="group rounded-full" asChild>
                 <Link to={path("contact")}>
-                  Solicitar Demo
+                  {t("hero.ctaDemo")}
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -152,14 +154,14 @@ const HeroSection = () => {
                 <div className="h-full flex flex-col px-5 py-5 justify-between">
                   {/* Welcome */}
                   <div>
-                    <p className="text-[14px] text-muted-foreground">Bienvenido a</p>
+                    <p className="text-[14px] text-muted-foreground">{t("hero.mockup.welcome")}</p>
                     <p className="font-display text-3xl font-bold text-foreground">Ronda Privé</p>
                   </div>
 
                   {/* Event card */}
                   <div className="bg-[#F0EBE3] rounded-2xl p-5 text-center">
-                    <h3 className="font-display text-2xl font-bold text-foreground">Festival 2026</h3>
-                    <p className="text-[14px] text-muted-foreground mt-1">26-30 Marzo</p>
+                    <h3 className="font-display text-2xl font-bold text-foreground">{t("hero.mockup.festivalName")}</h3>
+                    <p className="text-[14px] text-muted-foreground mt-1">{t("hero.mockup.festivalDate")}</p>
                   </div>
 
                   {/* Feature icons */}
@@ -168,26 +170,26 @@ const HeroSection = () => {
                       <div className="w-14 h-14 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
                         <Clock className="w-6 h-6 text-foreground/70" />
                       </div>
-                      <span className="text-[11px] text-muted-foreground">Anticipada</span>
+                      <span className="text-[11px] text-muted-foreground">{t("hero.mockup.featurePreorder")}</span>
                     </div>
                     <div className="flex flex-col items-center gap-1">
                       <div className="w-14 h-14 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
                         <ShoppingBag className="w-6 h-6 text-foreground/70" />
                       </div>
-                      <span className="text-[11px] text-muted-foreground">En Asiento</span>
+                      <span className="text-[11px] text-muted-foreground">{t("hero.mockup.featureSeat")}</span>
                     </div>
                     <div className="flex flex-col items-center gap-1">
                       <div className="w-14 h-14 rounded-xl bg-[#F0EBE3] flex items-center justify-center">
                         <Zap className="w-6 h-6 text-foreground/70" />
                       </div>
-                      <span className="text-[11px] text-muted-foreground">Express</span>
+                      <span className="text-[11px] text-muted-foreground">{t("hero.mockup.featureExpress")}</span>
                     </div>
                   </div>
 
                   {/* Order button */}
                   <button className="w-full bg-[#1A1814] text-white rounded-xl py-4 text-lg font-semibold flex items-center justify-center gap-2">
                     <Zap className="w-5 h-5" />
-                    Pedir Ahora
+                    {t("hero.mockup.orderNow")}
                   </button>
                 </div>
               </IPhoneMockup>
@@ -200,7 +202,7 @@ const HeroSection = () => {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-foreground leading-none">3 min</p>
-                  <p className="text-[9px] text-muted-foreground">Tiempo pedido</p>
+                  <p className="text-[9px] text-muted-foreground">{t("hero.mockup.orderTime")}</p>
                 </div>
               </div>
 
@@ -211,7 +213,7 @@ const HeroSection = () => {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-foreground leading-none">+40%</p>
-                  <p className="text-[9px] text-muted-foreground">Aumento ventas</p>
+                  <p className="text-[9px] text-muted-foreground">{t("hero.mockup.salesIncrease")}</p>
                 </div>
               </div>
             </div>
