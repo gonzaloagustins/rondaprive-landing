@@ -1,86 +1,63 @@
-import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Globe, Check, ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
-import { SUPPORTED_LANGS, swapLangInPath, type Lang } from '@/i18n/routes';
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { useLocale } from "@/hooks/useLocale";
 
-const languageMeta: Record<Lang, { flag: string; name: string }> = {
-  es: { flag: '🇪🇸', name: 'Español' },
-  en: { flag: '🇬🇧', name: 'English' },
-  pt: { flag: '🇧🇷', name: 'Português' },
-  fr: { flag: '🇫🇷', name: 'Français' },
-};
-
-interface LanguageSelectorProps {
-  variant?: 'desktop' | 'mobile';
-}
-
-const LanguageSelector = ({ variant = 'desktop' }: LanguageSelectorProps) => {
-  const { i18n } = useTranslation();
-  const location = useLocation();
-  const navigate = useNavigate();
-  const current = (i18n.language.split('-')[0] as Lang) in languageMeta
-    ? (i18n.language.split('-')[0] as Lang)
-    : 'es';
-
-  const handleLanguageChange = (lang: Lang) => {
-    if (lang === current) return;
-    // Swap URL first; the LangGuard effect will call i18n.changeLanguage.
-    const target = swapLangInPath(location.pathname, lang);
-    navigate(`${target}${location.search}${location.hash}`);
-  };
-
-  if (variant === 'mobile') {
-    return (
-      <div className="flex flex-wrap gap-2 py-2">
-        {SUPPORTED_LANGS.map((code) => {
-          const meta = languageMeta[code];
-          return (
-            <button
-              key={code}
-              onClick={() => handleLanguageChange(code)}
-              className={`px-3 py-1.5 rounded-lg text-sm transition-colors flex items-center gap-1.5 ${
-                current === code
-                  ? 'bg-primary/20 text-primary border border-primary/30'
-                  : 'bg-secondary text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              <span className="text-base">{meta.flag}</span>
-              <span>{code.toUpperCase()}</span>
-            </button>
-          );
-        })}
-      </div>
-    );
-  }
-
-  const currentMeta = languageMeta[current];
+/**
+ * Locale switcher: Globe icon + active code + chevron, opening a dropdown
+ * of endonyms. No flags — using a country flag to represent a language is
+ * culturally wrong for LATAM ("español" ≠ Spain) and a known UX anti-pattern.
+ * Visually subdued so the primary CTA in the header stays dominant.
+ */
+const LanguageSelector = () => {
+  const { locale, setLocale, availableLocales } = useLocale();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground hover:text-foreground">
-          <span className="text-base">{currentMeta.flag}</span>
-          <span className="text-sm font-medium">{current.toUpperCase()}</span>
+        <Button
+          variant="ghost"
+          size="sm"
+          aria-label="Select language"
+          className="gap-1.5 px-2.5 text-muted-foreground hover:text-foreground data-[state=open]:text-foreground"
+        >
+          <Globe className="h-4 w-4" aria-hidden />
+          <span className="text-xs font-medium tracking-wide">
+            {locale.toUpperCase()}
+          </span>
+          <ChevronDown
+            className="h-3.5 w-3.5 opacity-60 transition-transform duration-200 data-[state=open]:rotate-180"
+            aria-hidden
+          />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[160px]">
-        {SUPPORTED_LANGS.map((code) => {
-          const meta = languageMeta[code];
+      <DropdownMenuContent
+        align="end"
+        sideOffset={8}
+        className="min-w-[180px]"
+      >
+        {availableLocales.map(({ code, label }) => {
+          const isActive = locale === code;
           return (
             <DropdownMenuItem
               key={code}
-              onClick={() => handleLanguageChange(code)}
-              className={`cursor-pointer ${current === code ? 'text-primary' : ''}`}
+              onSelect={() => setLocale(code)}
+              aria-current={isActive ? "true" : undefined}
+              className={`cursor-pointer justify-between gap-3 ${
+                isActive ? "font-medium text-foreground" : "text-foreground/80"
+              }`}
             >
-              <span className="text-base mr-2">{meta.flag}</span>
-              <span className="font-medium mr-2">{code.toUpperCase()}</span>
-              <span className="text-muted-foreground text-xs">{meta.name}</span>
+              <span lang={code}>{label}</span>
+              {isActive ? (
+                <Check className="h-4 w-4 text-primary" aria-hidden />
+              ) : (
+                <span className="h-4 w-4" aria-hidden />
+              )}
             </DropdownMenuItem>
           );
         })}
