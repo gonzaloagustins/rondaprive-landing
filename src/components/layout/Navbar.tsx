@@ -132,7 +132,7 @@ const Navbar = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <LanguageSelector variant="desktop" />
+            <LanguageSelector />
             <Button variant="dark-solid" size="sm" asChild>
               <Link to={path("contact")}>
                 {t("navbar.requestDemo")}
@@ -181,7 +181,9 @@ const Navbar = () => {
                 );
               })}
               <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border/50">
-                <LanguageSelector variant="mobile" />
+                <div className="flex justify-start">
+                  <LanguageSelector />
+                </div>
                 <Button variant="dark-solid" asChild>
                   <Link to={path("contact")}>
                     {t("navbar.requestDemo")}
