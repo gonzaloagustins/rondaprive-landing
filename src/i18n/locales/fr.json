@@ -84,26 +84,62 @@
     },
     "attendee": {
       "steps": [
-        { "title": "Accédez à Ronda Privé", "description": "Scannez le QR de l'événement ou entrez via le lien direct." },
-        { "title": "Parcourez le menu digital", "description": "Consultez les produits disponibles, les prix et les options de chaque point de vente." },
-        { "title": "Passez votre commande", "description": "Sélectionnez, payez depuis votre téléphone et recevez un QR de confirmation." },
-        { "title": "Récupérez ou recevez", "description": "Rendez-vous au point de retrait ou recevez à votre siège. Sans file d'attente." }
+        {
+          "title": "Accédez à Ronda Privé",
+          "description": "Scannez le QR de l'événement ou entrez via le lien direct."
+        },
+        {
+          "title": "Parcourez le menu digital",
+          "description": "Consultez les produits disponibles, les prix et les options de chaque point de vente."
+        },
+        {
+          "title": "Passez votre commande",
+          "description": "Sélectionnez, payez depuis votre téléphone et recevez un QR de confirmation."
+        },
+        {
+          "title": "Récupérez ou recevez",
+          "description": "Rendez-vous au point de retrait ou recevez à votre siège. Sans file d'attente."
+        }
       ]
     },
     "kitchen": {
       "steps": [
-        { "title": "Réceptionnez la commande", "description": "L'équipe opérationnelle visualise chaque commande avec le détail des produits, du client et de l'emplacement." },
-        { "title": "Lancez la préparation", "description": "Le personnel met à jour le statut : reçu, en préparation, prêt." },
-        { "title": "Scannez et livrez", "description": "En Pick Up, le QR du client est scanné. En livraison au siège, la commande est associée à l'emplacement." },
-        { "title": "Mettez à jour le statut", "description": "Le système se met à jour en temps réel : prêt, livré. Traçabilité complète." }
+        {
+          "title": "Réceptionnez la commande",
+          "description": "L'équipe opérationnelle visualise chaque commande avec le détail des produits, du client et de l'emplacement."
+        },
+        {
+          "title": "Lancez la préparation",
+          "description": "Le personnel met à jour le statut : reçu, en préparation, prêt."
+        },
+        {
+          "title": "Scannez et livrez",
+          "description": "En Pick Up, le QR du client est scanné. En livraison au siège, la commande est associée à l'emplacement."
+        },
+        {
+          "title": "Mettez à jour le statut",
+          "description": "Le système se met à jour en temps réel : prêt, livré. Traçabilité complète."
+        }
       ]
     },
     "organizer": {
       "steps": [
-        { "title": "Configurez votre événement", "description": "Définissez les points de vente, produits, tarifs et modes de commande activés." },
-        { "title": "Surveillez en temps réel", "description": "Suivez les ventes, les stocks, les commandes actives et les tendances de consommation en direct." },
-        { "title": "Pilotez l'exploitation", "description": "Ajustez les prix, activez des promotions et gérez les stocks depuis le tableau de bord." },
-        { "title": "Analysez les résultats", "description": "Accédez à des rapports détaillés, des indicateurs de performance et des données actionnables." }
+        {
+          "title": "Configurez votre événement",
+          "description": "Définissez les points de vente, produits, tarifs et modes de commande activés."
+        },
+        {
+          "title": "Surveillez en temps réel",
+          "description": "Suivez les ventes, les stocks, les commandes actives et les tendances de consommation en direct."
+        },
+        {
+          "title": "Pilotez l'exploitation",
+          "description": "Ajustez les prix, activez des promotions et gérez les stocks depuis le tableau de bord."
+        },
+        {
+          "title": "Analysez les résultats",
+          "description": "Accédez à des rapports détaillés, des indicateurs de performance et des données actionnables."
+        }
       ]
     }
   },
@@ -114,33 +150,69 @@
     "commercial": {
       "title": "Commerciaux",
       "items": [
-        { "title": "+80% de ventes par participant", "description": "Augmentez la consommation en captant les ventes auparavant perdues dans les files." },
-        { "title": "Moments de pointe exploités", "description": "Maximisez le chiffre d'affaires lors des moments de plus forte demande." },
-        { "title": "Panier moyen plus élevé", "description": "L'achat digital sans friction augmente naturellement la valeur par transaction." }
+        {
+          "title": "+80% de ventes par participant",
+          "description": "Augmentez la consommation en captant les ventes auparavant perdues dans les files."
+        },
+        {
+          "title": "Moments de pointe exploités",
+          "description": "Maximisez le chiffre d'affaires lors des moments de plus forte demande."
+        },
+        {
+          "title": "Panier moyen plus élevé",
+          "description": "L'achat digital sans friction augmente naturellement la valeur par transaction."
+        }
       ]
     },
     "experience": {
       "title": "Expérience participant",
       "items": [
-        { "title": "-70% de temps d'attente", "description": "Supprimez les files et la frustration. Plus de temps à profiter, moins de temps à attendre." },
-        { "title": "Commandez depuis votre téléphone", "description": "Sans télécharger d'app. Accès instantané, paiement rapide, retrait organisé." },
-        { "title": "Livraison à votre siège", "description": "Dans les stades, suites et espaces VIP, la commande arrive directement à l'emplacement du participant." }
+        {
+          "title": "-70% de temps d'attente",
+          "description": "Supprimez les files et la frustration. Plus de temps à profiter, moins de temps à attendre."
+        },
+        {
+          "title": "Commandez depuis votre téléphone",
+          "description": "Sans télécharger d'app. Accès instantané, paiement rapide, retrait organisé."
+        },
+        {
+          "title": "Livraison à votre siège",
+          "description": "Dans les stades, suites et espaces VIP, la commande arrive directement à l'emplacement du participant."
+        }
       ]
     },
     "operational": {
       "title": "Opérationnels",
       "items": [
-        { "title": "Contrôle total en temps réel", "description": "Centralisez commandes, stocks et indicateurs dans un seul tableau de bord opérationnel." },
-        { "title": "Exploitation plus efficace", "description": "Moins de personnel en caisse, meilleure coordination et traçabilité complète." },
-        { "title": "Gestion intelligente des stocks", "description": "Suivi des stocks en direct avec alertes et capacité de réaction immédiate." }
+        {
+          "title": "Contrôle total en temps réel",
+          "description": "Centralisez commandes, stocks et indicateurs dans un seul tableau de bord opérationnel."
+        },
+        {
+          "title": "Exploitation plus efficace",
+          "description": "Moins de personnel en caisse, meilleure coordination et traçabilité complète."
+        },
+        {
+          "title": "Gestion intelligente des stocks",
+          "description": "Suivi des stocks en direct avec alertes et capacité de réaction immédiate."
+        }
       ]
     },
     "technical": {
       "title": "Techniques",
       "items": [
-        { "title": "Aucune infrastructure supplémentaire", "description": "Pas de bornes, de caisses enregistreuses ni de matériel spécialisé nécessaire." },
-        { "title": "Déploiement flexible", "description": "S'adapte à tout lieu, format d'événement et volume de participants." },
-        { "title": "Intégration sans friction", "description": "Compatible avec votre exploitation actuelle. Mise en œuvre en jours, pas en mois." }
+        {
+          "title": "Aucune infrastructure supplémentaire",
+          "description": "Pas de bornes, de caisses enregistreuses ni de matériel spécialisé nécessaire."
+        },
+        {
+          "title": "Déploiement flexible",
+          "description": "S'adapte à tout lieu, format d'événement et volume de participants."
+        },
+        {
+          "title": "Intégration sans friction",
+          "description": "Compatible avec votre exploitation actuelle. Mise en œuvre en jours, pas en mois."
+        }
       ]
     }
   },
@@ -184,11 +256,26 @@
     "titleHighlight": "Décisions en temps réel.",
     "subtitle": "Le centre de commande qui centralise toute l'exploitation de votre événement en une seule vue.",
     "modules": [
-      { "title": "Statistiques rapides", "description": "Ventes totales, transactions, panier moyen et tendances en un coup d'œil." },
-      { "title": "Gestion d'événements", "description": "Configurez produits, tarifs, points de vente et modes de commande par événement." },
-      { "title": "Stock en direct", "description": "Stock mis à jour en temps réel avec alertes de stock bas." },
-      { "title": "Suivi des ventes", "description": "Visualisez les ventes par produit, point de vente, créneau horaire et tendance." },
-      { "title": "Suivi des commandes", "description": "Suivez chaque commande de l'achat jusqu'à la livraison." }
+      {
+        "title": "Statistiques rapides",
+        "description": "Ventes totales, transactions, panier moyen et tendances en un coup d'œil."
+      },
+      {
+        "title": "Gestion d'événements",
+        "description": "Configurez produits, tarifs, points de vente et modes de commande par événement."
+      },
+      {
+        "title": "Stock en direct",
+        "description": "Stock mis à jour en temps réel avec alertes de stock bas."
+      },
+      {
+        "title": "Suivi des ventes",
+        "description": "Visualisez les ventes par produit, point de vente, créneau horaire et tendance."
+      },
+      {
+        "title": "Suivi des commandes",
+        "description": "Suivez chaque commande de l'achat jusqu'à la livraison."
+      }
     ],
     "stats": {
       "revenue": "47 320 $",
@@ -243,7 +330,10 @@
       "message": "Message (facultatif)",
       "submit": "Demander une démo",
       "scheduling": "Ou planifiez directement un rendez-vous"
-    }
+    },
+    "eyebrow": "Commencez aujourd'hui",
+    "titleStart": "Chaque minute dans la file est",
+    "sendEmail": "Envoyer un e-mail"
   },
   "events": {
     "heroTitle": "Découvrez les",
@@ -260,7 +350,18 @@
     "viewEvent": "Voir l'événement",
     "viewMenu": "Voir le menu",
     "vendors": "Points de vente",
-    "backToEvents": "Retour aux événements"
+    "backToEvents": "Retour aux événements",
+    "searchPlaceholder": "Rechercher par événement, lieu ou ville...",
+    "allCountries": "Tous les pays",
+    "sortDate": "Les plus proches",
+    "sortName": "A-Z",
+    "countOf": "{{count}} sur {{total}} événements",
+    "clearFilters": "Réinitialiser les filtres",
+    "emptyTitle": "Aucun événement trouvé",
+    "emptyBody": "Aucun événement ne correspond à votre recherche. Essayez d'autres filtres ou explorez tous les événements disponibles.",
+    "viewAll": "Voir tous les événements",
+    "implementTitle": "Vous voulez ça à votre événement ?",
+    "implementSubtitle": "Découvrez la plateforme Ronda Privé"
   },
   "solutions": {
     "heroTitle": "Des solutions qui",
@@ -270,43 +371,102 @@
       "title": "Pick Up Express",
       "subtitle": "Commande digitale avec retrait au point de vente",
       "steps": [
-        { "title": "Accédez à Ronda Privé", "description": "Le participant entre en scannant un QR ou via le lien direct." },
-        { "title": "Parcourez et commandez", "description": "Consultez le menu digital, sélectionnez vos produits et payez depuis le téléphone." },
-        { "title": "Recevez votre QR", "description": "Un code QR unique est généré comme justificatif de commande." },
-        { "title": "Rendez-vous au point de retrait", "description": "Le participant se dirige au point de vente sans faire la queue." },
-        { "title": "Scan et préparation", "description": "Le personnel scanne le QR et c'est seulement alors que la préparation commence." },
-        { "title": "Récupérez votre commande", "description": "La commande est servie prête. Sans attente, sans congestion." }
+        {
+          "title": "Accédez à Ronda Privé",
+          "description": "Le participant entre en scannant un QR ou via le lien direct."
+        },
+        {
+          "title": "Parcourez et commandez",
+          "description": "Consultez le menu digital, sélectionnez vos produits et payez depuis le téléphone."
+        },
+        {
+          "title": "Recevez votre QR",
+          "description": "Un code QR unique est généré comme justificatif de commande."
+        },
+        {
+          "title": "Rendez-vous au point de retrait",
+          "description": "Le participant se dirige au point de vente sans faire la queue."
+        },
+        {
+          "title": "Scan et préparation",
+          "description": "Le personnel scanne le QR et c'est seulement alors que la préparation commence."
+        },
+        {
+          "title": "Récupérez votre commande",
+          "description": "La commande est servie prête. Sans attente, sans congestion."
+        }
       ]
     },
     "seat": {
       "title": "Commande depuis votre siège",
       "subtitle": "Livraison directe à votre emplacement dans l'enceinte",
       "steps": [
-        { "title": "Scannez le QR du siège", "description": "Chaque siège, table ou secteur possède un QR unique qui identifie l'emplacement." },
-        { "title": "Confirmez votre emplacement", "description": "Le système détecte automatiquement votre secteur, rangée et siège." },
-        { "title": "Parcourez et commandez", "description": "Accédez au menu digital et passez votre commande depuis le téléphone." },
-        { "title": "La commande est créée", "description": "La commande est générée avec un code unique associé à votre emplacement." },
-        { "title": "Préparation en temps réel", "description": "La commande est préparée et vous pouvez suivre son statut en direct." },
-        { "title": "Livraison à votre siège", "description": "La commande est livrée directement à votre emplacement." }
+        {
+          "title": "Scannez le QR du siège",
+          "description": "Chaque siège, table ou secteur possède un QR unique qui identifie l'emplacement."
+        },
+        {
+          "title": "Confirmez votre emplacement",
+          "description": "Le système détecte automatiquement votre secteur, rangée et siège."
+        },
+        {
+          "title": "Parcourez et commandez",
+          "description": "Accédez au menu digital et passez votre commande depuis le téléphone."
+        },
+        {
+          "title": "La commande est créée",
+          "description": "La commande est générée avec un code unique associé à votre emplacement."
+        },
+        {
+          "title": "Préparation en temps réel",
+          "description": "La commande est préparée et vous pouvez suivre son statut en direct."
+        },
+        {
+          "title": "Livraison à votre siège",
+          "description": "La commande est livrée directement à votre emplacement."
+        }
       ]
     },
     "preorder": {
       "title": "Commande anticipée",
       "subtitle": "Achetez avant l'événement, récupérez le jour du spectacle",
       "steps": [
-        { "title": "Commandez avant l'événement", "description": "Accédez au menu de l'événement plusieurs jours à l'avance et sélectionnez vos produits." },
-        { "title": "Payez à l'avance", "description": "Effectuez le paiement en amont et sécurisez votre commande." },
-        { "title": "Recevez votre QR", "description": "Un code QR est généré comme justificatif de votre achat anticipé." },
-        { "title": "Le jour de l'événement, récupérez", "description": "Présentez votre QR au point de retrait et recevez votre commande sans attendre." }
+        {
+          "title": "Commandez avant l'événement",
+          "description": "Accédez au menu de l'événement plusieurs jours à l'avance et sélectionnez vos produits."
+        },
+        {
+          "title": "Payez à l'avance",
+          "description": "Effectuez le paiement en amont et sécurisez votre commande."
+        },
+        {
+          "title": "Recevez votre QR",
+          "description": "Un code QR est généré comme justificatif de votre achat anticipé."
+        },
+        {
+          "title": "Le jour de l'événement, récupérez",
+          "description": "Présentez votre QR au point de retrait et recevez votre commande sans attendre."
+        }
       ]
     },
     "kitchen": {
       "title": "Exploitation bar et cuisine",
       "subtitle": "Flux opérationnel conçu pour la rapidité et le contrôle",
       "description": "Lorsqu'une commande arrive, l'équipe opérationnelle en visualise tous les détails. Le personnel de bar ou de cuisine voit chaque commande par produit, client ou emplacement. Le système permet le suivi de la préparation, la mise à jour des statuts et une traçabilité complète.",
-      "statuses": ["Reçu", "En préparation", "Prêt", "Livré"],
-      "benefits": ["Contrôle total du flux", "Préparation plus rapide", "Coordination entre les équipes", "Traçabilité de chaque commande"]
-    }
+      "statuses": [
+        "Reçu",
+        "En préparation",
+        "Prêt",
+        "Livré"
+      ],
+      "benefits": [
+        "Contrôle total du flux",
+        "Préparation plus rapide",
+        "Coordination entre les équipes",
+        "Traçabilité de chaque commande"
+      ]
+    },
+    "ctaTitle": "Prêt à transformer votre opération ?"
   },
   "faq": {
     "heroTitle": "Questions",
@@ -473,7 +633,8 @@
     },
     "eventDetail": {
       "title": "Événement",
-      "description": "Commandez depuis votre mobile avant et pendant le spectacle — sans file ni borne."
+      "description": "Commandez depuis votre mobile avant et pendant le spectacle — sans file ni borne.",
+      "descriptionWithName": "{{name}} sur Ronda Privé. Commandez depuis votre mobile avant et pendant le spectacle — sans file ni borne."
     },
     "solutions": {
       "title": "Solutions",
@@ -539,5 +700,24 @@
       "description": "Lollapalooza débarque au Chili avec une programmation internationale.",
       "badgeText": "Favori"
     }
+  },
+  "eventCategories": {
+    "festival": "Festival",
+    "concert": "Concert",
+    "nightclub": "Club",
+    "conference": "Conférence",
+    "bar": "Bar"
+  },
+  "eventFeatures": {
+    "preorder": "Précommande",
+    "seat": "À la place",
+    "pickup": "Retrait"
+  },
+  "eventosActivos": {
+    "eyebrow": "Formats",
+    "title": "Conçu pour des événements de toute taille",
+    "subtitle": "Festivals, stades, clubs et bars. La plateforme s'adapte à tous les formats et grandit avec votre événement.",
+    "ctaPrimary": "Parlons de votre événement",
+    "ctaSecondary": "ou explorer les événements où nous opérons →"
   }
 }
