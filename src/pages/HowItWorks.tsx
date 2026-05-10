@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const tabs = [
   { key: 'attendee', icon: Smartphone },
@@ -14,15 +15,13 @@ const tabs = [
 
 const HowItWorks = () => {
   const { t } = useTranslation();
+  const { path } = useLocalizedPath();
   const [activeTab, setActiveTab] = useState('attendee');
   const steps = t(`howItWorks.${activeTab}.steps`, { returnObjects: true }) as { title: string; description: string }[];
 
   return (
     <>
-      <SEO
-        title="Cómo funciona"
-        description="Cómo funciona Ronda Privé para asistentes, equipo de cocina y organizadores. Flujo end-to-end de compra, preparación y control de pedidos."
-      />
+      <SEO pageKey="howItWorks" />
       <PageHero title={t("howItWorks.label")} titleHighlight={t("howItWorks.titleHighlight")} subtitle={t("howItWorks.subtitle")} />
 
       <section className="pb-24">
@@ -54,7 +53,7 @@ const HowItWorks = () => {
 
           <div className="text-center mt-16">
             <Button variant="gold" size="lg" className="group" asChild>
-              <Link to="/contacto">{t("navbar.requestDemo")} <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" /></Link>
+              <Link to={path("contact")}>{t("navbar.requestDemo")} <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" /></Link>
             </Button>
           </div>
         </div>

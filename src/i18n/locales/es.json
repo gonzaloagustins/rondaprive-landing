@@ -6,7 +6,10 @@
     "howItWorks": "Cómo funciona",
     "insights": "Insights",
     "exploreEvents": "Explorar eventos",
-    "requestDemo": "Solicitar demo"
+    "requestDemo": "Solicitar demo",
+    "product": "Producto",
+    "benefits": "Beneficios",
+    "contact": "Contacto"
   },
   "hero": {
     "badge": "Tecnología premium para eventos",
@@ -450,6 +453,88 @@
       "dashboardSales": "Ventas",
       "dashboardOrders": "Pedidos",
       "dashboardProducts": "Vendidos"
+    }
+  },
+  "seo": {
+    "default": {
+      "title": "Ronda Privé | Tecnología premium para eventos y venues",
+      "description": "Plataforma móvil para eventos y venues. Elimina la espera, maximiza las ventas. Compra anticipada, entrega al asiento y pickup express, sin tótems ni infraestructura adicional."
+    },
+    "home": {
+      "title": "Tecnología premium para eventos y venues",
+      "description": "Plataforma móvil para eventos y venues. Elimina la espera, maximiza las ventas. Compra anticipada, entrega al asiento y pickup express."
+    },
+    "events": {
+      "title": "Eventos activos",
+      "description": "Eventos en vivo donde Ronda Privé está operando. Compra anticipada, entrega al asiento y retiro express."
+    },
+    "eventDetail": {
+      "title": "Evento",
+      "description": "Compra desde el celular antes y durante el show, sin filas ni tótems."
+    },
+    "solutions": {
+      "title": "Soluciones",
+      "description": "Compra anticipada, entrega al asiento y pickup express. Las tres formas de Ronda Privé para eliminar las filas en eventos y venues."
+    },
+    "industries": {
+      "title": "Soluciones por industria",
+      "description": "Cómo Ronda Privé se adapta a festivales, estadios, nightclubs, bares y venues. Casos por tipo de recinto."
+    },
+    "howItWorks": {
+      "title": "Cómo funciona",
+      "description": "Cómo funciona Ronda Privé para asistentes, equipo de cocina y organizadores. Flujo end-to-end de compra, preparación y control de pedidos."
+    },
+    "benefits": {
+      "title": "Beneficios",
+      "description": "Más ventas, mejor experiencia y control total. Beneficios comerciales, operativos, técnicos y de experiencia con Ronda Privé."
+    },
+    "insights": {
+      "title": "Insights",
+      "description": "Tendencias, casos de uso y novedades sobre comercio móvil en eventos y venues. Lecturas para organizadores y operadores."
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "description": "Resolvemos las preguntas más comunes sobre Ronda Privé: cómo se implementa, qué necesita el venue, cómo se cobra, integraciones y más."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Hablemos de tu evento o venue. Solicita una demo personalizada de Ronda Privé y armamos juntos el setup que necesitas."
+    }
+  },
+  "eventsData": {
+    "estereo-picnic-2026": {
+      "date": "28-30 Marzo 2026",
+      "country": "Colombia",
+      "description": "El festival de música más grande de Colombia con artistas internacionales.",
+      "badgeText": "Más vendido"
+    },
+    "copa-libertadores-2026": {
+      "date": "15 Noviembre 2026",
+      "country": "Argentina",
+      "description": "La gran final de la Copa Libertadores de América.",
+      "badgeText": "Todas las funciones"
+    },
+    "tomorrowland-winter-2026": {
+      "date": "14-21 Marzo 2026",
+      "country": "Francia",
+      "description": "La edición invernal del festival más grande del mundo."
+    },
+    "club-prive-madrid": {
+      "date": "Todos los fines de semana",
+      "country": "España",
+      "description": "La experiencia nocturna más exclusiva de Madrid.",
+      "badgeText": "VIP Exclusivo"
+    },
+    "tech-summit-2026": {
+      "date": "3-5 Junio 2026",
+      "country": "",
+      "description": "El evento de tecnología e innovación más importante."
+    },
+    "lollapalooza-chile-2026": {
+      "date": "14-16 Marzo 2026",
+      "country": "Chile",
+      "description": "El festival Lollapalooza llega a Chile con lineup internacional.",
+      "badgeText": "Favorito"
     }
   }
 }

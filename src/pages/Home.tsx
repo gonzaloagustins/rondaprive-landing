@@ -47,7 +47,7 @@ const Home = () => {
 
   return (
     <>
-      <SEO />
+      <SEO pageKey="home" />
       <HeroSection />
       <LazySection component={EventosActivos} id="eventos" minHeight="600px" />
       <LazySection component={PlataformaSection} id="producto" minHeight="700px" />

@@ -2,33 +2,31 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import logoRondaPrive from "@/assets/logo-ronda-prive.png";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
+import LanguageSelector from "@/components/layout/LanguageSelector";
 
 const Navbar = () => {
   const location = useLocation();
+  const { t } = useTranslation();
+  const { path } = useLocalizedPath();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
 
-  // Order mirrors the home-page scroll order so the visitor sees nav items
-  // light up sequentially as they scroll down: Hero → EventosActivos (eventos)
-  // → PlataformaSection (producto) → DashboardPreview (no nav) →
-  // BenefitsSummary (beneficios) → StatsBar (no nav) → IndustriesPreview
-  // (soluciones) → CTASection (no nav). Contacto is a separate page so it
-  // closes the row.
-  //
-  // sectionId tracks the corresponding home-page section for scroll-spy.
-  // "Eventos" maps to the EventosActivos section so it lights up both when
-  // scrolling past on home and when on the /eventos page itself.
+  // Scroll-spy targets on the home page. Section ids are language-agnostic;
+  // labels are localized at render. Cross-page nav uses localized URLs.
   const navItems = [
-    { to: "/eventos", label: "Eventos", sectionId: "eventos" },
-    { to: "/#producto", label: "Producto", sectionId: "producto" },
-    { to: "/#beneficios", label: "Beneficios", sectionId: "beneficios" },
-    { to: "/#soluciones", label: "Soluciones", sectionId: "soluciones" },
-    { to: "/contacto", label: "Contacto", sectionId: "" },
+    { to: path("events"), label: t("navbar.events"), sectionId: "eventos" },
+    { to: `${path("home")}#producto`, label: t("navbar.product"), sectionId: "producto" },
+    { to: `${path("home")}#beneficios`, label: t("navbar.benefits"), sectionId: "beneficios" },
+    { to: `${path("home")}#soluciones`, label: t("navbar.solutions"), sectionId: "soluciones" },
+    { to: path("contact"), label: t("navbar.contact"), sectionId: "" },
   ];
 
   const sectionIds = navItems.map((i) => i.sectionId).filter(Boolean);
+  const homePath = path("home");
 
   useEffect(() => {
     let ticking = false;
@@ -36,7 +34,7 @@ const Navbar = () => {
     const compute = () => {
       setIsScrolled(window.scrollY > 50);
 
-      if (location.pathname !== "/") {
+      if (location.pathname !== homePath) {
         ticking = false;
         return;
       }
@@ -68,14 +66,14 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     compute();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname]);
+  }, [location.pathname, homePath]);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    if (location.pathname !== "/") {
+    if (location.pathname !== homePath) {
       setActiveSection("");
     }
-  }, [location.pathname]);
+  }, [location.pathname, homePath]);
 
   return (
     <header
@@ -87,7 +85,7 @@ const Navbar = () => {
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center">
+          <Link to={homePath} className="flex items-center">
             <img
               src={logoRondaPrive}
               alt="Ronda Privé"
@@ -103,13 +101,10 @@ const Navbar = () => {
 
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => {
-              // An item is active when either (a) the home-page scroll-spy
-              // picked its section, or (b) the visitor is on its dedicated
-              // route. Eventos uses both — highlights when scrolled past the
-              // home section AND when the user is on /eventos.
+              const basePath = item.to.split("#")[0];
               const isPathMatch =
-                location.pathname === item.to ||
-                location.pathname.startsWith(item.to + "/");
+                location.pathname === basePath ||
+                location.pathname.startsWith(basePath + "/");
               const isActive =
                 (item.sectionId && activeSection === item.sectionId) ||
                 isPathMatch;
@@ -137,9 +132,10 @@ const Navbar = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
+            <LanguageSelector variant="desktop" />
             <Button variant="dark-solid" size="sm" asChild>
-              <Link to="/contacto">
-                Solicitar Demo
+              <Link to={path("contact")}>
+                {t("navbar.requestDemo")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
@@ -161,9 +157,10 @@ const Navbar = () => {
           <div className="lg:hidden py-6 border-t border-border/50 animate-fade-in bg-[#F5F0EB]">
             <nav className="flex flex-col gap-3">
               {navItems.map((item) => {
+                const basePath = item.to.split("#")[0];
                 const isPathMatch =
-                  location.pathname === item.to ||
-                  location.pathname.startsWith(item.to + "/");
+                  location.pathname === basePath ||
+                  location.pathname.startsWith(basePath + "/");
                 const isActive =
                   (item.sectionId && activeSection === item.sectionId) ||
                   isPathMatch;
@@ -183,10 +180,11 @@ const Navbar = () => {
                   </Link>
                 );
               })}
-              <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border/50">
+              <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border/50">
+                <LanguageSelector variant="mobile" />
                 <Button variant="dark-solid" asChild>
-                  <Link to="/contacto">
-                    Solicitar Demo
+                  <Link to={path("contact")}>
+                    {t("navbar.requestDemo")}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </Button>

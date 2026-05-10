@@ -5,7 +5,8 @@ import { Search, X, CalendarOff, Music, Trophy, PartyPopper, Mic, Wine } from "l
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
 import { EventCard } from "@/components/ui/card-7";
-import { events } from "@/data/events";
+import { getEvents } from "@/data/events";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import {
   Pagination,
   PaginationContent,
@@ -24,26 +25,24 @@ const categoryIcons: Record<string, React.ReactNode> = {
   bar: <Wine className="h-6 w-6 text-white/80" />,
 };
 
-const countries = Array.from(new Set(events.map(e => e.country).filter(Boolean))) as string[];
-
 const EVENTS_PER_PAGE = 30;
 
+// Sort by the year that appears in the localized date string. Good enough
+// without a real date column; events without a year sort to the end.
 const parseDateForSort = (date: string): number => {
-  const months: Record<string, number> = {
-    enero: 0, febrero: 1, marzo: 2, abril: 3, mayo: 4, junio: 5,
-    julio: 6, agosto: 7, septiembre: 8, octubre: 9, noviembre: 10, diciembre: 11,
-  };
-  const match = date.match(/(\d+)\s+(\w+)\s+(\d{4})/i);
-  if (match) {
-    const month = months[match[2].toLowerCase()] ?? 0;
-    return new Date(+match[3], month, +match[1]).getTime();
-  }
-  return Infinity;
+  const year = date.match(/(\d{4})/);
+  return year ? +year[1] : Infinity;
 };
 
 const Events = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { path } = useLocalizedPath();
+  const events = useMemo(() => getEvents(t), [t]);
+  const countries = useMemo(
+    () => Array.from(new Set(events.map((e) => e.country).filter(Boolean))) as string[],
+    [events],
+  );
   const [filter, setFilter] = useState<'all' | 'active' | 'upcoming'>('all');
   const [search, setSearch] = useState("");
   const [country, setCountry] = useState<string>("all");
@@ -68,7 +67,7 @@ const Events = () => {
         : parseDateForSort(a.date) - parseDateForSort(b.date)
     );
     return result;
-  }, [filter, country, search, sort]);
+  }, [events, filter, country, search, sort]);
 
   useEffect(() => { setPage(1); }, [filter, country, search, sort]);
 
@@ -86,10 +85,7 @@ const Events = () => {
 
   return (
     <>
-      <SEO
-        title="Eventos activos"
-        description="Eventos en vivo donde Ronda Privé está operando. Compra anticipada, entrega al asiento y retiro express."
-      />
+      <SEO pageKey="events" />
       <PageHero title={t("events.heroTitle")} titleHighlight={t("events.heroHighlight")} subtitle={t("events.heroSubtitle")} />
 
       <section className="pb-24">
@@ -101,7 +97,7 @@ const Events = () => {
               type="text"
               value={search}
               onChange={e => setSearch(e.target.value)}
-              placeholder="Buscar por evento, venue o ciudad..."
+              placeholder={t("events.searchPlaceholder", "Buscar por evento, venue o ciudad...")}
               className="w-full pl-11 pr-10 py-3 rounded-xl bg-white/60 border border-border/50 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all"
             />
             {search && (
@@ -129,7 +125,7 @@ const Events = () => {
               onChange={e => setCountry(e.target.value)}
               className="px-4 py-2 rounded-full text-sm font-medium glass-card text-muted-foreground hover:text-foreground transition-all bg-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[center_right_12px] pr-8"
             >
-              <option value="all">Todos los países</option>
+              <option value="all">{t("events.allCountries", "Todos los países")}</option>
               {countries.map(c => (
                 <option key={c} value={c}>{c}</option>
               ))}
@@ -140,15 +136,15 @@ const Events = () => {
               onChange={e => setSort(e.target.value as 'date' | 'name')}
               className="px-4 py-2 rounded-full text-sm font-medium glass-card text-muted-foreground hover:text-foreground transition-all bg-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[center_right_12px] pr-8"
             >
-              <option value="date">Más próximos</option>
-              <option value="name">A-Z</option>
+              <option value="date">{t("events.sortDate", "Más próximos")}</option>
+              <option value="name">{t("events.sortName", "A-Z")}</option>
             </select>
 
             <div className="flex items-center gap-3 ml-auto text-sm text-muted-foreground">
-              <span>{filtered.length} de {events.length} eventos</span>
+              <span>{t("events.countOf", { count: filtered.length, total: events.length, defaultValue: "{{count}} de {{total}} eventos" })}</span>
               {hasActiveFilters && (
                 <button onClick={clearFilters} className="text-xs text-primary hover:text-primary/80 font-medium transition-colors">
-                  Limpiar filtros
+                  {t("events.clearFilters", "Limpiar filtros")}
                 </button>
               )}
             </div>
@@ -169,7 +165,7 @@ const Events = () => {
                     overview={event.description}
                     date={event.date}
                     badgeText={event.badgeText}
-                    onViewEvent={() => navigate(`/eventos/${event.id}`)}
+                    onViewEvent={() => navigate(path("eventDetail", `/${event.id}`))}
                     className="max-w-none h-[380px]"
                   />
                 ))}
@@ -214,12 +210,12 @@ const Events = () => {
               <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center mb-5">
                 <CalendarOff className="w-7 h-7 text-muted-foreground/60" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">No se encontraron eventos</h3>
+              <h3 className="text-lg font-semibold mb-2">{t("events.emptyTitle", "No se encontraron eventos")}</h3>
               <p className="text-sm text-muted-foreground max-w-md mb-6">
-                No hay eventos que coincidan con tu búsqueda. Prueba con otros filtros o explora todos los eventos disponibles.
+                {t("events.emptyBody", "No hay eventos que coincidan con tu búsqueda. Prueba con otros filtros o explora todos los eventos disponibles.")}
               </p>
               <button onClick={clearFilters} className="px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors">
-                Ver todos los eventos
+                {t("events.viewAll", "Ver todos los eventos")}
               </button>
             </div>
           )}

@@ -2,8 +2,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { trackEvent } from "@/lib/analytics";
+import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const CTASection = () => {
+  const { t } = useTranslation();
+  const { path } = useLocalizedPath();
   return (
     <section className="py-24">
       <div className="section-container">
@@ -11,23 +15,21 @@ const CTASection = () => {
           {/* Label */}
           <span className="inline-flex items-center gap-2 text-sm text-muted-foreground mb-6">
             <Zap className="w-4 h-4 text-primary" />
-            Comienza hoy
+            {t("cta.eyebrow", "Comienza hoy")}
           </span>
 
           {/* Title */}
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold max-w-3xl mx-auto leading-tight">
-            Cada minuto en la fila es{" "}
+            {t("cta.titleStart", "Cada minuto en la fila es")}{" "}
             <span className="relative inline-block">
-              dinero que no vuelve
+              {t("cta.titleHighlight", "dinero que no vuelve")}
               <span className="absolute left-0 bottom-1 w-full h-[6px] bg-primary/20 -z-10 rounded-full" />
             </span>
           </h2>
 
           {/* Subtitle */}
           <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
-            Los venues que sumaron Ronda Privé aumentan sus ventas un{" "}
-            <span className="font-semibold text-foreground">40% promedio</span>.
-            El tuyo puede ser el siguiente.
+            {t("cta.subtitle", "Los venues que sumaron Ronda Privé aumentan sus ventas un 40% promedio. El tuyo puede ser el siguiente.")}
           </p>
 
           {/* CTAs */}
@@ -39,7 +41,7 @@ const CTASection = () => {
               asChild
             >
               <Link
-                to="/contacto"
+                to={path("contact")}
                 onClick={() =>
                   trackEvent("cta_click", {
                     cta_id: "solicitar_demo",
@@ -47,7 +49,7 @@ const CTASection = () => {
                   })
                 }
               >
-                Solicitar Demo
+                {t("navbar.requestDemo")}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -67,7 +69,7 @@ const CTASection = () => {
                 }
               >
                 <Mail className="w-5 h-5" />
-                Mandar un mail
+                {t("cta.sendEmail", "Mandar un mail")}
               </a>
             </Button>
           </div>

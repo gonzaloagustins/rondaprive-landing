@@ -13,10 +13,7 @@ const Insights = () => {
 
   return (
     <>
-      <SEO
-        title="Insights"
-        description="Tendencias, casos de uso y novedades sobre comercio móvil en eventos y venues. Lecturas para organizadores y operadores."
-      />
+      <SEO pageKey="insights" />
       <PageHero title={t("insights.heroTitle")} titleHighlight={t("insights.heroHighlight")} subtitle={t("insights.heroSubtitle")} />
       <section className="pb-24">
         <div className="section-container">

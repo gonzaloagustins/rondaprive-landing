@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Smartphone, ChefHat, BarChart3, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionHeader from "@/components/shared/SectionHeader";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const tabs = [
   { key: 'attendee', icon: Smartphone },
@@ -13,6 +14,7 @@ const tabs = [
 
 const HowItWorksPreview = () => {
   const { t } = useTranslation();
+  const { path } = useLocalizedPath();
   const [activeTab, setActiveTab] = useState('attendee');
   const steps = t(`howItWorks.${activeTab}.steps`, { returnObjects: true }) as { title: string; description: string }[];
 
@@ -66,7 +68,7 @@ const HowItWorksPreview = () => {
 
         <div className="text-center mt-12">
           <Button variant="gold-outline" className="group" asChild>
-            <Link to="/como-funciona">
+            <Link to={path("howItWorks")}>
               {t("common.learnMore")}
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>

@@ -10,7 +10,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const modules = [
   { icon: BarChart3, title: "Estadísticas rápidas", subtitle: "KPIs en tiempo real" },
@@ -32,6 +34,8 @@ const orders = [
 const barHeights = [40, 55, 45, 65, 50, 75, 60, 80, 55, 70, 65, 85];
 
 const DashboardPreview = () => {
+  const { t } = useTranslation();
+  const { path } = useLocalizedPath();
   return (
     <section className="section-dark py-24" id="dashboard">
       <div className="section-container">
@@ -173,8 +177,8 @@ const DashboardPreview = () => {
             className="group rounded-full"
             asChild
           >
-            <Link to="/contacto">
-              Pedir una demo
+            <Link to={path("contact")}>
+              {t("navbar.requestDemo")}
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>

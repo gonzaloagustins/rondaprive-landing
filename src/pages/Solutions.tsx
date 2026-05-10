@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const solutionSections = [
   { key: 'pickup', icon: Zap, id: 'pickup' },
@@ -13,13 +14,11 @@ const solutionSections = [
 
 const Solutions = () => {
   const { t } = useTranslation();
+  const { path } = useLocalizedPath();
 
   return (
     <>
-      <SEO
-        title="Soluciones"
-        description="Compra anticipada, entrega al asiento y pickup express. Las tres formas de Ronda Privé para eliminar las filas en eventos y venues."
-      />
+      <SEO pageKey="solutions" />
       <PageHero title={t("solutions.heroTitle")} titleHighlight={t("solutions.heroHighlight")} subtitle={t("solutions.heroSubtitle")} />
 
       {solutionSections.map(({ key, icon: Icon, id }, sIdx) => {
@@ -92,9 +91,9 @@ const Solutions = () => {
       {/* CTA */}
       <section className="py-20">
         <div className="section-container text-center space-y-6">
-          <h2 className="text-3xl font-bold">¿Listo para transformar tu operación?</h2>
+          <h2 className="text-3xl font-bold">{t("solutions.ctaTitle", "¿Listo para transformar tu operación?")}</h2>
           <Button variant="gold" size="lg" className="group" asChild>
-            <Link to="/contacto">
+            <Link to={path("contact")}>
               {t("navbar.requestDemo")}
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>

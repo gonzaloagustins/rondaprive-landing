@@ -3,6 +3,7 @@ import IPhoneMockup from "@/components/ui/iphone-mockup";
 import { ArrowRight, Clock, Zap, ShoppingBag } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 // Decide whether to load the background video. Respects Save-Data, slow
 // connections, and reduced-motion preferences so mobile users on mobile data
@@ -25,6 +26,7 @@ const shouldLoadHeroVideo = (): boolean => {
 };
 
 const HeroSection = () => {
+  const { path } = useLocalizedPath();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
   // Computed once on mount so the initial HTML / first render is stable and
@@ -125,7 +127,7 @@ const HeroSection = () => {
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button variant="dark-solid" size="lg" className="group rounded-full" asChild>
-                <Link to="/contacto">
+                <Link to={path("contact")}>
                   Solicitar Demo
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>

@@ -6,7 +6,10 @@
     "howItWorks": "Comment ça marche",
     "insights": "Insights",
     "exploreEvents": "Explorer les événements",
-    "requestDemo": "Demander une démo"
+    "requestDemo": "Demander une démo",
+    "product": "Produit",
+    "benefits": "Avantages",
+    "contact": "Contact"
   },
   "hero": {
     "badge": "Technologie premium pour événements",
@@ -450,6 +453,88 @@
       "dashboardSales": "Ventes",
       "dashboardOrders": "Commandes",
       "dashboardProducts": "Vendus"
+    }
+  },
+  "seo": {
+    "default": {
+      "title": "Ronda Privé | Technologie premium pour événements et lieux",
+      "description": "Plateforme mobile pour événements et lieux. Finies les files, plus de ventes. Précommande, livraison à la place et retrait express — sans bornes ni matériel supplémentaire."
+    },
+    "home": {
+      "title": "Technologie premium pour événements et lieux",
+      "description": "Plateforme mobile pour événements et lieux. Finies les files, plus de ventes grâce à la précommande, la livraison à la place et le retrait express."
+    },
+    "events": {
+      "title": "Événements actifs",
+      "description": "Événements en direct propulsés par Ronda Privé. Précommande, livraison à la place et retrait express."
+    },
+    "eventDetail": {
+      "title": "Événement",
+      "description": "Commandez depuis votre mobile avant et pendant le spectacle — sans file ni borne."
+    },
+    "solutions": {
+      "title": "Solutions",
+      "description": "Précommande, livraison à la place et retrait express. Les trois modes Ronda Privé pour éliminer les files dans les événements et les lieux."
+    },
+    "industries": {
+      "title": "Solutions par secteur",
+      "description": "Comment Ronda Privé s'adapte aux festivals, stades, clubs, bars et lieux. Cas d'usage par type d'établissement."
+    },
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "description": "Comment Ronda Privé fonctionne pour les visiteurs, les équipes en cuisine et les organisateurs. Flux complet de la commande à la livraison."
+    },
+    "benefits": {
+      "title": "Avantages",
+      "description": "Plus de ventes, meilleure expérience, contrôle total. Avantages commerciaux, opérationnels, techniques et expérientiels avec Ronda Privé."
+    },
+    "insights": {
+      "title": "Insights",
+      "description": "Tendances, cas d'usage et actualités sur le commerce mobile dans les événements et les lieux. Lectures pour organisateurs et opérateurs."
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Les questions les plus fréquentes sur Ronda Privé : implémentation, prérequis du lieu, tarification, intégrations et plus."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Parlons de votre événement ou de votre lieu. Demandez une démo personnalisée de Ronda Privé et nous concevrons l'installation ensemble."
+    }
+  },
+  "eventsData": {
+    "estereo-picnic-2026": {
+      "date": "28-30 mars 2026",
+      "country": "Colombie",
+      "description": "Le plus grand festival de musique de Colombie, avec des artistes internationaux.",
+      "badgeText": "Meilleure vente"
+    },
+    "copa-libertadores-2026": {
+      "date": "15 novembre 2026",
+      "country": "Argentine",
+      "description": "La grande finale de la Copa Libertadores.",
+      "badgeText": "Toutes les séances"
+    },
+    "tomorrowland-winter-2026": {
+      "date": "14-21 mars 2026",
+      "country": "France",
+      "description": "L'édition hivernale du plus grand festival du monde."
+    },
+    "club-prive-madrid": {
+      "date": "Tous les week-ends",
+      "country": "Espagne",
+      "description": "L'expérience nocturne la plus exclusive de Madrid.",
+      "badgeText": "VIP exclusif"
+    },
+    "tech-summit-2026": {
+      "date": "3-5 juin 2026",
+      "country": "",
+      "description": "L'événement majeur de la technologie et de l'innovation."
+    },
+    "lollapalooza-chile-2026": {
+      "date": "14-16 mars 2026",
+      "country": "Chili",
+      "description": "Lollapalooza débarque au Chili avec une programmation internationale.",
+      "badgeText": "Favori"
     }
   }
 }
