@@ -1,0 +1,23 @@
+# Ronda Privé
+
+> Plataforma tecnológica premium para eventos, festivales y venues: venta de tragos y experiencias desde el celular con control de ventas e inventario en tiempo real.
+
+Ronda Privé es una plataforma de monetización para eventos en vivo (estadios, festivales, clubes y bares premium). Los asistentes compran consumo desde su celular vía QR (preorder, pickup express o entrega en asiento) y los organizadores controlan ventas e inventario en tiempo real desde un dashboard. Disponible en español, inglés, portugués y francés.
+
+## Pages
+
+- [Inicio](/es): Resumen del producto y casos de uso.
+- [Eventos](/es/eventos): Eventos activos y próximos en la plataforma.
+- [Soluciones](/es/soluciones): Soluciones por tipo de venue (estadios, festivales, clubes, bares).
+- [Industrias](/es/industrias): Verticales que usan Ronda Privé.
+- [Cómo funciona](/es/como-funciona): Flujo del producto para asistentes y organizadores.
+- [Beneficios](/es/beneficios): Beneficios comerciales, operativos y de experiencia.
+- [Insights](/es/insights): Artículos y datos del sector.
+- [FAQ](/es/faq): Preguntas frecuentes.
+- [Contacto](/es/contacto): Solicitar demo personalizada.
+
+## Optional
+
+- [English](/en): Same site in English.
+- [Português](/pt): Mesmo site em português.
+- [Français](/fr): Même site en français.
