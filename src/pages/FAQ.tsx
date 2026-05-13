@@ -11,9 +11,30 @@ const FAQ = () => {
   const [openId, setOpenId] = useState<string | null>(null);
   const filtered = activeCategory === 'all' ? faqItems : faqItems.filter(f => f.category === activeCategory);
 
+  // FAQPage JSON-LD for rich results. Uses the full set (not the filtered
+  // view) so crawlers see every Q/A regardless of which category tab the
+  // user happened to land on.
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: t(item.questionKey),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: t(item.answerKey),
+      },
+    })),
+  };
+
   return (
     <>
       <SEO pageKey="faq" />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <PageHero title={t("faq.heroTitle")} titleHighlight={t("faq.heroHighlight")} subtitle={t("faq.heroSubtitle")} />
       <section className="pb-24">
         <div className="section-container max-w-3xl">

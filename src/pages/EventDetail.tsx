@@ -37,6 +37,33 @@ const EventDetail = () => {
       }, {} as Record<string, MenuItem[]>)
     : {};
 
+  // Event JSON-LD for rich results. startDate is omitted when we don't have
+  // an ISO-formatted value (the localized `date` field is human copy like
+  // "15–17 marzo 2026", which schema.org rejects).
+  const eventJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: event.name,
+    description: event.description || `${event.name} en ${event.venue}, ${event.city}.`,
+    image: event.image,
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    location: {
+      "@type": "Place",
+      name: event.venue,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: event.city,
+        addressCountry: event.country,
+      },
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "Ronda Privé",
+      url: "https://rondaprive.com/",
+    },
+  };
+
   return (
     <>
       <SEO
@@ -47,6 +74,11 @@ const EventDetail = () => {
           defaultValue: "{{name}} en Ronda Privé. Compra desde el celular antes y durante el show — sin filas, sin tótems.",
         })}
         pathSuffix={`/${event.id}`}
+      />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
       />
       {/* Hero */}
       <section className="pt-20">
