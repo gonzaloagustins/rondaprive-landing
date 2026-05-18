@@ -2,7 +2,7 @@
 
 > Plataforma tecnológica premium para eventos, festivales y venues: venta de tragos y experiencias desde el celular con control de ventas e inventario en tiempo real.
 
-Ronda Privé es una plataforma de monetización para eventos en vivo (estadios, festivales, clubes y bares premium). Los asistentes compran consumo desde su celular vía QR (preorder, pickup express o entrega en asiento) y los organizadores controlan ventas e inventario en tiempo real desde un dashboard. Disponible en español, inglés, portugués y francés.
+Ronda Privé es una plataforma de monetización para eventos en vivo (estadios, festivales, clubes y bares premium). Los asistentes compran consumo desde su celular vía QR (compra anticipada, compra y retiro o compra desde el asiento) y los organizadores controlan ventas e inventario en tiempo real desde un dashboard. Disponible en español, inglés, portugués y francés.
 
 ## Pages
 
