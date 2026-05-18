@@ -20,8 +20,8 @@
       "welcome": "Bienvenido a",
       "festivalName": "Festival 2026",
       "festivalDate": "26-30 Marzo",
-      "featurePreorder": "Anticipada",
-      "featureSeat": "En asiento",
+      "featurePreorder": "Compra anticipada",
+      "featureSeat": "Compra desde el asiento",
       "featureExpress": "Express",
       "orderNow": "Pedir ahora",
       "orderTime": "Tiempo pedido",
@@ -57,7 +57,7 @@
     "titleHighlight": "vender más",
     "subtitle": "Cada modalidad se adapta al tipo de evento, recinto y experiencia que necesitas ofrecer.",
     "pickup": {
-      "title": "Pick Up Express",
+      "title": "Compra y Retiro",
       "description": "El asistente compra desde su celular y retira en el punto de venta cuando su pedido está listo. Sin filas, sin esperas.",
       "cta": "Ver detalle"
     },
@@ -114,7 +114,7 @@
         },
         {
           "title": "Escanea y entrega",
-          "description": "En Pick Up se escanea el QR del cliente. En Seat Delivery se asocia a la ubicación."
+          "description": "En Compra y Retiro se escanea el QR del cliente. En Compra desde el asiento se asocia a la ubicación."
         },
         {
           "title": "Actualiza estado",
@@ -225,29 +225,29 @@
       "title": "Nightclubs",
       "description": "Optimiza la venta en barra y mesas VIP. Menos congestión, más rotación, mayor consumo por mesa.",
       "problem": "Barras congestionadas, pérdida de ventas en momentos peak, dificultad para atender mesas VIP con agilidad.",
-      "solution": "Pedidos desde mesa o zona VIP directo al celular. Pick Up Express para reducir filas en barra. Dashboard con métricas en vivo.",
-      "useCases": "Pedidos desde mesa VIP • Pick Up en barra principal • Promociones en tiempo real • Control de stock de botellas"
+      "solution": "Pedidos desde mesa o zona VIP directo al celular. Compra y Retiro para reducir filas en barra. Dashboard con métricas en vivo.",
+      "useCases": "Pedidos desde mesa VIP • Compra y Retiro en barra principal • Promociones en tiempo real • Control de stock de botellas"
     },
     "festivals": {
       "title": "Festivales",
       "description": "Mayor velocidad en puntos de alta demanda. Compra anticipada para reducir congestión y planificar inventario.",
       "problem": "Miles de asistentes, múltiples puntos de venta, filas interminables y pérdida masiva de ventas potenciales.",
-      "solution": "Pick Up Express en todos los puntos. Compra anticipada pre-evento. Inventario centralizado con alertas de stock.",
-      "useCases": "Compra anticipada de combos • Pick Up en barras múltiples • Inventario multi-punto • Reportes por zona"
+      "solution": "Compra y Retiro en todos los puntos. Compra anticipada pre-evento. Inventario centralizado con alertas de stock.",
+      "useCases": "Compra anticipada de combos • Compra y Retiro en barras múltiples • Inventario multi-punto • Reportes por zona"
     },
     "stadiums": {
       "title": "Estadios y Conciertos",
       "description": "QR en asientos, suites y hospitality. Compra desde el asiento con entrega directa sin perder el espectáculo.",
       "problem": "Asistentes abandonan sus asientos para comprar y pierden el show. Suites y hospitality sin servicio ágil.",
-      "solution": "QR en cada asiento o sector. Compra desde el celular con entrega al asiento. Pick Up para sectores generales.",
-      "useCases": "Delivery al asiento • QR por sector • Servicio en suites • Pick Up en cantinas • Compra anticipada"
+      "solution": "QR en cada asiento o sector. Compra desde el celular con entrega al asiento. Compra y Retiro para sectores generales.",
+      "useCases": "Delivery al asiento • QR por sector • Servicio en suites • Compra y Retiro en cantinas • Compra anticipada"
     },
     "bars": {
       "title": "Bares y Venues",
       "description": "Flujo de pedidos más ordenado, operación eficiente y mayor rotación en noches de alta demanda.",
       "problem": "Barras saturadas en horarios pico, errores en pedidos, falta de control de inventario y caja.",
       "solution": "Pedidos desde QR en mesa o barra. Preparación ordenada por prioridad. Dashboard de ventas y stock en tiempo real.",
-      "useCases": "QR en mesas • Pick Up en barra • Control de stock en vivo • Métricas de consumo por hora"
+      "useCases": "QR en mesas • Compra y Retiro en barra • Control de stock en vivo • Métricas de consumo por hora"
     }
   },
   "dashboard": {
@@ -343,8 +343,8 @@
     "upcoming": "Próximos eventos",
     "all": "Todos",
     "features": {
-      "pickup": "Pick Up Express",
-      "seat": "Desde el asiento",
+      "pickup": "Compra y Retiro",
+      "seat": "Compra desde el asiento",
       "preorder": "Compra anticipada"
     },
     "viewEvent": "Ver evento",
@@ -368,7 +368,7 @@
     "heroHighlight": "transforman tu operación",
     "heroSubtitle": "Tres modalidades de venta digital diseñadas para maximizar ingresos y eliminar fricción en eventos de alta demanda.",
     "pickup": {
-      "title": "Pick Up Express",
+      "title": "Compra y Retiro",
       "subtitle": "Compra digital con retiro en punto de venta",
       "steps": [
         {
@@ -621,15 +621,15 @@
   "seo": {
     "default": {
       "title": "Ronda Privé | Tecnología premium para eventos y venues",
-      "description": "Plataforma móvil para eventos y venues. Elimina la espera, maximiza las ventas. Compra anticipada, entrega al asiento y pickup express, sin tótems ni infraestructura adicional."
+      "description": "Plataforma móvil para eventos y venues. Elimina la espera, maximiza las ventas. Compra anticipada, entrega al asiento y compra y retiro, sin tótems ni infraestructura adicional."
     },
     "home": {
       "title": "Tecnología premium para eventos y venues",
-      "description": "Plataforma móvil para eventos y venues. Elimina la espera, maximiza las ventas. Compra anticipada, entrega al asiento y pickup express."
+      "description": "Plataforma móvil para eventos y venues. Elimina la espera, maximiza las ventas. Compra anticipada, entrega al asiento y compra y retiro."
     },
     "events": {
       "title": "Eventos activos",
-      "description": "Eventos en vivo donde Ronda Privé está operando. Compra anticipada, entrega al asiento y retiro express."
+      "description": "Eventos en vivo donde Ronda Privé está operando. Compra anticipada, entrega al asiento y compra y retiro."
     },
     "eventDetail": {
       "title": "Evento",
@@ -638,7 +638,7 @@
     },
     "solutions": {
       "title": "Soluciones",
-      "description": "Compra anticipada, entrega al asiento y pickup express. Las tres formas de Ronda Privé para eliminar las filas en eventos y venues."
+      "description": "Compra anticipada, entrega al asiento y compra y retiro. Las tres formas de Ronda Privé para eliminar las filas en eventos y venues."
     },
     "industries": {
       "title": "Soluciones por industria",
@@ -709,8 +709,8 @@
     "bar": "Bar"
   },
   "eventFeatures": {
-    "preorder": "Anticipada",
-    "seat": "En asiento",
+    "preorder": "Compra anticipada",
+    "seat": "Compra desde el asiento",
     "pickup": "Pickup"
   },
   "eventosActivos": {

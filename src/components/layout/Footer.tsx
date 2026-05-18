@@ -11,7 +11,7 @@ const Footer = () => {
   const productoLinks = [
     { to: `${path("solutions")}#preorder`, label: t("solutions.preorder.title", "Compra anticipada") },
     { to: `${path("solutions")}#seat`, label: t("solutions.seat.title", "Entrega en asiento") },
-    { to: `${path("solutions")}#pickup`, label: t("solutions.pickup.title", "Pickup express") },
+    { to: `${path("solutions")}#pickup`, label: t("solutions.pickup.title", "Compra y Retiro") },
   ];
 
   const solucionesLinks = [
