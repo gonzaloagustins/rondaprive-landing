@@ -28,17 +28,17 @@ const problemTexts: Record<string, string> = {
 };
 
 const solutionTexts: Record<string, string> = {
-  nightclubs: "Pedidos desde mesa o zona VIP directo al celular. Pick Up Express para reducir filas en barra.",
-  festivals: "Mayor velocidad en puntos de alta demanda. Compra anticipada y retiro express para multiplicar capacidad.",
-  stadiums: "QR en cada asiento o sector. Compra desde el celular con entrega al asiento. Pick Up para sectores generales.",
+  nightclubs: "Pedidos desde mesa o zona VIP directo al celular. Compra y Retiro para reducir filas en barra.",
+  festivals: "Mayor velocidad en puntos de alta demanda. Compra anticipada y compra y retiro para multiplicar capacidad.",
+  stadiums: "QR en cada asiento o sector. Compra desde el celular con entrega al asiento. Compra y Retiro para sectores generales.",
   bars: "Pedidos desde QR en mesa o barra. Preparación ordenada por prioridad. Dashboard de ventas en tiempo real.",
 };
 
 const useCasePills: Record<string, string[]> = {
-  nightclubs: ["Pedidos desde mesa VIP", "Pick Up en barra", "Promociones en tiempo real", "Control de stock"],
-  festivals: ["Puntos de retiro express", "Compra anticipada masiva", "Reducción de filas 80%", "Más ventas por persona"],
+  nightclubs: ["Pedidos desde mesa VIP", "Compra y Retiro en barra", "Promociones en tiempo real", "Control de stock"],
+  festivals: ["Puntos de Compra y Retiro", "Compra anticipada masiva", "Reducción de filas 80%", "Más ventas por persona"],
   stadiums: ["Delivery al asiento", "QR por sector", "Servicio en suites", "Compra anticipada"],
-  bars: ["QR en mesas", "Pick Up en barra", "Control de stock en vivo", "Métricas por hora"],
+  bars: ["QR en mesas", "Compra y Retiro en barra", "Control de stock en vivo", "Métricas por hora"],
 };
 
 const IndustriesPreview = () => {

@@ -20,9 +20,9 @@ const EventosActivos = () => {
   };
 
   const featureLabels: Record<string, { label: string; Icon: typeof Clock }> = {
-    preorder: { label: t("eventFeatures.preorder", "Anticipada"), Icon: Clock },
-    seat: { label: t("eventFeatures.seat", "En asiento"), Icon: MapPin },
-    pickup: { label: t("eventFeatures.pickup", "Pickup"), Icon: ShoppingBag },
+    preorder: { label: t("eventFeatures.preorder", "Compra anticipada"), Icon: Clock },
+    seat: { label: t("eventFeatures.seat", "Compra desde el asiento"), Icon: MapPin },
+    pickup: { label: t("eventFeatures.pickup", "Compra y Retiro"), Icon: ShoppingBag },
   };
 
   return (
