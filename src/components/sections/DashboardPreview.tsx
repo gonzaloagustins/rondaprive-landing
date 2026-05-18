@@ -160,7 +160,7 @@ const DashboardPreview = () => {
             </div>
 
             {/* Demo disclaimer — keeps the visitor honest about the data */}
-            <p className="text-center text-[10px] text-muted-foreground/70 italic">
+            <p className="text-center text-[10px] text-muted-foreground italic">
               Datos demostrativos · ejemplo de festival con 10K asistentes
             </p>
           </div>
