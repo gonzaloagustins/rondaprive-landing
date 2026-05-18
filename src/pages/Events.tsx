@@ -98,7 +98,7 @@ const Events = () => {
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder={t("events.searchPlaceholder", "Buscar por evento, venue o ciudad...")}
-              className="w-full pl-11 pr-10 py-3 rounded-xl bg-white/60 border border-border/50 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all"
+              className="w-full pl-11 pr-10 py-3 rounded-xl bg-white/60 border border-border/50 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all"
             />
             {search && (
               <button onClick={() => setSearch('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors">
@@ -208,7 +208,7 @@ const Events = () => {
           ) : (
             <div className="flex flex-col items-center justify-center py-24 text-center">
               <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center mb-5">
-                <CalendarOff className="w-7 h-7 text-muted-foreground/60" />
+                <CalendarOff className="w-7 h-7 text-muted-foreground" />
               </div>
               <h3 className="text-lg font-semibold mb-2">{t("events.emptyTitle", "No se encontraron eventos")}</h3>
               <p className="text-sm text-muted-foreground max-w-md mb-6">
