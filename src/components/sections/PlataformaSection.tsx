@@ -26,7 +26,7 @@ const products: Product[] = [
   {
     id: "preorder",
     icon: Clock,
-    label: "ANTICIPADO",
+    label: "COMPRA ANTICIPADA",
     title: "Asegura tu pedido antes de que se agote",
     bullets: ["Disponibilidad garantizada", "Skip el día del show con tu QR"],
     steps: [
@@ -43,7 +43,7 @@ const products: Product[] = [
   {
     id: "seat",
     icon: MapPin,
-    label: "EN TU UBICACIÓN",
+    label: "COMPRA DESDE EL ASIENTO",
     title: "Recibe sin moverte de tu asiento",
     bullets: ["Cero filas, cero interrupciones", "Llega directo a tu mano"],
     steps: [
@@ -62,7 +62,7 @@ const products: Product[] = [
   {
     id: "pickup",
     icon: CheckSquare,
-    label: "RETIRO RÁPIDO",
+    label: "COMPRA Y RETIRO",
     title: "Tu pedido listo cuando llegas",
     bullets: ["Fila VIP para pedidos digitales", "Sin esperar, sin filas"],
     steps: [
