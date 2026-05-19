@@ -14,21 +14,25 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
-const modules = [
-  { icon: BarChart3, title: "Estadísticas rápidas", subtitle: "KPIs en tiempo real" },
-  { icon: Layers, title: "Gestión de productos", subtitle: "Menús y precios" },
-  { icon: BarChart, title: "Inventario en vivo", subtitle: "Stock actualizado" },
-  { icon: PieChart, title: "Analíticas", subtitle: "Insights de consumo" },
-  { icon: Activity, title: "Monitoreo de ventas", subtitle: "Seguimiento continuo" },
-  { icon: Brain, title: "Comportamiento", subtitle: "Patrones de consumo" },
-  { icon: ShoppingCart, title: "Control de pedidos", subtitle: "Estado en tiempo real" },
-  { icon: Zap, title: "Decisiones rápidas", subtitle: "Datos para actuar" },
+const MODULE_ICONS = [
+  BarChart3,
+  Layers,
+  BarChart,
+  PieChart,
+  Activity,
+  Brain,
+  ShoppingCart,
+  Zap,
 ];
 
-const orders = [
-  { id: "#4521", items: "2x Cerveza, 1x Nachos", status: "Listo", statusColor: "bg-[#F0EBE3] text-foreground" },
-  { id: "#4520", items: "1x Combo VIP", status: "Preparando", statusColor: "bg-primary/20 text-primary" },
-  { id: "#4519", items: "3x Mojito", status: "Entregado", statusColor: "bg-primary/10 text-primary/70" },
+type ModuleCopy = { title: string; subtitle: string };
+type OrderCopy = { items: string; status: string };
+
+// Visual-only metadata; the matching status text comes from i18n by index.
+const ORDER_VISUALS = [
+  { id: "#4521", statusColor: "bg-[#F0EBE3] text-foreground" },
+  { id: "#4520", statusColor: "bg-primary/20 text-primary" },
+  { id: "#4519", statusColor: "bg-primary/10 text-primary/70" },
 ];
 
 const barHeights = [40, 55, 45, 65, 50, 75, 60, 80, 55, 70, 65, 85];
@@ -36,23 +40,33 @@ const barHeights = [40, 55, 45, 65, 50, 75, 60, 80, 55, 70, 65, 85];
 const DashboardPreview = () => {
   const { t } = useTranslation();
   const { path } = useLocalizedPath();
+
+  const modules = t("dashboardPreview.modules", {
+    returnObjects: true,
+    defaultValue: [],
+  }) as ModuleCopy[];
+  const orders = t("dashboardPreview.mock.orders", {
+    returnObjects: true,
+    defaultValue: [],
+  }) as OrderCopy[];
+
   return (
     <section className="section-dark py-24" id="dashboard">
       <div className="section-container">
         {/* Header */}
         <div className="mb-16">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            Panel de control
+            {t("dashboardPreview.eyebrow")}
           </span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold mt-4 leading-tight">
-            Todo bajo control.
+            {t("dashboardPreview.headline")}
             <br />
-            <span className="text-gradient-gold">En tiempo real.</span>
+            <span className="text-gradient-gold">
+              {t("dashboardPreview.headlineHighlight")}
+            </span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl text-lg">
-            Un dashboard completo para organizadores y equipos operativos.
-            Visualiza ventas, gestiona inventario y toma decisiones informadas al
-            instante.
+            {t("dashboardPreview.description")}
           </p>
         </div>
 
@@ -60,7 +74,7 @@ const DashboardPreview = () => {
           {/* Left: Feature modules */}
           <div className="grid grid-cols-2 gap-3">
             {modules.map((mod, i) => {
-              const Icon = mod.icon;
+              const Icon = MODULE_ICONS[i] ?? BarChart3;
               return (
                 <div
                   key={i}
@@ -90,24 +104,30 @@ const DashboardPreview = () => {
                 <span className="w-3 h-3 rounded-full bg-green-500/70" />
               </div>
               <span className="text-xs text-muted-foreground italic">
-                Ronda Privé Dashboard
+                {t("dashboardPreview.mock.windowTitle")}
               </span>
             </div>
 
             {/* Stats row */}
             <div className="grid grid-cols-3 gap-3">
               <div className="rounded-xl border border-[hsl(28,10%,20%)] p-4">
-                <p className="text-xs text-muted-foreground">Ventas Hoy</p>
+                <p className="text-xs text-muted-foreground">
+                  {t("dashboardPreview.mock.cards.salesToday")}
+                </p>
                 <p className="text-2xl font-bold mt-1">$45,230</p>
                 <p className="text-xs text-green-400 mt-1">+12%</p>
               </div>
               <div className="rounded-xl border border-[hsl(28,10%,20%)] p-4">
-                <p className="text-xs text-muted-foreground">Pedidos</p>
+                <p className="text-xs text-muted-foreground">
+                  {t("dashboardPreview.mock.cards.orders")}
+                </p>
                 <p className="text-2xl font-bold mt-1">1,847</p>
                 <p className="text-xs text-green-400 mt-1">+8%</p>
               </div>
               <div className="rounded-xl border border-[hsl(28,10%,20%)] p-4">
-                <p className="text-xs text-muted-foreground">Ticket Prom.</p>
+                <p className="text-xs text-muted-foreground">
+                  {t("dashboardPreview.mock.cards.avgTicket")}
+                </p>
                 <p className="text-2xl font-bold mt-1">$24.50</p>
                 <p className="text-xs text-green-400 mt-1">+5%</p>
               </div>
@@ -115,7 +135,9 @@ const DashboardPreview = () => {
 
             {/* Chart */}
             <div className="rounded-xl border border-[hsl(28,10%,20%)] p-4">
-              <p className="text-xs text-muted-foreground mb-3">Ventas por hora</p>
+              <p className="text-xs text-muted-foreground mb-3">
+                {t("dashboardPreview.mock.chartTitle")}
+              </p>
               <div className="flex items-end gap-1.5 h-28 justify-between">
                 {barHeights.map((h, i) => (
                   <div key={i} className="flex-1 flex flex-col items-center">
@@ -134,34 +156,37 @@ const DashboardPreview = () => {
 
             {/* Orders */}
             <div className="space-y-2">
-              {orders.map((order) => (
-                <div
-                  key={order.id}
-                  className="flex items-center justify-between py-2.5 px-3 rounded-lg border border-[hsl(28,10%,20%)] text-xs"
-                >
-                  <span>
-                    <span className="text-primary font-semibold">{order.id}</span>{" "}
-                    {order.items}
-                  </span>
-                  <span
-                    className={`px-3 py-1 rounded-full text-[10px] font-semibold ${order.statusColor}`}
+              {orders.map((order, i) => {
+                const visual = ORDER_VISUALS[i] ?? ORDER_VISUALS[0];
+                return (
+                  <div
+                    key={visual.id}
+                    className="flex items-center justify-between py-2.5 px-3 rounded-lg border border-[hsl(28,10%,20%)] text-xs"
                   >
-                    {order.status}
-                  </span>
-                </div>
-              ))}
+                    <span>
+                      <span className="text-primary font-semibold">{visual.id}</span>{" "}
+                      {order.items}
+                    </span>
+                    <span
+                      className={`px-3 py-1 rounded-full text-[10px] font-semibold ${visual.statusColor}`}
+                    >
+                      {order.status}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
 
             {/* Live update button */}
             <div className="text-center pt-2">
               <span className="inline-flex items-center gap-2 bg-[#F0EBE3] text-[#1A1814] text-xs font-semibold px-5 py-2.5 rounded-full">
-                Actualización en vivo
+                {t("dashboardPreview.mock.liveBadge")}
               </span>
             </div>
 
             {/* Demo disclaimer — keeps the visitor honest about the data */}
             <p className="text-center text-[10px] text-muted-foreground italic">
-              Datos demostrativos · ejemplo de festival con 10K asistentes
+              {t("dashboardPreview.mock.disclaimer")}
             </p>
           </div>
         </div>
@@ -169,7 +194,7 @@ const DashboardPreview = () => {
         {/* CTA */}
         <div className="mt-16 flex flex-col items-center justify-center gap-4 text-center sm:flex-row">
           <p className="text-muted-foreground">
-            ¿Quieres verlo con los datos de tu venue?
+            {t("dashboardPreview.ctaQuestion")}
           </p>
           <Button
             variant="gold"

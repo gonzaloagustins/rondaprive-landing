@@ -17,7 +17,6 @@ import {
   isLang,
   type Lang,
 } from "@/i18n/routes";
-import { loadLocale } from "@/i18n";
 
 const Events = lazy(() => import("./pages/Events"));
 const EventDetail = lazy(() => import("./pages/EventDetail"));
@@ -58,9 +57,7 @@ const LangGuard = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     if (!valid) return;
     if (i18n.language !== lang) {
-      void loadLocale(lang).then(() => i18n.changeLanguage(lang));
-    } else {
-      void loadLocale(lang);
+      void i18n.changeLanguage(lang);
     }
   }, [lang, valid, i18n]);
 

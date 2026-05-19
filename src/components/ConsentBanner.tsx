@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import {
   isGTMConfigured,
@@ -31,6 +32,7 @@ function writeStoredConsent(value: ConsentDecision): void {
 }
 
 const ConsentBanner = () => {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -67,13 +69,12 @@ const ConsentBanner = () => {
   return (
     <div
       role="dialog"
-      aria-label="Aviso de cookies"
+      aria-label={t("consent.ariaLabel")}
       className="fixed inset-x-4 bottom-4 z-50 sm:inset-x-auto sm:right-6 sm:bottom-6 sm:max-w-md"
     >
       <div className="rounded-2xl border border-[#1A1814]/10 bg-[#F0EBE3] shadow-xl p-5">
         <p className="text-sm text-[#1A1814] leading-relaxed">
-          Usamos cookies para entender cómo se usa el sitio y mejorar la
-          experiencia. Puedes aceptar todas o quedarte solo con las necesarias.
+          {t("consent.message")}
         </p>
         <div className="mt-4 flex flex-col-reverse sm:flex-row gap-2 sm:justify-end">
           <Button
@@ -82,7 +83,7 @@ const ConsentBanner = () => {
             className="w-full sm:w-auto"
             onClick={handleReject}
           >
-            Solo necesarias
+            {t("consent.acceptOnly")}
           </Button>
           <Button
             variant="dark-solid"
@@ -90,7 +91,7 @@ const ConsentBanner = () => {
             className="w-full sm:w-auto"
             onClick={handleAccept}
           >
-            Aceptar
+            {t("consent.accept")}
           </Button>
         </div>
       </div>

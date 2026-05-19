@@ -719,5 +719,141 @@
     "subtitle": "Festivals, stadiums, clubs and bars. The platform adapts to any format and grows with your event.",
     "ctaPrimary": "Let's talk about your event",
     "ctaSecondary": "or explore events where we operate →"
+  },
+  "plataforma": {
+    "heading": "One platform. Three ways to cut the line.",
+    "subtitle": "The fastest, safest, most comfortable way to enjoy every moment.",
+    "toggleShow": "See how it works",
+    "toggleHide": "Hide steps",
+    "ctaQuestion": "Want this at your next event?",
+    "products": {
+      "preorder": {
+        "label": "PRE-ORDER",
+        "title": "Lock in your order before it sells out",
+        "bullets": [
+          "Guaranteed availability",
+          "Skip the line on show day with your QR"
+        ],
+        "steps": [
+          "Pick your event and build your order",
+          "Pay in advance in seconds",
+          "Pick up with your QR on show day"
+        ],
+        "imageAlt": "Person browsing active events on a laptop with Ronda Privé"
+      },
+      "seat": {
+        "label": "ORDER FROM YOUR SEAT",
+        "title": "Get it without leaving your seat",
+        "badge": "Exclusive to Ronda Privé",
+        "bullets": [
+          "Zero lines, zero interruptions",
+          "Delivered straight to you"
+        ],
+        "steps": [
+          "Scan the QR at your seat",
+          "Order from your phone",
+          "Get it delivered without moving"
+        ],
+        "imageAlt": "Server delivering a drink to a VIP seat during a concert"
+      },
+      "pickup": {
+        "label": "ORDER & PICK UP",
+        "title": "Your order ready when you arrive",
+        "bullets": [
+          "VIP line for digital orders",
+          "No waiting, no queues"
+        ],
+        "steps": [
+          "Order from your phone anytime",
+          "Get the \"ready for pickup\" alert",
+          "Collect at the exclusive VIP line"
+        ],
+        "imageAlt": "Person picking up an express order with QR at a festival VIP bar"
+      }
+    }
+  },
+  "statsBar": {
+    "items": [
+      { "value": "85%", "label": "Line reduction" },
+      { "value": "+40%", "label": "More sales" },
+      { "value": "3x", "label": "Service speed" },
+      { "value": "0", "label": "Extra infrastructure" }
+    ]
+  },
+  "dashboardPreview": {
+    "eyebrow": "Control panel",
+    "headline": "Everything under control.",
+    "headlineHighlight": "In real time.",
+    "description": "A full dashboard for organizers and operations teams. Track sales, manage inventory, and make informed decisions in the moment.",
+    "modules": [
+      { "title": "Quick stats", "subtitle": "Real-time KPIs" },
+      { "title": "Product management", "subtitle": "Menus and pricing" },
+      { "title": "Live inventory", "subtitle": "Stock kept current" },
+      { "title": "Analytics", "subtitle": "Consumption insights" },
+      { "title": "Sales monitoring", "subtitle": "Continuous tracking" },
+      { "title": "Behavior", "subtitle": "Consumption patterns" },
+      { "title": "Order control", "subtitle": "Real-time status" },
+      { "title": "Fast decisions", "subtitle": "Data to act on" }
+    ],
+    "mock": {
+      "windowTitle": "Ronda Privé Dashboard",
+      "cards": {
+        "salesToday": "Sales Today",
+        "orders": "Orders",
+        "avgTicket": "Avg. Ticket"
+      },
+      "chartTitle": "Sales by hour",
+      "liveBadge": "Live updates",
+      "disclaimer": "Demo data · sample of a 10K-attendee festival",
+      "orders": [
+        { "items": "2x Beer, 1x Nachos", "status": "Ready" },
+        { "items": "1x VIP Combo", "status": "Preparing" },
+        { "items": "3x Mojito", "status": "Delivered" }
+      ]
+    },
+    "ctaQuestion": "Want to see it with your venue's data?"
+  },
+  "industriesPreview": {
+    "eyebrow": "Adaptable to your venue",
+    "title": "One solution, multiple formats",
+    "subtitle": "Pick your venue type and discover how Ronda Privé adapts to your specific needs",
+    "labels": {
+      "problem": "The problem",
+      "solution": "Our solution",
+      "useCases": "Use cases"
+    },
+    "ctaTalk": "Let's talk about {{industry}}",
+    "useCases": {
+      "nightclubs": [
+        "Orders from VIP tables",
+        "Order & pick up at the bar",
+        "Real-time promotions",
+        "Stock control"
+      ],
+      "festivals": [
+        "Pickup points across the site",
+        "Mass pre-ordering",
+        "80% shorter lines",
+        "Higher spend per attendee"
+      ],
+      "stadiums": [
+        "Seat delivery",
+        "QR by section",
+        "Suite service",
+        "Pre-ordering"
+      ],
+      "bars": [
+        "QR at tables",
+        "Order & pick up at the bar",
+        "Live stock control",
+        "Hourly metrics"
+      ]
+    }
+  },
+  "consent": {
+    "ariaLabel": "Cookie notice",
+    "message": "We use cookies to understand how the site is used and improve the experience. You can accept all or keep only the necessary ones.",
+    "acceptOnly": "Necessary only",
+    "accept": "Accept"
   }
 }

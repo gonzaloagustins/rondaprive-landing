@@ -1,7 +1,9 @@
 import { Link, useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ArrowRight, Music, Tent, Trophy, Wine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { industries } from "@/data/industries";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const VALID_IDS = ["nightclubs", "festivals", "stadiums", "bars"] as const;
 const DEFAULT_ID = "festivals";
@@ -13,40 +15,18 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Wine,
 };
 
-const tabLabels: Record<string, string> = {
-  nightclubs: "Nightclubs",
-  festivals: "Festivales",
-  stadiums: "Estadios y Conciertos",
-  bars: "Bares y Venues",
-};
-
-const problemTexts: Record<string, string> = {
-  nightclubs: "Barras saturadas, mesas VIP descuidadas, ventas perdidas en peak.",
-  festivals: "Largas filas, puntos de venta insuficientes, ventas perdidas bajo el sol.",
-  stadiums: "Asistentes pierden el show cuando van a comprar. Suites sin atención ágil.",
-  bars: "Barras saturadas en peak, errores en pedidos, sin control de stock.",
-};
-
-const solutionTexts: Record<string, string> = {
-  nightclubs: "Pedidos desde mesa o zona VIP directo al celular. Compra y Retiro para reducir filas en barra.",
-  festivals: "Mayor velocidad en puntos de alta demanda. Compra anticipada y compra y retiro para multiplicar capacidad.",
-  stadiums: "QR en cada asiento o sector. Compra desde el celular con entrega al asiento. Compra y Retiro para sectores generales.",
-  bars: "Pedidos desde QR en mesa o barra. Preparación ordenada por prioridad. Dashboard de ventas en tiempo real.",
-};
-
-const useCasePills: Record<string, string[]> = {
-  nightclubs: ["Pedidos desde mesa VIP", "Compra y Retiro en barra", "Promociones en tiempo real", "Control de stock"],
-  festivals: ["Puntos de Compra y Retiro", "Compra anticipada masiva", "Reducción de filas 80%", "Más ventas por persona"],
-  stadiums: ["Delivery al asiento", "QR por sector", "Servicio en suites", "Compra anticipada"],
-  bars: ["QR en mesas", "Compra y Retiro en barra", "Control de stock en vivo", "Métricas por hora"],
-};
-
 const IndustriesPreview = () => {
+  const { t } = useTranslation();
+  const { path } = useLocalizedPath();
   const [searchParams, setSearchParams] = useSearchParams();
   const tipo = searchParams.get("tipo") ?? DEFAULT_ID;
   const activeId = (VALID_IDS as readonly string[]).includes(tipo) ? tipo : DEFAULT_ID;
   const active = industries.find((i) => i.id === activeId) || industries[1];
-  const ActiveIcon = iconMap[active.icon] || Music;
+  const activeTitle = t(`industries.${activeId}.title`);
+  const useCases = t(`industriesPreview.useCases.${activeId}`, {
+    returnObjects: true,
+    defaultValue: [],
+  }) as string[];
 
   const selectTab = (id: string) => {
     setSearchParams(
@@ -65,14 +45,13 @@ const IndustriesPreview = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            Adaptable a tu recinto
+            {t("industriesPreview.eyebrow")}
           </span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold mt-4">
-            Una solución, múltiples formatos
+            {t("industriesPreview.title")}
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg">
-            Selecciona tu tipo de recinto y descubre cómo Ronda Privé se adapta
-            a tus necesidades específicas
+            {t("industriesPreview.subtitle")}
           </p>
         </div>
 
@@ -92,7 +71,7 @@ const IndustriesPreview = () => {
                 }`}
               >
                 <IndIcon className="w-4 h-4" />
-                {tabLabels[ind.id]}
+                {t(`industries.${ind.id}.title`)}
               </button>
             );
           })}
@@ -104,7 +83,7 @@ const IndustriesPreview = () => {
           <div className="rounded-2xl overflow-hidden aspect-[16/10]">
             <img
               src={active.image}
-              alt={tabLabels[active.id]}
+              alt={activeTitle}
               width={1200}
               height={750}
               className="w-full h-full object-cover transition-all duration-500"
@@ -117,28 +96,28 @@ const IndustriesPreview = () => {
           <div className="space-y-6">
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                El problema
+                {t("industriesPreview.labels.problem")}
               </span>
               <p className="mt-2 text-muted-foreground leading-relaxed">
-                {problemTexts[activeId]}
+                {t(`industries.${activeId}.problem`)}
               </p>
             </div>
 
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                Nuestra solución
+                {t("industriesPreview.labels.solution")}
               </span>
               <p className="mt-2 font-medium leading-relaxed">
-                {solutionTexts[activeId]}
+                {t(`industries.${activeId}.solution`)}
               </p>
             </div>
 
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                Ejemplos de uso
+                {t("industriesPreview.labels.useCases")}
               </span>
               <div className="flex flex-wrap gap-2 mt-3">
-                {useCasePills[activeId]?.map((pill, i) => (
+                {useCases.map((pill, i) => (
                   <span
                     key={i}
                     className="border border-[hsl(28,10%,25%)] text-xs px-3 py-1.5 rounded-full text-muted-foreground"
@@ -156,8 +135,8 @@ const IndustriesPreview = () => {
                 className="group rounded-full"
                 asChild
               >
-                <Link to={`/contacto?industria=${activeId}`}>
-                  Hablemos sobre {tabLabels[activeId].toLowerCase()}
+                <Link to={`${path("contact")}?industria=${activeId}`}>
+                  {t("industriesPreview.ctaTalk", { industry: activeTitle.toLowerCase() })}
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
