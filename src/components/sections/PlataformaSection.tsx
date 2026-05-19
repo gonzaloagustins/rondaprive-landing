@@ -5,85 +5,53 @@ import { Clock, MapPin, CheckSquare, Check, ChevronDown, ArrowRight } from "luci
 import { Button } from "@/components/ui/button";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
-type Product = {
-  id: string;
+type ProductId = "preorder" | "seat" | "pickup";
+
+type ProductMeta = {
+  id: ProductId;
   icon: typeof Clock;
-  label: string;
-  title: string;
-  bullets: string[];
-  steps: string[];
   image: string;
   imageWebp: string;
   imageWebpMd: string;
   imageWebpSm: string;
-  imageAlt: string;
   highlight?: boolean;
-  badge?: string;
 };
 
 // Order applies Serial-Position + Peak-End: soft entry → hero → tangible close.
-const products: Product[] = [
+const productsMeta: ProductMeta[] = [
   {
     id: "preorder",
     icon: Clock,
-    label: "COMPRA ANTICIPADA",
-    title: "Asegura tu pedido antes de que se agote",
-    bullets: ["Disponibilidad garantizada", "Skip el día del show con tu QR"],
-    steps: [
-      "Elige tu evento y arma tu pedido",
-      "Paga por adelantado en segundos",
-      "Retira con tu QR el día del show",
-    ],
     image: "/compra-anticipada.jpg",
     imageWebp: "/compra-anticipada.webp",
     imageWebpMd: "/compra-anticipada-900w.webp",
     imageWebpSm: "/compra-anticipada-600w.webp",
-    imageAlt: "Persona revisando eventos activos en laptop con Ronda Privé",
   },
   {
     id: "seat",
     icon: MapPin,
-    label: "COMPRA DESDE EL ASIENTO",
-    title: "Recibe sin moverte de tu asiento",
-    bullets: ["Cero filas, cero interrupciones", "Llega directo a tu mano"],
-    steps: [
-      "Escanea el QR de tu asiento",
-      "Compra desde tu celular",
-      "Recibe en tu ubicación sin moverte",
-    ],
     image: "/seat-delivery.jpg",
     imageWebp: "/seat-delivery.webp",
     imageWebpMd: "/seat-delivery-900w.webp",
     imageWebpSm: "/seat-delivery-600w.webp",
-    imageAlt: "Mozo entregando bebida en asiento VIP durante concierto",
     highlight: true,
-    badge: "Exclusivo de Ronda Privé",
   },
   {
     id: "pickup",
     icon: CheckSquare,
-    label: "COMPRA Y RETIRO",
-    title: "Tu pedido listo cuando llegas",
-    bullets: ["Fila VIP para pedidos digitales", "Sin esperar, sin filas"],
-    steps: [
-      "Pide desde tu celular en cualquier momento",
-      "Recibe el aviso de \"listo para retirar\"",
-      "Retira en la fila VIP exclusiva",
-    ],
     image: "/pickup-express.jpg",
     imageWebp: "/pickup-express.webp",
     imageWebpMd: "/pickup-express-900w.webp",
     imageWebpSm: "/pickup-express-600w.webp",
-    imageAlt: "Persona retirando pedido express con QR en bar VIP de festival",
   },
 ];
 
 const PlataformaSection = () => {
   const { t } = useTranslation();
   const { path } = useLocalizedPath();
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<ProductId | null>(null);
 
-  const toggle = (id: string) => {
+  const toggle = (id: ProductId) => {
     setExpandedId((prev) => (prev === id ? null : id));
   };
 
@@ -92,18 +60,31 @@ const PlataformaSection = () => {
       <div className="section-container">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="font-display text-4xl sm:text-5xl font-bold">
-            Una plataforma. Tres formas de eliminar las filas.
+            {t("plataforma.heading")}
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            La forma más rápida, segura y cómoda de disfrutar cada momento.
+            {t("plataforma.subtitle")}
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {products.map((product) => {
+          {productsMeta.map((product) => {
             const Icon = product.icon;
             const isHighlight = product.highlight;
             const isExpanded = expandedId === product.id;
+            const label = t(`plataforma.products.${product.id}.label`);
+            const title = t(`plataforma.products.${product.id}.title`);
+            const imageAlt = t(`plataforma.products.${product.id}.imageAlt`);
+            const badge = t(`plataforma.products.${product.id}.badge`, "");
+            const bullets = t(`plataforma.products.${product.id}.bullets`, {
+              returnObjects: true,
+              defaultValue: [],
+            }) as string[];
+            const steps = t(`plataforma.products.${product.id}.steps`, {
+              returnObjects: true,
+              defaultValue: [],
+            }) as string[];
+
             return (
               <article
                 key={product.id}
@@ -113,9 +94,9 @@ const PlataformaSection = () => {
                     : "border-border/60 shadow-sm hover:-translate-y-2"
                 }`}
               >
-                {product.badge && (
+                {badge && (
                   <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-primary text-primary-foreground text-[11px] font-semibold tracking-wide shadow">
-                    {product.badge}
+                    {badge}
                   </div>
                 )}
 
@@ -128,7 +109,7 @@ const PlataformaSection = () => {
                     />
                     <img
                       src={product.image}
-                      alt={product.imageAlt}
+                      alt={imageAlt}
                       width={896}
                       height={672}
                       className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
@@ -152,16 +133,16 @@ const PlataformaSection = () => {
                       />
                     </div>
                     <span className="text-[11px] font-semibold tracking-[0.12em] text-muted-foreground">
-                      {product.label}
+                      {label}
                     </span>
                   </div>
 
                   <h3 className="font-display text-xl lg:text-2xl font-bold leading-snug mb-5">
-                    {product.title}
+                    {title}
                   </h3>
 
                   <ul className="space-y-2.5">
-                    {product.bullets.map((bullet) => (
+                    {bullets.map((bullet) => (
                       <li
                         key={bullet}
                         className="flex items-center gap-3 text-sm text-foreground/80"
@@ -182,7 +163,7 @@ const PlataformaSection = () => {
                       aria-controls={`steps-${product.id}`}
                       className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                     >
-                      {isExpanded ? "Ocultar pasos" : "Ver cómo funciona"}
+                      {isExpanded ? t("plataforma.toggleHide") : t("plataforma.toggleShow")}
                       <ChevronDown
                         className={`w-4 h-4 transition-transform duration-300 ${
                           isExpanded ? "rotate-180" : ""
@@ -198,7 +179,7 @@ const PlataformaSection = () => {
                       }`}
                     >
                       <ol className="overflow-hidden space-y-3">
-                        {product.steps.map((step, idx) => (
+                        {steps.map((step, idx) => (
                           <li key={step} className="flex gap-3 text-sm text-foreground/80">
                             <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center">
                               {idx + 1}
@@ -217,7 +198,7 @@ const PlataformaSection = () => {
 
         <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
           <p className="text-muted-foreground">
-            ¿Quieres esto en tu próximo evento?
+            {t("plataforma.ctaQuestion")}
           </p>
           <Button
             variant="dark-solid"

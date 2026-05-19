@@ -1,11 +1,11 @@
-const stats = [
-  { value: "85%", label: "Reducción de filas" },
-  { value: "+40%", label: "Más ventas" },
-  { value: "3x", label: "Velocidad de servicio" },
-  { value: "0", label: "Infraestructura extra" },
-];
+import { useTranslation } from "react-i18next";
+
+type Stat = { value: string; label: string };
 
 const StatsBar = () => {
+  const { t } = useTranslation();
+  const stats = t("statsBar.items", { returnObjects: true, defaultValue: [] }) as Stat[];
+
   return (
     <section className="pt-0 pb-8">
       <div className="section-container">

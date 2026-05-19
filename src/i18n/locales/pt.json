@@ -719,5 +719,141 @@
     "subtitle": "Festivais, estádios, baladas e bares. A plataforma se adapta a qualquer formato e cresce junto com o seu evento.",
     "ctaPrimary": "Vamos falar sobre o seu evento",
     "ctaSecondary": "ou explorar onde estamos operando →"
+  },
+  "plataforma": {
+    "heading": "Uma plataforma. Três formas de acabar com as filas.",
+    "subtitle": "O jeito mais rápido, seguro e cômodo de aproveitar cada momento.",
+    "toggleShow": "Veja como funciona",
+    "toggleHide": "Ocultar etapas",
+    "ctaQuestion": "Quer isso no seu próximo evento?",
+    "products": {
+      "preorder": {
+        "label": "COMPRA ANTECIPADA",
+        "title": "Garanta seu pedido antes que esgote",
+        "bullets": [
+          "Disponibilidade garantida",
+          "Pule a fila no dia do show com seu QR"
+        ],
+        "steps": [
+          "Escolha seu evento e monte seu pedido",
+          "Pague antecipadamente em segundos",
+          "Retire com seu QR no dia do show"
+        ],
+        "imageAlt": "Pessoa revisando eventos ativos no laptop com Ronda Privé"
+      },
+      "seat": {
+        "label": "COMPRA DO SEU ASSENTO",
+        "title": "Receba sem sair do seu assento",
+        "badge": "Exclusivo da Ronda Privé",
+        "bullets": [
+          "Zero filas, zero interrupções",
+          "Chega direto na sua mão"
+        ],
+        "steps": [
+          "Escaneie o QR do seu assento",
+          "Compre pelo celular",
+          "Receba na sua posição sem se mover"
+        ],
+        "imageAlt": "Garçom entregando bebida em assento VIP durante show"
+      },
+      "pickup": {
+        "label": "COMPRA E RETIRADA",
+        "title": "Seu pedido pronto quando você chega",
+        "bullets": [
+          "Fila VIP para pedidos digitais",
+          "Sem esperar, sem filas"
+        ],
+        "steps": [
+          "Peça pelo celular a qualquer momento",
+          "Receba o aviso \"pronto para retirar\"",
+          "Retire na fila VIP exclusiva"
+        ],
+        "imageAlt": "Pessoa retirando pedido express com QR em bar VIP de festival"
+      }
+    }
+  },
+  "statsBar": {
+    "items": [
+      { "value": "85%", "label": "Redução de filas" },
+      { "value": "+40%", "label": "Mais vendas" },
+      { "value": "3x", "label": "Velocidade de atendimento" },
+      { "value": "0", "label": "Infraestrutura extra" }
+    ]
+  },
+  "dashboardPreview": {
+    "eyebrow": "Painel de controle",
+    "headline": "Tudo sob controle.",
+    "headlineHighlight": "Em tempo real.",
+    "description": "Um dashboard completo para organizadores e equipes operacionais. Visualize vendas, gerencie estoque e tome decisões informadas na hora.",
+    "modules": [
+      { "title": "Estatísticas rápidas", "subtitle": "KPIs em tempo real" },
+      { "title": "Gestão de produtos", "subtitle": "Cardápios e preços" },
+      { "title": "Estoque ao vivo", "subtitle": "Stock atualizado" },
+      { "title": "Analytics", "subtitle": "Insights de consumo" },
+      { "title": "Monitoramento de vendas", "subtitle": "Acompanhamento contínuo" },
+      { "title": "Comportamento", "subtitle": "Padrões de consumo" },
+      { "title": "Controle de pedidos", "subtitle": "Status em tempo real" },
+      { "title": "Decisões rápidas", "subtitle": "Dados para agir" }
+    ],
+    "mock": {
+      "windowTitle": "Ronda Privé Dashboard",
+      "cards": {
+        "salesToday": "Vendas hoje",
+        "orders": "Pedidos",
+        "avgTicket": "Ticket médio"
+      },
+      "chartTitle": "Vendas por hora",
+      "liveBadge": "Atualização ao vivo",
+      "disclaimer": "Dados demonstrativos · exemplo de festival com 10 mil participantes",
+      "orders": [
+        { "items": "2x Cerveja, 1x Nachos", "status": "Pronto" },
+        { "items": "1x Combo VIP", "status": "Preparando" },
+        { "items": "3x Mojito", "status": "Entregue" }
+      ]
+    },
+    "ctaQuestion": "Quer ver com os dados do seu venue?"
+  },
+  "industriesPreview": {
+    "eyebrow": "Adaptável ao seu recinto",
+    "title": "Uma solução, múltiplos formatos",
+    "subtitle": "Selecione o seu tipo de recinto e descubra como a Ronda Privé se adapta às suas necessidades",
+    "labels": {
+      "problem": "O problema",
+      "solution": "Nossa solução",
+      "useCases": "Casos de uso"
+    },
+    "ctaTalk": "Vamos falar sobre {{industry}}",
+    "useCases": {
+      "nightclubs": [
+        "Pedidos da mesa VIP",
+        "Compra e retirada no bar",
+        "Promoções em tempo real",
+        "Controle de estoque"
+      ],
+      "festivals": [
+        "Pontos de compra e retirada",
+        "Compra antecipada em massa",
+        "Redução de filas em 80%",
+        "Mais vendas por pessoa"
+      ],
+      "stadiums": [
+        "Delivery no assento",
+        "QR por setor",
+        "Atendimento em suítes",
+        "Compra antecipada"
+      ],
+      "bars": [
+        "QR nas mesas",
+        "Compra e retirada no bar",
+        "Controle de estoque ao vivo",
+        "Métricas por hora"
+      ]
+    }
+  },
+  "consent": {
+    "ariaLabel": "Aviso de cookies",
+    "message": "Usamos cookies para entender como o site é utilizado e melhorar a experiência. Você pode aceitar tudo ou ficar apenas com os necessários.",
+    "acceptOnly": "Somente necessários",
+    "accept": "Aceitar"
   }
 }
