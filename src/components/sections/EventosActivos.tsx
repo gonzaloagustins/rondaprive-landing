@@ -1,5 +1,5 @@
 import { ArrowRight, Clock, ShoppingBag, Armchair } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
@@ -7,8 +7,6 @@ import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 const EventosActivos = () => {
   const { t } = useTranslation();
   const { path } = useLocalizedPath();
-  useNavigate();
-
   const channelMeta = {
     pickup: { label: t("formatos.channels.pickup", "Pickup"), Icon: ShoppingBag },
     seat: { label: t("formatos.channels.seat", "Desde el asiento"), Icon: Armchair },
