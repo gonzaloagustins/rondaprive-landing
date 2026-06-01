@@ -1,29 +1,68 @@
-import { ArrowRight, Clock, MapPin, ShoppingBag } from "lucide-react";
+import { ArrowRight, Clock, ShoppingBag, Armchair } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { getHomeEvents } from "@/data/events";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const EventosActivos = () => {
   const { t } = useTranslation();
   const { path } = useLocalizedPath();
-  const navigate = useNavigate();
-  const homeEvents = getHomeEvents(t).slice(0, 3);
+  useNavigate();
 
-  const categoryLabels: Record<string, string> = {
-    festival: t("eventCategories.festival", "Festival"),
-    concert: t("eventCategories.concert", "Concierto"),
-    nightclub: t("eventCategories.nightclub", "Nightclub"),
-    conference: t("eventCategories.conference", "Conferencia"),
-    bar: t("eventCategories.bar", "Bar"),
-  };
+  const channelMeta = {
+    pickup: { label: t("formatos.channels.pickup", "Pickup"), Icon: ShoppingBag },
+    seat: { label: t("formatos.channels.seat", "Desde el asiento"), Icon: Armchair },
+    table: { label: t("formatos.channels.table", "Desde la mesa"), Icon: Armchair },
+    preorder: { label: t("formatos.channels.preorder", "Anticipada"), Icon: Clock },
+  } as const;
 
-  const featureLabels: Record<string, { label: string; Icon: typeof Clock }> = {
-    preorder: { label: t("eventFeatures.preorder", "Compra anticipada"), Icon: Clock },
-    seat: { label: t("eventFeatures.seat", "Compra desde el asiento"), Icon: MapPin },
-    pickup: { label: t("eventFeatures.pickup", "Compra y Retiro"), Icon: ShoppingBag },
-  };
+  type ChannelKey = keyof typeof channelMeta;
+
+  const formats: Array<{
+    id: string;
+    pill: string;
+    title: string;
+    pain: string;
+    metric: string;
+    label: string;
+    channels: ChannelKey[];
+    image: string;
+    imageAlt: string;
+  }> = [
+    {
+      id: "cafe-resto",
+      pill: t("formatos.cards.cafeResto.pill", "Café · Resto"),
+      title: t("formatos.cards.cafeResto.title", "Café & Restaurante"),
+      pain: t("formatos.cards.cafeResto.pain", "Mesas que rotan lento. Mozos saturados en peaks."),
+      metric: t("formatos.cards.cafeResto.metric", "3×"),
+      label: t("formatos.cards.cafeResto.label", "Más velocidad por mesa"),
+      channels: ["table", "pickup"],
+      image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=1200&q=80",
+      imageAlt: t("formatos.cards.cafeResto.imageAlt", "Mesa de café con clientes"),
+    },
+    {
+      id: "bar-club",
+      pill: t("formatos.cards.barClub.pill", "Bar · Club"),
+      title: t("formatos.cards.barClub.title", "Bar & Nightclub"),
+      pain: t("formatos.cards.barClub.pain", "Filas de 15+ min en barra. Ventas perdidas en peak."),
+      metric: t("formatos.cards.barClub.metric", "+40%"),
+      label: t("formatos.cards.barClub.label", "Ticket promedio por noche"),
+      channels: ["pickup", "seat"],
+      image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=1200&q=80",
+      imageAlt: t("formatos.cards.barClub.imageAlt", "Bar de nightclub iluminado"),
+    },
+    {
+      id: "estadio-arena",
+      pill: t("formatos.cards.estadioArena.pill", "Estadio · Arena"),
+      title: t("formatos.cards.estadioArena.title", "Estadio & Arena"),
+      pain: t("formatos.cards.estadioArena.pain", "Entretiempos cortos limitan ventas. Suites mal atendidas."),
+      metric: t("formatos.cards.estadioArena.metric", "+40%"),
+      label: t("formatos.cards.estadioArena.label", "Ventas en entretiempo"),
+      channels: ["preorder", "seat", "pickup"],
+      image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1200&q=80",
+      imageAlt: t("formatos.cards.estadioArena.imageAlt", "Estadio lleno con público"),
+    },
+  ];
 
   return (
     <section className="pt-24 pb-[4.8rem]" id="eventos">
@@ -46,58 +85,61 @@ const EventosActivos = () => {
 
         {/* Cards */}
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {homeEvents.map((event) => {
-            const categoryLabel = categoryLabels[event.category || "festival"];
-            return (
-              <article
-                key={event.id}
-                onClick={() => navigate(path("eventDetail", `/${event.id}`))}
-                className="group relative flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-border/60 bg-white shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                  <img
-                    src={event.image}
-                    alt={event.name}
-                    width={896}
-                    height={672}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span className="absolute right-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-foreground/80 shadow-sm backdrop-blur">
-                    {categoryLabel}
-                  </span>
-                </div>
+          {formats.map((f) => (
+            <article
+              key={f.id}
+              className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/60 bg-white shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                <img
+                  src={f.image}
+                  alt={f.imageAlt}
+                  width={896}
+                  height={672}
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="absolute right-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-foreground/80 shadow-sm backdrop-blur">
+                  {f.pill}
+                </span>
+              </div>
 
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-display text-xl font-bold leading-snug">
-                    {event.name}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">
-                    {event.venue} · {event.city}
-                    {event.country ? `, ${event.country}` : ""}
-                  </p>
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="font-display text-xl font-bold leading-snug">
+                  {f.title}
+                </h3>
 
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {event.features.map((f) => {
-                      const meta = featureLabels[f];
-                      if (!meta) return null;
-                      const { label, Icon } = meta;
-                      return (
-                        <span
-                          key={f}
-                          className="inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1 text-xs font-medium text-foreground/80"
-                        >
-                          <Icon className="h-3 w-3 text-primary" aria-hidden />
-                          {label}
-                        </span>
-                      );
-                    })}
+                <p className="mt-3 border-l-2 border-primary pl-3 text-sm italic text-muted-foreground">
+                  {f.pain}
+                </p>
+
+                <div className="my-5 border-y border-border/60 py-4">
+                  <div className="font-display text-3xl font-bold text-foreground leading-none">
+                    {f.metric}
+                  </div>
+                  <div className="mt-1.5 text-xs uppercase tracking-[0.12em] text-muted-foreground">
+                    {f.label}
                   </div>
                 </div>
-              </article>
-            );
-          })}
+
+                <div className="mt-auto flex flex-wrap gap-2">
+                  {f.channels.map((c) => {
+                    const { label, Icon } = channelMeta[c];
+                    return (
+                      <span
+                        key={c}
+                        className="inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1 text-xs font-medium text-foreground/80"
+                      >
+                        <Icon className="h-3 w-3 text-primary" aria-hidden />
+                        {label}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
 
         {/* CTA */}
