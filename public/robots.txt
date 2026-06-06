@@ -36,9 +36,5 @@ Allow: /
 
 User-agent: *
 Allow: /
-Disallow: /wp-content/
-Disallow: /wp-includes/
-Disallow: /wp-admin/
-Disallow: /*.php$
 
 Sitemap: https://rondaprive.com/sitemap.xml
