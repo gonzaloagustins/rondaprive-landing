@@ -383,6 +383,60 @@ const buildFaqJsonLd = (t) => {
   };
 };
 
+// One Service node per modality. Each one references the existing
+// #organization in the shell's @graph so AI agents can resolve "who provides
+// this" without us repeating company fields. AreaServed lists the LATAM
+// countries we currently focus on — keep this in sync with reality.
+const SERVICE_DEFS = [
+  {
+    id: "preorder",
+    label: "Compra anticipada",
+    serviceType: "Mobile food and beverage pre-order",
+    locale: "solutionsOverview.preorder",
+  },
+  {
+    id: "pickup",
+    label: "Compra y Retiro",
+    serviceType: "Mobile food and beverage pickup",
+    locale: "solutionsOverview.pickup",
+  },
+  {
+    id: "seat",
+    label: "Compra desde el asiento",
+    serviceType: "In-seat food and beverage delivery",
+    locale: "solutionsOverview.seat",
+  },
+];
+
+const AREA_SERVED = ["CL", "AR", "CO", "MX", "BR", "PE", "EC", "UY", "ES"];
+
+const getByPath = (obj, path) => path.split(".").reduce((acc, k) => (acc ? acc[k] : undefined), obj);
+
+const buildServicesJsonLd = (t) => {
+  const nodes = SERVICE_DEFS.map((def) => {
+    const node = getByPath(t, def.locale);
+    if (!node) return null;
+    return {
+      "@type": "Service",
+      "@id": `${SITE}/#service-${def.id}`,
+      name: node.title || def.label,
+      serviceType: def.serviceType,
+      description: node.description || "",
+      provider: { "@id": `${SITE}/#organization` },
+      areaServed: AREA_SERVED.map((c) => ({ "@type": "Country", identifier: c })),
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Event organizers, festivals, stadiums, venues, nightclubs, bars",
+      },
+    };
+  }).filter(Boolean);
+  if (!nodes.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@graph": nodes,
+  };
+};
+
 const buildBodyBlock = (pageKey, t) => {
   const builder = BLOCK_BUILDERS[pageKey];
   if (!builder) return "";
@@ -395,7 +449,7 @@ const buildBodyBlock = (pageKey, t) => {
 
 const replaceTag = (html, regex, replacement) => html.replace(regex, replacement);
 
-const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, faqJsonLd }) => {
+const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, faqJsonLd, servicesJsonLd }) => {
   const ogLocale = OG_LOCALE[lang];
   let out = shell;
 
@@ -457,6 +511,10 @@ const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, 
     /[ \t]*<!-- faq-jsonld:start -->[\s\S]*?<!-- faq-jsonld:end -->\n?/g,
     "",
   );
+  out = out.replace(
+    /[ \t]*<!-- services-jsonld:start -->[\s\S]*?<!-- services-jsonld:end -->\n?/g,
+    "",
+  );
 
   // Inject hreflang alternates + (optionally) FAQPage JSON-LD into <head>.
   const altTags = alternates
@@ -466,15 +524,16 @@ const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, 
     )
     .join("\n");
   const xDefault = alternates.find((a) => a.lang === DEFAULT_LANG);
-  const faqBlock = faqJsonLd
-    ? `    <!-- faq-jsonld:start -->\n    <script type="application/ld+json">\n${JSON.stringify(faqJsonLd, null, 2)
-        .split("\n")
-        .map((l) => "    " + l)
-        .join("\n")}\n    </script>\n    <!-- faq-jsonld:end -->\n`
-    : "";
+  const wrapJsonLd = (label, json) =>
+    `    <!-- ${label}:start -->\n    <script type="application/ld+json">\n${JSON.stringify(json, null, 2)
+      .split("\n")
+      .map((l) => "    " + l)
+      .join("\n")}\n    </script>\n    <!-- ${label}:end -->\n`;
+  const faqBlock = faqJsonLd ? wrapJsonLd("faq-jsonld", faqJsonLd) : "";
+  const servicesBlock = servicesJsonLd ? wrapJsonLd("services-jsonld", servicesJsonLd) : "";
   out = out.replace(
     /<\/head>/,
-    `${altTags}\n    <link rel="alternate" hreflang="x-default" href="${escapeAttr(xDefault ? xDefault.href : url)}" />\n${faqBlock}  </head>`,
+    `${altTags}\n    <link rel="alternate" hreflang="x-default" href="${escapeAttr(xDefault ? xDefault.href : url)}" />\n${faqBlock}${servicesBlock}  </head>`,
   );
 
   // Inject the per-route AI-readable body right after <div id="root"></div>.
@@ -515,6 +574,9 @@ for (const pageKey of PAGE_KEYS) {
 
     const bodyBlock = buildBodyBlock(pageKey, translations[lang]);
     const faqJsonLd = pageKey === "faq" ? buildFaqJsonLd(translations[lang]) : null;
+    // Services schema goes on every page — the modalities define what
+    // the company offers regardless of which page the bot landed on.
+    const servicesJsonLd = buildServicesJsonLd(translations[lang]);
 
     const html = rewrite(shell, {
       lang,
@@ -524,6 +586,7 @@ for (const pageKey of PAGE_KEYS) {
       alternates,
       bodyBlock,
       faqJsonLd,
+      servicesJsonLd,
     });
 
     const outDir = join(DIST, relPath.replace(/^\//, ""));
@@ -558,6 +621,7 @@ const shellHtml = rewrite(shell, {
   alternates: shellAlternates,
   bodyBlock: buildBodyBlock("home", defaultT),
   faqJsonLd: buildFaqJsonLd(defaultT),
+  servicesJsonLd: buildServicesJsonLd(defaultT),
 });
 await writeFile(SHELL, shellHtml);
 console.log(`✓ / (shell) → ${SHELL}`);
