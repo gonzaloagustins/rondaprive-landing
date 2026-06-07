@@ -37,4 +37,13 @@ Allow: /
 User-agent: *
 Allow: /
 
+# Content Signals (https://contentsignals.org) — opt-in declarations for AI use.
+#   search    = yes  — allow citation in AI search results (ChatGPT, Perplexity, etc.)
+#   ai-input  = yes  — allow users to feed page content into AI assistants
+#   ai-train  = yes  — allow content to be used for model training
+# Trade-off: ai-train=yes maximizes brand recall in future model versions; flip to
+# 'no' if you'd rather restrict training use. The other two should stay 'yes' for
+# Ronda Privé to remain citable in AI responses.
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
 Sitemap: https://rondaprive.com/sitemap.xml
