@@ -58,8 +58,40 @@ const ROUTE_SLUGS = {
   benefits:   { es: "beneficios",    en: "benefits",     fr: "avantages",         pt: "beneficios" },
   insights:   { es: "insights",      en: "insights",     fr: "insights",          pt: "insights" },
   faq:        { es: "faq",           en: "faq",          fr: "faq",               pt: "faq" },
+  glossary:   { es: "glosario",      en: "glossary",     fr: "lexique",           pt: "glossario" },
   contact:    { es: "contacto",      en: "contact",      fr: "contact",           pt: "contato" },
 };
+
+// Mirror of src/data/glossary.ts — display order + category per term id.
+// IDs are stable across languages so anchor links work in any locale.
+const GLOSSARY_TERMS = [
+  { id: "compra-anticipada",     category: "sales" },
+  { id: "compra-y-retiro",       category: "sales" },
+  { id: "entrega-en-asiento",    category: "sales" },
+  { id: "fila-digital",          category: "sales" },
+  { id: "numero-de-orden",       category: "sales" },
+  { id: "punto-de-venta",        category: "venue" },
+  { id: "totem-de-autoservicio", category: "venue" },
+  { id: "carta-digital",         category: "venue" },
+  { id: "inventario-tiempo-real",category: "venue" },
+  { id: "dashboard",             category: "venue" },
+  { id: "pwa",                   category: "tech" },
+  { id: "qr",                    category: "tech" },
+  { id: "modo-cache",            category: "tech" },
+  { id: "trazabilidad",          category: "tech" },
+  { id: "cloud",                 category: "tech" },
+  { id: "venue",                 category: "spaces" },
+  { id: "suite",                 category: "spaces" },
+  { id: "palco",                 category: "spaces" },
+  { id: "hospitality",           category: "spaces" },
+  { id: "festival",              category: "spaces" },
+  { id: "coffee-shop",           category: "spaces" },
+  { id: "ticket-promedio",       category: "metrics" },
+  { id: "tiempo-de-espera",      category: "metrics" },
+  { id: "rotacion-de-barra",     category: "metrics" },
+  { id: "tasa-de-conversion",    category: "metrics" },
+];
+const GLOSSARY_CATEGORIES = ["sales", "venue", "tech", "spaces", "metrics"];
 
 const PAGE_KEYS = ["home", ...Object.keys(ROUTE_SLUGS)];
 
@@ -342,6 +374,31 @@ const contactBlock = (t) => {
   `;
 };
 
+const glossaryBlock = (t) => {
+  const g = t.glossary || {};
+  const terms = (g.terms || {});
+  const cats = g.categories || {};
+  const renderCat = (catKey) => {
+    const ids = GLOSSARY_TERMS.filter((e) => e.category === catKey).map((e) => e.id);
+    if (!ids.length) return "";
+    const entries = ids
+      .map((id) => {
+        const node = terms[id];
+        if (!node) return "";
+        return `<article id="${id}"><dt><strong>${escapeHtml(node.term)}</strong></dt><dd>${escapeHtml(node.definition)}</dd></article>`;
+      })
+      .join("");
+    return `<section><h2>${escapeHtml(cats[catKey] || catKey)}</h2><dl>${entries}</dl></section>`;
+  };
+  return `
+  <header>
+    <h1>${escapeHtml(`${g.heroTitle || ""} ${g.heroHighlight || ""}`.trim() || "Glosario")}</h1>
+    ${g.heroSubtitle ? `<p>${escapeHtml(g.heroSubtitle)}</p>` : ""}
+  </header>
+  ${GLOSSARY_CATEGORIES.map(renderCat).join("")}
+  `;
+};
+
 const BLOCK_BUILDERS = {
   home: homeBlock,
   events: eventsBlock,
@@ -351,6 +408,7 @@ const BLOCK_BUILDERS = {
   benefits: benefitsBlock,
   insights: insightsBlock,
   faq: faqBlock,
+  glossary: glossaryBlock,
   contact: contactBlock,
 };
 
@@ -412,6 +470,35 @@ const AREA_SERVED = ["CL", "AR", "CO", "MX", "BR", "PE", "EC", "UY", "ES"];
 
 const getByPath = (obj, path) => path.split(".").reduce((acc, k) => (acc ? acc[k] : undefined), obj);
 
+// Builds a schema.org/DefinedTermSet — one DefinedTerm per glossary entry.
+// Emitted on the glossary page and re-emitted on the shell so AI crawlers
+// pick it up wherever they land first.
+const buildDefinedTermSetJsonLd = (t) => {
+  const terms = (t.glossary && t.glossary.terms) || {};
+  const nodes = GLOSSARY_TERMS.map((entry) => {
+    const node = terms[entry.id];
+    if (!node) return null;
+    return {
+      "@type": "DefinedTerm",
+      "@id": `${SITE}/#term-${entry.id}`,
+      name: node.term,
+      description: node.definition,
+      termCode: entry.id,
+      inDefinedTermSet: `${SITE}/#glossary`,
+    };
+  }).filter(Boolean);
+  if (!nodes.length) return null;
+  const g = t.glossary || {};
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": `${SITE}/#glossary`,
+    name: `${g.heroTitle || "Glosario"} ${g.heroHighlight || ""}`.trim(),
+    description: g.heroSubtitle || "",
+    hasDefinedTerm: nodes,
+  };
+};
+
 const buildServicesJsonLd = (t) => {
   const nodes = SERVICE_DEFS.map((def) => {
     const node = getByPath(t, def.locale);
@@ -449,7 +536,7 @@ const buildBodyBlock = (pageKey, t) => {
 
 const replaceTag = (html, regex, replacement) => html.replace(regex, replacement);
 
-const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, faqJsonLd, servicesJsonLd }) => {
+const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, faqJsonLd, servicesJsonLd, definedTermSetJsonLd }) => {
   const ogLocale = OG_LOCALE[lang];
   let out = shell;
 
@@ -515,6 +602,10 @@ const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, 
     /[ \t]*<!-- services-jsonld:start -->[\s\S]*?<!-- services-jsonld:end -->\n?/g,
     "",
   );
+  out = out.replace(
+    /[ \t]*<!-- glossary-jsonld:start -->[\s\S]*?<!-- glossary-jsonld:end -->\n?/g,
+    "",
+  );
 
   // Inject hreflang alternates + (optionally) FAQPage JSON-LD into <head>.
   const altTags = alternates
@@ -529,11 +620,12 @@ const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, 
       .split("\n")
       .map((l) => "    " + l)
       .join("\n")}\n    </script>\n    <!-- ${label}:end -->\n`;
-  const faqBlock = faqJsonLd ? wrapJsonLd("faq-jsonld", faqJsonLd) : "";
-  const servicesBlock = servicesJsonLd ? wrapJsonLd("services-jsonld", servicesJsonLd) : "";
+  const faqHeadBlock = faqJsonLd ? wrapJsonLd("faq-jsonld", faqJsonLd) : "";
+  const servicesHeadBlock = servicesJsonLd ? wrapJsonLd("services-jsonld", servicesJsonLd) : "";
+  const glossaryHeadBlock = definedTermSetJsonLd ? wrapJsonLd("glossary-jsonld", definedTermSetJsonLd) : "";
   out = out.replace(
     /<\/head>/,
-    `${altTags}\n    <link rel="alternate" hreflang="x-default" href="${escapeAttr(xDefault ? xDefault.href : url)}" />\n${faqBlock}${servicesBlock}  </head>`,
+    `${altTags}\n    <link rel="alternate" hreflang="x-default" href="${escapeAttr(xDefault ? xDefault.href : url)}" />\n${faqHeadBlock}${servicesHeadBlock}${glossaryHeadBlock}  </head>`,
   );
 
   // Inject the per-route AI-readable body right after <div id="root"></div>.
@@ -577,6 +669,10 @@ for (const pageKey of PAGE_KEYS) {
     // Services schema goes on every page — the modalities define what
     // the company offers regardless of which page the bot landed on.
     const servicesJsonLd = buildServicesJsonLd(translations[lang]);
+    // DefinedTermSet ships only on the glossary page (where it's primary
+    // content) to avoid bloating every other HTML with 25 nodes.
+    const definedTermSetJsonLd =
+      pageKey === "glossary" ? buildDefinedTermSetJsonLd(translations[lang]) : null;
 
     const html = rewrite(shell, {
       lang,
@@ -587,6 +683,7 @@ for (const pageKey of PAGE_KEYS) {
       bodyBlock,
       faqJsonLd,
       servicesJsonLd,
+      definedTermSetJsonLd,
     });
 
     const outDir = join(DIST, relPath.replace(/^\//, ""));
@@ -622,6 +719,11 @@ const shellHtml = rewrite(shell, {
   bodyBlock: buildBodyBlock("home", defaultT),
   faqJsonLd: buildFaqJsonLd(defaultT),
   servicesJsonLd: buildServicesJsonLd(defaultT),
+  // The shell is the de-facto entry point right now (host falls back to it
+  // for unknown routes). Carrying the DefinedTermSet here means any URL
+  // a crawler hits exposes the full glossary as structured data, matching
+  // how we already treat FAQPage.
+  definedTermSetJsonLd: buildDefinedTermSetJsonLd(defaultT),
 });
 await writeFile(SHELL, shellHtml);
 console.log(`✓ / (shell) → ${SHELL}`);

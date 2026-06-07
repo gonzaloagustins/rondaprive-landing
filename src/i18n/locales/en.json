@@ -506,6 +506,120 @@
     "q13": "Is pre-event ordering available?",
     "a13": "Yes. Pre-event ordering allows attendees to purchase before the event, pay in advance, and collect on the day by presenting their QR code. This improves operational planning and reduces congestion."
   },
+  "glossary": {
+    "heroTitle": "Glossary",
+    "heroHighlight": "for the events and venues industry",
+    "heroSubtitle": "Definitions of the concepts we use at Ronda Privé and that you'll hear across the sector.",
+    "categories": {
+      "sales": "Sales modes",
+      "venue": "Venue operations",
+      "tech": "Technology",
+      "spaces": "Venue types",
+      "metrics": "Business metrics"
+    },
+    "terms": {
+      "compra-anticipada": {
+        "term": "Pre-order",
+        "definition": "Sales method where the customer buys and pays for their order days or weeks before the event. On event day, activate your purchase and collect it without standing in line. Helps the organizer plan inventory in advance."
+      },
+      "compra-y-retiro": {
+        "term": "Express pickup",
+        "definition": "Method where the customer orders from their phone during the event and collects it at a point of sale once it's ready. Works as a digital queue: no need to physically wait in line."
+      },
+      "entrega-en-asiento": {
+        "term": "In-seat delivery",
+        "definition": "Method for events with identified seats (stadiums, suites, boxes, hospitality). The customer scans the QR at their location, orders from their phone, and receives the order directly at their seat or table — without moving."
+      },
+      "fila-digital": {
+        "term": "Digital queue",
+        "definition": "System that replaces the physical line with a digitally managed queue. The customer orders from their phone, receives an order number, and approaches the pickup point only when the order is ready."
+      },
+      "numero-de-orden": {
+        "term": "Order number",
+        "definition": "Unique identifier the customer receives at checkout. Used to collect the order, and depending on the organizer's setup, may be requested alongside an additional verification code."
+      },
+      "punto-de-venta": {
+        "term": "Point of sale (POS)",
+        "definition": "Physical space or digital system where a sale is completed. At events, traditional points of sale include bars, cash registers, and kiosks. A platform like Ronda Privé works as a digital POS without dedicated hardware."
+      },
+      "totem-de-autoservicio": {
+        "term": "Self-service kiosk",
+        "definition": "Physical terminal located at the venue where the customer assembles and pays for their order. Requires infrastructure (screen, card reader, maintenance) and takes up space. It's the alternative replaced by mobile ordering."
+      },
+      "carta-digital": {
+        "term": "Digital menu",
+        "definition": "Product menu accessible from the customer's phone. Allows updating prices, adding promotions, and disabling out-of-stock products without printing physical menus."
+      },
+      "inventario-tiempo-real": {
+        "term": "Real-time inventory",
+        "definition": "Stock tracking that updates with each completed sale. Lets you see available inventory by product and by point of sale, detect stockouts before they happen, and restock with time to spare."
+      },
+      "dashboard": {
+        "term": "Dashboard / Control panel",
+        "definition": "Interface for the event organizer that consolidates sales metrics, active orders, inventory, and operational configuration. Centralizes operations in a single view."
+      },
+      "pwa": {
+        "term": "PWA (Progressive Web App)",
+        "definition": "App that runs in the phone's browser but behaves like a native app: fast loading, the ability to work offline for moments, can be added to the home screen. No download from an app store required."
+      },
+      "qr": {
+        "term": "QR code",
+        "definition": "Square image that encodes a link or data. The customer scans it with the phone's camera and opens the event menu or order directly. Replaces the need to download apps or type URLs."
+      },
+      "modo-cache": {
+        "term": "Cache mode (offline-first)",
+        "definition": "The platform's ability to keep operating during a temporary loss of internet connection. Actions are saved locally and synced as soon as signal returns."
+      },
+      "trazabilidad": {
+        "term": "Order traceability",
+        "definition": "Record of each order's state from purchase to delivery: received, in preparation, ready, delivered. Helps resolve disputes with customers and measure actual preparation times."
+      },
+      "cloud": {
+        "term": "Cloud infrastructure",
+        "definition": "External servers — in Ronda Privé's case, AWS — that process orders without the venue needing local hardware. Guarantees availability during demand peaks and eliminates the risk of failure from physical equipment."
+      },
+      "venue": {
+        "term": "Venue",
+        "definition": "Physical place where an event is held or where a hospitality business operates. Includes everything from stadiums and festivals to bars, restaurants, and coffee shops."
+      },
+      "suite": {
+        "term": "Suite",
+        "definition": "Private space within a stadium or arena, generally with hospitality service included. Features direct view of the event, dedicated furniture, and personalized attention."
+      },
+      "palco": {
+        "term": "Box",
+        "definition": "Elevated, private section within a theater, stadium, or venue. Differs from general seating in privacy and service. Can be corporate or private."
+      },
+      "hospitality": {
+        "term": "Hospitality",
+        "definition": "Premium service within an event that includes food, drinks, and personalized attention. Usually sold as an add-on to general admission and operates with different dynamics than a mass bar."
+      },
+      "festival": {
+        "term": "Festival",
+        "definition": "Mass event, generally outdoors, with one or more musical stages and lasting one to several days. Characterized by high simultaneous attendance and multiple points of sale."
+      },
+      "coffee-shop": {
+        "term": "Coffee shop / Small venue",
+        "definition": "Hospitality establishment with constant customer flow but smaller scale than a mass event. Operates all day and handles a high turnover of small orders."
+      },
+      "ticket-promedio": {
+        "term": "Average ticket",
+        "definition": "Average monetary value of each transaction during an event. Calculated by dividing total revenue by transaction count. One of the main KPIs for evaluating point-of-sale performance."
+      },
+      "tiempo-de-espera": {
+        "term": "Wait time",
+        "definition": "Minutes a customer spends between ordering and receiving their order. At mass events, can reach 15-30 minutes at a physical bar; with mobile ordering, typically drops to 2-3 minutes."
+      },
+      "rotacion-de-barra": {
+        "term": "Bar turnover",
+        "definition": "Number of customers a point of sale can serve per hour. High turnover means more sales in the same physical space. Key indicator for sizing an event's operation."
+      },
+      "tasa-de-conversion": {
+        "term": "Conversion rate",
+        "definition": "Percentage of event attendees who actually purchased consumption. Low conversion indicates potential attendees didn't get to buy — usually due to long lines or stockouts."
+      }
+    }
+  },
   "insights": {
     "heroTitle": "Insights &",
     "heroHighlight": "trends",
@@ -567,6 +681,7 @@
     "events": "Events",
     "insights": "Insights",
     "faq": "FAQ",
+    "glossary": "Glossary",
     "contact": "Contact",
     "scheduleDemo": "Schedule a demo",
     "rights": "All rights reserved.",
@@ -659,6 +774,10 @@
     "faq": {
       "title": "FAQ",
       "description": "The most common questions about Ronda Privé: implementation, venue requirements, pricing, integrations and more."
+    },
+    "glossary": {
+      "title": "Events and venues industry glossary",
+      "description": "Definitions of the events and hospitality sector concepts: pre-order, in-seat delivery, POS, PWA, hospitality, suite and more."
     },
     "contact": {
       "title": "Contact",

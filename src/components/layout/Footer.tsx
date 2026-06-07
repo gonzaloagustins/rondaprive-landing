@@ -23,6 +23,8 @@ const Footer = () => {
 
   const empresaLinks = [
     { to: path("events"), label: t("footer.events", "Eventos") },
+    { to: path("faq"), label: t("footer.faq", "FAQ") },
+    { to: path("glossary"), label: t("footer.glossary", "Glosario") },
     { to: path("contact"), label: t("footer.contact", "Contacto") },
   ];
 

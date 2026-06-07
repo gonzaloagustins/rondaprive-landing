@@ -28,6 +28,7 @@ const ROUTE_SLUGS = {
   benefits:   { es: "beneficios",    en: "benefits",     fr: "avantages",         pt: "beneficios" },
   insights:   { es: "insights",      en: "insights",     fr: "insights",          pt: "insights" },
   faq:        { es: "faq",           en: "faq",          fr: "faq",               pt: "faq" },
+  glossary:   { es: "glosario",      en: "glossary",     fr: "lexique",           pt: "glossario" },
   contact:    { es: "contacto",      en: "contact",      fr: "contact",           pt: "contato" },
 };
 

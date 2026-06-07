@@ -26,6 +26,7 @@ const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const Benefits = lazy(() => import("./pages/Benefits"));
 const Insights = lazy(() => import("./pages/Insights"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const Glossary = lazy(() => import("./pages/Glossary"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -127,6 +128,7 @@ const RouterShell = () => {
                     {localizedRoutes("benefits", <Benefits />)}
                     {localizedRoutes("insights", <Insights />)}
                     {localizedRoutes("faq", <FAQ />)}
+                    {localizedRoutes("glossary", <Glossary />)}
                     {localizedRoutes("contact", <Contact />)}
                     <Route path="*" element={<NotFound />} />
                   </Route>
