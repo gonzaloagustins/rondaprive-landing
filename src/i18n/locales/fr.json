@@ -506,6 +506,120 @@
     "q13": "La commande anticipée est-elle disponible ?",
     "a13": "Oui. La commande anticipée permet aux participants d'acheter avant l'événement, de payer à l'avance et de récupérer le jour du spectacle en présentant leur QR. Cela améliore la planification opérationnelle et réduit la congestion."
   },
+  "glossary": {
+    "heroTitle": "Lexique",
+    "heroHighlight": "du secteur des événements et des venues",
+    "heroSubtitle": "Définitions des concepts que nous utilisons chez Ronda Privé et que vous entendrez dans le secteur.",
+    "categories": {
+      "sales": "Modes de vente",
+      "venue": "Opérations du venue",
+      "tech": "Technologie",
+      "spaces": "Types de lieux",
+      "metrics": "Indicateurs métier"
+    },
+    "terms": {
+      "compra-anticipada": {
+        "term": "Précommande",
+        "definition": "Mode de vente où le client achète et paie sa consommation des jours ou semaines avant l'événement. Le jour de l'événement, activez votre achat et récupérez-le sans faire la queue. Permet à l'organisateur de planifier l'inventaire à l'avance."
+      },
+      "compra-y-retiro": {
+        "term": "Click & collect",
+        "definition": "Mode où le client commande depuis son téléphone pendant l'événement et retire la commande au point de vente quand elle est prête. Fonctionne comme une file d'attente numérique : pas d'attente physique."
+      },
+      "entrega-en-asiento": {
+        "term": "Livraison à la place",
+        "definition": "Mode pour événements avec sièges identifiés (stades, loges, suites, hospitality). Le client scanne le QR de son emplacement, commande depuis son téléphone et reçoit la commande directement à sa place ou table, sans bouger."
+      },
+      "fila-digital": {
+        "term": "File d'attente numérique",
+        "definition": "Système qui remplace la file physique par une file gérée numériquement. Le client commande depuis son téléphone, reçoit un numéro de commande et s'approche du point de retrait uniquement lorsque la commande est prête."
+      },
+      "numero-de-orden": {
+        "term": "Numéro de commande",
+        "definition": "Identifiant unique que le client reçoit lors de la validation de l'achat. Sert à retirer la commande et, selon la configuration de l'organisateur, peut être demandé avec un code de vérification supplémentaire."
+      },
+      "punto-de-venta": {
+        "term": "Point de vente (POS)",
+        "definition": "Espace physique ou système numérique où une vente est concrétisée. Lors d'événements, les points de vente traditionnels incluent les bars, caisses enregistreuses et kiosques. Une plateforme comme Ronda Privé fonctionne comme un POS numérique sans matériel dédié."
+      },
+      "totem-de-autoservicio": {
+        "term": "Borne en libre-service",
+        "definition": "Terminal physique situé dans le lieu où le client assemble et paie sa commande. Nécessite une infrastructure (écran, lecteur de carte, maintenance) et occupe de l'espace. C'est l'alternative remplacée par la commande mobile."
+      },
+      "carta-digital": {
+        "term": "Carte numérique",
+        "definition": "Menu de produits accessible depuis le téléphone du client. Permet de mettre à jour les prix, ajouter des promotions et désactiver les produits en rupture sans imprimer de cartes physiques."
+      },
+      "inventario-tiempo-real": {
+        "term": "Inventaire en temps réel",
+        "definition": "Contrôle de stock qui se met à jour avec chaque vente concrétisée. Permet de voir l'inventaire disponible par produit et par point de vente, détecter les ruptures avant qu'elles n'arrivent et réapprovisionner à temps."
+      },
+      "dashboard": {
+        "term": "Tableau de bord (dashboard)",
+        "definition": "Interface pour l'organisateur de l'événement qui concentre les métriques de ventes, commandes actives, inventaire et configuration opérationnelle. Centralise l'opération en une seule vue."
+      },
+      "pwa": {
+        "term": "PWA (Progressive Web App)",
+        "definition": "Application qui s'exécute dans le navigateur du téléphone mais se comporte comme une app native : chargement rapide, capacité à fonctionner hors ligne par moments, peut être ajoutée à l'écran d'accueil. Ne nécessite pas de téléchargement depuis un magasin d'applications."
+      },
+      "qr": {
+        "term": "Code QR",
+        "definition": "Image carrée qui encode un lien ou des données. Le client le scanne avec la caméra du téléphone et ouvre directement la carte de l'événement ou la commande. Remplace le besoin de télécharger des apps ou de taper des URL."
+      },
+      "modo-cache": {
+        "term": "Mode cache (offline-first)",
+        "definition": "Capacité de la plateforme à continuer de fonctionner face à une perte momentanée de connexion internet. Les actions sont enregistrées localement et synchronisées dès que le signal revient."
+      },
+      "trazabilidad": {
+        "term": "Traçabilité de commande",
+        "definition": "Enregistrement de l'état de chaque commande depuis l'achat jusqu'à la livraison : reçue, en préparation, prête, livrée. Permet de résoudre les disputes avec les clients et mesurer les temps réels de préparation."
+      },
+      "cloud": {
+        "term": "Infrastructure cloud",
+        "definition": "Serveurs externes — dans le cas de Ronda Privé, AWS — qui traitent les commandes sans que le lieu n'ait besoin de matériel local. Garantit la disponibilité lors des pics de demande et élimine le risque de panne d'équipement physique."
+      },
+      "venue": {
+        "term": "Venue / Lieu",
+        "definition": "Lieu physique où se déroule un événement ou où opère une entreprise du secteur hospitalité. Inclut des stades et festivals jusqu'aux bars, restaurants et coffee shops."
+      },
+      "suite": {
+        "term": "Suite",
+        "definition": "Espace privé à l'intérieur d'un stade ou d'une arène, généralement avec service d'hospitalité inclus. Dispose d'une vue directe sur l'événement, de mobilier dédié et d'une attention personnalisée."
+      },
+      "palco": {
+        "term": "Loge",
+        "definition": "Section surélevée et privée à l'intérieur d'un théâtre, stade ou lieu. Se différencie des gradins généraux par sa privacité et son service. Peut être corporative ou privée."
+      },
+      "hospitality": {
+        "term": "Hospitality",
+        "definition": "Service premium dans un événement qui inclut nourriture, boissons et attention personnalisée. Habituellement vendu comme forfait additionnel à l'entrée générale et opère avec une dynamique différente de celle du bar de masse."
+      },
+      "festival": {
+        "term": "Festival",
+        "definition": "Événement massif, généralement en plein air, avec une ou plusieurs scènes musicales et d'une durée d'un à plusieurs jours. Caractérisé par une forte affluence simultanée et plusieurs points de vente de consommation."
+      },
+      "coffee-shop": {
+        "term": "Coffee shop / Petit lieu",
+        "definition": "Établissement d'hospitalité avec un flux constant de clients mais une plus petite échelle qu'un événement massif. Opère toute la journée et gère une rotation élevée de petites commandes."
+      },
+      "ticket-promedio": {
+        "term": "Panier moyen",
+        "definition": "Valeur monétaire moyenne de chaque transaction pendant un événement. Se calcule en divisant les revenus totaux par le nombre de transactions. C'est l'un des KPI principaux pour évaluer la performance d'un point de vente."
+      },
+      "tiempo-de-espera": {
+        "term": "Temps d'attente",
+        "definition": "Minutes qu'un client passe entre commander et recevoir sa consommation. Lors d'événements massifs peut atteindre 15-30 minutes au bar physique ; avec la commande mobile, descend typiquement à 2-3 minutes."
+      },
+      "rotacion-de-barra": {
+        "term": "Rotation du bar",
+        "definition": "Quantité de clients qu'un point de vente peut servir par heure. Une rotation élevée signifie plus de ventes dans le même espace physique. C'est l'indicateur clé pour dimensionner l'opération d'un événement."
+      },
+      "tasa-de-conversion": {
+        "term": "Taux de conversion",
+        "definition": "Pourcentage de participants d'un événement qui ont effectivement acheté de la consommation. Une conversion faible indique que des participants potentiels n'ont pas pu acheter — généralement à cause de longues files d'attente ou de ruptures de stock."
+      }
+    }
+  },
   "insights": {
     "heroTitle": "Insights &",
     "heroHighlight": "tendances",
@@ -567,6 +681,7 @@
     "events": "Événements",
     "insights": "Insights",
     "faq": "FAQ",
+    "glossary": "Lexique",
     "contact": "Contact",
     "scheduleDemo": "Planifier une démo",
     "rights": "Tous droits réservés.",
@@ -659,6 +774,10 @@
     "faq": {
       "title": "FAQ",
       "description": "Les questions les plus fréquentes sur Ronda Privé : implémentation, prérequis du lieu, tarification, intégrations et plus."
+    },
+    "glossary": {
+      "title": "Lexique du secteur des événements et des venues",
+      "description": "Définitions des concepts du secteur événementiel et de l'hospitalité : précommande, livraison à la place, POS, PWA, hospitality, suite et plus."
     },
     "contact": {
       "title": "Contact",
