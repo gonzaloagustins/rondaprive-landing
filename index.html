@@ -15,6 +15,23 @@
     <!-- Google Search Console verification -->
     <meta name="google-site-verification" content="GEOdZfSoqWiiH2NZ8sGNK37zij3ktTFkp53rynhFNuo" />
 
+    <!-- GitHub Pages SPA fallback: decode the /?/ruta URLs that 404.html
+         produces back into the real path before React Router boots. -->
+    <script>
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
+
     <!-- Icons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/pwa-192x192.png" />

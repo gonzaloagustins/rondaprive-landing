@@ -690,7 +690,11 @@ for (const pageKey of PAGE_KEYS) {
     const outFile = join(outDir, "index.html");
     await mkdir(outDir, { recursive: true });
     await writeFile(outFile, html);
-    console.log(`✓ ${relPath} → ${outFile}`);
+    // GitHub Pages resolves /es/eventos from es/eventos.html directly (200),
+    // while the directory form alone would 301 to /es/eventos/. Emitting both
+    // keeps the extensionless sitemap URLs redirect-free.
+    await writeFile(join(DIST, `${relPath.replace(/^\//, "")}.html`), html);
+    console.log(`✓ ${relPath} → ${outFile} (+ ${relPath}.html)`);
     count++;
   }
 }
@@ -714,7 +718,10 @@ const shellHtml = rewrite(shell, {
   lang: DEFAULT_LANG,
   title: shellTitle,
   description: shellDescription,
-  url: `${SITE}/`,
+  // "/" client-side-redirects to /es, so the shell's canonical must point at
+  // the redirect target — a self-canonical on a redirecting URL sends Google
+  // contradictory signals.
+  url: `${SITE}/${DEFAULT_LANG}`,
   alternates: shellAlternates,
   bodyBlock: buildBodyBlock("home", defaultT),
   faqJsonLd: buildFaqJsonLd(defaultT),
