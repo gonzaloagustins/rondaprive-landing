@@ -24,7 +24,7 @@ const SalesMock = ({ t }: { t: ReturnType<typeof useTranslation>["t"] }) => (
         <p className="text-[10px] uppercase tracking-[0.18em] text-foreground/50">
           {t("benefitsSummary.mocks.salesLabel")}
         </p>
-        <p className="mt-1 font-display text-xl font-bold text-foreground">$250,430</p>
+        <p className="mt-1 text-xl font-bold tracking-tight text-foreground">$250,430</p>
       </div>
       <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
         <span aria-hidden>▲</span> 35%
@@ -244,7 +244,7 @@ const BenefitsSummary = () => {
                 <Icon className="h-5 w-5 text-primary" aria-hidden />
               </span>
 
-              <h3 className="mt-5 font-display text-xl font-bold leading-snug lg:text-2xl">
+              <h3 className="mt-5 text-xl font-bold leading-snug lg:text-2xl">
                 {t(`benefitsSummary.cards.${key}.title`)}
               </h3>
 
