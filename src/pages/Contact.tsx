@@ -9,7 +9,7 @@ import { trackEvent } from "@/lib/analytics";
 
 const Contact = () => {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({ name: '', email: '', company: '', venueType: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', company: '', venueType: '', message: '', website: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -57,21 +57,25 @@ const Contact = () => {
                 <h2 className="text-xl font-bold mb-2">{t("contact.formTitle")}</h2>
                 <p className="text-sm text-muted-foreground mb-6">{t("contact.formSubtitle")}</p>
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Honeypot: campo invisible que los usuarios nunca rellenan; el backend descarta el envío si llega con valor */}
+                  <input type="text" name="website" value={formData.website} tabIndex={-1} autoComplete="off" aria-hidden="true"
+                    onChange={(e) => setFormData({...formData, website: e.target.value})}
+                    className="absolute -left-[9999px] h-px w-px opacity-0" />
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <input type="text" required placeholder={t("cta.form.name")} value={formData.name}
+                    <input type="text" required maxLength={120} placeholder={t("cta.form.name")} value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       className="w-full pl-11 pr-4 py-3 rounded-xl bg-secondary border border-border/50 text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors" />
                   </div>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <input type="email" required placeholder={t("cta.form.email")} value={formData.email}
+                    <input type="email" required maxLength={254} placeholder={t("cta.form.email")} value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       className="w-full pl-11 pr-4 py-3 rounded-xl bg-secondary border border-border/50 text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors" />
                   </div>
                   <div className="relative">
                     <Building className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <input type="text" required placeholder={t("cta.form.company")} value={formData.company}
+                    <input type="text" required maxLength={160} placeholder={t("cta.form.company")} value={formData.company}
                       onChange={(e) => setFormData({...formData, company: e.target.value})}
                       className="w-full pl-11 pr-4 py-3 rounded-xl bg-secondary border border-border/50 text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors" />
                   </div>
@@ -86,7 +90,7 @@ const Contact = () => {
                   </select>
                   <div className="relative">
                     <MessageSquare className="absolute left-4 top-3.5 w-4 h-4 text-muted-foreground" />
-                    <textarea rows={3} placeholder={t("cta.form.message")} value={formData.message}
+                    <textarea rows={3} maxLength={2000} placeholder={t("cta.form.message")} value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       className="w-full pl-11 pr-4 py-3 rounded-xl bg-secondary border border-border/50 text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors resize-none" />
                   </div>

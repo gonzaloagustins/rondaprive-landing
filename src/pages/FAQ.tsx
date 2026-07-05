@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronDown } from "lucide-react";
+import { toJsonLd } from "@/lib/jsonld";
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
 import { faqItems, faqCategories } from "@/data/faq";
@@ -33,7 +34,7 @@ const FAQ = () => {
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLd(faqJsonLd) }}
       />
       <PageHero title={t("faq.heroTitle")} titleHighlight={t("faq.heroHighlight")} subtitle={t("faq.heroSubtitle")} />
       <section className="pb-24">
