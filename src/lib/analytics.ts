@@ -1,4 +1,6 @@
-const GTM_ID = import.meta.env.VITE_GTM_ID;
+// Fallback literal: el container ID de GTM es público (visible en el HTML de
+// cualquier página que lo cargue); evita que un build sin VITE_* apague analytics.
+const GTM_ID = import.meta.env.VITE_GTM_ID ?? "GTM-PCZW9KGK";
 
 let gtmLoaded = false;
 let consentDefaultsSet = false;

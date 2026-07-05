@@ -2,8 +2,15 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+// Fallbacks literales: esta URL y la anon key son config pública de cliente
+// (viajan dentro del bundle JS por diseño; la key es rol "anon"). Garantizan
+// que cualquier build sin variables VITE_* (Lovable, CI, local) funcione —
+// sin ellos, createClient(undefined, undefined) revienta /contacto en runtime.
+const SUPABASE_URL =
+  import.meta.env.VITE_SUPABASE_URL ?? "https://romsnsprhofhviywites.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY =
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ??
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvbXNuc3ByaG9maHZpeXdpdGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4MTE4MTIsImV4cCI6MjA4NTM4NzgxMn0.Gda0AEYVdmWpErfjxtpHDo7GNiBXhmTV4cDuj3k-9X8";
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";

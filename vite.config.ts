@@ -72,14 +72,14 @@ function cspPlugin(supabaseOrigin: string): Plugin {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Un build de producción sin las VITE_* compila createClient(undefined,
-  // undefined) y revienta /contacto en runtime. Mejor fallar aquí.
   const env = loadEnv(mode, process.cwd(), "VITE_");
-  if (mode === "production" && !env.VITE_SUPABASE_URL) {
-    throw new Error(
-      "VITE_SUPABASE_URL no está definida. El build de producción necesita las variables VITE_* (ver env del workflow deploy.yml o .env local).",
-    );
-  }
+  // Sin VITE_SUPABASE_URL el runtime usa el fallback público de
+  // src/integrations/supabase/client.ts; la CSP debe permitir ese mismo
+  // origen. Mantener ambos valores sincronizados. No se lanza error: el
+  // build de Lovable no define VITE_* y debe seguir funcionando.
+  const supabaseOrigin = env.VITE_SUPABASE_URL
+    ? new URL(env.VITE_SUPABASE_URL).origin
+    : "https://romsnsprhofhviywites.supabase.co";
 
   return {
   base: "/",
@@ -93,7 +93,7 @@ export default defineConfig(({ mode }) => {
   plugins: [
     react(),
     mode === "development" && componentTagger(),
-    env.VITE_SUPABASE_URL && cspPlugin(new URL(env.VITE_SUPABASE_URL).origin),
+    cspPlugin(supabaseOrigin),
     VitePWA({
       registerType: "autoUpdate",
       // SW is disabled in dev to avoid fighting with Vite's HMR; it's fully
