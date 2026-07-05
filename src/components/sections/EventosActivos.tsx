@@ -104,7 +104,7 @@ const EventosActivos = () => {
               </div>
 
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-xl font-bold leading-snug">
+                <h3 className="text-xl font-bold leading-snug">
                   {f.title}
                 </h3>
 
@@ -113,7 +113,7 @@ const EventosActivos = () => {
                 </p>
 
                 <div className="my-5 border-y border-border/60 py-4">
-                  <div className="font-display text-3xl font-bold text-foreground leading-none">
+                  <div className="text-3xl font-bold tracking-tight text-foreground leading-none">
                     {f.metric}
                   </div>
                   <div className="mt-1.5 text-xs uppercase tracking-[0.12em] text-muted-foreground">

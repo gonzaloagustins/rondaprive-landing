@@ -51,6 +51,11 @@
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  /* h1/h2 siempre en la fuente display (Playfair); h3 decide cada componente */
+  h1,
+  h2 {
+    @apply font-display;
+  }
 }
 
 /* Scoped dark section: re-declares CSS variables so all children (including shadcn) auto-inherit */

@@ -137,7 +137,7 @@ const PlataformaSection = () => {
                     </span>
                   </div>
 
-                  <h3 className="font-display text-xl lg:text-2xl font-bold leading-snug mb-5">
+                  <h3 className="text-xl lg:text-2xl font-bold leading-snug mb-5">
                     {title}
                   </h3>
 

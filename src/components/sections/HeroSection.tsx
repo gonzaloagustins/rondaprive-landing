@@ -160,7 +160,7 @@ const HeroSection = () => {
 
                   {/* Event card */}
                   <div className="bg-[#F0EBE3] rounded-2xl p-5 text-center">
-                    <h3 className="font-display text-2xl font-bold text-foreground">{t("hero.mockup.festivalName")}</h3>
+                    <h3 className="text-2xl font-bold text-foreground">{t("hero.mockup.festivalName")}</h3>
                     <p className="text-[14px] text-muted-foreground mt-1">{t("hero.mockup.festivalDate")}</p>
                   </div>
 
