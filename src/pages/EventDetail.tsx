@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Calendar, MapPin, Zap, Armchair, ShoppingBag, ArrowLeft, ArrowRight, UtensilsCrossed, Wine, Crown, Star, Users } from "lucide-react";
+import { toJsonLd } from "@/lib/jsonld";
 import SEO from "@/components/shared/SEO";
 import { getEventById } from "@/data/events";
 import { useState } from "react";
@@ -78,7 +79,7 @@ const EventDetail = () => {
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLd(eventJsonLd) }}
       />
       {/* Hero */}
       <section className="pt-20">

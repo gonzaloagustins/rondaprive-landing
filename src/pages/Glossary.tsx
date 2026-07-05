@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { toJsonLd } from "@/lib/jsonld";
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
 import {
@@ -61,7 +62,7 @@ const Glossary = () => {
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }}
       />
       <PageHero
         title={t("glossary.heroTitle")}

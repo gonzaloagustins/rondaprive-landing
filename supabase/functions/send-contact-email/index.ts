@@ -4,10 +4,45 @@ const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const TO_EMAIL = "info@rondaprive.com";
 const FROM_EMAIL = "info@rondaprive.com";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+const ALLOWED_ORIGINS = new Set([
+  "https://rondaprive.com",
+  "https://www.rondaprive.com",
+  "http://localhost:8080",
+]);
+
+function corsHeaders(origin: string | null): Record<string, string> {
+  return {
+    "Access-Control-Allow-Origin":
+      origin && ALLOWED_ORIGINS.has(origin) ? origin : "https://rondaprive.com",
+    "Access-Control-Allow-Headers":
+      "authorization, x-client-info, apikey, content-type",
+    Vary: "Origin",
+  };
+}
+
+const MAX_LENGTHS: Record<string, number> = {
+  name: 120,
+  email: 254,
+  company: 160,
+  venueType: 40,
+  message: 2000,
 };
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
+  );
+}
+
+/** Trims and enforces the per-field length cap; returns null on non-string input. */
+function sanitizeField(value: unknown, field: keyof typeof MAX_LENGTHS): string | null {
+  if (value == null) return "";
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed.length > MAX_LENGTHS[field] ? null : trimmed;
+}
 
 const venueTypeLabels: Record<string, string> = {
   nightclub: "Nightclub",
@@ -18,21 +53,50 @@ const venueTypeLabels: Record<string, string> = {
 };
 
 serve(async (req) => {
+  const origin = req.headers.get("origin");
+  const headers = { ...corsHeaders(origin), "Content-Type": "application/json" };
+
   if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: corsHeaders });
+    return new Response("ok", { headers: corsHeaders(origin) });
   }
 
   try {
-    const { name, email, company, venueType, message } = await req.json();
+    const body = await req.json();
+
+    // Honeypot: hidden field real users never fill. Pretend success so bots
+    // don't learn they were filtered.
+    if (typeof body.website === "string" && body.website.trim() !== "") {
+      return new Response(JSON.stringify({ success: true }), { status: 200, headers });
+    }
+
+    const name = sanitizeField(body.name, "name");
+    const email = sanitizeField(body.email, "email");
+    const company = sanitizeField(body.company, "company");
+    const venueType = sanitizeField(body.venueType, "venueType");
+    const message = sanitizeField(body.message, "message");
+
+    if (name === null || email === null || company === null || venueType === null || message === null) {
+      return new Response(JSON.stringify({ error: "Campos inválidos." }), {
+        status: 400,
+        headers,
+      });
+    }
 
     if (!name || !email || !company) {
       return new Response(JSON.stringify({ error: "Faltan campos requeridos." }), {
         status: 400,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        headers,
       });
     }
 
-    const venueLabel = venueTypeLabels[venueType] ?? venueType ?? "No especificado";
+    if (!EMAIL_RE.test(email)) {
+      return new Response(JSON.stringify({ error: "Email inválido." }), {
+        status: 400,
+        headers,
+      });
+    }
+
+    const venueLabel = venueTypeLabels[venueType] ?? (venueType || "No especificado");
 
     const html = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1a1a1a;">
@@ -42,25 +106,25 @@ serve(async (req) => {
         <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
           <tr>
             <td style="padding: 8px 0; font-weight: bold; width: 140px;">Nombre</td>
-            <td style="padding: 8px 0;">${name}</td>
+            <td style="padding: 8px 0;">${escapeHtml(name)}</td>
           </tr>
           <tr style="background: #f9f9f9;">
             <td style="padding: 8px 0; font-weight: bold;">Email</td>
-            <td style="padding: 8px 0;"><a href="mailto:${email}">${email}</a></td>
+            <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td>
           </tr>
           <tr>
             <td style="padding: 8px 0; font-weight: bold;">Empresa</td>
-            <td style="padding: 8px 0;">${company}</td>
+            <td style="padding: 8px 0;">${escapeHtml(company)}</td>
           </tr>
           <tr style="background: #f9f9f9;">
             <td style="padding: 8px 0; font-weight: bold;">Tipo de venue</td>
-            <td style="padding: 8px 0;">${venueLabel}</td>
+            <td style="padding: 8px 0;">${escapeHtml(venueLabel)}</td>
           </tr>
           ${
             message
               ? `<tr>
             <td style="padding: 8px 0; font-weight: bold; vertical-align: top;">Mensaje</td>
-            <td style="padding: 8px 0;">${message.replace(/\n/g, "<br>")}</td>
+            <td style="padding: 8px 0;">${escapeHtml(message).replace(/\n/g, "<br>")}</td>
           </tr>`
               : ""
           }
@@ -91,19 +155,19 @@ serve(async (req) => {
       console.error("Resend error:", error);
       return new Response(JSON.stringify({ error: "Error al enviar el email." }), {
         status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        headers,
       });
     }
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      headers,
     });
   } catch (err) {
     console.error("Unexpected error:", err);
     return new Response(JSON.stringify({ error: "Error inesperado." }), {
       status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      headers,
     });
   }
 });
