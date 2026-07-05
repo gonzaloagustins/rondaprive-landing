@@ -57,12 +57,17 @@
     <meta name="twitter:description" content="Plataforma premium para eventos y venues. Venta de tragos y experiencias desde el celular, con control de ventas e inventario en tiempo real." />
     <meta name="twitter:image" content="https://rondaprive.com/og-image.jpg" />
 
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <!-- Resource hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://images.unsplash.com">
     <link rel="preload" as="image" href="/hero-poster.jpg" imagesrcset="/hero-poster-sm.jpg 768w, /hero-poster.jpg 1280w" imagesizes="100vw" fetchpriority="high">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link id="gf-css" rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" as="style">
+    <!-- Flip preload→stylesheet vía script (no atributo onload): permite CSP
+         con hash en vez de 'unsafe-hashes'. Mismo comportamiento async. -->
+    <script>(function(){var l=document.getElementById("gf-css");if(!l)return;var f=function(){l.rel="stylesheet"};l.addEventListener("load",f,{once:true});if(l.sheet)f()})()</script>
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap"></noscript>
 
     <!-- Structured data: Organization, WebSite, SoftwareApplication (schema.org) -->

@@ -1,8 +1,74 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import { createHash } from "node:crypto";
 import { componentTagger } from "lovable-tagger";
 import { VitePWA } from "vite-plugin-pwa";
+
+/**
+ * Inyecta una Content-Security-Policy como <meta> en el HTML de build.
+ * GitHub Pages no permite headers custom, así que la meta tag es el único
+ * mecanismo disponible (cubre XSS/inyección; frame-ancestors no funciona en
+ * meta y queda fuera). Solo en build: el dev server necesita scripts inline
+ * de HMR que la política bloquearía.
+ *
+ * Los scripts inline del shell se permiten por hash SHA-256 calculado sobre
+ * el contenido exacto — sin 'unsafe-inline' en script-src. Si se agrega un
+ * script inline nuevo a index.html, el hash se calcula solo en el próximo
+ * build. Ojo con GTM: los tags "Custom HTML" del contenedor inyectan scripts
+ * inline y serían bloqueados; los tags estándar (GA4) funcionan.
+ */
+function cspPlugin(supabaseOrigin: string): Plugin {
+  const sha256 = (s: string) =>
+    `'sha256-${createHash("sha256").update(s).digest("base64")}'`;
+  return {
+    name: "inject-csp-meta",
+    apply: "build",
+    transformIndexHtml: {
+      order: "post",
+      handler(html) {
+        const inlineHashes: string[] = [];
+        const scriptRe = /<script([^>]*)>([\s\S]*?)<\/script>/g;
+        for (const m of html.matchAll(scriptRe)) {
+          const [, attrs, body] = m;
+          // Los <script src> se cubren por origen y los ld+json son data
+          // blocks que CSP no ejecuta — solo se hashean los inline reales.
+          if (/\bsrc\s*=/.test(attrs)) continue;
+          if (/application\/ld\+json/.test(attrs)) continue;
+          if (!body.trim()) continue;
+          inlineHashes.push(sha256(body));
+        }
+        const csp = [
+          "default-src 'self'",
+          "base-uri 'self'",
+          "object-src 'none'",
+          "form-action 'self'",
+          `script-src 'self' https://www.googletagmanager.com ${inlineHashes.join(" ")}`,
+          // 'unsafe-inline' en styles: React usa atributos style= y GTM
+          // inyecta estilos; el vector de ataque relevante (scripts) queda
+          // cubierto por los hashes de arriba.
+          "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+          "font-src 'self' https://fonts.gstatic.com",
+          "img-src 'self' data: https://images.unsplash.com https://www.googletagmanager.com https://*.google-analytics.com",
+          "media-src 'self'",
+          `connect-src 'self' ${supabaseOrigin} https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net`,
+          "manifest-src 'self'",
+          "upgrade-insecure-requests",
+        ].join("; ");
+        return {
+          html,
+          tags: [
+            {
+              tag: "meta",
+              attrs: { "http-equiv": "Content-Security-Policy", content: csp },
+              injectTo: "head-prepend",
+            },
+          ],
+        };
+      },
+    },
+  };
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -27,6 +93,7 @@ export default defineConfig(({ mode }) => {
   plugins: [
     react(),
     mode === "development" && componentTagger(),
+    env.VITE_SUPABASE_URL && cspPlugin(new URL(env.VITE_SUPABASE_URL).origin),
     VitePWA({
       registerType: "autoUpdate",
       // SW is disabled in dev to avoid fighting with Vite's HMR; it's fully
