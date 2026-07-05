@@ -32,6 +32,16 @@ jobs:
 
       - name: Build
         run: npm run build
+        # Config pública de cliente (se compila dentro del bundle JS de todos
+        # modos): la anon key de Supabase es de rol "anon" por diseño y el GTM
+        # ID es visible en cualquier página. Vive aquí porque .env ya no está
+        # trackeado en git (PR #68) y este workflow es la única fuente del
+        # build de producción. Si se rotan las claves, actualizar estos valores.
+        env:
+          VITE_SUPABASE_PROJECT_ID: romsnsprhofhviywites
+          VITE_SUPABASE_URL: https://romsnsprhofhviywites.supabase.co
+          VITE_SUPABASE_PUBLISHABLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvbXNuc3ByaG9maHZpeXdpdGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4MTE4MTIsImV4cCI6MjA4NTM4NzgxMn0.Gda0AEYVdmWpErfjxtpHDo7GNiBXhmTV4cDuj3k-9X8
+          VITE_GTM_ID: GTM-PCZW9KGK
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
