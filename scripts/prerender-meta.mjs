@@ -34,6 +34,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { INSIGHT_POSTS } from "./insights-data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -333,13 +334,14 @@ const benefitsBlock = (t) => {
   `;
 };
 
-const insightsBlock = (t) => {
+const insightsBlock = (t, lang) => {
   const i = t.insights || {};
-  const posts = ["post1", "post2", "post3", "post4", "post5", "post6"]
-    .map((k) => i[k])
-    .filter(Boolean)
-    .map((p) => `<article><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml(p.excerpt)}</p></article>`)
-    .join("");
+  const posts = INSIGHT_POSTS.map((post) => {
+    const p = i[post.postKey];
+    if (!p) return "";
+    const href = `/${lang}/${ROUTE_SLUGS.insights[lang]}/${post.slug}`;
+    return `<article><h3><a href="${href}">${escapeHtml(p.title)}</a></h3><p>${escapeHtml(p.excerpt)}</p></article>`;
+  }).join("");
   return `
   <header>
     <h1>${escapeHtml(`${i.heroTitle || ""} ${i.heroHighlight || ""}`.trim() || "Insights")}</h1>
@@ -347,6 +349,69 @@ const insightsBlock = (t) => {
   </header>
   ${posts}
   `;
+};
+
+// Body block for a single insight article: title, publication date, intro and
+// every section — the citable long-form content AI crawlers are after.
+const insightArticleBlock = (t, post, lang) => {
+  const p = (t.insights || {})[post.postKey];
+  if (!p) return "";
+  const sections = (p.sections || [])
+    .map((s) => {
+      const paragraphs = String(s.body)
+        .split("\n\n")
+        .map((par) => `<p>${escapeHtml(par)}</p>`)
+        .join("");
+      return `<section><h2>${escapeHtml(s.heading)}</h2>${paragraphs}</section>`;
+    })
+    .join("");
+  const backHref = `/${lang}/${ROUTE_SLUGS.insights[lang]}`;
+  return `
+  <article>
+    <header>
+      <h1>${escapeHtml(p.title)}</h1>
+      <p><time datetime="${post.date}">${post.date}</time></p>
+    </header>
+    ${p.intro ? `<p>${escapeHtml(p.intro)}</p>` : ""}
+    ${sections}
+    <footer><a href="${backHref}">${escapeHtml((t.insights || {}).backToInsights || "Insights")}</a></footer>
+  </article>
+  `;
+};
+
+const buildArticleJsonLd = (t, post, lang, url) => {
+  const p = (t.insights || {})[post.postKey];
+  if (!p) return null;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${url}#article`,
+        headline: p.title,
+        description: p.excerpt,
+        image: post.image,
+        datePublished: post.date,
+        dateModified: post.date,
+        inLanguage: lang,
+        mainEntityOfPage: url,
+        author: { "@id": `${SITE}/#organization` },
+        publisher: { "@id": `${SITE}/#organization` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Insights",
+            item: `${SITE}/${lang}/${ROUTE_SLUGS.insights[lang]}`,
+          },
+          { "@type": "ListItem", position: 2, name: p.title, item: url },
+        ],
+      },
+    ],
+  };
 };
 
 const faqBlock = (t) => {
@@ -534,16 +599,18 @@ const PRERENDER_MAIN_STYLE =
   "font-family:Inter,system-ui,sans-serif;background:#F5F0EB;color:#1A1814;" +
   "max-width:72ch;margin:0 auto;padding:2rem 1.5rem;line-height:1.6";
 
-const buildBodyBlock = (pageKey, t) => {
+const wrapBodyBlock = (inner) =>
+  inner ? `<main data-prerender style="${PRERENDER_MAIN_STYLE}">${inner}</main>` : "";
+
+const buildBodyBlock = (pageKey, t, lang) => {
   const builder = BLOCK_BUILDERS[pageKey];
   if (!builder) return "";
-  const inner = builder(t);
-  return `<main data-prerender style="${PRERENDER_MAIN_STYLE}">${inner}</main>`;
+  return wrapBodyBlock(builder(t, lang));
 };
 
 const replaceTag = (html, regex, replacement) => html.replace(regex, replacement);
 
-const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, faqJsonLd, servicesJsonLd, definedTermSetJsonLd }) => {
+const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, faqJsonLd, servicesJsonLd, definedTermSetJsonLd, articleJsonLd, ogImage }) => {
   const ogLocale = OG_LOCALE[lang];
   let out = shell;
 
@@ -593,6 +660,18 @@ const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, 
     /(<meta name="twitter:description" content=")[^"]*(")/,
     `$1${escapeAttr(description)}$2`,
   );
+  if (ogImage) {
+    out = replaceTag(
+      out,
+      /(<meta property="og:image" content=")[^"]*(")/,
+      `$1${escapeAttr(ogImage)}$2`,
+    );
+    out = replaceTag(
+      out,
+      /(<meta name="twitter:image" content=")[^"]*(")/,
+      `$1${escapeAttr(ogImage)}$2`,
+    );
+  }
 
   // Strip any prior hreflang alternates and any prior generated blocks so
   // re-runs stay clean.
@@ -613,6 +692,10 @@ const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, 
     /[ \t]*<!-- glossary-jsonld:start -->[\s\S]*?<!-- glossary-jsonld:end -->\n?/g,
     "",
   );
+  out = out.replace(
+    /[ \t]*<!-- article-jsonld:start -->[\s\S]*?<!-- article-jsonld:end -->\n?/g,
+    "",
+  );
 
   // Inject hreflang alternates + (optionally) FAQPage JSON-LD into <head>.
   const altTags = alternates
@@ -630,9 +713,10 @@ const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, 
   const faqHeadBlock = faqJsonLd ? wrapJsonLd("faq-jsonld", faqJsonLd) : "";
   const servicesHeadBlock = servicesJsonLd ? wrapJsonLd("services-jsonld", servicesJsonLd) : "";
   const glossaryHeadBlock = definedTermSetJsonLd ? wrapJsonLd("glossary-jsonld", definedTermSetJsonLd) : "";
+  const articleHeadBlock = articleJsonLd ? wrapJsonLd("article-jsonld", articleJsonLd) : "";
   out = out.replace(
     /<\/head>/,
-    `${altTags}\n    <link rel="alternate" hreflang="x-default" href="${escapeAttr(xDefault ? xDefault.href : url)}" />\n${faqHeadBlock}${servicesHeadBlock}${glossaryHeadBlock}  </head>`,
+    `${altTags}\n    <link rel="alternate" hreflang="x-default" href="${escapeAttr(xDefault ? xDefault.href : url)}" />\n${faqHeadBlock}${servicesHeadBlock}${glossaryHeadBlock}${articleHeadBlock}  </head>`,
   );
 
   // Inject the per-route AI-readable body INSIDE <div id="root">, so it is
@@ -673,7 +757,7 @@ for (const pageKey of PAGE_KEYS) {
     const relPath = pathFor(pageKey, lang);
     const url = `${SITE}${relPath}`;
 
-    const bodyBlock = buildBodyBlock(pageKey, translations[lang]);
+    const bodyBlock = buildBodyBlock(pageKey, translations[lang], lang);
     const faqJsonLd = pageKey === "faq" ? buildFaqJsonLd(translations[lang]) : null;
     // Services schema goes on every page — the modalities define what
     // the company offers regardless of which page the bot landed on.
@@ -708,6 +792,44 @@ for (const pageKey of PAGE_KEYS) {
   }
 }
 
+// Insight article pages — one long-form HTML per (post, language). These are
+// the citable URLs: full body content, Article + BreadcrumbList JSON-LD and
+// the post image as og:image.
+for (const post of INSIGHT_POSTS) {
+  const alternates = SUPPORTED_LANGS.map((lang) => ({
+    lang,
+    href: `${SITE}/${lang}/${ROUTE_SLUGS.insights[lang]}/${post.slug}`,
+  }));
+
+  for (const lang of SUPPORTED_LANGS) {
+    const t = translations[lang];
+    const p = t?.insights?.[post.postKey];
+    if (!p) continue;
+    const title = `${p.title}${TITLE_SUFFIX}`;
+    const relPath = `/${lang}/${ROUTE_SLUGS.insights[lang]}/${post.slug}`;
+    const url = `${SITE}${relPath}`;
+
+    const html = rewrite(shell, {
+      lang,
+      title,
+      description: p.excerpt || "",
+      url,
+      alternates,
+      bodyBlock: wrapBodyBlock(insightArticleBlock(t, post, lang)),
+      servicesJsonLd: buildServicesJsonLd(t),
+      articleJsonLd: buildArticleJsonLd(t, post, lang, url),
+      ogImage: post.image,
+    });
+
+    const outDir = join(DIST, relPath.replace(/^\//, ""));
+    await mkdir(outDir, { recursive: true });
+    await writeFile(join(outDir, "index.html"), html);
+    await writeFile(join(DIST, `${relPath.replace(/^\//, "")}.html`), html);
+    console.log(`✓ ${relPath} (article)`);
+    count++;
+  }
+}
+
 // Finally, rewrite the shell index.html itself so the host's SPA fallback
 // still serves AI-readable content + FAQPage schema + the default-lang
 // home block. This is the safety net while the host isn't serving the
@@ -732,7 +854,7 @@ const shellHtml = rewrite(shell, {
   // contradictory signals.
   url: `${SITE}/${DEFAULT_LANG}`,
   alternates: shellAlternates,
-  bodyBlock: buildBodyBlock("home", defaultT),
+  bodyBlock: buildBodyBlock("home", defaultT, DEFAULT_LANG),
   faqJsonLd: buildFaqJsonLd(defaultT),
   servicesJsonLd: buildServicesJsonLd(defaultT),
   // The shell is the de-facto entry point right now (host falls back to it
@@ -746,5 +868,5 @@ console.log(`✓ / (shell) → ${SHELL}`);
 count++;
 
 console.log(
-  `\nGenerated ${count} HTML files (${PAGE_KEYS.length} pages × ${SUPPORTED_LANGS.length} languages + shell).`,
+  `\nGenerated ${count} HTML files (${PAGE_KEYS.length} pages + ${INSIGHT_POSTS.length} articles × ${SUPPORTED_LANGS.length} languages + shell).`,
 );

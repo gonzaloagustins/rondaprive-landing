@@ -12,6 +12,7 @@ import { existsSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { INSIGHT_POSTS } from "./insights-data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -39,16 +40,16 @@ const pathFor = (pageKey, lang) =>
 
 const today = new Date().toISOString().slice(0, 10);
 
-const buildUrlEntry = (pageKey, lang) => {
-  const loc = `${SITE}${pathFor(pageKey, lang)}`;
+const buildUrlEntry = (pathForLang, lang, lastmod) => {
+  const loc = `${SITE}${pathForLang(lang)}`;
   const alternates = SUPPORTED_LANGS.map(
     (l) =>
-      `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE}${pathFor(pageKey, l)}" />`,
+      `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE}${pathForLang(l)}" />`,
   ).join("\n");
-  const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${pathFor(pageKey, DEFAULT_LANG)}" />`;
+  const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${pathForLang(DEFAULT_LANG)}" />`;
   return `  <url>
     <loc>${loc}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
 ${alternates}
 ${xDefault}
@@ -58,7 +59,20 @@ ${xDefault}
 const urls = [];
 for (const pageKey of PAGE_KEYS) {
   for (const lang of SUPPORTED_LANGS) {
-    urls.push(buildUrlEntry(pageKey, lang));
+    urls.push(buildUrlEntry((l) => pathFor(pageKey, l), lang, today));
+  }
+}
+// Insight articles carry their real publication date as lastmod so crawlers
+// get an honest freshness signal instead of the build date.
+for (const post of INSIGHT_POSTS) {
+  for (const lang of SUPPORTED_LANGS) {
+    urls.push(
+      buildUrlEntry(
+        (l) => `${pathFor("insights", l)}/${post.slug}`,
+        lang,
+        post.date,
+      ),
+    );
   }
 }
 

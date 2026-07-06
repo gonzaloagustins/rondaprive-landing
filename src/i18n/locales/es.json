@@ -633,29 +633,74 @@
     },
     "readMore": "Leer más",
     "minRead": "min de lectura",
+    "backToInsights": "Volver a Insights",
+    "detailCtaTitle": "¿Quieres ver estas ideas funcionando en tu evento?",
+    "detailCtaButton": "Solicitar una demo",
     "post1": {
       "title": "Cómo incrementar las ventas de F&B en eventos masivos",
-      "excerpt": "Estrategias comprobadas para maximizar el consumo por asistente y capturar ventas que se pierden en filas."
+      "excerpt": "Estrategias comprobadas para maximizar el consumo por asistente y capturar ventas que se pierden en filas.",
+      "intro": "En un evento masivo, la venta de alimentos y bebidas puede representar una parte importante del ingreso total. Sin embargo, gran parte de esa venta se pierde por un motivo evitable: la fricción. Filas largas, puntos de venta saturados y asistentes que prefieren no perderse el show antes que esperar por una bebida.",
+      "sections": [
+        { "heading": "El costo invisible de las filas", "body": "Cuando la fila supera los pocos minutos, una parte de los asistentes simplemente desiste. Esa venta no se recupera: el consumo en eventos es por impulso y depende del momento. Si el impulso pasa, la compra no ocurre.\n\nAdemás, la demanda no se distribuye pareja: se concentra en picos — el entretiempo, el cambio de artista, los minutos previos al show principal. Es justo ahí donde la capacidad de atención colapsa y más ventas se pierden." },
+        { "heading": "Convertir cada ubicación en un punto de venta", "body": "La forma más directa de vender más no es abrir más barras, sino multiplicar los puntos de compra sin infraestructura extra. Con compra desde el celular vía QR, cada asiento, mesa o sector se convierte en un punto de venta.\n\nEl asistente pide desde su ubicación y retira cuando el pedido está listo, o lo recibe directamente en su asiento. La barra deja de ser el único canal y la demanda se reparte." },
+        { "heading": "Adelantar la venta con compra anticipada", "body": "La compra anticipada permite capturar ingresos días o semanas antes del evento: el asistente paga por adelantado y el día del evento solo retira presentando su QR.\n\nPara el organizador significa flujo de caja anticipado, demanda conocida y menos congestión en los momentos de mayor presión operativa." },
+        { "heading": "Medir en tiempo real para reaccionar a tiempo", "body": "Sin datos en vivo, los problemas se descubren cuando ya costaron ventas. Un dashboard con ventas e inventario en tiempo real permite reasignar staff hacia los puntos con más demanda, reponer stock antes del quiebre y ajustar la operación durante el evento, no después." }
+      ]
     },
     "post2": {
       "title": "El futuro de la tecnología F&B en eventos",
-      "excerpt": "Tendencias globales en digitalización de la venta de alimentos y bebidas en la industria de eventos."
+      "excerpt": "Tendencias globales en digitalización de la venta de alimentos y bebidas en la industria de eventos.",
+      "intro": "La venta de alimentos y bebidas en eventos está cambiando rápido. Lo que hace unos años era efectivo y caja registradora hoy es pago digital, pedidos por QR y datos en tiempo real. Estas son las tendencias que están marcando el rumbo de la industria.",
+      "sections": [
+        { "heading": "Del efectivo al pago digital", "body": "El pago digital dejó de ser un diferenciador para convertirse en la expectativa base. En la región, la adopción de billeteras digitales y pagos sin contacto crece sostenidamente, y los eventos siguen la misma curva: menos efectivo circulando significa operaciones más rápidas, menos errores de caja y trazabilidad completa de cada venta." },
+        { "heading": "Web apps en lugar de descargas", "body": "Las apps nativas tienen un problema estructural en eventos: nadie quiere descargar una aplicación para comprar una bebida. Las PWA (aplicaciones web progresivas) eliminan esa fricción — el asistente escanea un QR y compra de inmediato desde el navegador, sin descargas ni registro extenso.\n\nPara el organizador, eso se traduce en tasas de adopción mucho más altas que las de cualquier app que exija instalación." },
+        { "heading": "Los datos de consumo como activo", "body": "Cada pedido digital genera información: qué se vende, a qué hora, en qué sector y a qué precio. Ese historial permite planificar los próximos eventos con demanda real en vez de intuición: cuánto stock cargar, dónde ubicar los puntos de venta y qué productos empujar.\n\nLos organizadores que acumulan estos datos evento tras evento toman decisiones que la competencia todavía adivina." },
+        { "heading": "Hacia una operación sin fricción", "body": "La dirección es clara: menos filas, menos hardware y más integración. La compra anticipada conectada al ticketing, la entrega en el asiento y el inventario sincronizado entre puntos de venta apuntan a lo mismo — que comprar dentro de un evento sea tan simple como comprar en cualquier tienda digital." }
+      ]
     },
     "post3": {
       "title": "Cómo reducir filas en estadios: caso de estudio",
-      "excerpt": "Análisis de cómo la implementación de compra digital redujo un 70% los tiempos de espera en un estadio."
+      "excerpt": "Análisis de cómo la implementación de compra digital redujo un 70% los tiempos de espera en un estadio.",
+      "intro": "Los estadios concentran uno de los desafíos operativos más difíciles del F&B: decenas de miles de personas que quieren comprar en la misma ventana de minutos. Este análisis recorre qué pasa cuando se implementa compra digital por sectores y qué resultados se pueden esperar.",
+      "sections": [
+        { "heading": "El punto de partida", "body": "El patrón se repite en la mayoría de los estadios: la venta se concentra en el entretiempo y los cortes del espectáculo. En esos minutos, las filas superan la capacidad de atención, buena parte del público desiste y la venta por asistente queda muy por debajo de su potencial." },
+        { "heading": "Qué se implementó", "body": "La implementación combinó dos modalidades: compra desde el asiento para sectores premium — el asistente escanea el QR de su ubicación y recibe el pedido donde está — y compra y retiro para el resto del recinto, con puntos de retiro diferenciados por sector para repartir el flujo de gente.\n\nNo se instaló infraestructura adicional: la operación corre sobre los puntos de venta existentes y los celulares de los propios asistentes." },
+        { "heading": "Los resultados", "body": "Con la compra digital operando, los tiempos de espera se redujeron en torno al 70%: el pedido se prepara mientras el asistente sigue en su asiento, y el retiro toma segundos en lugar de minutos de fila.\n\nEl efecto comercial acompaña: al eliminar la barrera de la espera, más asistentes compran y aumenta la frecuencia de pedidos durante el evento." },
+        { "heading": "Aprendizajes para otras implementaciones", "body": "Tres factores marcaron la diferencia: señalética clara para que el público entienda el flujo de retiro, capacitación breve del staff en el nuevo flujo de preparación, y una carta acotada que mantiene los tiempos de preparación estables incluso en los picos de demanda." }
+      ]
     },
     "post4": {
       "title": "Gestión de inventario en tiempo real para eventos",
-      "excerpt": "Mejores prácticas para controlar stock, evitar quiebres y optimizar la operación durante un evento."
+      "excerpt": "Mejores prácticas para controlar stock, evitar quiebres y optimizar la operación durante un evento.",
+      "intro": "En un evento no existe 'reponer mañana': el stock que se quiebra durante el show es venta perdida que no vuelve. Por eso la gestión de inventario en eventos tiene reglas propias, y la visibilidad en tiempo real es la principal.",
+      "sections": [
+        { "heading": "Por qué el inventario se quiebra en eventos", "body": "Un evento comprime la demanda de una semana de operación normal en pocas horas. Con planillas o conteo manual, el organizador se entera del quiebre cuando el producto ya no está — y cada minuto sin stock en un punto de alta demanda es ingreso que se evapora.\n\nEl problema inverso también cuesta caro: el sobrestock termina en merma o capital inmovilizado." },
+        { "heading": "Visibilidad en vivo por punto de venta", "body": "El inventario en tiempo real muestra qué queda de cada producto en cada barra o punto de venta, actualizado con cada pedido. Eso convierte el stock en una variable que se gestiona durante el evento: si una barra agota un producto, se redistribuye desde otra antes de perder ventas." },
+        { "heading": "Alertas y decisiones durante el show", "body": "Los umbrales de alerta permiten actuar antes del quiebre: cuando un producto baja de cierto nivel, el equipo lo sabe al instante. Las decisiones dejan de depender de que alguien 'se dé cuenta' — el sistema avisa, el equipo ejecuta." },
+        { "heading": "Lo que queda después del evento", "body": "Al cierre, los datos cuentan la historia completa: qué se vendió, a qué ritmo, dónde hubo quiebres y cuánta merma quedó. Con esa base, el siguiente evento se planifica con demanda real: compras más ajustadas, mejor distribución entre puntos de venta y menos capital inmovilizado." }
+      ]
     },
     "post5": {
       "title": "Innovación en nightclubs: la nueva era de la venta digital",
-      "excerpt": "Cómo los nightclubs más exclusivos están transformando la experiencia de compra con tecnología móvil."
+      "excerpt": "Cómo los nightclubs más exclusivos están transformando la experiencia de compra con tecnología móvil.",
+      "intro": "En un nightclub, la experiencia es el producto. Y pocas cosas dañan más la experiencia que pasar veinte minutos tratando de pedir un trago en una barra saturada. Los clubes más exclusivos lo entendieron y están rediseñando la venta con tecnología móvil.",
+      "sections": [
+        { "heading": "La barra como cuello de botella", "body": "La barra concentra toda la venta del club en pocos metros: en horas punta, la espera crece, el cliente se frustra y consume menos. Cada minuto en la fila es un minuto fuera de la pista — y una ronda que quizás no se pide." },
+        { "heading": "Mesas y VIP: servicio sin interrupciones", "body": "El QR por mesa cambia la dinámica del servicio: el grupo pide desde el celular y el pedido llega a la mesa, sin que nadie tenga que ir a la barra ni interceptar a un garzón.\n\nEn zonas VIP el efecto es mayor: el servicio se siente premium precisamente porque no exige esfuerzo, y la mesa mantiene su consumo activo durante toda la noche." },
+        { "heading": "Rotación y ticket promedio", "body": "Menos espera se traduce directo en más rondas por noche. Cuando pedir toma segundos, la frecuencia de consumo sube y el ticket promedio por mesa crece — sin presión comercial, solo eliminando la fricción que antes frenaba la compra." },
+        { "heading": "Qué mirar al elegir tecnología para un club", "body": "Tres criterios prácticos: que no exija hardware adicional ni descargas de apps, que funcione de forma estable en condiciones reales de un club — poca luz, mucha gente, señal irregular — y que entregue datos por mesa y por producto para gestionar el negocio, no solo cobrar." }
+      ]
     },
     "post6": {
       "title": "Compra anticipada: la estrategia que maximiza ingresos",
-      "excerpt": "Por qué la venta pre-evento es la herramienta más poderosa para aumentar previsibilidad y revenue."
+      "excerpt": "Por qué la venta pre-evento es la herramienta más poderosa para aumentar previsibilidad y revenue.",
+      "intro": "De las tres modalidades de venta digital en eventos, la compra anticipada es la que más impacto tiene en la previsibilidad del negocio: convierte demanda futura en ingreso presente y en información para planificar.",
+      "sections": [
+        { "heading": "Qué es y cómo funciona", "body": "La compra anticipada permite que el asistente compre su consumo días o semanas antes del evento, junto con la decisión de asistir. El día del evento, solo presenta su QR y retira — sin filas ni pagos en el recinto." },
+        { "heading": "Ingresos antes de abrir las puertas", "body": "El efecto financiero es inmediato: una parte de la venta del evento ingresa por adelantado, mejora el flujo de caja y reduce la dependencia de lo que pase la noche del show. Para eventos con costos de producción altos, ese adelanto puede financiar parte de la operación." },
+        { "heading": "Planificar con demanda real", "body": "Cada compra anticipada es un dato de demanda confirmada: cuántas personas van a consumir, qué productos y en qué volumen. Con esa información, el stock y el staff se dimensionan sobre demanda real en lugar de estimaciones — menos quiebres, menos merma y una operación más ajustada." },
+        { "heading": "Cómo comunicarla para que funcione", "body": "La compra anticipada rinde cuando se integra a la comunicación del evento: ofrecerla en el mismo momento de la compra de la entrada, recordarla en los días previos y darle un incentivo concreto — conveniencia, beneficios o acceso preferente al retiro. Mientras más natural es el paso de 'ya tengo mi entrada' a 'ya tengo mi primera ronda', mejor funciona." }
+      ]
     }
   },
   "contact": {

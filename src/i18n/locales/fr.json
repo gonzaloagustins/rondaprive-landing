@@ -633,29 +633,74 @@
     },
     "readMore": "Lire la suite",
     "minRead": "min de lecture",
+    "backToInsights": "Retour aux Insights",
+    "detailCtaTitle": "Envie de voir ces idées fonctionner lors de votre événement ?",
+    "detailCtaButton": "Demander une démo",
     "post1": {
       "title": "Comment augmenter les ventes F&B lors d'événements de grande envergure",
-      "excerpt": "Stratégies éprouvées pour maximiser la dépense par participant et capter les revenus perdus dans les files."
+      "excerpt": "Stratégies éprouvées pour maximiser la dépense par participant et capter les revenus perdus dans les files.",
+      "intro": "Lors d'un événement de grande envergure, la vente de restauration et de boissons peut représenter une part importante du chiffre d'affaires total. Pourtant, une grande partie de cette vente se perd pour une raison évitable : la friction. Files interminables, points de vente saturés et participants qui préfèrent ne pas rater le show plutôt que d'attendre une boisson.",
+      "sections": [
+        { "heading": "Le coût invisible des files d'attente", "body": "Dès que la file dépasse quelques minutes, une partie du public renonce tout simplement. Cette vente ne se récupère pas : la consommation en événement est impulsive et liée à l'instant. Si l'impulsion passe, l'achat n'a pas lieu.\n\nLa demande n'est pas non plus répartie uniformément : elle se concentre en pics — la mi-temps, le changement d'artiste, les minutes précédant la tête d'affiche. C'est précisément là que la capacité de service s'effondre et que le plus de ventes se perdent." },
+        { "heading": "Faire de chaque emplacement un point de vente", "body": "Le moyen le plus direct de vendre plus n'est pas d'ouvrir plus de bars, mais de multiplier les points d'achat sans infrastructure supplémentaire. Avec la commande mobile via QR, chaque siège, table ou secteur devient un point de vente.\n\nLe participant commande depuis son emplacement et retire quand la commande est prête, ou la reçoit directement à son siège. Le bar cesse d'être le seul canal et la demande se répartit." },
+        { "heading": "Capter la demande avant l'événement", "body": "La commande anticipée permet de capter des revenus des jours ou des semaines à l'avance : le participant paie d'avance et présente simplement son QR le jour J pour retirer.\n\nPour l'organisateur, cela signifie une trésorerie anticipée, une demande connue et moins de congestion aux moments de plus forte pression opérationnelle." },
+        { "heading": "Mesurer en temps réel pour réagir à temps", "body": "Sans données en direct, les problèmes n'apparaissent qu'après avoir déjà coûté des ventes. Un tableau de bord avec ventes et stocks en temps réel permet de réaffecter le personnel vers les points les plus demandés, de réapprovisionner avant la rupture et d'ajuster l'opération pendant l'événement, pas après." }
+      ]
     },
     "post2": {
       "title": "L'avenir de la technologie F&B dans les événements",
-      "excerpt": "Tendances mondiales de la digitalisation de la vente de restauration et boissons dans l'industrie événementielle."
+      "excerpt": "Tendances mondiales de la digitalisation de la vente de restauration et boissons dans l'industrie événementielle.",
+      "intro": "La vente de restauration et de boissons en événement évolue vite. Ce qui relevait il y a quelques années du liquide et de la caisse enregistreuse est aujourd'hui paiement digital, commandes par QR et données en temps réel. Voici les tendances qui dessinent la direction du secteur.",
+      "sections": [
+        { "heading": "Du liquide au paiement digital", "body": "Le paiement digital est passé de différenciateur à attente de base. Dans la région, l'adoption des portefeuilles digitaux et du sans-contact progresse régulièrement, et les événements suivent la même courbe : moins de liquide en circulation, c'est une opération plus rapide, moins d'erreurs de caisse et une traçabilité complète de chaque vente." },
+        { "heading": "Des web apps plutôt que des téléchargements", "body": "Les applications natives ont un problème structurel en événement : personne ne veut télécharger une app pour acheter une boisson. Les PWA (applications web progressives) suppriment cette friction — le participant scanne un QR et achète immédiatement depuis le navigateur, sans téléchargement ni inscription interminable.\n\nPour l'organisateur, cela se traduit par des taux d'adoption bien supérieurs à ceux de toute app exigeant une installation." },
+        { "heading": "Les données de consommation comme actif", "body": "Chaque commande digitale génère de l'information : ce qui se vend, à quelle heure, dans quel secteur et à quel prix. Cet historique permet de planifier les prochains événements sur une demande réelle plutôt qu'à l'intuition : quel stock charger, où placer les points de vente et quels produits mettre en avant.\n\nLes organisateurs qui accumulent ces données événement après événement prennent des décisions que la concurrence devine encore." },
+        { "heading": "Vers une opération sans friction", "body": "La direction est claire : moins de files, moins de matériel et plus d'intégration. La commande anticipée connectée à la billetterie, la livraison au siège et les stocks synchronisés entre points de vente vont dans le même sens — acheter au sein d'un événement doit être aussi simple qu'acheter dans n'importe quelle boutique en ligne." }
+      ]
     },
     "post3": {
       "title": "Comment réduire les files dans les stades : étude de cas",
-      "excerpt": "Analyse de la façon dont la commande digitale a réduit les temps d'attente de 70% dans un stade."
+      "excerpt": "Analyse de la façon dont la commande digitale a réduit les temps d'attente de 70% dans un stade.",
+      "intro": "Les stades concentrent l'un des défis opérationnels les plus difficiles du F&B : des dizaines de milliers de personnes qui veulent acheter dans la même fenêtre de quelques minutes. Cette analyse retrace ce qui se passe quand la commande digitale est déployée par secteur, et quels résultats en attendre.",
+      "sections": [
+        { "heading": "Le point de départ", "body": "Le schéma se répète dans la plupart des stades : la vente se concentre à la mi-temps et aux pauses du spectacle. Pendant ces minutes, les files dépassent la capacité de service, une grande partie du public renonce et la vente par participant reste très en deçà de son potentiel." },
+        { "heading": "Ce qui a été mis en place", "body": "Le déploiement a combiné deux modalités : la commande depuis le siège pour les secteurs premium — le participant scanne le QR de son emplacement et reçoit sa commande là où il se trouve — et la commande avec retrait pour le reste de l'enceinte, avec des points de retrait répartis par secteur pour étaler le flux.\n\nAucune infrastructure supplémentaire n'a été installée : l'opération repose sur les points de vente existants et les téléphones des participants." },
+        { "heading": "Les résultats", "body": "Avec la commande digitale en service, les temps d'attente ont baissé d'environ 70 % : la commande se prépare pendant que le participant reste à sa place, et le retrait prend quelques secondes au lieu de minutes de file.\n\nL'effet commercial suit : une fois la barrière de l'attente levée, davantage de participants achètent et la fréquence des commandes augmente tout au long de l'événement." },
+        { "heading": "Enseignements pour d'autres déploiements", "body": "Trois facteurs ont fait la différence : une signalétique claire pour que le public comprenne le circuit de retrait, une formation courte du personnel au nouveau flux de préparation, et une carte resserrée qui maintient des temps de préparation stables même aux pics de demande." }
+      ]
     },
     "post4": {
       "title": "Gestion des stocks en temps réel pour les événements",
-      "excerpt": "Bonnes pratiques pour contrôler les stocks, éviter les ruptures et optimiser l'exploitation pendant un événement."
+      "excerpt": "Bonnes pratiques pour contrôler les stocks, éviter les ruptures et optimiser l'exploitation pendant un événement.",
+      "intro": "En événement, « réapprovisionner demain » n'existe pas : le stock qui s'épuise pendant le show est une vente perdue qui ne revient pas. C'est pourquoi la gestion des stocks en événement a ses propres règles — et la visibilité en temps réel est la première.",
+      "sections": [
+        { "heading": "Pourquoi les stocks se rompent en événement", "body": "Un événement comprime la demande d'une semaine d'exploitation normale en quelques heures. Avec des tableurs ou un comptage manuel, l'organisateur découvre la rupture quand le produit a déjà disparu — et chaque minute sans stock à un point très demandé, c'est du revenu qui s'évapore.\n\nLe problème inverse coûte cher aussi : le surstock finit en perte ou en capital immobilisé." },
+        { "heading": "Visibilité en direct par point de vente", "body": "Le stock en temps réel montre ce qui reste de chaque produit dans chaque bar ou point de vente, mis à jour à chaque commande. Le stock devient une variable gérée pendant l'événement : si un bar épuise un produit, il est redistribué depuis un autre avant de perdre des ventes." },
+        { "heading": "Alertes et décisions pendant le show", "body": "Les seuils d'alerte permettent d'agir avant la rupture : quand un produit descend sous un niveau donné, l'équipe le sait instantanément. Les décisions ne dépendent plus de quelqu'un qui « s'en aperçoit » — le système alerte, l'équipe exécute." },
+        { "heading": "Ce qui reste après l'événement", "body": "À la clôture, les données racontent l'histoire complète : ce qui s'est vendu, à quel rythme, où il y a eu des ruptures et combien de pertes restent. Sur cette base, l'événement suivant se planifie sur une demande réelle : des achats plus ajustés, une meilleure répartition entre points de vente et moins de capital immobilisé." }
+      ]
     },
     "post5": {
       "title": "Innovation en nightclubs : la nouvelle ère de la vente digitale",
-      "excerpt": "Comment les nightclubs les plus exclusifs transforment l'expérience d'achat grâce à la technologie mobile."
+      "excerpt": "Comment les nightclubs les plus exclusifs transforment l'expérience d'achat grâce à la technologie mobile.",
+      "intro": "Dans un nightclub, l'expérience est le produit. Et peu de choses l'abîment plus que de passer vingt minutes à tenter de commander un verre à un bar saturé. Les clubs les plus exclusifs l'ont compris et repensent la vente autour de la technologie mobile.",
+      "sections": [
+        { "heading": "Le bar comme goulot d'étranglement", "body": "Le bar concentre toute la vente du club sur quelques mètres : aux heures de pointe, l'attente s'allonge, le client se frustre et consomme moins. Chaque minute dans la file est une minute hors de la piste — et une tournée qui ne sera peut-être jamais commandée." },
+        { "heading": "Tables et VIP : un service sans interruption", "body": "Le QR par table change la dynamique du service : le groupe commande depuis son téléphone et la commande arrive à la table, sans que personne n'ait à aller au bar ni à intercepter un serveur.\n\nDans les espaces VIP, l'effet est encore plus fort : le service paraît premium précisément parce qu'il n'exige aucun effort, et la table maintient sa consommation active toute la nuit." },
+        { "heading": "Rotation et ticket moyen", "body": "Moins d'attente se traduit directement par plus de tournées par soirée. Quand commander prend quelques secondes, la fréquence de consommation augmente et le ticket moyen par table progresse — sans pression commerciale, simplement en supprimant la friction qui freinait l'achat." },
+        { "heading": "Que regarder pour choisir la technologie d'un club", "body": "Trois critères pratiques : ne pas exiger de matériel supplémentaire ni de téléchargement d'app, fonctionner de manière stable dans les conditions réelles d'un club — faible lumière, forte affluence, signal irrégulier — et fournir des données par table et par produit pour piloter l'activité, pas seulement encaisser." }
+      ]
     },
     "post6": {
       "title": "Commande anticipée : la stratégie qui maximise les revenus",
-      "excerpt": "Pourquoi la vente pré-événement est l'outil le plus puissant pour accroître la prévisibilité et le chiffre d'affaires."
+      "excerpt": "Pourquoi la vente pré-événement est l'outil le plus puissant pour accroître la prévisibilité et le chiffre d'affaires.",
+      "intro": "Des trois modalités de vente digitale en événement, la commande anticipée est celle qui pèse le plus sur la prévisibilité de l'activité : elle transforme la demande future en revenu présent et en information pour planifier.",
+      "sections": [
+        { "heading": "Ce que c'est et comment ça marche", "body": "La commande anticipée permet au participant d'acheter sa consommation des jours ou des semaines avant l'événement, en même temps que sa décision d'y assister. Le jour J, il présente simplement son QR et retire — sans file ni paiement sur place." },
+        { "heading": "Des revenus avant l'ouverture des portes", "body": "L'effet financier est immédiat : une partie des ventes de l'événement entre à l'avance, améliore la trésorerie et réduit la dépendance au déroulé de la soirée. Pour les événements aux coûts de production élevés, cette avance peut financer une partie de l'opération." },
+        { "heading": "Planifier sur une demande réelle", "body": "Chaque commande anticipée est une donnée de demande confirmée : combien de personnes consommeront, quels produits et en quel volume. Avec cette information, le stock et le personnel se dimensionnent sur une demande réelle plutôt que sur des estimations — moins de ruptures, moins de pertes et une opération plus ajustée." },
+        { "heading": "Comment la communiquer pour qu'elle fonctionne", "body": "La commande anticipée performe quand elle s'intègre à la communication de l'événement : la proposer au moment de l'achat du billet, la rappeler dans les jours qui précèdent et l'assortir d'un avantage concret — commodité, bénéfices ou accès prioritaire au retrait. Plus le passage de « j'ai mon billet » à « j'ai ma première tournée » est naturel, mieux elle fonctionne." }
+      ]
     }
   },
   "contact": {

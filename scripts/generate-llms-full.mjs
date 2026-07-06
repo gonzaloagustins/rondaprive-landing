@@ -15,6 +15,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { INSIGHT_POSTS } from "./insights-data.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -197,6 +198,20 @@ const langSection = (lang, t) => {
     .join("\n\n");
   if (glossaryMd) {
     push(`### ${heroLine(g) || "Glosario"}\nURL: ${urlFor("glossary", lang)}\n\n${g.heroSubtitle || ""}\n\n${glossaryMd}`);
+  }
+
+  // --- Insight articles (full body) ---
+  const insightsNode = t.insights || {};
+  for (const post of INSIGHT_POSTS) {
+    const p = insightsNode[post.postKey];
+    if (!p || !p.sections) continue;
+    const sections = p.sections
+      .map((s) => `#### ${s.heading}\n\n${s.body}`)
+      .join("\n\n");
+    const dateLabel = lang === "es" ? "Fecha" : "Published";
+    push(
+      `### ${p.title}\nURL: ${urlFor("insights", lang)}/${post.slug}\n${dateLabel}: ${post.date}\n\n${p.intro || p.excerpt || ""}\n\n${sections}`,
+    );
   }
 
   // --- Contact ---
