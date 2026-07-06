@@ -4,20 +4,23 @@
 
 Ronda Privé es una plataforma de monetización para eventos en vivo (estadios, festivales, clubes y bares premium). Los asistentes compran consumo desde su celular vía QR (compra anticipada, compra y retiro o compra desde el asiento) y los organizadores controlan ventas e inventario en tiempo real desde un dashboard. Disponible en español, inglés, portugués y francés.
 
+El contenido completo del sitio en texto plano está en [llms-full.txt](https://rondaprive.com/llms-full.txt).
+
 ## Pages
 
-- [Inicio](/es): Resumen del producto y casos de uso.
-- [Eventos](/es/eventos): Eventos activos y próximos en la plataforma.
-- [Soluciones](/es/soluciones): Soluciones por tipo de venue (estadios, festivales, clubes, bares).
-- [Industrias](/es/industrias): Verticales que usan Ronda Privé.
-- [Cómo funciona](/es/como-funciona): Flujo del producto para asistentes y organizadores.
-- [Beneficios](/es/beneficios): Beneficios comerciales, operativos y de experiencia.
-- [Insights](/es/insights): Artículos y datos del sector.
-- [FAQ](/es/faq): Preguntas frecuentes.
-- [Contacto](/es/contacto): Solicitar demo personalizada.
+- [Inicio](https://rondaprive.com/es): Resumen del producto y casos de uso.
+- [Eventos](https://rondaprive.com/es/eventos): Eventos activos y próximos en la plataforma.
+- [Soluciones](https://rondaprive.com/es/soluciones): Soluciones por tipo de venue (estadios, festivales, clubes, bares).
+- [Industrias](https://rondaprive.com/es/industrias): Verticales que usan Ronda Privé.
+- [Cómo funciona](https://rondaprive.com/es/como-funciona): Flujo del producto para asistentes y organizadores.
+- [Beneficios](https://rondaprive.com/es/beneficios): Beneficios comerciales, operativos y de experiencia.
+- [Insights](https://rondaprive.com/es/insights): Artículos y datos del sector.
+- [FAQ](https://rondaprive.com/es/faq): Preguntas frecuentes sobre implementación, cobro e integraciones.
+- [Glosario](https://rondaprive.com/es/glosario): Definiciones de los conceptos del rubro de eventos y venues.
+- [Contacto](https://rondaprive.com/es/contacto): Solicitar demo personalizada.
 
 ## Optional
 
-- [English](/en): Same site in English.
-- [Português](/pt): Mesmo site em português.
-- [Français](/fr): Même site en français.
+- [English](https://rondaprive.com/en): Same site in English.
+- [Português](https://rondaprive.com/pt): Mesmo site em português.
+- [Français](https://rondaprive.com/fr): Même site en français.
