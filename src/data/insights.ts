@@ -1,5 +1,7 @@
 export interface InsightPost {
   id: string;
+  /** URL slug, stable across languages (like glossary term ids). */
+  slug: string;
   titleKey: string;
   excerptKey: string;
   category: 'trends' | 'cases' | 'product' | 'industry';
@@ -11,6 +13,7 @@ export interface InsightPost {
 export const insights: InsightPost[] = [
   {
     id: 'increase-sales-events',
+    slug: 'aumentar-ventas-fnb-eventos',
     titleKey: 'insights.post1.title',
     excerptKey: 'insights.post1.excerpt',
     category: 'cases',
@@ -20,6 +23,7 @@ export const insights: InsightPost[] = [
   },
   {
     id: 'future-fnb-tech',
+    slug: 'futuro-tecnologia-fnb-eventos',
     titleKey: 'insights.post2.title',
     excerptKey: 'insights.post2.excerpt',
     category: 'trends',
@@ -29,6 +33,7 @@ export const insights: InsightPost[] = [
   },
   {
     id: 'reduce-queues-stadiums',
+    slug: 'reducir-filas-estadios',
     titleKey: 'insights.post3.title',
     excerptKey: 'insights.post3.excerpt',
     category: 'cases',
@@ -38,6 +43,7 @@ export const insights: InsightPost[] = [
   },
   {
     id: 'inventory-management',
+    slug: 'inventario-tiempo-real-eventos',
     titleKey: 'insights.post4.title',
     excerptKey: 'insights.post4.excerpt',
     category: 'product',
@@ -47,6 +53,7 @@ export const insights: InsightPost[] = [
   },
   {
     id: 'nightclub-innovation',
+    slug: 'innovacion-nightclubs-venta-digital',
     titleKey: 'insights.post5.title',
     excerptKey: 'insights.post5.excerpt',
     category: 'industry',
@@ -56,6 +63,7 @@ export const insights: InsightPost[] = [
   },
   {
     id: 'pre-purchase-strategy',
+    slug: 'compra-anticipada-maximiza-ingresos',
     titleKey: 'insights.post6.title',
     excerptKey: 'insights.post6.excerpt',
     category: 'product',
@@ -64,3 +72,6 @@ export const insights: InsightPost[] = [
     readTime: 4,
   },
 ];
+
+export const getInsightBySlug = (slug: string): InsightPost | undefined =>
+  insights.find((p) => p.slug === slug);

@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Clock } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
 import { insights } from "@/data/insights";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const Insights = () => {
   const { t } = useTranslation();
+  const { path } = useLocalizedPath();
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const categories = ['all', 'trends', 'cases', 'product', 'industry'] as const;
   const filtered = activeCategory === 'all' ? insights : insights.filter(p => p.category === activeCategory);
@@ -30,18 +33,20 @@ const Insights = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map(post => (
               <article key={post.id} className="card-premium overflow-hidden group hover:border-primary/30 transition-all duration-300">
-                <div className="aspect-[16/9] overflow-hidden">
-                  <img src={post.image} alt={t(post.titleKey)} width={800} height={450} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-                </div>
-                <div className="p-5 space-y-3">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">{t(`insights.categories.${post.category}`)}</span>
-                  <h3 className="font-bold text-lg leading-tight">{t(post.titleKey)}</h3>
-                  <p className="text-sm text-muted-foreground line-clamp-2">{t(post.excerptKey)}</p>
-                  <div className="flex items-center justify-between pt-2">
-                    <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="w-3 h-3" />{post.readTime} {t("insights.minRead")}</span>
-                    <span className="text-xs text-primary font-medium">{t("insights.readMore")} →</span>
+                <Link to={path("insightDetail", `/${post.slug}`)} className="block">
+                  <div className="aspect-[16/9] overflow-hidden">
+                    <img src={post.image} alt={t(post.titleKey)} width={800} height={450} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                   </div>
-                </div>
+                  <div className="p-5 space-y-3">
+                    <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">{t(`insights.categories.${post.category}`)}</span>
+                    <h3 className="font-bold text-lg leading-tight">{t(post.titleKey)}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">{t(post.excerptKey)}</p>
+                    <div className="flex items-center justify-between pt-2">
+                      <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="w-3 h-3" />{post.readTime} {t("insights.minRead")}</span>
+                      <span className="text-xs text-primary font-medium">{t("insights.readMore")} →</span>
+                    </div>
+                  </div>
+                </Link>
               </article>
             ))}
           </div>

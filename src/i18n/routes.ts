@@ -11,11 +11,12 @@ export type PageKey =
   | 'howItWorks'
   | 'benefits'
   | 'insights'
+  | 'insightDetail'
   | 'faq'
   | 'glossary'
   | 'contact';
 
-type SlugMap = Record<Exclude<PageKey, 'home' | 'eventDetail'>, Record<Lang, string>>;
+type SlugMap = Record<Exclude<PageKey, 'home' | 'eventDetail' | 'insightDetail'>, Record<Lang, string>>;
 
 export const ROUTE_SLUGS: SlugMap = {
   events:     { es: 'eventos',       en: 'events',       fr: 'evenements',       pt: 'eventos' },
@@ -38,6 +39,10 @@ export const localizedPath = (pageKey: PageKey, lang: Lang, suffix = ''): string
   if (pageKey === 'eventDetail') {
     // suffix already starts with "/<id>"
     return `/${lang}/${ROUTE_SLUGS.events[lang]}${suffix}`;
+  }
+  if (pageKey === 'insightDetail') {
+    // suffix already starts with "/<slug>"
+    return `/${lang}/${ROUTE_SLUGS.insights[lang]}${suffix}`;
   }
   return `/${lang}/${ROUTE_SLUGS[pageKey][lang]}${suffix}`;
 };
@@ -83,7 +88,9 @@ export const swapLangInPath = (pathname: string, newLang: Lang): string => {
 
   const newSlug = pageKey === 'eventDetail'
     ? ROUTE_SLUGS.events[newLang]
-    : ROUTE_SLUGS[pageKey as Exclude<PageKey, 'home' | 'eventDetail'>][newLang];
+    : pageKey === 'insightDetail'
+      ? ROUTE_SLUGS.insights[newLang]
+      : ROUTE_SLUGS[pageKey as Exclude<PageKey, 'home' | 'eventDetail' | 'insightDetail'>][newLang];
 
   const tailPath = tail.length ? `/${tail.join('/')}` : '';
   return `/${newLang}/${newSlug}${tailPath}`;

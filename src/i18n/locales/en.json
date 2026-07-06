@@ -633,29 +633,74 @@
     },
     "readMore": "Read more",
     "minRead": "min read",
+    "backToInsights": "Back to Insights",
+    "detailCtaTitle": "Want to see these ideas working at your event?",
+    "detailCtaButton": "Request a demo",
     "post1": {
       "title": "How to increase F&B sales at large-scale events",
-      "excerpt": "Proven strategies to maximize per-attendee spending and capture revenue lost in queues."
+      "excerpt": "Proven strategies to maximize per-attendee spending and capture revenue lost in queues.",
+      "intro": "At a large-scale event, food and beverage sales can account for a major share of total revenue. Yet much of that revenue is lost to an avoidable cause: friction. Long queues, saturated points of sale, and attendees who would rather not miss the show than wait for a drink.",
+      "sections": [
+        { "heading": "The invisible cost of queues", "body": "Once the line stretches past a few minutes, part of the crowd simply gives up. That sale is not recovered: consumption at events is impulse-driven and tied to the moment. If the impulse passes, the purchase never happens.\n\nDemand is not evenly spread either — it concentrates in peaks: halftime, artist changeovers, the minutes before the headliner. That is exactly when service capacity collapses and the most sales are lost." },
+        { "heading": "Turning every location into a point of sale", "body": "The most direct way to sell more is not opening more bars but multiplying purchase points without extra infrastructure. With mobile ordering via QR, every seat, table, or section becomes a point of sale.\n\nAttendees order from where they are and pick up when the order is ready, or receive it right at their seat. The bar stops being the only channel and demand spreads out." },
+        { "heading": "Capturing demand before the event", "body": "Pre-event ordering captures revenue days or weeks in advance: attendees pay upfront and simply show their QR code to pick up on event day.\n\nFor organizers that means earlier cash flow, known demand, and less congestion at the moments of highest operational pressure." },
+        { "heading": "Measuring in real time to react in time", "body": "Without live data, problems surface only after they have already cost sales. A dashboard with real-time sales and inventory lets you shift staff toward high-demand points, restock before running out, and adjust the operation during the event — not after it." }
+      ]
     },
     "post2": {
       "title": "The future of F&B technology at events",
-      "excerpt": "Global trends in digitizing food and beverage sales across the events industry."
+      "excerpt": "Global trends in digitizing food and beverage sales across the events industry.",
+      "intro": "Food and beverage sales at events are changing fast. What used to be cash and a register a few years ago is now digital payment, QR ordering, and real-time data. These are the trends setting the industry's direction.",
+      "sections": [
+        { "heading": "From cash to digital payments", "body": "Digital payment has gone from differentiator to baseline expectation. Across the region, adoption of digital wallets and contactless payments keeps growing, and events follow the same curve: less cash in circulation means faster operations, fewer register errors, and full traceability of every sale." },
+        { "heading": "Web apps instead of downloads", "body": "Native apps have a structural problem at events: nobody wants to download an app to buy a drink. PWAs (progressive web apps) remove that friction — attendees scan a QR code and buy instantly from the browser, with no downloads or lengthy sign-ups.\n\nFor organizers, that translates into adoption rates far higher than any app that requires installation." },
+        { "heading": "Consumption data as an asset", "body": "Every digital order generates information: what sells, at what time, in which section, and at what price. That history lets you plan upcoming events on real demand instead of intuition: how much stock to load, where to place points of sale, and which products to push.\n\nOrganizers who accumulate this data event after event make decisions their competitors are still guessing at." },
+        { "heading": "Toward a frictionless operation", "body": "The direction is clear: fewer queues, less hardware, more integration. Pre-event ordering connected to ticketing, in-seat delivery, and inventory synced across points of sale all point the same way — buying inside an event should be as simple as buying from any online store." }
+      ]
     },
     "post3": {
       "title": "How to reduce queues in stadiums: a case study",
-      "excerpt": "Analysis of how digital ordering implementation reduced wait times by 70% at a stadium."
+      "excerpt": "Analysis of how digital ordering implementation reduced wait times by 70% at a stadium.",
+      "intro": "Stadiums concentrate one of the toughest operational challenges in F&B: tens of thousands of people trying to buy within the same window of minutes. This analysis walks through what happens when digital ordering is deployed by section, and what results to expect.",
+      "sections": [
+        { "heading": "The starting point", "body": "The pattern repeats across most stadiums: sales concentrate at halftime and show breaks. In those minutes, queues outgrow service capacity, a large share of the crowd gives up, and per-attendee sales stay far below their potential." },
+        { "heading": "What was implemented", "body": "The rollout combined two modes: in-seat ordering for premium sections — attendees scan the QR at their location and get the order delivered where they sit — and order-and-pickup for the rest of the venue, with pickup points split by section to spread the flow of people.\n\nNo additional infrastructure was installed: the operation runs on existing points of sale and attendees' own phones." },
+        { "heading": "The results", "body": "With digital ordering live, wait times dropped by around 70%: orders are prepared while attendees remain in their seats, and pickup takes seconds instead of minutes in line.\n\nThe commercial effect follows: with the waiting barrier removed, more attendees buy and order frequency rises throughout the event." },
+        { "heading": "Lessons for other rollouts", "body": "Three factors made the difference: clear signage so the crowd understands the pickup flow, brief staff training on the new preparation flow, and a focused menu that keeps preparation times stable even at peak demand." }
+      ]
     },
     "post4": {
       "title": "Real-time inventory management for events",
-      "excerpt": "Best practices for stock control, avoiding stockouts, and optimizing operations during an event."
+      "excerpt": "Best practices for stock control, avoiding stockouts, and optimizing operations during an event.",
+      "intro": "At an event there is no 'restock tomorrow': stock that runs out during the show is lost revenue that never comes back. That is why inventory management at events has rules of its own — and real-time visibility is the first one.",
+      "sections": [
+        { "heading": "Why inventory breaks at events", "body": "An event compresses a week's worth of normal demand into a few hours. With spreadsheets or manual counts, organizers find out about a stockout when the product is already gone — and every minute without stock at a high-demand point is revenue evaporating.\n\nThe opposite problem is costly too: overstock ends up as waste or immobilized capital." },
+        { "heading": "Live visibility per point of sale", "body": "Real-time inventory shows what remains of each product at every bar or point of sale, updated with each order. That turns stock into a variable you manage during the event: if one bar runs out of a product, it gets redistributed from another before sales are lost." },
+        { "heading": "Alerts and decisions during the show", "body": "Alert thresholds let you act before the stockout: when a product drops below a set level, the team knows instantly. Decisions stop depending on someone 'noticing' — the system alerts, the team executes." },
+        { "heading": "What remains after the event", "body": "At closing, the data tells the full story: what sold, at what pace, where stockouts happened, and how much waste remained. On that basis, the next event is planned on real demand: tighter purchasing, better distribution across points of sale, and less immobilized capital." }
+      ]
     },
     "post5": {
       "title": "Innovation in nightclubs: the new era of digital sales",
-      "excerpt": "How the most exclusive nightclubs are transforming the purchase experience with mobile technology."
+      "excerpt": "How the most exclusive nightclubs are transforming the purchase experience with mobile technology.",
+      "intro": "In a nightclub, the experience is the product. And few things damage the experience more than spending twenty minutes trying to order a drink at a saturated bar. The most exclusive clubs understood this and are redesigning sales around mobile technology.",
+      "sections": [
+        { "heading": "The bar as a bottleneck", "body": "The bar concentrates the club's entire sales into a few meters: at peak hours, waits grow, guests get frustrated, and they consume less. Every minute in line is a minute off the dance floor — and a round that may never get ordered." },
+        { "heading": "Tables and VIP: service without interruptions", "body": "A QR per table changes the service dynamic: the group orders from their phones and the order arrives at the table, without anyone walking to the bar or flagging down a waiter.\n\nIn VIP areas the effect is stronger: service feels premium precisely because it demands no effort, and the table keeps its consumption active all night." },
+        { "heading": "Turnover and average ticket", "body": "Less waiting translates directly into more rounds per night. When ordering takes seconds, consumption frequency rises and the average ticket per table grows — no sales pressure, just removing the friction that used to hold purchases back." },
+        { "heading": "What to look for when choosing technology for a club", "body": "Three practical criteria: it should require no additional hardware or app downloads, it should run reliably in a club's real conditions — low light, dense crowds, unstable signal — and it should deliver data per table and per product so you can manage the business, not just charge." }
+      ]
     },
     "post6": {
       "title": "Pre-event ordering: the strategy that maximizes revenue",
-      "excerpt": "Why pre-event sales are the most powerful tool for increasing predictability and revenue."
+      "excerpt": "Why pre-event sales are the most powerful tool for increasing predictability and revenue.",
+      "intro": "Of the three digital sales modes at events, pre-event ordering has the greatest impact on business predictability: it turns future demand into present revenue and into information for planning.",
+      "sections": [
+        { "heading": "What it is and how it works", "body": "Pre-event ordering lets attendees buy their consumption days or weeks before the event, right alongside the decision to attend. On event day, they simply show their QR code and pick up — no lines, no payments at the venue." },
+        { "heading": "Revenue before doors open", "body": "The financial effect is immediate: part of the event's sales comes in ahead of time, improving cash flow and reducing dependence on how the night goes. For events with high production costs, that advance can fund part of the operation." },
+        { "heading": "Planning on real demand", "body": "Every pre-event purchase is a confirmed demand data point: how many people will consume, which products, and in what volume. With that information, stock and staffing are sized on real demand instead of estimates — fewer stockouts, less waste, and a tighter operation." },
+        { "heading": "How to communicate it so it works", "body": "Pre-event ordering performs when it is built into the event's communication: offer it at the moment of ticket purchase, remind attendees in the days before, and attach a concrete incentive — convenience, perks, or preferred pickup access. The more natural the step from 'I have my ticket' to 'I have my first round,' the better it works." }
+      ]
     }
   },
   "contact": {

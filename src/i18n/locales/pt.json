@@ -633,29 +633,74 @@
     },
     "readMore": "Ler mais",
     "minRead": "min de leitura",
+    "backToInsights": "Voltar para Insights",
+    "detailCtaTitle": "Quer ver essas ideias funcionando no seu evento?",
+    "detailCtaButton": "Solicitar uma demo",
     "post1": {
       "title": "Como aumentar as vendas de F&B em eventos de grande porte",
-      "excerpt": "Estratégias comprovadas para maximizar o consumo por participante e capturar receita perdida nas filas."
+      "excerpt": "Estratégias comprovadas para maximizar o consumo por participante e capturar receita perdida nas filas.",
+      "intro": "Em um evento de grande porte, a venda de alimentos e bebidas pode representar uma parte importante da receita total. Mas boa parte dessa venda se perde por um motivo evitável: a fricção. Filas longas, pontos de venda saturados e participantes que preferem não perder o show a esperar por uma bebida.",
+      "sections": [
+        { "heading": "O custo invisível das filas", "body": "Quando a fila passa de poucos minutos, parte do público simplesmente desiste. Essa venda não se recupera: o consumo em eventos é por impulso e depende do momento. Se o impulso passa, a compra não acontece.\n\nAlém disso, a demanda não se distribui de forma uniforme: ela se concentra em picos — o intervalo, a troca de artista, os minutos antes da atração principal. É exatamente aí que a capacidade de atendimento entra em colapso e mais vendas se perdem." },
+        { "heading": "Transformar cada lugar em um ponto de venda", "body": "A forma mais direta de vender mais não é abrir mais bares, e sim multiplicar os pontos de compra sem infraestrutura extra. Com compra pelo celular via QR, cada assento, mesa ou setor vira um ponto de venda.\n\nO participante pede de onde está e retira quando o pedido fica pronto, ou recebe diretamente no assento. O bar deixa de ser o único canal e a demanda se distribui." },
+        { "heading": "Antecipar a venda com compra antecipada", "body": "A compra antecipada permite capturar receita dias ou semanas antes do evento: o participante paga adiantado e, no dia, só retira apresentando o QR.\n\nPara o organizador, isso significa fluxo de caixa antecipado, demanda conhecida e menos congestionamento nos momentos de maior pressão operacional." },
+        { "heading": "Medir em tempo real para reagir a tempo", "body": "Sem dados ao vivo, os problemas aparecem quando já custaram vendas. Um dashboard com vendas e estoque em tempo real permite realocar a equipe para os pontos com mais demanda, repor estoque antes da ruptura e ajustar a operação durante o evento, não depois." }
+      ]
     },
     "post2": {
       "title": "O futuro da tecnologia F&B em eventos",
-      "excerpt": "Tendências globais na digitalização da venda de alimentos e bebidas na indústria de eventos."
+      "excerpt": "Tendências globais na digitalização da venda de alimentos e bebidas na indústria de eventos.",
+      "intro": "A venda de alimentos e bebidas em eventos está mudando rápido. O que há alguns anos era dinheiro e caixa registradora hoje é pagamento digital, pedidos por QR e dados em tempo real. Estas são as tendências que estão definindo o rumo do setor.",
+      "sections": [
+        { "heading": "Do dinheiro ao pagamento digital", "body": "O pagamento digital deixou de ser diferencial para virar expectativa básica. Na região, a adoção de carteiras digitais e pagamentos por aproximação cresce de forma sustentada, e os eventos seguem a mesma curva: menos dinheiro circulando significa operações mais rápidas, menos erros de caixa e rastreabilidade completa de cada venda." },
+        { "heading": "Web apps em vez de downloads", "body": "Os apps nativos têm um problema estrutural em eventos: ninguém quer baixar um aplicativo para comprar uma bebida. As PWAs (aplicações web progressivas) eliminam essa fricção — o participante escaneia um QR e compra na hora pelo navegador, sem downloads nem cadastros longos.\n\nPara o organizador, isso se traduz em taxas de adoção muito maiores do que as de qualquer app que exija instalação." },
+        { "heading": "Os dados de consumo como ativo", "body": "Cada pedido digital gera informação: o que vende, a que hora, em qual setor e a que preço. Esse histórico permite planejar os próximos eventos com demanda real em vez de intuição: quanto estoque carregar, onde posicionar os pontos de venda e quais produtos impulsionar.\n\nOs organizadores que acumulam esses dados evento após evento tomam decisões que a concorrência ainda está adivinhando." },
+        { "heading": "Rumo a uma operação sem fricção", "body": "A direção é clara: menos filas, menos hardware e mais integração. A compra antecipada conectada ao ticketing, a entrega no assento e o estoque sincronizado entre pontos de venda apontam para o mesmo lugar — comprar dentro de um evento deve ser tão simples quanto comprar em qualquer loja digital." }
+      ]
     },
     "post3": {
       "title": "Como reduzir filas em estádios: estudo de caso",
-      "excerpt": "Análise de como a implementação de compra digital reduziu 70% dos tempos de espera em um estádio."
+      "excerpt": "Análise de como a implementação de compra digital reduziu 70% dos tempos de espera em um estádio.",
+      "intro": "Os estádios concentram um dos desafios operacionais mais difíceis do F&B: dezenas de milhares de pessoas querendo comprar na mesma janela de minutos. Esta análise mostra o que acontece quando a compra digital é implementada por setores e quais resultados esperar.",
+      "sections": [
+        { "heading": "O ponto de partida", "body": "O padrão se repete na maioria dos estádios: a venda se concentra no intervalo e nas pausas do espetáculo. Nesses minutos, as filas superam a capacidade de atendimento, boa parte do público desiste e a venda por participante fica muito abaixo do potencial." },
+        { "heading": "O que foi implementado", "body": "A implementação combinou duas modalidades: compra do assento para setores premium — o participante escaneia o QR da sua localização e recebe o pedido onde está — e compra e retirada para o restante do recinto, com pontos de retirada separados por setor para distribuir o fluxo de pessoas.\n\nNão foi instalada infraestrutura adicional: a operação roda sobre os pontos de venda existentes e os celulares dos próprios participantes." },
+        { "heading": "Os resultados", "body": "Com a compra digital em operação, os tempos de espera caíram cerca de 70%: o pedido é preparado enquanto o participante continua no assento, e a retirada leva segundos em vez de minutos de fila.\n\nO efeito comercial acompanha: ao eliminar a barreira da espera, mais participantes compram e a frequência de pedidos aumenta ao longo do evento." },
+        { "heading": "Aprendizados para outras implementações", "body": "Três fatores fizeram a diferença: sinalização clara para o público entender o fluxo de retirada, treinamento breve da equipe no novo fluxo de preparação e um cardápio enxuto que mantém os tempos de preparação estáveis mesmo nos picos de demanda." }
+      ]
     },
     "post4": {
       "title": "Gestão de estoque em tempo real para eventos",
-      "excerpt": "Melhores práticas para controlar estoque, evitar rupturas e otimizar a operação durante um evento."
+      "excerpt": "Melhores práticas para controlar estoque, evitar rupturas e otimizar a operação durante um evento.",
+      "intro": "Em um evento não existe 'repor amanhã': o estoque que acaba durante o show é venda perdida que não volta. Por isso a gestão de estoque em eventos tem regras próprias — e a visibilidade em tempo real é a primeira delas.",
+      "sections": [
+        { "heading": "Por que o estoque quebra em eventos", "body": "Um evento comprime a demanda de uma semana de operação normal em poucas horas. Com planilhas ou contagem manual, o organizador descobre a ruptura quando o produto já acabou — e cada minuto sem estoque em um ponto de alta demanda é receita evaporando.\n\nO problema inverso também custa caro: o excesso de estoque termina em perda ou capital parado." },
+        { "heading": "Visibilidade ao vivo por ponto de venda", "body": "O estoque em tempo real mostra o que resta de cada produto em cada bar ou ponto de venda, atualizado a cada pedido. Isso transforma o estoque em uma variável gerenciada durante o evento: se um bar esgota um produto, ele é redistribuído de outro antes de perder vendas." },
+        { "heading": "Alertas e decisões durante o show", "body": "Os limites de alerta permitem agir antes da ruptura: quando um produto cai abaixo de certo nível, a equipe sabe na hora. As decisões deixam de depender de alguém 'perceber' — o sistema avisa, a equipe executa." },
+        { "heading": "O que fica depois do evento", "body": "No fechamento, os dados contam a história completa: o que vendeu, em que ritmo, onde houve rupturas e quanta perda restou. Com essa base, o próximo evento é planejado com demanda real: compras mais ajustadas, melhor distribuição entre pontos de venda e menos capital parado." }
+      ]
     },
     "post5": {
       "title": "Inovação em nightclubs: a nova era da venda digital",
-      "excerpt": "Como os nightclubs mais exclusivos estão transformando a experiência de compra com tecnologia móvel."
+      "excerpt": "Como os nightclubs mais exclusivos estão transformando a experiência de compra com tecnologia móvel.",
+      "intro": "Em um nightclub, a experiência é o produto. E poucas coisas prejudicam mais a experiência do que passar vinte minutos tentando pedir um drink em um bar saturado. Os clubes mais exclusivos entenderam isso e estão redesenhando a venda com tecnologia móvel.",
+      "sections": [
+        { "heading": "O bar como gargalo", "body": "O bar concentra toda a venda do clube em poucos metros: nos horários de pico, a espera cresce, o cliente se frustra e consome menos. Cada minuto na fila é um minuto fora da pista — e uma rodada que talvez não seja pedida." },
+        { "heading": "Mesas e VIP: serviço sem interrupções", "body": "O QR por mesa muda a dinâmica do serviço: o grupo pede pelo celular e o pedido chega à mesa, sem que ninguém precise ir ao bar ou interceptar um garçom.\n\nNas áreas VIP o efeito é maior: o serviço parece premium justamente porque não exige esforço, e a mesa mantém o consumo ativo a noite toda." },
+        { "heading": "Rotatividade e ticket médio", "body": "Menos espera se traduz diretamente em mais rodadas por noite. Quando pedir leva segundos, a frequência de consumo sobe e o ticket médio por mesa cresce — sem pressão comercial, apenas eliminando a fricção que antes segurava a compra." },
+        { "heading": "O que avaliar ao escolher tecnologia para um clube", "body": "Três critérios práticos: não exigir hardware adicional nem download de apps, funcionar de forma estável nas condições reais de um clube — pouca luz, muita gente, sinal irregular — e entregar dados por mesa e por produto para gerenciar o negócio, não só cobrar." }
+      ]
     },
     "post6": {
       "title": "Compra antecipada: a estratégia que maximiza a receita",
-      "excerpt": "Por que a venda pré-evento é a ferramenta mais poderosa para aumentar previsibilidade e receita."
+      "excerpt": "Por que a venda pré-evento é a ferramenta mais poderosa para aumentar previsibilidade e receita.",
+      "intro": "Das três modalidades de venda digital em eventos, a compra antecipada é a que mais impacta a previsibilidade do negócio: transforma demanda futura em receita presente e em informação para planejar.",
+      "sections": [
+        { "heading": "O que é e como funciona", "body": "A compra antecipada permite que o participante compre seu consumo dias ou semanas antes do evento, junto com a decisão de ir. No dia do evento, basta apresentar o QR e retirar — sem filas nem pagamentos no local." },
+        { "heading": "Receita antes de abrir as portas", "body": "O efeito financeiro é imediato: parte da venda do evento entra antecipadamente, melhora o fluxo de caixa e reduz a dependência do que acontecer na noite do show. Para eventos com custos de produção altos, esse adiantamento pode financiar parte da operação." },
+        { "heading": "Planejar com demanda real", "body": "Cada compra antecipada é um dado de demanda confirmada: quantas pessoas vão consumir, quais produtos e em que volume. Com essa informação, o estoque e a equipe são dimensionados sobre demanda real em vez de estimativas — menos rupturas, menos perda e uma operação mais ajustada." },
+        { "heading": "Como comunicar para funcionar", "body": "A compra antecipada rende quando é integrada à comunicação do evento: oferecê-la no momento da compra do ingresso, lembrá-la nos dias anteriores e dar um incentivo concreto — conveniência, benefícios ou acesso preferencial à retirada. Quanto mais natural for o passo de 'já tenho meu ingresso' para 'já tenho minha primeira rodada', melhor funciona." }
+      ]
     }
   },
   "contact": {
