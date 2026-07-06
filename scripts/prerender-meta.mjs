@@ -14,9 +14,13 @@
  * For each (page, language) pair we emit a tailored HTML file containing:
  *   - The right <title>, <meta description>, canonical, og:* and twitter:*
  *   - hreflang alternates for all supported languages
- *   - A semantic <noscript> body block with the actual page content
- *     (h1/h2/p/ul) extracted from the i18n locale JSON. Browsers with JS
- *     skip <noscript>; bots that parse HTML directly still read it.
+ *   - A semantic <main> block with the actual page content (h1/h2/p/ul)
+ *     extracted from the i18n locale JSON, placed INSIDE <div id="root">.
+ *     It renders as real first-paint content: bots read it as first-class
+ *     page content (not <noscript>, which Google discounts and Readability
+ *     -style extractors drop), users on slow connections see readable text
+ *     instead of a blank screen, and createRoot().render() replaces it the
+ *     moment React mounts.
  *   - A FAQPage JSON-LD on the FAQ pages.
  *
  * The same fallback body is also injected into the shell index.html, so
@@ -524,14 +528,17 @@ const buildServicesJsonLd = (t) => {
   };
 };
 
+// Inline styles keep the pre-React flash readable and on-brand; they ride on
+// the element itself because the CSS bundle may not have loaded yet.
+const PRERENDER_MAIN_STYLE =
+  "font-family:Inter,system-ui,sans-serif;background:#F5F0EB;color:#1A1814;" +
+  "max-width:72ch;margin:0 auto;padding:2rem 1.5rem;line-height:1.6";
+
 const buildBodyBlock = (pageKey, t) => {
   const builder = BLOCK_BUILDERS[pageKey];
   if (!builder) return "";
   const inner = builder(t);
-  // The wrapper lives inside <noscript> so JS-enabled browsers skip it
-  // entirely (no flash, no React hydration mismatch). HTML parsers used
-  // by AI crawlers still see the text — that's the whole point.
-  return `<noscript><main>${inner}</main></noscript>`;
+  return `<main data-prerender style="${PRERENDER_MAIN_STYLE}">${inner}</main>`;
 };
 
 const replaceTag = (html, regex, replacement) => html.replace(regex, replacement);
@@ -628,12 +635,14 @@ const rewrite = (shell, { lang, title, description, url, alternates, bodyBlock, 
     `${altTags}\n    <link rel="alternate" hreflang="x-default" href="${escapeAttr(xDefault ? xDefault.href : url)}" />\n${faqHeadBlock}${servicesHeadBlock}${glossaryHeadBlock}  </head>`,
   );
 
-  // Inject the per-route AI-readable body right after <div id="root"></div>.
+  // Inject the per-route AI-readable body INSIDE <div id="root">, so it is
+  // visible first-paint content. createRoot().render() clears the container
+  // when React mounts, so JS users only see it while the bundle loads.
   if (bodyBlock) {
-    const marker = `\n    <!-- ai-prerender:start -->\n    ${bodyBlock}\n    <!-- ai-prerender:end -->`;
+    const marker = `\n    <!-- ai-prerender:start -->\n    ${bodyBlock}\n    <!-- ai-prerender:end -->\n    `;
     out = out.replace(
-      /(<div id="root"><\/div>)/,
-      `$1${marker}`,
+      /<div id="root">(?:[\s\S]*?)<\/div>/,
+      `<div id="root">${marker}</div>`,
     );
   }
 
