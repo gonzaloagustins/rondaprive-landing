@@ -25,6 +25,7 @@ const Industries = lazy(() => import("./pages/Industries"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const Benefits = lazy(() => import("./pages/Benefits"));
 const Insights = lazy(() => import("./pages/Insights"));
+const InsightDetail = lazy(() => import("./pages/InsightDetail"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -126,7 +127,7 @@ const RouterShell = () => {
                     {localizedRoutes("industries", <Industries />)}
                     {localizedRoutes("howItWorks", <HowItWorks />)}
                     {localizedRoutes("benefits", <Benefits />)}
-                    {localizedRoutes("insights", <Insights />)}
+                    {localizedRoutes("insights", <Insights />, { path: ":slug", element: <InsightDetail /> })}
                     {localizedRoutes("faq", <FAQ />)}
                     {localizedRoutes("glossary", <Glossary />)}
                     {localizedRoutes("contact", <Contact />)}
