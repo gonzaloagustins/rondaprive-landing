@@ -6,6 +6,7 @@ import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
 import { insights } from "@/data/insights";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
+import { toJsonLd } from "@/lib/jsonld";
 
 const Insights = () => {
   const { t } = useTranslation();
@@ -14,9 +15,41 @@ const Insights = () => {
   const categories = ['all', 'trends', 'cases', 'product', 'industry'] as const;
   const filtered = activeCategory === 'all' ? insights : insights.filter(p => p.category === activeCategory);
 
+  // ItemList of BlogPosting for the insights index — gives crawlers a
+  // structured view of every article regardless of the active filter.
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: insights.map((post, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "BlogPosting",
+        headline: t(post.titleKey),
+        description: t(post.excerptKey),
+        image: post.image,
+        url: `https://rondaprive.com${path("insightDetail", `/${post.slug}`)}`,
+        author: { "@type": "Organization", name: "Ronda Privé" },
+        publisher: {
+          "@type": "Organization",
+          name: "Ronda Privé",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://rondaprive.com/og-image.jpg",
+          },
+        },
+      },
+    })),
+  };
+
   return (
     <>
       <SEO pageKey="insights" />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: toJsonLd(itemListJsonLd) }}
+      />
       <PageHero title={t("insights.heroTitle")} titleHighlight={t("insights.heroHighlight")} subtitle={t("insights.heroSubtitle")} />
       <section className="pb-24">
         <div className="section-container">
