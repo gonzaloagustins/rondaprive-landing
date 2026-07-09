@@ -98,10 +98,15 @@ const Events = () => {
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder={t("events.searchPlaceholder", "Buscar por evento, venue o ciudad...")}
+              aria-label={t("events.searchPlaceholder", "Buscar por evento, venue o ciudad...")}
               className="w-full pl-11 pr-10 py-3 rounded-xl bg-white/60 border border-border/50 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all"
             />
             {search && (
-              <button onClick={() => setSearch('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors">
+              <button
+                onClick={() => setSearch('')}
+                aria-label={t("events.clearSearch", "Limpiar búsqueda")}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+              >
                 <X className="w-4 h-4" />
               </button>
             )}

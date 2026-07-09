@@ -26,6 +26,7 @@ const HowItWorks = () => {
 
       <section className="pb-24">
         <div className="section-container">
+          <h2 className="sr-only">{t(`howItWorks.tabs.${activeTab}`)}</h2>
           <div className="flex justify-center gap-3 mb-12">
             {tabs.map(({ key, icon: Icon }) => (
               <button key={key} onClick={() => setActiveTab(key)}
