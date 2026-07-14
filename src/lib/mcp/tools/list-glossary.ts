@@ -1,7 +1,7 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { GLOSSARY_TERMS } from "@/data/glossary";
-import es from "@/i18n/locales/es.json";
+import { GLOSSARY_TERMS } from "../../../data/glossary";
+import es from "../../../i18n/locales/es.json";
 
 type Term = { term: string; definition: string };
 const terms = ((es as unknown as { glossary?: { terms?: Record<string, Term> } }).glossary?.terms ?? {}) as Record<string, Term>;

@@ -1,7 +1,7 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { faqItems } from "@/data/faq";
-import es from "@/i18n/locales/es.json";
+import { faqItems } from "../../../data/faq";
+import es from "../../../i18n/locales/es.json";
 
 const faqDict = ((es as unknown as { faq?: Record<string, unknown> }).faq ?? {}) as Record<string, unknown>;
 const asString = (v: unknown) => (typeof v === "string" ? v : "");

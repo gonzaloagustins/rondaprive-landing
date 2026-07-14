@@ -1,7 +1,7 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { insights } from "@/data/insights";
-import es from "@/i18n/locales/es.json";
+import { insights } from "../../../data/insights";
+import es from "../../../i18n/locales/es.json";
 
 type Entry = { title?: string; excerpt?: string };
 const dict = ((es as unknown as { insights?: Record<string, Entry> }).insights ?? {}) as Record<string, Entry>;
