@@ -4,6 +4,7 @@ import path from "path";
 import { createHash } from "node:crypto";
 import { componentTagger } from "lovable-tagger";
 import { VitePWA } from "vite-plugin-pwa";
+import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
 /**
  * Inyecta una Content-Security-Policy como <meta> en el HTML de build.
@@ -94,6 +95,7 @@ export default defineConfig(({ mode }) => {
     react(),
     mode === "development" && componentTagger(),
     cspPlugin(supabaseOrigin),
+    mcpPlugin(),
     VitePWA({
       registerType: "autoUpdate",
       // SW is disabled in dev to avoid fighting with Vite's HMR; it's fully

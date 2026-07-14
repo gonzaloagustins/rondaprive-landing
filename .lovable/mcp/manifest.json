@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "sdk_version": "0.21.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "ronda-prive-mcp",
+      "version": "0.1.0",
+      "title": "Ronda Privé"
+    },
+    "tools": [
+      {
+        "name": "list_events",
+        "title": "List events",
+        "description": "List Ronda Privé showcase events (festivals, concerts, nightclubs, conferences). Optionally filter by status or category.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "status": {
+              "description": "Filter by event status.",
+              "type": "string",
+              "enum": [
+                "active",
+                "upcoming"
+              ]
+            },
+            "category": {
+              "description": "Filter by event category.",
+              "type": "string",
+              "enum": [
+                "festival",
+                "concert",
+                "nightclub",
+                "conference",
+                "bar"
+              ]
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_event",
+        "title": "Get event details",
+        "description": "Get full details for one Ronda Privé event by id, including vendors and menus.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The event id (e.g. 'estereo-picnic-2026')."
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_faq",
+        "title": "List FAQ",
+        "description": "List Ronda Privé frequently asked questions with answers (Spanish). Optionally filter by category.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Filter by FAQ category.",
+              "type": "string",
+              "enum": [
+                "general",
+                "attendees",
+                "organizers",
+                "technical"
+              ]
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_glossary",
+        "title": "List glossary",
+        "description": "List Ronda Privé industry glossary terms with definitions (Spanish). Optionally filter by category or search text.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Filter by glossary category.",
+              "type": "string",
+              "enum": [
+                "sales",
+                "venue",
+                "tech",
+                "spaces",
+                "metrics"
+              ]
+            },
+            "search": {
+              "description": "Case-insensitive substring match on term or definition.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_insights",
+        "title": "List insights",
+        "description": "List Ronda Privé insight articles (blog posts) with title and excerpt (Spanish). Optionally filter by category.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Filter by insight category.",
+              "type": "string",
+              "enum": [
+                "trends",
+                "cases",
+                "product",
+                "industry"
+              ]
+            }
+          }
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
