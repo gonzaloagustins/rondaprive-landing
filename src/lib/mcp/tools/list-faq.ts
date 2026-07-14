@@ -3,7 +3,8 @@ import { z } from "zod";
 import { faqItems } from "@/data/faq";
 import es from "@/i18n/locales/es.json";
 
-const faqDict = ((es as { faq?: Record<string, string> }).faq ?? {}) as Record<string, string>;
+const faqDict = ((es as unknown as { faq?: Record<string, unknown> }).faq ?? {}) as Record<string, unknown>;
+const asString = (v: unknown) => (typeof v === "string" ? v : "");
 
 export default defineTool({
   name: "list_faq",
@@ -23,8 +24,8 @@ export default defineTool({
       .map((f) => ({
         id: f.id,
         category: f.category,
-        question: faqDict[f.questionKey.replace(/^faq\./, "")] ?? "",
-        answer: faqDict[f.answerKey.replace(/^faq\./, "")] ?? "",
+        question: asString(faqDict[f.questionKey.replace(/^faq\./, "")]),
+        answer: asString(faqDict[f.answerKey.replace(/^faq\./, "")]),
       }));
     return {
       content: [{ type: "text", text: JSON.stringify(rows, null, 2) }],
