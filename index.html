@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#1A1814" />
 
+    <!-- GTM Container ID - también en src/lib/analytics.ts VITE_GTM_ID
+         fallback. Sincronizar ambos si cambia. TODO: unificar vía plugin de
+         Vite cuando implementemos staging. -->
+    <!-- Consent Mode default (denied) — debe ir ANTES de gtm.js. Reproduce el
+         mismo evento custom `consent_default` que consume el contenedor GTM
+         (ver src/lib/analytics.ts para el shape del dataLayer). -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "consent_default",
+        consent: {
+          analytics_storage: "denied",
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+        },
+      });
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PCZW9KGK');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Primary SEO -->
     <title>Ronda Privé | Tecnología Premium para Eventos y Venues</title>
     <meta name="description" content="Plataforma premium para eventos y venues. Venta de tragos y experiencias desde el celular, con control de ventas e inventario en tiempo real." />
