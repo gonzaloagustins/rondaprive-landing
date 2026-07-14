@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import {
-  isGTMConfigured,
-  loadGTM,
-  setConsentDefaults,
-  updateConsent,
-} from "@/lib/analytics";
+import { isGTMConfigured, updateConsent } from "@/lib/analytics";
 
 const STORAGE_KEY = "ronda_consent_v1";
 
@@ -37,11 +32,11 @@ const ConsentBanner = () => {
 
   useEffect(() => {
     if (!isGTMConfigured()) return;
-    setConsentDefaults();
+    // GTM y el consent_default (denied) ya se cargan desde el <head> de
+    // index.html. Aquí solo emitimos el consent_update según la decisión.
     const stored = readStoredConsent();
     if (stored === "granted") {
       updateConsent(true);
-      loadGTM();
       return;
     }
     if (stored === "denied") {
@@ -54,7 +49,6 @@ const ConsentBanner = () => {
   const handleAccept = () => {
     updateConsent(true);
     writeStoredConsent("granted");
-    loadGTM();
     setVisible(false);
   };
 
