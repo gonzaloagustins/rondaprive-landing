@@ -201,6 +201,10 @@ const homeBlock = (t, lang) => {
     <h1>${escapeHtml(heroTitle || "Ronda Privé")}</h1>
     ${para(hero.badge)}
   </header>
+  ${section(
+    stats.length ? STATS_HEADING[lang] || STATS_HEADING[DEFAULT_LANG] : "",
+    list(stats.map((s) => `<li><strong>${escapeHtml(s.value)}:</strong> ${escapeHtml(s.label)}</li>`)),
+  )}
   ${section(formats.title, para(formats.subtitle))}
   ${section(
     platform.heading,
@@ -222,10 +226,6 @@ const homeBlock = (t, lang) => {
     joined(summary, "titleStart", "titleHighlight"),
     para(summary.subtitle),
     list(["sales", "experience", "control", "scale"].map(summaryCard).filter(Boolean)),
-  )}
-  ${section(
-    stats.length ? STATS_HEADING[lang] || STATS_HEADING[DEFAULT_LANG] : "",
-    list(stats.map((s) => `<li><strong>${escapeHtml(s.value)}:</strong> ${escapeHtml(s.label)}</li>`)),
   )}
   ${section(
     joined(cta, "titleStart", "titleHighlight"),

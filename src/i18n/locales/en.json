@@ -25,7 +25,8 @@
       "featureExpress": "Express",
       "orderNow": "Order now",
       "orderTime": "Order time",
-      "salesIncrease": "Sales lift"
+      "noQueues": "No queues",
+      "noQueuesSub": "Anywhere in the venue"
     }
   },
   "problem": {

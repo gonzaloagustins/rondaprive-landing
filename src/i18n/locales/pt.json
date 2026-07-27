@@ -25,7 +25,8 @@
       "featureExpress": "Express",
       "orderNow": "Pedir agora",
       "orderTime": "Tempo do pedido",
-      "salesIncrease": "Alta nas vendas"
+      "noQueues": "Sem filas",
+      "noQueuesSub": "Em todo o local"
     }
   },
   "problem": {

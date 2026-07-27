@@ -262,7 +262,8 @@ var es_default = {
       featureExpress: "Express",
       orderNow: "Pedir ahora",
       orderTime: "Tiempo pedido",
-      salesIncrease: "Aumento ventas"
+      noQueues: "Sin filas",
+      noQueuesSub: "En todo el recinto"
     }
   },
   problem: {
