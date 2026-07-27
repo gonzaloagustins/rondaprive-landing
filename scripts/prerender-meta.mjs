@@ -138,84 +138,126 @@ const titleLine = (t, key) => {
 
 // ---------------------------------------------------------------------------
 // Per-page semantic body blocks. Each builder returns the inner HTML of the
-// <noscript><main>...</main></noscript> block. Kept verbose on purpose — AI
-// crawlers reward concrete, factual content with clear hierarchy.
+// <main data-prerender> block that wrapBodyBlock() places inside
+// <div id="root">. Kept verbose on purpose — AI crawlers reward concrete,
+// factual content with clear hierarchy.
 // ---------------------------------------------------------------------------
 
-const homeBlock = (t) => {
+// StatsBar renders bare figures with no heading in the UI, but an unlabelled
+// list of numbers reads as noise to a crawler. This heading exists only in the
+// prerendered markup, so it lives here instead of polluting the locale JSONs
+// with a key no component consumes.
+const STATS_HEADING = {
+  es: "Resultados",
+  en: "Results",
+  pt: "Resultados",
+  fr: "Résultats",
+};
+
+// Section order and copy keys mirror src/pages/Home.tsx. When a section is
+// added, removed or reordered there, mirror it here — otherwise the static
+// HTML describes a page that no longer exists.
+const homeBlock = (t, lang) => {
   const hero = t.hero || {};
-  const problem = t.problem || {};
-  const sol = t.solutionsOverview || {};
-  const industries = t.industries || {};
-  const benefits = t.benefits || {};
+  const formats = t.eventosActivos || {};
+  const platform = t.plataforma || {};
+  const products = platform.products || {};
+  const dashboard = t.dashboardPreview || {};
+  const summary = t.benefitsSummary || {};
   const stats = (t.statsBar && t.statsBar.items) || [];
+  const preview = t.industriesPreview || {};
+  const industries = t.industries || {};
+  const cta = t.cta || {};
+
   const heroTitle = [hero.headlineLine1, hero.headlineLine2].filter(Boolean).join(" ");
+  const joined = (node, ...fields) => fields.map((f) => node[f]).filter(Boolean).join(" ");
+  const para = (s) => (s ? `<p>${escapeHtml(s)}</p>` : "");
+  const list = (items, tag = "ul") =>
+    items.length ? `<${tag}>${items.join("")}</${tag}>` : "";
+  // Drops the whole section when the locale has neither heading nor body, so a
+  // missing translation degrades to silence instead of an empty <h2>.
+  const section = (heading, ...parts) => {
+    const body = parts.filter(Boolean).join("");
+    if (!heading && !body) return "";
+    return `<section>${heading ? `<h2>${escapeHtml(heading)}</h2>` : ""}${body}</section>`;
+  };
 
-  const renderSolutionCard = (key) =>
-    sol[key]
-      ? `<article><h3>${escapeHtml(sol[key].title)}</h3><p>${escapeHtml(sol[key].description)}</p></article>`
-      : "";
-
-  const renderBenefitGroup = (groupKey) => {
-    const g = benefits[groupKey];
-    if (!g) return "";
-    const items = (g.items || [])
-      .map((i) => `<li><strong>${escapeHtml(i.title)}:</strong> ${escapeHtml(i.description)}</li>`)
-      .join("");
-    return `<section><h3>${escapeHtml(g.title)}</h3><ul>${items}</ul></section>`;
+  // Product order mirrors productsMeta in PlataformaSection.tsx.
+  const renderProduct = (key) => {
+    const p = products[key];
+    if (!p) return "";
+    return `<article><h3>${escapeHtml(p.title || p.label || key)}</h3>${para(p.label)}${list(
+      (p.bullets || []).map((b) => `<li>${escapeHtml(b)}</li>`),
+    )}${list((p.steps || []).map((s) => `<li>${escapeHtml(s)}</li>`), "ol")}</article>`;
   };
 
   const renderIndustry = (key) => {
     const i = industries[key];
     if (!i) return "";
-    return `<article><h3>${escapeHtml(i.title)}</h3><p>${escapeHtml(i.description)}</p></article>`;
+    const labels = preview.labels || {};
+    const useCases = (preview.useCases || {})[key] || [];
+    return `<article><h3>${escapeHtml(i.title)}</h3>${para(i.description)}${
+      i.problem
+        ? `<p><strong>${escapeHtml(labels.problem || "Problema")}:</strong> ${escapeHtml(i.problem)}</p>`
+        : ""
+    }${
+      i.solution
+        ? `<p><strong>${escapeHtml(labels.solution || "Solución")}:</strong> ${escapeHtml(i.solution)}</p>`
+        : ""
+    }${list(useCases.map((c) => `<li>${escapeHtml(c)}</li>`))}</article>`;
+  };
+
+  const summaryCard = (key) => {
+    const c = (summary.cards || {})[key];
+    return c
+      ? `<li><strong>${escapeHtml(c.title)}:</strong> ${escapeHtml(c.description)}</li>`
+      : "";
   };
 
   return `
   <header>
     <h1>${escapeHtml(heroTitle || "Ronda Privé")}</h1>
-    ${hero.badge ? `<p>${escapeHtml(hero.badge)}</p>` : ""}
+    ${para(hero.badge)}
   </header>
-
-  <section>
-    <h2>${escapeHtml(titleLine(t, "problem"))}</h2>
-    <ul>
-      ${(problem.items || []).map((i) => `<li><strong>${escapeHtml(i.title)}:</strong> ${escapeHtml(i.description)}</li>`).join("")}
-    </ul>
-  </section>
-
-  <section>
-    <h2>${escapeHtml(titleLine(t, "solutionsOverview"))}</h2>
-    ${sol.subtitle ? `<p>${escapeHtml(sol.subtitle)}</p>` : ""}
-    ${renderSolutionCard("preorder")}
-    ${renderSolutionCard("pickup")}
-    ${renderSolutionCard("seat")}
-  </section>
-
-  <section>
-    <h2>${escapeHtml(titleLine(t, "industries"))}</h2>
-    ${industries.subtitle ? `<p>${escapeHtml(industries.subtitle)}</p>` : ""}
-    ${renderIndustry("nightclubs")}
-    ${renderIndustry("festivals")}
-    ${renderIndustry("stadiums")}
-    ${renderIndustry("bars")}
-  </section>
-
-  <section>
-    <h2>${escapeHtml(titleLine(t, "benefits"))}</h2>
-    ${renderBenefitGroup("commercial")}
-    ${renderBenefitGroup("experience")}
-    ${renderBenefitGroup("operational")}
-    ${renderBenefitGroup("technical")}
-  </section>
-
-  ${
-    stats.length
-      ? `<section><h2>${escapeHtml((t.statsBar && t.statsBar.title) || "Resultados")}</h2><ul>${stats
-          .map((s) => `<li><strong>${escapeHtml(s.value)}:</strong> ${escapeHtml(s.label)}</li>`)
-          .join("")}</ul></section>`
-      : ""
-  }
+  ${section(formats.title, para(formats.subtitle))}
+  ${section(
+    platform.heading,
+    para(platform.subtitle),
+    renderProduct("preorder"),
+    renderProduct("seat"),
+    renderProduct("pickup"),
+  )}
+  ${section(
+    joined(dashboard, "headline", "headlineHighlight"),
+    para(dashboard.description),
+    list(
+      (dashboard.modules || []).map(
+        (m) => `<li><strong>${escapeHtml(m.title)}:</strong> ${escapeHtml(m.subtitle)}</li>`,
+      ),
+    ),
+  )}
+  ${section(
+    joined(summary, "titleStart", "titleHighlight"),
+    para(summary.subtitle),
+    list(["sales", "experience", "control", "scale"].map(summaryCard).filter(Boolean)),
+  )}
+  ${section(
+    stats.length ? STATS_HEADING[lang] || STATS_HEADING[DEFAULT_LANG] : "",
+    list(stats.map((s) => `<li><strong>${escapeHtml(s.value)}:</strong> ${escapeHtml(s.label)}</li>`)),
+  )}
+  ${section(
+    preview.title || titleLine(t, "industries"),
+    para(preview.subtitle),
+    renderIndustry("nightclubs"),
+    renderIndustry("festivals"),
+    renderIndustry("stadiums"),
+    renderIndustry("bars"),
+  )}
+  ${section(
+    joined(cta, "titleStart", "titleHighlight"),
+    para(cta.subtitle),
+    list((cta.benefits || []).map((b) => `<li>${escapeHtml(b)}</li>`)),
+  )}
   `;
 };
 
