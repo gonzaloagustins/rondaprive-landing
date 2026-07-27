@@ -165,8 +165,6 @@ const homeBlock = (t, lang) => {
   const dashboard = t.dashboardPreview || {};
   const summary = t.benefitsSummary || {};
   const stats = (t.statsBar && t.statsBar.items) || [];
-  const preview = t.industriesPreview || {};
-  const industries = t.industries || {};
   const cta = t.cta || {};
 
   const heroTitle = [hero.headlineLine1, hero.headlineLine2].filter(Boolean).join(" ");
@@ -189,22 +187,6 @@ const homeBlock = (t, lang) => {
     return `<article><h3>${escapeHtml(p.title || p.label || key)}</h3>${para(p.label)}${list(
       (p.bullets || []).map((b) => `<li>${escapeHtml(b)}</li>`),
     )}${list((p.steps || []).map((s) => `<li>${escapeHtml(s)}</li>`), "ol")}</article>`;
-  };
-
-  const renderIndustry = (key) => {
-    const i = industries[key];
-    if (!i) return "";
-    const labels = preview.labels || {};
-    const useCases = (preview.useCases || {})[key] || [];
-    return `<article><h3>${escapeHtml(i.title)}</h3>${para(i.description)}${
-      i.problem
-        ? `<p><strong>${escapeHtml(labels.problem || "Problema")}:</strong> ${escapeHtml(i.problem)}</p>`
-        : ""
-    }${
-      i.solution
-        ? `<p><strong>${escapeHtml(labels.solution || "Solución")}:</strong> ${escapeHtml(i.solution)}</p>`
-        : ""
-    }${list(useCases.map((c) => `<li>${escapeHtml(c)}</li>`))}</article>`;
   };
 
   const summaryCard = (key) => {
@@ -244,14 +226,6 @@ const homeBlock = (t, lang) => {
   ${section(
     stats.length ? STATS_HEADING[lang] || STATS_HEADING[DEFAULT_LANG] : "",
     list(stats.map((s) => `<li><strong>${escapeHtml(s.value)}:</strong> ${escapeHtml(s.label)}</li>`)),
-  )}
-  ${section(
-    preview.title || titleLine(t, "industries"),
-    para(preview.subtitle),
-    renderIndustry("nightclubs"),
-    renderIndustry("festivals"),
-    renderIndustry("stadiums"),
-    renderIndustry("bars"),
   )}
   ${section(
     joined(cta, "titleStart", "titleHighlight"),
