@@ -1,6 +1,6 @@
 # Ronda Privé — contenido completo del sitio
 
-> Plataforma móvil para eventos y venues. Elimina la espera, maximiza las ventas. Compra anticipada, entrega al asiento y compra y retiro.
+> Compra desde el celular en festivales, estadios y clubes. Menos filas, más ticket promedio, control en tiempo real.
 
 Contacto: info@rondaprive.com — https://rondaprive.com
 Índice del sitio para LLMs: https://rondaprive.com/llms.txt
@@ -12,27 +12,69 @@ URL: https://rondaprive.com/es
 
 Plataforma móvil para eventos y venues
 
-### Las filas matan las ventas
+### Diseñado para eventos a cualquier escala
 
-- **Ventas perdidas:** Los asistentes abandonan la fila antes de comprar. Cada minuto de espera es dinero que se pierde.
-- **Experiencia arruinada:** Nadie quiere perderse el show por una bebida. La frustración reduce el consumo y la satisfacción.
-- **Staff saturado:** Cuellos de botella, estrés y errores en pedidos. La operación colapsa en momentos de alta demanda.
-- **Cero visibilidad:** Sin datos en tiempo real, sin control de inventario, sin capacidad de reacción ante picos de demanda.
+Festivales, estadios, clubs y bares. La plataforma se adapta a cualquier formato y crece junto a tu evento.
 
-### Tres formas de vender más
+### Una plataforma. Tres formas de eliminar las filas.
 
-Cada modalidad se adapta al tipo de evento, recinto y experiencia que necesitas ofrecer.
+La forma más rápida, segura y cómoda de disfrutar cada momento.
 
-- **Compra anticipada:** Compra antes del evento, paga por adelantado y el día del evento solo retira presentando tu QR.
-- **Compra y Retiro:** El asistente compra desde su celular y retira en el punto de venta cuando su pedido está listo. Sin filas, sin esperas.
-- **Compra desde el asiento:** Escanea el QR en tu asiento, mesa o sector. Compra y recibe tu pedido directamente en tu ubicación.
+- **Asegura tu pedido antes de que se agote**
+  - Disponibilidad garantizada
+  - Salta el día del show con tu QR
+  1. Elige tu evento y arma tu pedido
+  2. Paga por adelantado en segundos
+  3. Retira con tu QR el día del show
+- **Recibe sin moverte de tu asiento**
+  - Cero filas, cero interrupciones
+  - Llega directo a tu mano
+  1. Escanea el QR de tu asiento
+  2. Compra desde tu celular
+  3. Recibe en tu ubicación sin moverte
+- **Tu pedido listo cuando llegas**
+  - Fila VIP para pedidos digitales
+  - Sin esperar, sin filas
+  1. Pide desde tu celular en cualquier momento
+  2. Recibe el aviso de "listo para retirar"
+  3. Retira en la fila VIP exclusiva
 
-### Stats
+### Todo bajo control. En tiempo real.
+
+Un dashboard completo para organizadores y equipos operativos. Visualiza ventas, gestiona inventario y toma decisiones informadas al instante.
+
+- **Estadísticas rápidas:** KPIs en tiempo real
+- **Gestión de productos:** Menús y precios
+- **Inventario en vivo:** Stock actualizado
+- **Analíticas:** Insights de consumo
+- **Monitoreo de ventas:** Seguimiento continuo
+- **Comportamiento:** Patrones de consumo
+- **Control de pedidos:** Estado en tiempo real
+- **Decisiones rápidas:** Datos para actuar
+
+### Diseñado para que todo fluya
+
+Más ventas, mejor experiencia y control total. Sin fricción, sin filas, sin límites.
+
+- **Más ventas, menos fricción:** Convierte cada interacción en una oportunidad de compra.
+- **Experiencia sin interrupciones:** Tus asistentes viven el evento, no las filas.
+- **Control total en tiempo real:** Datos claros y actualizados para tomar mejores decisiones.
+- **Escalable a todo el recinto:** Una solución robusta que se adapta a cualquier evento y crece contigo.
+
+### Resultados
 
 - **85%:** Reducción de filas
 - **+40%:** Más ventas
 - **3x:** Velocidad de servicio
 - **0:** Infraestructura extra
+
+### Cada minuto en la fila es una venta menos
+
+Agenda una demo personalizada y descubre cómo Ronda Privé maximiza tus ventas sin infraestructura adicional.
+
+- Implementación en menos de 48 horas
+- Sin hardware ni infraestructura adicional
+- Soporte dedicado 24/7
 
 ### Soluciones que transforman tu operación
 URL: https://rondaprive.com/es/soluciones
@@ -411,27 +453,69 @@ URL: https://rondaprive.com/en
 
 Mobile platform for events and venues
 
-### Queues are killing your sales
+### Built for events at any scale
 
-- **Lost revenue:** Attendees abandon the line before purchasing. Every minute of waiting is money left on the table.
-- **Ruined experiences:** Nobody wants to miss the show for a drink. Frustration reduces spending and satisfaction.
-- **Overwhelmed staff:** Bottlenecks, stress, and order errors. Operations collapse during peak demand.
-- **Zero visibility:** No real-time data, no inventory control, no ability to react to demand surges.
+Festivals, stadiums, clubs and bars. The platform adapts to any format and grows with your event.
 
-### Three ways to sell more
+### One platform. Three ways to cut the line.
 
-Each mode adapts to the type of event, venue, and experience you need to deliver.
+The fastest, safest, most comfortable way to enjoy every moment.
 
-- **Pre-event ordering:** Purchase before the event, pay in advance, and on the day simply collect by presenting your QR code.
-- **Pick Up Express:** Attendees order from their phone and collect at the point of sale when their order is ready. No lines, no waiting.
-- **Order from your seat:** Scan the QR at your seat, table, or section. Order and receive your items delivered directly to your location.
+- **Lock in your order before it sells out**
+  - Guaranteed availability
+  - Skip the line on show day with your QR
+  1. Pick your event and build your order
+  2. Pay in advance in seconds
+  3. Pick up with your QR on show day
+- **Get it without leaving your seat**
+  - Zero lines, zero interruptions
+  - Delivered straight to you
+  1. Scan the QR at your seat
+  2. Order from your phone
+  3. Get it delivered without moving
+- **Your order ready when you arrive**
+  - VIP line for digital orders
+  - No waiting, no queues
+  1. Order from your phone anytime
+  2. Get the "ready for pickup" alert
+  3. Collect at the exclusive VIP line
 
-### Stats
+### Everything under control. In real time.
+
+A full dashboard for organizers and operations teams. Track sales, manage inventory, and make informed decisions in the moment.
+
+- **Quick stats:** Real-time KPIs
+- **Product management:** Menus and pricing
+- **Live inventory:** Stock kept current
+- **Analytics:** Consumption insights
+- **Sales monitoring:** Continuous tracking
+- **Behavior:** Consumption patterns
+- **Order control:** Real-time status
+- **Fast decisions:** Data to act on
+
+### Designed to make everything flow
+
+More sales, better experience, and full control. No friction, no lines, no limits.
+
+- **More sales, less friction:** Turn every interaction into a purchase opportunity.
+- **An uninterrupted experience:** Your guests live the event, not the lines.
+- **Full control in real time:** Clear, up-to-date data to make better decisions.
+- **Scales to the whole venue:** A robust solution that adapts to any event and grows with you.
+
+### Results
 
 - **85%:** Line reduction
 - **+40%:** More sales
 - **3x:** Service speed
 - **0:** Extra infrastructure
+
+### Every minute in line is a lost sale
+
+Book a personalized demo and discover how Ronda Privé maximizes your revenue without additional infrastructure.
+
+- Implementation in under 48 hours
+- No hardware or additional infrastructure
+- Dedicated 24/7 support
 
 ### Solutions that transform your operation
 URL: https://rondaprive.com/en/solutions

@@ -96,29 +96,84 @@ const stepList = (steps) =>
 const heroLine = (node) =>
   `${node?.heroTitle || ""} ${node?.heroHighlight || ""}`.trim();
 
+// StatsBar has no heading in the UI; this label exists only in the generated
+// text so the figures aren't an unlabelled list. Mirrors STATS_HEADING in
+// scripts/prerender-meta.mjs — keep both in sync.
+const STATS_HEADING = {
+  es: "Resultados",
+  en: "Results",
+  pt: "Resultados",
+  fr: "Résultats",
+};
+
 const langSection = (lang, t) => {
   const out = [];
   const push = (s) => s && out.push(s.trim());
 
-  // --- Home ---
+  // --- Home --- section order mirrors src/pages/Home.tsx. The four industry
+  // verticals are deliberately omitted here; they get a fuller treatment with
+  // problem/solution below, and repeating them would pad the document.
   const hero = t.hero || {};
   const heroTitle = [hero.headlineLine1, hero.headlineLine2].filter(Boolean).join(" ");
   push(`## ${heroTitle || "Ronda Privé"}\nURL: ${urlFor("home", lang)}\n\n${hero.badge || ""}`);
 
-  const problem = t.problem || {};
-  push(`### ${[problem.title, problem.titleHighlight].filter(Boolean).join(" ")}\n\n${itemList(problem.items)}`);
+  const heading = (...parts) => parts.filter(Boolean).join(" ");
+  const pushSection = (title, ...body) => {
+    if (!title) return;
+    push(`### ${title}\n\n${body.filter(Boolean).join("\n\n")}`);
+  };
 
-  const sol = t.solutionsOverview || {};
-  const solCards = ["preorder", "pickup", "seat"]
-    .map((k) => (sol[k] ? `- **${sol[k].title}:** ${sol[k].description}` : ""))
+  const formats = t.eventosActivos || {};
+  pushSection(formats.title, formats.subtitle);
+
+  const platform = t.plataforma || {};
+  const products = platform.products || {};
+  const productCards = ["preorder", "seat", "pickup"]
+    .map((k) => {
+      const p = products[k];
+      if (!p) return "";
+      const bullets = (p.bullets || []).map((b) => `  - ${b}`).join("\n");
+      const steps = (p.steps || []).map((s, n) => `  ${n + 1}. ${s}`).join("\n");
+      return [`- **${p.title || p.label}**`, bullets, steps].filter(Boolean).join("\n");
+    })
     .filter(Boolean)
     .join("\n");
-  push(`### ${[sol.title, sol.titleHighlight].filter(Boolean).join(" ")}\n\n${sol.subtitle || ""}\n\n${solCards}`);
+  pushSection(platform.heading, platform.subtitle, productCards);
+
+  const dashboard = t.dashboardPreview || {};
+  pushSection(
+    heading(dashboard.headline, dashboard.headlineHighlight),
+    dashboard.description,
+    (dashboard.modules || []).map((m) => `- **${m.title}:** ${m.subtitle}`).join("\n"),
+  );
+
+  const summary = t.benefitsSummary || {};
+  pushSection(
+    heading(summary.titleStart, summary.titleHighlight),
+    summary.subtitle,
+    ["sales", "experience", "control", "scale"]
+      .map((k) => {
+        const c = (summary.cards || {})[k];
+        return c ? `- **${c.title}:** ${c.description}` : "";
+      })
+      .filter(Boolean)
+      .join("\n"),
+  );
 
   const stats = (t.statsBar && t.statsBar.items) || [];
   if (stats.length) {
-    push(`### ${(t.statsBar && t.statsBar.title) || "Stats"}\n\n${stats.map((s) => `- **${s.value}:** ${s.label}`).join("\n")}`);
+    pushSection(
+      STATS_HEADING[lang] || STATS_HEADING.es,
+      stats.map((s) => `- **${s.value}:** ${s.label}`).join("\n"),
+    );
   }
+
+  const cta = t.cta || {};
+  pushSection(
+    heading(cta.titleStart, cta.titleHighlight),
+    cta.subtitle,
+    (cta.benefits || []).map((b) => `- ${b}`).join("\n"),
+  );
 
   // --- Solutions detail ---
   const s = t.solutions || {};
