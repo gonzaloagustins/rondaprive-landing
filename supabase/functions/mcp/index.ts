@@ -237,7 +237,6 @@ var faqItems = [
 // src/i18n/locales/es.json
 var es_default = {
   navbar: {
-    events: "Eventos",
     solutions: "Soluciones",
     industries: "Industrias",
     howItWorks: "C\xF3mo funciona",
@@ -246,6 +245,7 @@ var es_default = {
     requestDemo: "Solicitar demo",
     product: "Producto",
     benefits: "Beneficios",
+    dashboard: "Panel",
     contact: "Contacto"
   },
   hero: {
