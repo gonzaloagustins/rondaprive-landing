@@ -437,10 +437,18 @@ const DashboardPreview = () => {
                           strokeLinejoin="round"
                           vectorEffect="non-scaling-stroke"
                         />
-                        {chart.tip && (
-                          <circle cx={chart.tip[0]} cy={chart.tip[1]} r={3} fill="#34d399" />
-                        )}
                       </svg>
+                      {/* The chart is stretched with preserveAspectRatio="none",
+                          which would squash an SVG <circle> into an ellipse.
+                          The tip marker sits outside the SVG, positioned in the
+                          same 0..100 space, so it stays round at any width. */}
+                      {chart.tip && (
+                        <span
+                          aria-hidden
+                          className="absolute h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400"
+                          style={{ left: `${chart.tip[0]}%`, top: `${chart.tip[1]}%` }}
+                        />
+                      )}
                     </div>
                   </div>
 
