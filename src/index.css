@@ -145,3 +145,52 @@
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
+
+/* --- Live dashboard mockup (DashboardPreview) ------------------------------
+   The JS side already skips its timers under prefers-reduced-motion; these
+   purely decorative loops need their own guard at the bottom of the block. */
+
+/* Status dot on the bar list: a ring that breathes outward. Driven by
+   box-shadow rather than a pseudo-element so it works on a bare <span>. */
+@keyframes livePulseRing {
+  0%   { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  70%  { box-shadow: 0 0 0 6px transparent; opacity: 0.85; }
+  100% { box-shadow: 0 0 0 0 transparent; opacity: 1; }
+}
+
+/* Highlight sweeping across the "en vivo" badge. */
+@keyframes liveShine {
+  0%   { transform: translateX(-120%); }
+  60%  { transform: translateX(220%); }
+  100% { transform: translateX(220%); }
+}
+
+/* New rows entering the order feed. */
+@keyframes orderIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@layer utilities {
+  .animate-live-pulse {
+    animation: livePulseRing 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .animate-live-shine {
+    animation: liveShine 4.5s ease-in-out infinite;
+  }
+  .animate-order-in {
+    animation: orderIn 0.45s ease-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-live-pulse,
+  .animate-live-shine,
+  .animate-order-in {
+    animation: none;
+  }
+  /* The shine is a moving gradient with nothing to show at rest. */
+  .animate-live-shine {
+    display: none;
+  }
+}

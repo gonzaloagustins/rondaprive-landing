@@ -1115,7 +1115,7 @@ var es_default = {
     pickup: "Pickup"
   },
   eventosActivos: {
-    eyebrow: "Formatos",
+    eyebrow: "Soluciones",
     title: "Dise\xF1ado para eventos a cualquier escala",
     subtitle: "Festivales, estadios, clubs y bares. La plataforma se adapta a cualquier formato y crece junto a tu evento.",
     ctaPrimary: "Hablemos de tu evento",
@@ -1197,20 +1197,86 @@ var es_default = {
       { title: "Decisiones r\xE1pidas", subtitle: "Datos para actuar" }
     ],
     mock: {
-      windowTitle: "Ronda Priv\xE9 Dashboard",
-      cards: {
-        salesToday: "Ventas Hoy",
-        orders: "Pedidos",
-        avgTicket: "Ticket Prom."
+      windowTitle: "Ronda Priv\xE9",
+      liveBadge: "En vivo",
+      eventName: "Festival Verano Sur 2026 \xB7 Noche 3",
+      eventMeta: "Arena Sur \xB7 18 comercios \xB7 9.200 asistentes",
+      updatedAgo: "Actualizado hace {{seconds}} seg",
+      vsYesterday: "vs ayer",
+      units: {
+        min: "min",
+        sec: "s"
       },
-      chartTitle: "Ventas por hora",
-      liveBadge: "Actualizaci\xF3n en vivo",
-      disclaimer: "Datos demostrativos \xB7 ejemplo de festival con 10K asistentes",
-      orders: [
-        { items: "2x Cerveza, 1x Nachos", status: "Listo" },
-        { items: "1x Combo VIP", status: "Preparando" },
-        { items: "3x Mojito", status: "Entregado" }
-      ]
+      kpis: {
+        gmv: "GMV en curso",
+        orders: "Pedidos",
+        avgTicket: "Ticket promedio",
+        avgWait: "Espera promedio"
+      },
+      chart: {
+        title: "Ventas en tiempo real",
+        legend: "Ventas (acumulado)",
+        open: "Apertura",
+        now: "Ahora"
+      },
+      bars: {
+        title: "Estado de barras",
+        items: [
+          {
+            name: "Barra Interior",
+            status: "Operando con normalidad"
+          },
+          {
+            name: "Barra VIP",
+            status: "Operando con normalidad"
+          },
+          {
+            name: "Barra Exterior",
+            status: "Demanda alta"
+          },
+          {
+            name: "Patio de comidas",
+            status: "Demanda muy alta"
+          }
+        ]
+      },
+      orders: {
+        title: "Pedidos recientes",
+        viewAll: "Ver todos los pedidos",
+        pool: [
+          {
+            items: "2 Piscolas",
+            status: "Preparando"
+          },
+          {
+            items: "4 Cervezas",
+            status: "Listo"
+          },
+          {
+            items: "Combo VIP",
+            status: "En preparaci\xF3n"
+          },
+          {
+            items: "3 Aguas minerales",
+            status: "Listo"
+          },
+          {
+            items: "2 Hamburguesas",
+            status: "Preparando"
+          },
+          {
+            items: "1 Tabla para compartir",
+            status: "En preparaci\xF3n"
+          }
+        ]
+      },
+      channels: {
+        title: "Ventas por canal",
+        pickup: "Compra y Retiro",
+        seat: "Compra desde el Asiento",
+        preorder: "Compra Anticipada"
+      },
+      disclaimer: "Datos demostrativos \xB7 evento ficticio de 9.200 asistentes"
     },
     ctaQuestion: "\xBFQuieres verlo con los datos de tu venue?"
   },
