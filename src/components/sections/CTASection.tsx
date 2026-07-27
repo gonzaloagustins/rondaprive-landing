@@ -9,7 +9,7 @@ const CTASection = () => {
   const { t } = useTranslation();
   const { path } = useLocalizedPath();
   return (
-    <section className="py-24">
+    <section className="py-24" id="contacto">
       <div className="section-container">
         <div className="bg-[#F0EBE3]/50 rounded-3xl py-20 px-8 text-center">
           {/* Label */}

@@ -56,7 +56,9 @@ const Home = () => {
       <LazySection component={PlataformaSection} id="producto" minHeight="700px" />
       <LazySection component={DashboardPreview} id="dashboard" minHeight="700px" />
       <LazySection component={BenefitsSummary} id="beneficios" minHeight="500px" />
-      <LazySection component={CTASection} minHeight="300px" />
+      {/* id="contacto" so the scroll-spy can light the Contacto menu entry when
+          the visitor reaches the closing CTA. */}
+      <LazySection component={CTASection} id="contacto" minHeight="300px" />
     </>
   );
 };
