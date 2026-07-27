@@ -960,20 +960,86 @@
       { "title": "Décisions rapides", "subtitle": "Données pour agir" }
     ],
     "mock": {
-      "windowTitle": "Ronda Privé Dashboard",
-      "cards": {
-        "salesToday": "Ventes du jour",
-        "orders": "Commandes",
-        "avgTicket": "Panier moyen"
+      "windowTitle": "Ronda Privé",
+      "liveBadge": "En direct",
+      "eventName": "Festival Verano Sur 2026 · Nuit 3",
+      "eventMeta": "Arena Sur · 18 commerces · 9 200 participants",
+      "updatedAgo": "Mis à jour il y a {{seconds}} s",
+      "vsYesterday": "vs hier",
+      "units": {
+        "min": "min",
+        "sec": "s"
       },
-      "chartTitle": "Ventes par heure",
-      "liveBadge": "Mise à jour en direct",
-      "disclaimer": "Données de démo · exemple d'un festival de 10K personnes",
-      "orders": [
-        { "items": "2x Bière, 1x Nachos", "status": "Prêt" },
-        { "items": "1x Combo VIP", "status": "En préparation" },
-        { "items": "3x Mojito", "status": "Livré" }
-      ]
+      "kpis": {
+        "gmv": "GMV en cours",
+        "orders": "Commandes",
+        "avgTicket": "Panier moyen",
+        "avgWait": "Attente moyenne"
+      },
+      "chart": {
+        "title": "Ventes en temps réel",
+        "legend": "Ventes (cumulé)",
+        "open": "Ouverture",
+        "now": "Maintenant"
+      },
+      "bars": {
+        "title": "État des bars",
+        "items": [
+          {
+            "name": "Bar Intérieur",
+            "status": "Fonctionnement normal"
+          },
+          {
+            "name": "Bar VIP",
+            "status": "Fonctionnement normal"
+          },
+          {
+            "name": "Bar Extérieur",
+            "status": "Forte demande"
+          },
+          {
+            "name": "Espace restauration",
+            "status": "Très forte demande"
+          }
+        ]
+      },
+      "orders": {
+        "title": "Commandes récentes",
+        "viewAll": "Voir toutes les commandes",
+        "pool": [
+          {
+            "items": "2 cocktails",
+            "status": "En préparation"
+          },
+          {
+            "items": "4 bières",
+            "status": "Prêt"
+          },
+          {
+            "items": "Combo VIP",
+            "status": "En cours"
+          },
+          {
+            "items": "3 bouteilles d'eau",
+            "status": "Prêt"
+          },
+          {
+            "items": "2 burgers",
+            "status": "En préparation"
+          },
+          {
+            "items": "1 planche à partager",
+            "status": "En cours"
+          }
+        ]
+      },
+      "channels": {
+        "title": "Ventes par canal",
+        "pickup": "Commande & Retrait",
+        "seat": "Commande au Siège",
+        "preorder": "Précommande"
+      },
+      "disclaimer": "Données de démonstration · événement fictif de 9 200 participants"
     },
     "ctaQuestion": "Vous voulez le voir avec les données de votre lieu ?"
   },

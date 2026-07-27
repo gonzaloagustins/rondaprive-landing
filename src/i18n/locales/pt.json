@@ -960,20 +960,86 @@
       { "title": "Decisões rápidas", "subtitle": "Dados para agir" }
     ],
     "mock": {
-      "windowTitle": "Ronda Privé Dashboard",
-      "cards": {
-        "salesToday": "Vendas hoje",
-        "orders": "Pedidos",
-        "avgTicket": "Ticket médio"
+      "windowTitle": "Ronda Privé",
+      "liveBadge": "Ao vivo",
+      "eventName": "Festival Verano Sur 2026 · Noite 3",
+      "eventMeta": "Arena Sur · 18 comércios · 9.200 participantes",
+      "updatedAgo": "Atualizado há {{seconds}} seg",
+      "vsYesterday": "vs ontem",
+      "units": {
+        "min": "min",
+        "sec": "s"
       },
-      "chartTitle": "Vendas por hora",
-      "liveBadge": "Atualização ao vivo",
-      "disclaimer": "Dados demonstrativos · exemplo de festival com 10 mil participantes",
-      "orders": [
-        { "items": "2x Cerveja, 1x Nachos", "status": "Pronto" },
-        { "items": "1x Combo VIP", "status": "Preparando" },
-        { "items": "3x Mojito", "status": "Entregue" }
-      ]
+      "kpis": {
+        "gmv": "GMV em curso",
+        "orders": "Pedidos",
+        "avgTicket": "Ticket médio",
+        "avgWait": "Espera média"
+      },
+      "chart": {
+        "title": "Vendas em tempo real",
+        "legend": "Vendas (acumulado)",
+        "open": "Abertura",
+        "now": "Agora"
+      },
+      "bars": {
+        "title": "Status dos bares",
+        "items": [
+          {
+            "name": "Bar Interno",
+            "status": "Operando normalmente"
+          },
+          {
+            "name": "Bar VIP",
+            "status": "Operando normalmente"
+          },
+          {
+            "name": "Bar Externo",
+            "status": "Demanda alta"
+          },
+          {
+            "name": "Praça de alimentação",
+            "status": "Demanda muito alta"
+          }
+        ]
+      },
+      "orders": {
+        "title": "Pedidos recentes",
+        "viewAll": "Ver todos os pedidos",
+        "pool": [
+          {
+            "items": "2 Caipirinhas",
+            "status": "Preparando"
+          },
+          {
+            "items": "4 Cervejas",
+            "status": "Pronto"
+          },
+          {
+            "items": "Combo VIP",
+            "status": "Em preparação"
+          },
+          {
+            "items": "3 Águas minerais",
+            "status": "Pronto"
+          },
+          {
+            "items": "2 Hambúrgueres",
+            "status": "Preparando"
+          },
+          {
+            "items": "1 Tábua para compartilhar",
+            "status": "Em preparação"
+          }
+        ]
+      },
+      "channels": {
+        "title": "Vendas por canal",
+        "pickup": "Compra e Retirada",
+        "seat": "Compra do Assento",
+        "preorder": "Compra Antecipada"
+      },
+      "disclaimer": "Dados demonstrativos · evento fictício de 9.200 participantes"
     },
     "ctaQuestion": "Quer ver com os dados do seu venue?"
   },
