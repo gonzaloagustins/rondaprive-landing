@@ -27,7 +27,6 @@ import LanguageSelector from "@/components/layout/LanguageSelector";
 const NAV_ENTRIES = [
   { id: "soluciones", labelKey: "navbar.solutions" },
   { id: "producto", labelKey: "navbar.product" },
-  { id: "dashboard", labelKey: "navbar.dashboard" },
   { id: "beneficios", labelKey: "navbar.benefits" },
   { id: "contacto", labelKey: "navbar.contact", route: "contact" },
 ] as const;
