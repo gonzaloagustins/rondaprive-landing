@@ -960,20 +960,86 @@
       { "title": "Fast decisions", "subtitle": "Data to act on" }
     ],
     "mock": {
-      "windowTitle": "Ronda Privé Dashboard",
-      "cards": {
-        "salesToday": "Sales Today",
-        "orders": "Orders",
-        "avgTicket": "Avg. Ticket"
+      "windowTitle": "Ronda Privé",
+      "liveBadge": "Live",
+      "eventName": "Festival Verano Sur 2026 · Night 3",
+      "eventMeta": "Arena Sur · 18 vendors · 9,200 attendees",
+      "updatedAgo": "Updated {{seconds}} sec ago",
+      "vsYesterday": "vs yesterday",
+      "units": {
+        "min": "min",
+        "sec": "s"
       },
-      "chartTitle": "Sales by hour",
-      "liveBadge": "Live updates",
-      "disclaimer": "Demo data · sample of a 10K-attendee festival",
-      "orders": [
-        { "items": "2x Beer, 1x Nachos", "status": "Ready" },
-        { "items": "1x VIP Combo", "status": "Preparing" },
-        { "items": "3x Mojito", "status": "Delivered" }
-      ]
+      "kpis": {
+        "gmv": "GMV so far",
+        "orders": "Orders",
+        "avgTicket": "Average ticket",
+        "avgWait": "Average wait"
+      },
+      "chart": {
+        "title": "Real-time sales",
+        "legend": "Sales (cumulative)",
+        "open": "Doors open",
+        "now": "Now"
+      },
+      "bars": {
+        "title": "Bar status",
+        "items": [
+          {
+            "name": "Indoor bar",
+            "status": "Operating normally"
+          },
+          {
+            "name": "VIP bar",
+            "status": "Operating normally"
+          },
+          {
+            "name": "Outdoor bar",
+            "status": "High demand"
+          },
+          {
+            "name": "Food court",
+            "status": "Very high demand"
+          }
+        ]
+      },
+      "orders": {
+        "title": "Recent orders",
+        "viewAll": "View all orders",
+        "pool": [
+          {
+            "items": "2 cocktails",
+            "status": "Preparing"
+          },
+          {
+            "items": "4 beers",
+            "status": "Ready"
+          },
+          {
+            "items": "VIP combo",
+            "status": "In preparation"
+          },
+          {
+            "items": "3 bottled waters",
+            "status": "Ready"
+          },
+          {
+            "items": "2 burgers",
+            "status": "Preparing"
+          },
+          {
+            "items": "1 sharing board",
+            "status": "In preparation"
+          }
+        ]
+      },
+      "channels": {
+        "title": "Sales by channel",
+        "pickup": "Order & Pick Up",
+        "seat": "Order From Seat",
+        "preorder": "Pre-order"
+      },
+      "disclaimer": "Demo data · fictional event with 9,200 attendees"
     },
     "ctaQuestion": "Want to see it with your venue's data?"
   },
