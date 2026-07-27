@@ -8,25 +8,31 @@ import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import LanguageSelector from "@/components/layout/LanguageSelector";
 
 /**
- * Home anchors, in the order the sections appear in Home.tsx.
+ * Menu entries, in the order the sections appear in Home.tsx.
  *
  * Order and coverage both matter. While these were out of order the underline
  * jumped backwards and forwards as the page scrolled, and the dashboard — which
  * has an id but had no entry here — left the previous item lit the whole time
  * it was on screen. Add a section to the home, add it here too.
  *
+ * `route` marks an entry that navigates somewhere instead of scrolling. Contacto
+ * is both: it opens the contact page, and it lights up when the visitor reaches
+ * the home's closing CTA, because that section is the same invitation. The two
+ * cases produce different aria-current values — see the link render below.
+ *
  * Ids are language-agnostic; only the labels are localized. Module scope keeps
  * the array identity stable so the scroll-spy effect doesn't resubscribe on
  * every render.
  */
-const NAV_ANCHORS = [
+const NAV_ENTRIES = [
   { id: "soluciones", labelKey: "navbar.solutions" },
   { id: "producto", labelKey: "navbar.product" },
   { id: "dashboard", labelKey: "navbar.dashboard" },
   { id: "beneficios", labelKey: "navbar.benefits" },
-];
+  { id: "contacto", labelKey: "navbar.contact", route: "contact" },
+] as const;
 
-const SECTION_IDS = NAV_ANCHORS.map((a) => a.id);
+const SECTION_IDS = NAV_ENTRIES.map((e) => e.id);
 
 const Navbar = () => {
   const location = useLocation();
@@ -36,16 +42,11 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
 
-  const navItems = [
-    ...NAV_ANCHORS.map((a) => ({
-      to: `${path("home")}#${a.id}`,
-      label: t(a.labelKey),
-      sectionId: a.id,
-    })),
-    // A route, not an anchor: no sectionId, so it highlights by path instead of
-    // by scroll position.
-    { to: path("contact"), label: t("navbar.contact"), sectionId: "" },
-  ];
+  const navItems = NAV_ENTRIES.map((e) => ({
+    to: "route" in e ? path(e.route) : `${path("home")}#${e.id}`,
+    label: t(e.labelKey),
+    sectionId: e.id,
+  }));
 
   const homePath = path("home");
 
@@ -130,14 +131,17 @@ const Navbar = () => {
                 !hash &&
                 (location.pathname === basePath ||
                   location.pathname.startsWith(basePath + "/"));
-              const isActive =
-                (item.sectionId && activeSection === item.sectionId) ||
-                isPathMatch;
+              const isScrollMatch =
+                location.pathname === homePath && activeSection === item.sectionId;
+              const isActive = isScrollMatch || isPathMatch;
+              // "page" only when the link really points at the open page.
+              // Scroll position is a location within it, not a different page.
+              const current = isPathMatch ? "page" : isScrollMatch ? "location" : undefined;
               return (
                 <Link
                   key={item.to}
                   to={item.to}
-                  aria-current={isActive ? "page" : undefined}
+                  aria-current={current}
                   className={`relative text-sm font-medium transition-colors ${
                     isActive
                       ? "text-foreground"
@@ -182,19 +186,24 @@ const Navbar = () => {
           <div className="lg:hidden py-6 border-t border-border/50 animate-fade-in bg-[#F5F0EB]">
             <nav className="flex flex-col gap-3">
               {navItems.map((item) => {
-                const basePath = item.to.split("#")[0];
+                // Same matching as the desktop nav. The `!hash` guard matters:
+                // without it every anchor shares the home pathname and the
+                // whole menu lights up at once while on the home.
+                const [basePath, hash] = item.to.split("#");
                 const isPathMatch =
-                  location.pathname === basePath ||
-                  location.pathname.startsWith(basePath + "/");
-                const isActive =
-                  (item.sectionId && activeSection === item.sectionId) ||
-                  isPathMatch;
+                  !hash &&
+                  (location.pathname === basePath ||
+                    location.pathname.startsWith(basePath + "/"));
+                const isScrollMatch =
+                  location.pathname === homePath && activeSection === item.sectionId;
+                const isActive = isScrollMatch || isPathMatch;
+                const current = isPathMatch ? "page" : isScrollMatch ? "location" : undefined;
                 return (
                   <Link
                     key={item.to}
                     to={item.to}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    aria-current={isActive ? "page" : undefined}
+                    aria-current={current}
                     className={`relative py-2 pl-3 transition-colors font-medium border-l-2 ${
                       isActive
                         ? "text-foreground border-primary"
