@@ -22,7 +22,7 @@ const Footer = () => {
   ];
 
   const empresaLinks = [
-    { to: path("events"), label: t("footer.events", "Eventos") },
+    { external: "https://app.rondaprive.com/", label: t("footer.events", "Eventos") },
     { to: path("faq"), label: t("footer.faq", "FAQ") },
     { to: path("glossary"), label: t("footer.glossary", "Glosario") },
     { to: path("contact"), label: t("footer.contact", "Contacto") },
@@ -119,12 +119,23 @@ const Footer = () => {
             <ul className="space-y-3">
               {empresaLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.to}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {"external" in link ? (
+                    <a
+                      href={link.external}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.to}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
               <li>
