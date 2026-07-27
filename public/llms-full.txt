@@ -12,6 +12,13 @@ URL: https://rondaprive.com/es
 
 Plataforma móvil para eventos y venues
 
+### Resultados
+
+- **85%:** Reducción de filas
+- **+40%:** Más ventas
+- **3x:** Velocidad de servicio
+- **0:** Infraestructura extra
+
 ### Diseñado para eventos a cualquier escala
 
 Festivales, estadios, clubs y bares. La plataforma se adapta a cualquier formato y crece junto a tu evento.
@@ -60,13 +67,6 @@ Más ventas, mejor experiencia y control total. Sin fricción, sin filas, sin l�
 - **Experiencia sin interrupciones:** Tus asistentes viven el evento, no las filas.
 - **Control total en tiempo real:** Datos claros y actualizados para tomar mejores decisiones.
 - **Escalable a todo el recinto:** Una solución robusta que se adapta a cualquier evento y crece contigo.
-
-### Resultados
-
-- **85%:** Reducción de filas
-- **+40%:** Más ventas
-- **3x:** Velocidad de servicio
-- **0:** Infraestructura extra
 
 ### Cada minuto en la fila es una venta menos
 
@@ -453,6 +453,13 @@ URL: https://rondaprive.com/en
 
 Mobile platform for events and venues
 
+### Results
+
+- **85%:** Line reduction
+- **+40%:** More sales
+- **3x:** Service speed
+- **0:** Extra infrastructure
+
 ### Built for events at any scale
 
 Festivals, stadiums, clubs and bars. The platform adapts to any format and grows with your event.
@@ -501,13 +508,6 @@ More sales, better experience, and full control. No friction, no lines, no limit
 - **An uninterrupted experience:** Your guests live the event, not the lines.
 - **Full control in real time:** Clear, up-to-date data to make better decisions.
 - **Scales to the whole venue:** A robust solution that adapts to any event and grows with you.
-
-### Results
-
-- **85%:** Line reduction
-- **+40%:** More sales
-- **3x:** Service speed
-- **0:** Extra infrastructure
 
 ### Every minute in line is a lost sale
 

@@ -123,6 +123,14 @@ const langSection = (lang, t) => {
     push(`### ${title}\n\n${body.filter(Boolean).join("\n\n")}`);
   };
 
+  const stats = (t.statsBar && t.statsBar.items) || [];
+  if (stats.length) {
+    pushSection(
+      STATS_HEADING[lang] || STATS_HEADING.es,
+      stats.map((s) => `- **${s.value}:** ${s.label}`).join("\n"),
+    );
+  }
+
   const formats = t.eventosActivos || {};
   pushSection(formats.title, formats.subtitle);
 
@@ -159,14 +167,6 @@ const langSection = (lang, t) => {
       .filter(Boolean)
       .join("\n"),
   );
-
-  const stats = (t.statsBar && t.statsBar.items) || [];
-  if (stats.length) {
-    pushSection(
-      STATS_HEADING[lang] || STATS_HEADING.es,
-      stats.map((s) => `- **${s.value}:** ${s.label}`).join("\n"),
-    );
-  }
 
   const cta = t.cta || {};
   pushSection(

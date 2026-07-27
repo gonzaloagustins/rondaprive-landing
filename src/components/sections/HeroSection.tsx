@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import IPhoneMockup from "@/components/ui/iphone-mockup";
-import { ArrowRight, Clock, Zap, ShoppingBag } from "lucide-react";
+import { ArrowRight, Clock, Users, Zap, ShoppingBag } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -206,14 +206,20 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Right: aumento ventas — straddling right edge, above button */}
+              {/* Right: sin filas — straddling right edge, above button.
+                  Both badges describe the attendee's side of the app, which is
+                  what the phone is showing. The business figures (+40% and the
+                  rest) belong to StatsBar, immediately below the hero — saying
+                  +40% in both places within one screen weakened both. */}
               <div className="absolute -right-16 bottom-20 bg-white rounded-2xl shadow-lg px-3 py-2.5 flex items-center gap-2.5 animate-fade-in-delay-4">
-                <div className="w-7 h-7 rounded-full bg-[#F0EBE3] flex items-center justify-center text-xs font-bold">
-                  📈
+                <div className="w-7 h-7 rounded-full bg-[#F0EBE3] flex items-center justify-center">
+                  <Users className="w-3.5 h-3.5 text-foreground/70" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-foreground leading-none">+40%</p>
-                  <p className="text-[9px] text-muted-foreground">{t("hero.mockup.salesIncrease")}</p>
+                  <p className="text-sm font-bold text-foreground leading-none">
+                    {t("hero.mockup.noQueues")}
+                  </p>
+                  <p className="text-[9px] text-muted-foreground">{t("hero.mockup.noQueuesSub")}</p>
                 </div>
               </div>
             </div>

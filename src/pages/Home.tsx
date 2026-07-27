@@ -48,11 +48,14 @@ const Home = () => {
     <>
       <SEO pageKey="home" />
       <HeroSection />
+      {/* Straight under the hero on purpose: real sessions average well under a
+          minute, so the figures that back the headline have to land inside the
+          first screen or most visitors never reach them. */}
+      <LazySection component={StatsBar} minHeight="120px" />
       <LazySection component={SolucionesSection} id="soluciones" minHeight="600px" />
       <LazySection component={PlataformaSection} id="producto" minHeight="700px" />
       <LazySection component={DashboardPreview} id="dashboard" minHeight="700px" />
       <LazySection component={BenefitsSummary} id="beneficios" minHeight="500px" />
-      <LazySection component={StatsBar} minHeight="120px" />
       <LazySection component={CTASection} minHeight="300px" />
     </>
   );
