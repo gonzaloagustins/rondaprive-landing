@@ -18,7 +18,10 @@ const Navbar = () => {
   // Scroll-spy targets on the home page. Section ids are language-agnostic;
   // labels are localized at render. Cross-page nav uses localized URLs.
   const navItems = [
-    { to: path("events"), label: t("navbar.events"), sectionId: "eventos" },
+    // No sectionId: this is a route, not a home anchor. Giving it one made the
+    // scroll-spy mark it aria-current="page" while the user was still on the
+    // home, on a link that navigates away.
+    { to: path("events"), label: t("navbar.events"), sectionId: "" },
     { to: `${path("home")}#producto`, label: t("navbar.product"), sectionId: "producto" },
     { to: `${path("home")}#beneficios`, label: t("navbar.benefits"), sectionId: "beneficios" },
     { to: `${path("home")}#soluciones`, label: t("navbar.solutions"), sectionId: "soluciones" },
