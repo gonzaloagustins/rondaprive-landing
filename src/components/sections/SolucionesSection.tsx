@@ -4,7 +4,10 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
-const EventosActivos = () => {
+// The i18n namespace is still `eventosActivos.*`: this section used to list
+// active events before it became the solutions block, and renaming the keys
+// would churn all four locale files for no user-visible gain.
+const SolucionesSection = () => {
   const { t } = useTranslation();
   const { path } = useLocalizedPath();
   const channelMeta = {
@@ -63,12 +66,12 @@ const EventosActivos = () => {
   ];
 
   return (
-    <section className="pt-24 pb-[4.8rem]" id="eventos">
+    <section className="pt-24 pb-[4.8rem]" id="soluciones">
       <div className="section-container">
         {/* Header */}
         <div className="text-center mx-auto max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            {t("eventosActivos.eyebrow", "Formatos")}
+            {t("eventosActivos.eyebrow", "Soluciones")}
           </span>
           <h2 className="mt-6 font-display text-4xl font-bold tracking-tight sm:text-5xl">
             {t("eventosActivos.title", "Diseñado para eventos a cualquier escala")}
@@ -165,4 +168,4 @@ const EventosActivos = () => {
   );
 };
 
-export default EventosActivos;
+export default SolucionesSection;
