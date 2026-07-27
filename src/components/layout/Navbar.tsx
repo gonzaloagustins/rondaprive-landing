@@ -7,6 +7,27 @@ import logoRondaPrive from "@/assets/logo-ronda-prive.png";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import LanguageSelector from "@/components/layout/LanguageSelector";
 
+/**
+ * Home anchors, in the order the sections appear in Home.tsx.
+ *
+ * Order and coverage both matter. While these were out of order the underline
+ * jumped backwards and forwards as the page scrolled, and the dashboard — which
+ * has an id but had no entry here — left the previous item lit the whole time
+ * it was on screen. Add a section to the home, add it here too.
+ *
+ * Ids are language-agnostic; only the labels are localized. Module scope keeps
+ * the array identity stable so the scroll-spy effect doesn't resubscribe on
+ * every render.
+ */
+const NAV_ANCHORS = [
+  { id: "soluciones", labelKey: "navbar.solutions" },
+  { id: "producto", labelKey: "navbar.product" },
+  { id: "dashboard", labelKey: "navbar.dashboard" },
+  { id: "beneficios", labelKey: "navbar.benefits" },
+];
+
+const SECTION_IDS = NAV_ANCHORS.map((a) => a.id);
+
 const Navbar = () => {
   const location = useLocation();
   const { t } = useTranslation();
@@ -15,20 +36,17 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
 
-  // Scroll-spy targets on the home page. Section ids are language-agnostic;
-  // labels are localized at render. Cross-page nav uses localized URLs.
   const navItems = [
-    // No sectionId: this is a route, not a home anchor. Giving it one made the
-    // scroll-spy mark it aria-current="page" while the user was still on the
-    // home, on a link that navigates away.
-    { to: path("events"), label: t("navbar.events"), sectionId: "" },
-    { to: `${path("home")}#producto`, label: t("navbar.product"), sectionId: "producto" },
-    { to: `${path("home")}#beneficios`, label: t("navbar.benefits"), sectionId: "beneficios" },
-    { to: `${path("home")}#soluciones`, label: t("navbar.solutions"), sectionId: "soluciones" },
+    ...NAV_ANCHORS.map((a) => ({
+      to: `${path("home")}#${a.id}`,
+      label: t(a.labelKey),
+      sectionId: a.id,
+    })),
+    // A route, not an anchor: no sectionId, so it highlights by path instead of
+    // by scroll position.
     { to: path("contact"), label: t("navbar.contact"), sectionId: "" },
   ];
 
-  const sectionIds = navItems.map((i) => i.sectionId).filter(Boolean);
   const homePath = path("home");
 
   useEffect(() => {
@@ -46,7 +64,7 @@ const Navbar = () => {
       let current = "";
       let closestTop = -Infinity;
 
-      for (const id of sectionIds) {
+      for (const id of SECTION_IDS) {
         const el = document.getElementById(id);
         if (!el) continue;
         const top = el.getBoundingClientRect().top;

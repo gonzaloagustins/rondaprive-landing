@@ -1,6 +1,5 @@
 {
   "navbar": {
-    "events": "Événements",
     "solutions": "Solutions",
     "industries": "Industries",
     "howItWorks": "Comment ça marche",
@@ -9,6 +8,7 @@
     "requestDemo": "Demander une démo",
     "product": "Produit",
     "benefits": "Avantages",
+    "dashboard": "Tableau de bord",
     "contact": "Contact"
   },
   "hero": {
