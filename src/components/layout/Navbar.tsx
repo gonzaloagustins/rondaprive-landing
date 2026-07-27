@@ -11,9 +11,8 @@ import LanguageSelector from "@/components/layout/LanguageSelector";
  * Menu entries, in the order the sections appear in Home.tsx.
  *
  * Order and coverage both matter. While these were out of order the underline
- * jumped backwards and forwards as the page scrolled, and the dashboard — which
- * has an id but had no entry here — left the previous item lit the whole time
- * it was on screen. Add a section to the home, add it here too.
+ * jumped backwards and forwards as the page scrolled. Add a section to the
+ * home, add it here too.
  *
  * `route` marks an entry that navigates somewhere instead of scrolling. Contacto
  * is both: it opens the contact page, and it lights up when the visitor reaches
@@ -27,7 +26,6 @@ import LanguageSelector from "@/components/layout/LanguageSelector";
 const NAV_ENTRIES = [
   { id: "soluciones", labelKey: "navbar.solutions" },
   { id: "producto", labelKey: "navbar.product" },
-  { id: "dashboard", labelKey: "navbar.dashboard" },
   { id: "beneficios", labelKey: "navbar.benefits" },
   { id: "contacto", labelKey: "navbar.contact", route: "contact" },
 ] as const;
