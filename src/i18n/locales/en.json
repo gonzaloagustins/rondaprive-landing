@@ -876,7 +876,15 @@
   "eventFeatures": {
     "preorder": "Pre-order",
     "seat": "At seat",
-    "pickup": "Pickup"
+    "pickup": "Order & Pick Up"
+  },
+  "formatos": {
+    "channels": {
+      "pickup": "Order & Pick Up",
+      "seat": "From the seat",
+      "table": "From the table",
+      "preorder": "Pre-order"
+    }
   },
   "eventosActivos": {
     "eyebrow": "Solutions",

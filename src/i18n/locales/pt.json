@@ -524,7 +524,7 @@
         "definition": "Modalidade de venda onde o cliente compra e paga seu consumo dias ou semanas antes do evento. No dia do evento, ative sua compra e retire sem fazer filas. Permite ao organizador planejar o estoque com antecedência."
       },
       "compra-y-retiro": {
-        "term": "Pickup expresso",
+        "term": "Compra e retirada",
         "definition": "Modalidade onde o cliente compra pelo celular durante o evento e retira o pedido em um ponto de venda quando estiver pronto. Funciona como uma fila digital: sem espera física."
       },
       "entrega-en-asiento": {
@@ -876,7 +876,15 @@
   "eventFeatures": {
     "preorder": "Antecipada",
     "seat": "No assento",
-    "pickup": "Retirada"
+    "pickup": "Compra e Retirada"
+  },
+  "formatos": {
+    "channels": {
+      "pickup": "Compra e Retirada",
+      "seat": "Do assento",
+      "table": "Da mesa",
+      "preorder": "Antecipada"
+    }
   },
   "eventosActivos": {
     "eyebrow": "Soluções",
