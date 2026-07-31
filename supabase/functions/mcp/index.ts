@@ -1113,7 +1113,15 @@ var es_default = {
   eventFeatures: {
     preorder: "Compra anticipada",
     seat: "Compra desde el asiento",
-    pickup: "Pickup"
+    pickup: "Compra y Retiro"
+  },
+  formatos: {
+    channels: {
+      pickup: "Compra y Retiro",
+      seat: "Desde el asiento",
+      table: "Desde la mesa",
+      preorder: "Anticipada"
+    }
   },
   eventosActivos: {
     eyebrow: "Soluciones",

@@ -876,7 +876,15 @@
   "eventFeatures": {
     "preorder": "Précommande",
     "seat": "À la place",
-    "pickup": "Retrait"
+    "pickup": "Commande & Retrait"
+  },
+  "formatos": {
+    "channels": {
+      "pickup": "Commande & Retrait",
+      "seat": "Depuis le siège",
+      "table": "Depuis la table",
+      "preorder": "Précommande"
+    }
   },
   "eventosActivos": {
     "eyebrow": "Solutions",

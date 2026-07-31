@@ -11,7 +11,7 @@ const SolucionesSection = () => {
   const { t } = useTranslation();
   const { path } = useLocalizedPath();
   const channelMeta = {
-    pickup: { label: t("formatos.channels.pickup", "Pickup"), Icon: ShoppingBag },
+    pickup: { label: t("formatos.channels.pickup", "Compra y Retiro"), Icon: ShoppingBag },
     seat: { label: t("formatos.channels.seat", "Desde el asiento"), Icon: Armchair },
     table: { label: t("formatos.channels.table", "Desde la mesa"), Icon: Armchair },
     preorder: { label: t("formatos.channels.preorder", "Anticipada"), Icon: Clock },
@@ -38,8 +38,11 @@ const SolucionesSection = () => {
       metric: t("formatos.cards.cafeResto.metric", "3×"),
       label: t("formatos.cards.cafeResto.label", "Más velocidad por mesa"),
       channels: ["table", "pickup"],
-      image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=1200&q=80",
-      imageAlt: t("formatos.cards.cafeResto.imageAlt", "Mesa de café con clientes"),
+      image: "/cafe-resto.webp",
+      imageAlt: t(
+        "formatos.cards.cafeResto.imageAlt",
+        "Café con mesas de madera, QR en cada mesa y barra de especialidad al fondo",
+      ),
     },
     {
       id: "bar-club",
