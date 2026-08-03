@@ -55,9 +55,11 @@ const OG_LOCALE = {
 
 // Mirror of src/i18n/routes.ts ROUTE_SLUGS. Pure JSON for easy reading from
 // Node without a TS transform; keep in sync if you add a page.
+// `solutions` is absent on purpose: /producto replaced it, so the old slug
+// serves a client-side redirect and must not get its own prerendered page.
 const ROUTE_SLUGS = {
   events:     { es: "eventos",       en: "events",       fr: "evenements",        pt: "eventos" },
-  solutions:  { es: "soluciones",    en: "solutions",    fr: "solutions",         pt: "solucoes" },
+  product:    { es: "producto",      en: "product",      fr: "produit",           pt: "produto" },
   industries: { es: "industrias",    en: "industries",   fr: "industries",        pt: "industrias" },
   howItWorks: { es: "como-funciona", en: "how-it-works", fr: "comment-ca-marche", pt: "como-funciona" },
   benefits:   { es: "beneficios",    en: "benefits",     fr: "avantages",         pt: "beneficios" },
@@ -97,6 +99,16 @@ const GLOSSARY_TERMS = [
   { id: "tasa-de-conversion",    category: "metrics" },
 ];
 const GLOSSARY_CATEGORIES = ["sales", "venue", "tech", "spaces", "metrics"];
+
+// Mirror of PRODUCT_MODE_SLUGS in src/i18n/routes.ts. Ids double as the i18n
+// keys under the `product` namespace.
+const PRODUCT_MODE_SLUGS = {
+  preorder: { es: "compra-anticipada",   en: "pre-order",          fr: "precommande",         pt: "compra-antecipada" },
+  seat:     { es: "entrega-en-asiento",  en: "seat-delivery",      fr: "livraison-au-siege",  pt: "entrega-no-assento" },
+  pickup:   { es: "compra-y-retiro",     en: "order-and-pickup",   fr: "commande-et-retrait", pt: "compra-e-retirada" },
+  kitchen:  { es: "operacion-de-cocina", en: "kitchen-operations", fr: "operations-cuisine",  pt: "operacao-de-cozinha" },
+};
+const PRODUCT_MODES = Object.keys(PRODUCT_MODE_SLUGS);
 
 const PAGE_KEYS = ["home", ...Object.keys(ROUTE_SLUGS)];
 
@@ -249,35 +261,71 @@ const eventsBlock = (t) => {
   `;
 };
 
-const solutionsBlock = (t) => {
-  const s = t.solutions || {};
+const productModePath = (mode, lang) =>
+  `/${lang}/${ROUTE_SLUGS.product[lang]}/${PRODUCT_MODE_SLUGS[mode][lang]}`;
+
+// The /producto hub: short, and linking out to each capability so crawlers
+// discover the four detail pages from here.
+const productBlock = (t, lang) => {
+  const p = t.product || {};
   const renderMode = (key) => {
-    const m = s[key];
+    const m = p[key];
     if (!m) return "";
-    const steps = (m.steps || [])
-      .map((step) => `<li><strong>${escapeHtml(step.title)}:</strong> ${escapeHtml(step.description)}</li>`)
-      .join("");
     return `
       <article>
-        <h3>${escapeHtml(m.title)}</h3>
+        <h3><a href="${productModePath(key, lang)}">${escapeHtml(m.title)}</a></h3>
         ${m.subtitle ? `<p>${escapeHtml(m.subtitle)}</p>` : ""}
-        <ol>${steps}</ol>
       </article>
     `;
   };
   return `
   <header>
-    <h1>${escapeHtml(`${s.heroTitle || ""} ${s.heroHighlight || ""}`.trim() || "Soluciones")}</h1>
-    ${s.heroSubtitle ? `<p>${escapeHtml(s.heroSubtitle)}</p>` : ""}
+    <h1>${escapeHtml(`${p.heroTitle || ""} ${p.heroHighlight || ""}`.trim() || "Producto")}</h1>
+    ${p.heroSubtitle ? `<p>${escapeHtml(p.heroSubtitle)}</p>` : ""}
   </header>
-  ${renderMode("preorder")}
-  ${renderMode("pickup")}
-  ${renderMode("seat")}
-  ${
-    s.kitchen
-      ? `<article><h3>${escapeHtml(s.kitchen.title)}</h3>${s.kitchen.subtitle ? `<p>${escapeHtml(s.kitchen.subtitle)}</p>` : ""}${s.kitchen.description ? `<p>${escapeHtml(s.kitchen.description)}</p>` : ""}</article>`
-      : ""
-  }
+  <section>
+    <h2>${escapeHtml(p.modesTitle || "")}</h2>
+    ${PRODUCT_MODES.map(renderMode).join("")}
+  </section>
+  `;
+};
+
+// One capability page. Mirrors the two content shapes the React page renders:
+// a numbered flow for the sales modes, prose + statuses + benefits for kitchen.
+const productDetailBlock = (t, mode, lang) => {
+  const p = t.product || {};
+  const m = p[mode] || {};
+  const steps = (m.steps || [])
+    .map(
+      (step) =>
+        `<li><strong>${escapeHtml(step.title)}:</strong> ${escapeHtml(step.description)}</li>`,
+    )
+    .join("");
+  const statuses = (m.statuses || [])
+    .map((s) => `<li>${escapeHtml(s)}</li>`)
+    .join("");
+  const benefits = (m.benefits || [])
+    .map((b) => `<li>${escapeHtml(b)}</li>`)
+    .join("");
+  const others = PRODUCT_MODES.filter((other) => other !== mode)
+    .map((other) =>
+      p[other]
+        ? `<li><a href="${productModePath(other, lang)}">${escapeHtml(p[other].title)}</a></li>`
+        : "",
+    )
+    .join("");
+
+  return `
+  <header>
+    <p><a href="/${lang}/${ROUTE_SLUGS.product[lang]}">${escapeHtml((t.navbar && t.navbar.product) || "Producto")}</a></p>
+    <h1>${escapeHtml(m.title || "")}</h1>
+    ${m.subtitle ? `<p>${escapeHtml(m.subtitle)}</p>` : ""}
+  </header>
+  ${m.description ? `<p>${escapeHtml(m.description)}</p>` : ""}
+  ${steps ? `<section><h2>${escapeHtml(p.stepsTitle || "")}</h2><ol>${steps}</ol></section>` : ""}
+  ${statuses ? `<section><ul>${statuses}</ul></section>` : ""}
+  ${benefits ? `<section><ul>${benefits}</ul></section>` : ""}
+  ${others ? `<section><h2>${escapeHtml(p.otherModesTitle || "")}</h2><ul>${others}</ul></section>` : ""}
   `;
 };
 
@@ -487,7 +535,7 @@ const glossaryBlock = (t) => {
 const BLOCK_BUILDERS = {
   home: homeBlock,
   events: eventsBlock,
-  solutions: solutionsBlock,
+  product: productBlock,
   industries: industriesBlock,
   howItWorks: howItWorksBlock,
   benefits: benefitsBlock,
@@ -804,6 +852,41 @@ for (const pageKey of PAGE_KEYS) {
     // keeps the extensionless sitemap URLs redirect-free.
     await writeFile(join(DIST, `${relPath.replace(/^\//, "")}.html`), html);
     console.log(`✓ ${relPath} → ${outFile} (+ ${relPath}.html)`);
+    count++;
+  }
+}
+
+// Capability pages under /producto — one HTML per (capability, language).
+// These carry the intent-level keywords ("pre-order at a stadium"), so they
+// need their own title, description and body rather than inheriting the hub's.
+for (const mode of PRODUCT_MODES) {
+  const alternates = SUPPORTED_LANGS.map((lang) => ({
+    lang,
+    href: `${SITE}${productModePath(mode, lang)}`,
+  }));
+
+  for (const lang of SUPPORTED_LANGS) {
+    const t = translations[lang];
+    const m = t?.product?.[mode];
+    if (!m) continue;
+    const relPath = productModePath(mode, lang);
+    const url = `${SITE}${relPath}`;
+
+    const html = rewrite(shell, {
+      lang,
+      title: `${m.title}${TITLE_SUFFIX}`,
+      description: m.seoDescription || m.subtitle || "",
+      url,
+      alternates,
+      bodyBlock: wrapBodyBlock(productDetailBlock(t, mode, lang)),
+      servicesJsonLd: buildServicesJsonLd(t),
+    });
+
+    const outDir = join(DIST, relPath.replace(/^\//, ""));
+    await mkdir(outDir, { recursive: true });
+    await writeFile(join(outDir, "index.html"), html);
+    await writeFile(join(DIST, `${relPath.replace(/^\//, "")}.html`), html);
+    console.log(`✓ ${relPath}`);
     count++;
   }
 }

@@ -156,20 +156,32 @@ const PlataformaSection = () => {
                   </ul>
 
                   <div className="mt-6 pt-5 border-t border-border/60">
-                    <button
-                      type="button"
-                      onClick={() => toggle(product.id)}
-                      aria-expanded={isExpanded}
-                      aria-controls={`steps-${product.id}`}
-                      className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                    >
-                      {isExpanded ? t("plataforma.toggleHide") : t("plataforma.toggleShow")}
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${
-                          isExpanded ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
+                    <div className="flex items-center justify-between gap-3">
+                      <button
+                        type="button"
+                        onClick={() => toggle(product.id)}
+                        aria-expanded={isExpanded}
+                        aria-controls={`steps-${product.id}`}
+                        className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                      >
+                        {isExpanded ? t("plataforma.toggleHide") : t("plataforma.toggleShow")}
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-300 ${
+                            isExpanded ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      {/* The teaser summarizes; the detail page is canonical.
+                          Without this link the section is a dead end and the
+                          only route to depth is the menu or the footer. */}
+                      <Link
+                        to={path("productDetail", `/${product.id}`)}
+                        className="inline-flex items-center gap-1 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
+                      >
+                        {t("product.viewDetail")}
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
                     <div
                       id={`steps-${product.id}`}
                       className={`grid transition-all duration-300 ease-out ${
@@ -211,6 +223,16 @@ const PlataformaSection = () => {
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
+        </div>
+
+        <div className="mt-6 text-center">
+          <Link
+            to={path("product")}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+          >
+            {t("product.overview")}
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>

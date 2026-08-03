@@ -76,12 +76,13 @@ Agenda una demo personalizada y descubre cómo Ronda Privé maximiza tus ventas 
 - Sin hardware ni infraestructura adicional
 - Soporte dedicado 24/7
 
-### Soluciones que transforman tu operación
-URL: https://rondaprive.com/es/soluciones
+### El producto que elimina la fila
+URL: https://rondaprive.com/es/producto
 
-Tres modalidades de venta digital diseñadas para maximizar ingresos y eliminar fricción en eventos de alta demanda.
+Cuatro capacidades que trabajan juntas: tres formas de vender y una operación de barra y cocina hecha para el ritmo de un evento.
 
 #### Compra anticipada
+URL: https://rondaprive.com/es/producto/compra-anticipada
 
 Compra antes del evento, retira el día del show
 
@@ -91,6 +92,7 @@ Compra antes del evento, retira el día del show
 4. **El día del evento, retira:** Presenta tu QR en el punto de retiro y recibe tu pedido sin esperar.
 
 #### Compra y Retiro
+URL: https://rondaprive.com/es/producto/compra-y-retiro
 
 Compra digital con retiro en punto de venta
 
@@ -102,6 +104,7 @@ Compra digital con retiro en punto de venta
 6. **Retira tu pedido:** El pedido se entrega listo. Sin esperas, sin congestión.
 
 #### Compra desde el asiento
+URL: https://rondaprive.com/es/producto/entrega-en-asiento
 
 Delivery directo a tu ubicación dentro del recinto
 
@@ -113,6 +116,7 @@ Delivery directo a tu ubicación dentro del recinto
 6. **Entrega en tu asiento:** El consumo se entrega directamente en tu ubicación.
 
 #### Operación de barra y cocina
+URL: https://rondaprive.com/es/producto/operacion-de-cocina
 
 Flujo operativo diseñado para velocidad y control
 
@@ -517,12 +521,13 @@ Book a personalized demo and discover how Ronda Privé maximizes your revenue wi
 - No hardware or additional infrastructure
 - Dedicated 24/7 support
 
-### Solutions that transform your operation
-URL: https://rondaprive.com/en/solutions
+### The product that removes the line
+URL: https://rondaprive.com/en/product
 
-Three digital sales modes designed to maximize revenue and eliminate friction at high-demand events.
+Four capabilities that work together: three ways to sell, plus bar and kitchen operations built for the pace of an event.
 
 #### Pre-event ordering
+URL: https://rondaprive.com/en/product/pre-order
 
 Purchase before the event, collect on the day of the show
 
@@ -532,6 +537,7 @@ Purchase before the event, collect on the day of the show
 4. **Collect on event day:** Present your QR at the collection point and receive your order without waiting.
 
 #### Pick Up Express
+URL: https://rondaprive.com/en/product/order-and-pickup
 
 Digital ordering with point-of-sale collection
 
@@ -543,6 +549,7 @@ Digital ordering with point-of-sale collection
 6. **Collect your order:** The order is delivered ready. No waiting, no congestion.
 
 #### Order from your seat
+URL: https://rondaprive.com/en/product/seat-delivery
 
 Direct delivery to your location within the venue
 
@@ -554,6 +561,7 @@ Direct delivery to your location within the venue
 6. **Delivery to your seat:** Your order is delivered directly to your location.
 
 #### Bar & kitchen operations
+URL: https://rondaprive.com/en/product/kitchen-operations
 
 Operational workflow designed for speed and control
 

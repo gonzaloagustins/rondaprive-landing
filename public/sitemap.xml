@@ -83,44 +83,44 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/eventos" />
   </url>
   <url>
-    <loc>https://rondaprive.com/es/soluciones</loc>
+    <loc>https://rondaprive.com/es/producto</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/soluciones" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/solutions" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/solucoes" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/solutions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/soluciones" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto" />
   </url>
   <url>
-    <loc>https://rondaprive.com/en/solutions</loc>
+    <loc>https://rondaprive.com/en/product</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/soluciones" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/solutions" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/solucoes" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/solutions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/soluciones" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto" />
   </url>
   <url>
-    <loc>https://rondaprive.com/pt/solucoes</loc>
+    <loc>https://rondaprive.com/pt/produto</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/soluciones" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/solutions" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/solucoes" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/solutions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/soluciones" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto" />
   </url>
   <url>
-    <loc>https://rondaprive.com/fr/solutions</loc>
+    <loc>https://rondaprive.com/fr/produit</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/soluciones" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/solutions" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/solucoes" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/solutions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/soluciones" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto" />
   </url>
   <url>
     <loc>https://rondaprive.com/es/industrias</loc>
@@ -401,6 +401,166 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/contato" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/contacto" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/es/producto/compra-anticipada</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/compra-anticipada" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/pre-order" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/compra-antecipada" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/precommande" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/compra-anticipada" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/en/product/pre-order</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/compra-anticipada" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/pre-order" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/compra-antecipada" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/precommande" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/compra-anticipada" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/pt/produto/compra-antecipada</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/compra-anticipada" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/pre-order" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/compra-antecipada" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/precommande" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/compra-anticipada" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/fr/produit/precommande</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/compra-anticipada" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/pre-order" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/compra-antecipada" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/precommande" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/compra-anticipada" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/es/producto/entrega-en-asiento</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/entrega-en-asiento" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/seat-delivery" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/entrega-no-assento" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/livraison-au-siege" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/entrega-en-asiento" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/en/product/seat-delivery</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/entrega-en-asiento" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/seat-delivery" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/entrega-no-assento" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/livraison-au-siege" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/entrega-en-asiento" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/pt/produto/entrega-no-assento</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/entrega-en-asiento" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/seat-delivery" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/entrega-no-assento" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/livraison-au-siege" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/entrega-en-asiento" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/fr/produit/livraison-au-siege</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/entrega-en-asiento" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/seat-delivery" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/entrega-no-assento" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/livraison-au-siege" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/entrega-en-asiento" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/es/producto/compra-y-retiro</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/compra-y-retiro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/order-and-pickup" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/compra-e-retirada" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/commande-et-retrait" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/compra-y-retiro" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/en/product/order-and-pickup</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/compra-y-retiro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/order-and-pickup" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/compra-e-retirada" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/commande-et-retrait" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/compra-y-retiro" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/pt/produto/compra-e-retirada</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/compra-y-retiro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/order-and-pickup" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/compra-e-retirada" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/commande-et-retrait" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/compra-y-retiro" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/fr/produit/commande-et-retrait</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/compra-y-retiro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/order-and-pickup" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/compra-e-retirada" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/commande-et-retrait" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/compra-y-retiro" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/es/producto/operacion-de-cocina</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/operacion-de-cocina" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/kitchen-operations" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/operacao-de-cozinha" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/operations-cuisine" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/operacion-de-cocina" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/en/product/kitchen-operations</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/operacion-de-cocina" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/kitchen-operations" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/operacao-de-cozinha" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/operations-cuisine" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/operacion-de-cocina" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/pt/produto/operacao-de-cozinha</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/operacion-de-cocina" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/kitchen-operations" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/operacao-de-cozinha" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/operations-cuisine" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/operacion-de-cocina" />
+  </url>
+  <url>
+    <loc>https://rondaprive.com/fr/produit/operations-cuisine</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rondaprive.com/es/producto/operacion-de-cocina" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rondaprive.com/en/product/kitchen-operations" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://rondaprive.com/pt/produto/operacao-de-cozinha" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://rondaprive.com/fr/produit/operations-cuisine" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rondaprive.com/es/producto/operacion-de-cocina" />
   </url>
   <url>
     <loc>https://rondaprive.com/es/insights/aumentar-ventas-fnb-eventos</loc>

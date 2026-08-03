@@ -1,5 +1,6 @@
 {
   "navbar": {
+    "menu": "Menu",
     "solutions": "Solutions",
     "industries": "Industries",
     "howItWorks": "How it works",
@@ -364,13 +365,19 @@
     "implementTitle": "Want this at your event?",
     "implementSubtitle": "Get to know the Ronda Privé platform"
   },
-  "solutions": {
-    "heroTitle": "Solutions that",
-    "heroHighlight": "transform your operation",
-    "heroSubtitle": "Three digital sales modes designed to maximize revenue and eliminate friction at high-demand events.",
+  "product": {
+    "heroTitle": "The product that",
+    "heroHighlight": "removes the line",
+    "heroSubtitle": "Four capabilities that work together: three ways to sell, plus bar and kitchen operations built for the pace of an event.",
+    "modesTitle": "The four capabilities",
+    "viewDetail": "View details",
+    "overview": "Product overview",
+    "otherModesTitle": "Other capabilities",
+    "stepsTitle": "How it works, step by step",
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Digital ordering with point-of-sale collection",
+      "seoDescription": "Order and pickup: guests pay from their phone and preparation starts when they reach the counter. No line, no food going cold.",
       "steps": [
         {
           "title": "Access Ronda Privé",
@@ -401,6 +408,7 @@
     "seat": {
       "title": "Order from your seat",
       "subtitle": "Direct delivery to your location within the venue",
+      "seoDescription": "Seat delivery: every seat has its own QR, orders arrive at the exact location, and nobody misses part of the show queueing at the bar.",
       "steps": [
         {
           "title": "Scan the seat QR",
@@ -431,6 +439,7 @@
     "preorder": {
       "title": "Pre-event ordering",
       "subtitle": "Purchase before the event, collect on the day of the show",
+      "seoDescription": "Pre-order: guests buy days before the event and collect on show day with a QR code — no line, and demand you can plan around.",
       "steps": [
         {
           "title": "Order before the event",
@@ -453,6 +462,7 @@
     "kitchen": {
       "title": "Bar & kitchen operations",
       "subtitle": "Operational workflow designed for speed and control",
+      "seoDescription": "Bar and kitchen operations: every order arrives sorted by product, customer or location, with live statuses and control over what is being made.",
       "description": "When an order comes in, the operations team sees the full details. Bar or kitchen staff view each order by product, customer, or location. The system enables preparation tracking, status updates, and complete traceability.",
       "statuses": [
         "Received",
@@ -797,9 +807,9 @@
       "description": "Order from your phone before and during the show — no lines, no kiosks.",
       "descriptionWithName": "{{name}} on Ronda Privé. Order from your phone before and during the show — no lines, no kiosks."
     },
-    "solutions": {
-      "title": "Solutions",
-      "description": "Pre-order, seat delivery and express pickup. Three Ronda Privé modes to cut the wait at events and venues."
+    "product": {
+      "title": "Product",
+      "description": "The four Ronda Privé capabilities: pre-order, seat delivery, order and pickup, and bar and kitchen operations."
     },
     "industries": {
       "title": "Solutions by industry",

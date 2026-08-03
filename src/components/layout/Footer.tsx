@@ -2,16 +2,21 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Instagram, Linkedin } from "lucide-react";
 import logoRondaPrive from "@/assets/logo-ronda-prive.png";
+import { productModes } from "@/data/productModes";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const Footer = () => {
   const { t } = useTranslation();
   const { path } = useLocalizedPath();
 
+  // Canonical pages, not home anchors: the footer is the sitemap layer, so
+  // every link here should be a URL worth landing on, sharing and indexing.
   const productoLinks = [
-    { to: `${path("solutions")}#preorder`, label: t("solutions.preorder.title", "Compra anticipada") },
-    { to: `${path("solutions")}#seat`, label: t("solutions.seat.title", "Entrega en asiento") },
-    { to: `${path("solutions")}#pickup`, label: t("solutions.pickup.title", "Compra y Retiro") },
+    ...productModes.map((mode) => ({
+      to: path("productDetail", `/${mode.id}`),
+      label: t(mode.titleKey),
+    })),
+    { to: path("product"), label: t("product.overview") },
   ];
 
   const solucionesLinks = [

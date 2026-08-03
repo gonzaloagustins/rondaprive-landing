@@ -26,7 +26,7 @@ const FULL_LANGS = ["es", "en"];
 // Mirror of src/i18n/routes.ts ROUTE_SLUGS — keep in sync if you add a page.
 const ROUTE_SLUGS = {
   events:     { es: "eventos",       en: "events" },
-  solutions:  { es: "soluciones",    en: "solutions" },
+  product:    { es: "producto",      en: "product" },
   industries: { es: "industrias",    en: "industries" },
   howItWorks: { es: "como-funciona", en: "how-it-works" },
   benefits:   { es: "beneficios",    en: "benefits" },
@@ -34,6 +34,14 @@ const ROUTE_SLUGS = {
   faq:        { es: "faq",           en: "faq" },
   glossary:   { es: "glosario",      en: "glossary" },
   contact:    { es: "contacto",      en: "contact" },
+};
+
+// Mirror of PRODUCT_MODE_SLUGS in src/i18n/routes.ts.
+const PRODUCT_MODE_SLUGS = {
+  preorder: { es: "compra-anticipada",   en: "pre-order" },
+  seat:     { es: "entrega-en-asiento",  en: "seat-delivery" },
+  pickup:   { es: "compra-y-retiro",     en: "order-and-pickup" },
+  kitchen:  { es: "operacion-de-cocina", en: "kitchen-operations" },
 };
 
 // Mirror of src/data/glossary.ts — display order + category per term id.
@@ -175,20 +183,23 @@ const langSection = (lang, t) => {
     (cta.benefits || []).map((b) => `- ${b}`).join("\n"),
   );
 
-  // --- Solutions detail ---
-  const s = t.solutions || {};
+  // --- Product detail ---
+  // Each capability names its own URL, so an agent citing one of them points
+  // at the canonical page instead of the hub.
+  const s = t.product || {};
   const modes = ["preorder", "pickup", "seat"]
     .map((k) => {
       const m = s[k];
       if (!m) return "";
-      return `#### ${m.title}\n\n${m.subtitle || ""}\n\n${stepList(m.steps)}`;
+      const url = `${urlFor("product", lang)}/${PRODUCT_MODE_SLUGS[k][lang]}`;
+      return `#### ${m.title}\nURL: ${url}\n\n${m.subtitle || ""}\n\n${stepList(m.steps)}`;
     })
     .filter(Boolean)
     .join("\n\n");
   const kitchen = s.kitchen
-    ? `#### ${s.kitchen.title}\n\n${[s.kitchen.subtitle, s.kitchen.description].filter(Boolean).join("\n\n")}`
+    ? `#### ${s.kitchen.title}\nURL: ${urlFor("product", lang)}/${PRODUCT_MODE_SLUGS.kitchen[lang]}\n\n${[s.kitchen.subtitle, s.kitchen.description].filter(Boolean).join("\n\n")}`
     : "";
-  push(`### ${heroLine(s) || "Soluciones"}\nURL: ${urlFor("solutions", lang)}\n\n${s.heroSubtitle || ""}\n\n${modes}\n\n${kitchen}`);
+  push(`### ${heroLine(s) || "Producto"}\nURL: ${urlFor("product", lang)}\n\n${s.heroSubtitle || ""}\n\n${modes}\n\n${kitchen}`);
 
   // --- Industries ---
   const ind = t.industries || {};

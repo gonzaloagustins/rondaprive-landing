@@ -1,5 +1,6 @@
 {
   "navbar": {
+    "menu": "Menu",
     "solutions": "Solutions",
     "industries": "Industries",
     "howItWorks": "Comment ça marche",
@@ -364,13 +365,19 @@
     "implementTitle": "Vous voulez ça à votre événement ?",
     "implementSubtitle": "Découvrez la plateforme Ronda Privé"
   },
-  "solutions": {
-    "heroTitle": "Des solutions qui",
-    "heroHighlight": "transforment votre exploitation",
-    "heroSubtitle": "Trois modes de vente digitale conçus pour maximiser les revenus et éliminer la friction lors d'événements à forte affluence.",
+  "product": {
+    "heroTitle": "Le produit qui",
+    "heroHighlight": "supprime la file",
+    "heroSubtitle": "Quatre capacités qui fonctionnent ensemble : trois façons de vendre et une exploitation bar et cuisine conçue pour le rythme d'un événement.",
+    "modesTitle": "Les quatre capacités",
+    "viewDetail": "Voir le détail",
+    "overview": "Vue d'ensemble du produit",
+    "otherModesTitle": "Autres capacités",
+    "stepsTitle": "Comment ça marche, étape par étape",
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Commande digitale avec retrait au point de vente",
+      "seoDescription": "Commande et retrait : la commande est payée depuis le téléphone et la préparation démarre à l'arrivée du client au comptoir. Sans file, sans produit froid.",
       "steps": [
         {
           "title": "Accédez à Ronda Privé",
@@ -401,6 +408,7 @@
     "seat": {
       "title": "Commande depuis votre siège",
       "subtitle": "Livraison directe à votre emplacement dans l'enceinte",
+      "seoDescription": "Livraison au siège : chaque siège a son QR, la commande arrive à l'emplacement exact et personne ne manque une partie du spectacle au bar.",
       "steps": [
         {
           "title": "Scannez le QR du siège",
@@ -431,6 +439,7 @@
     "preorder": {
       "title": "Commande anticipée",
       "subtitle": "Achetez avant l'événement, récupérez le jour du spectacle",
+      "seoDescription": "Précommande : le public achète plusieurs jours avant l'événement et récupère le jour du spectacle avec un QR, sans file et avec une demande anticipée.",
       "steps": [
         {
           "title": "Commandez avant l'événement",
@@ -453,6 +462,7 @@
     "kitchen": {
       "title": "Exploitation bar et cuisine",
       "subtitle": "Flux opérationnel conçu pour la rapidité et le contrôle",
+      "seoDescription": "Exploitation bar et cuisine : chaque commande arrive triée par produit, client ou emplacement, avec des statuts en direct et le contrôle de la production.",
       "description": "Lorsqu'une commande arrive, l'équipe opérationnelle en visualise tous les détails. Le personnel de bar ou de cuisine voit chaque commande par produit, client ou emplacement. Le système permet le suivi de la préparation, la mise à jour des statuts et une traçabilité complète.",
       "statuses": [
         "Reçu",
@@ -797,9 +807,9 @@
       "description": "Commandez depuis votre mobile avant et pendant le spectacle — sans file ni borne.",
       "descriptionWithName": "{{name}} sur Ronda Privé. Commandez depuis votre mobile avant et pendant le spectacle — sans file ni borne."
     },
-    "solutions": {
-      "title": "Solutions",
-      "description": "Précommande, livraison à la place et retrait express. Les trois modes Ronda Privé pour éliminer les files dans les événements et les lieux."
+    "product": {
+      "title": "Produit",
+      "description": "Les quatre capacités de Ronda Privé : précommande, livraison au siège, commande et retrait, et exploitation bar et cuisine."
     },
     "industries": {
       "title": "Solutions par secteur",
