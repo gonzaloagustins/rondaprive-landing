@@ -29,10 +29,10 @@ La forma más rápida, segura y cómoda de disfrutar cada momento.
 
 - **Asegura tu pedido antes de que se agote**
   - Disponibilidad garantizada
-  - Salta el día del show con tu QR
+  - Salta la fila con tu número de orden
   1. Elige tu evento y arma tu pedido
   2. Paga por adelantado en segundos
-  3. Retira con tu QR el día del show
+  3. El día del show das tu número de orden y retiras
 - **Recibe sin moverte de tu asiento**
   - Cero filas, cero interrupciones
   - Llega directo a tu mano
@@ -44,7 +44,7 @@ La forma más rápida, segura y cómoda de disfrutar cada momento.
   - Sin esperar, sin filas
   1. Pide desde tu celular en cualquier momento
   2. Recibe el aviso de "listo para retirar"
-  3. Retira en la fila VIP exclusiva
+  3. Das tu número de orden y retiras en la fila VIP
 
 ### Todo bajo control. En tiempo real.
 
@@ -470,10 +470,10 @@ The fastest, safest, most comfortable way to enjoy every moment.
 
 - **Lock in your order before it sells out**
   - Guaranteed availability
-  - Skip the line on show day with your QR
+  - Skip the line with your order number
   1. Pick your event and build your order
   2. Pay in advance in seconds
-  3. Pick up with your QR on show day
+  3. Give your order number on show day and pick it up
 - **Get it without leaving your seat**
   - Zero lines, zero interruptions
   - Delivered straight to you
@@ -485,7 +485,7 @@ The fastest, safest, most comfortable way to enjoy every moment.
   - No waiting, no queues
   1. Order from your phone anytime
   2. Get the "ready for pickup" alert
-  3. Collect at the exclusive VIP line
+  3. Give your order number and collect at the VIP line
 
 ### Everything under control. In real time.
 
