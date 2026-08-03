@@ -54,6 +54,10 @@ const NAV_ENTRIES: ReadonlyArray<{
   {
     id: "producto",
     labelKey: "navbar.product",
+    // Ownership is wider than the dropdown on purpose: /como-funciona isn't
+    // listed there (two of its three tabs duplicate the capability pages), but
+    // it is still product territory, so it lights this entry rather than
+    // leaving the menu dark. Owning a page and listing it are separate things.
     owns: ["product", "howItWorks"],
     hasProductMenu: true,
   },
@@ -117,17 +121,15 @@ const Navbar = () => {
     };
   });
 
-  const productLinks = [
-    ...productModes.map((mode) => ({
-      to: path("productDetail", `/${mode.id}`),
-      label: t(mode.titleKey),
-      icon: mode.icon,
-    })),
-  ];
-  const productExtraLinks = [
-    { to: path("product"), label: t("product.overview") },
-    { to: path("howItWorks"), label: t("navbar.howItWorks") },
-  ];
+  // The capabilities and nothing else. A "product overview" row was cut as
+  // navigational scaffolding — the hub is already reachable from the footer and
+  // from the breadcrumb on every capability page. A "how it works" row was cut
+  // because two of that page's three tabs now duplicate these pages.
+  const productLinks = productModes.map((mode) => ({
+    to: path("productDetail", `/${mode.id}`),
+    label: t(mode.titleKey),
+    icon: mode.icon,
+  }));
 
   useEffect(() => {
     let ticking = false;
@@ -306,27 +308,6 @@ const Navbar = () => {
                           </Link>
                         );
                       })}
-
-                      <div className="my-2 border-t border-border/60" />
-
-                      {productExtraLinks.map((link) => {
-                        const isCurrent = location.pathname === link.to;
-                        return (
-                          <Link
-                            key={link.to}
-                            to={link.to}
-                            aria-current={isCurrent ? "page" : undefined}
-                            onClick={() => setIsProductMenuOpen(false)}
-                            className={`block rounded-xl px-3 py-2 text-sm transition-colors ${
-                              isCurrent
-                                ? "bg-primary/10 text-foreground font-medium"
-                                : "text-foreground/70 hover:bg-primary/5 hover:text-foreground"
-                            }`}
-                          >
-                            {link.label}
-                          </Link>
-                        );
-                      })}
                     </div>
                   </div>
                 </div>
@@ -409,7 +390,7 @@ const Navbar = () => {
                       >
                         <div className="overflow-hidden">
                           <div className="flex flex-col pl-6 pt-1">
-                            {[...productLinks, ...productExtraLinks].map((link) => {
+                            {productLinks.map((link) => {
                               const isCurrent = location.pathname === link.to;
                               return (
                                 <Link
