@@ -1152,12 +1152,12 @@ var es_default = {
         title: "Asegura tu pedido antes de que se agote",
         bullets: [
           "Disponibilidad garantizada",
-          "Salta el d\xEDa del show con tu QR"
+          "Salta la fila con tu n\xFAmero de orden"
         ],
         steps: [
           "Elige tu evento y arma tu pedido",
           "Paga por adelantado en segundos",
-          "Retira con tu QR el d\xEDa del show"
+          "El d\xEDa del show das tu n\xFAmero de orden y retiras"
         ],
         imageAlt: "Persona revisando eventos activos en laptop con Ronda Priv\xE9"
       },
@@ -1186,9 +1186,9 @@ var es_default = {
         steps: [
           "Pide desde tu celular en cualquier momento",
           'Recibe el aviso de "listo para retirar"',
-          "Retira en la fila VIP exclusiva"
+          "Das tu n\xFAmero de orden y retiras en la fila VIP"
         ],
-        imageAlt: "Persona retirando pedido express con QR en bar VIP de festival"
+        imageAlt: "Persona retirando su pedido en la fila VIP de un bar de festival"
       }
     }
   },

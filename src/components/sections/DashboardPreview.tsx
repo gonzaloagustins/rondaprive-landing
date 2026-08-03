@@ -27,6 +27,7 @@ import {
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const MODULE_ICONS = [
@@ -282,10 +283,11 @@ const DashboardPreview = () => {
           </p>
         </div>
 
-        {/* Mock window */}
-        <div
-          ref={frameRef}
-          className="overflow-hidden rounded-2xl border border-[hsl(28,10%,18%)] bg-[hsl(28,12%,8%)] shadow-2xl"
+        {/* Mock window, sitting inside a tablet frame that tilts flat on scroll */}
+        <ContainerScroll
+          className="pb-6 pt-4 md:pb-10"
+          cardClassName="max-w-6xl"
+          screenClassName="bg-[hsl(28,12%,8%)]"
         >
           {/* Title bar */}
           <div className="flex items-center justify-between border-b border-[hsl(28,10%,18%)] px-4 py-3">
@@ -299,7 +301,7 @@ const DashboardPreview = () => {
             </span>
           </div>
 
-          <div className="flex">
+          <div className="flex" ref={frameRef}>
             {/* Icon rail */}
             <aside
               className="hidden w-14 shrink-0 flex-col items-center gap-1 border-r border-[hsl(28,10%,18%)] py-4 sm:flex"
@@ -585,7 +587,7 @@ const DashboardPreview = () => {
               </div>
             </div>
           </div>
-        </div>
+        </ContainerScroll>
 
         {/* Keeps the visitor honest about what they are looking at */}
         <p className="mt-4 text-center text-[11px] italic text-muted-foreground">

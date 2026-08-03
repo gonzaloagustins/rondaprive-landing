@@ -915,12 +915,12 @@
         "title": "Garanta seu pedido antes que esgote",
         "bullets": [
           "Disponibilidade garantida",
-          "Pule a fila no dia do show com seu QR"
+          "Pule a fila com seu número de pedido"
         ],
         "steps": [
           "Escolha seu evento e monte seu pedido",
           "Pague antecipadamente em segundos",
-          "Retire com seu QR no dia do show"
+          "No dia do show você informa seu número de pedido e retira"
         ],
         "imageAlt": "Pessoa revisando eventos ativos no laptop com Ronda Privé"
       },
@@ -949,9 +949,9 @@
         "steps": [
           "Peça pelo celular a qualquer momento",
           "Receba o aviso \"pronto para retirar\"",
-          "Retire na fila VIP exclusiva"
+          "Informe seu número de pedido e retire na fila VIP"
         ],
-        "imageAlt": "Pessoa retirando pedido express com QR em bar VIP de festival"
+        "imageAlt": "Pessoa retirando seu pedido na fila VIP de um bar de festival"
       }
     }
   },

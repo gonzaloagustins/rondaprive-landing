@@ -915,12 +915,12 @@
         "title": "Sécurisez votre commande avant rupture",
         "bullets": [
           "Disponibilité garantie",
-          "Évitez la file le jour J avec votre QR"
+          "Évitez la file avec votre numéro de commande"
         ],
         "steps": [
           "Choisissez votre événement et préparez votre commande",
           "Payez à l'avance en quelques secondes",
-          "Récupérez avec votre QR le jour du show"
+          "Le jour J, donnez votre numéro de commande et récupérez"
         ],
         "imageAlt": "Personne consultant les événements actifs sur un ordinateur portable avec Ronda Privé"
       },
@@ -949,9 +949,9 @@
         "steps": [
           "Commandez depuis votre téléphone à tout moment",
           "Recevez l'alerte \"prêt à retirer\"",
-          "Retirez dans la file VIP exclusive"
+          "Donnez votre numéro de commande et retirez dans la file VIP"
         ],
-        "imageAlt": "Personne récupérant une commande express avec QR dans un bar VIP de festival"
+        "imageAlt": "Personne récupérant sa commande dans la file VIP d'un bar de festival"
       }
     }
   },

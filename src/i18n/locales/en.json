@@ -915,12 +915,12 @@
         "title": "Lock in your order before it sells out",
         "bullets": [
           "Guaranteed availability",
-          "Skip the line on show day with your QR"
+          "Skip the line with your order number"
         ],
         "steps": [
           "Pick your event and build your order",
           "Pay in advance in seconds",
-          "Pick up with your QR on show day"
+          "Give your order number on show day and pick it up"
         ],
         "imageAlt": "Person browsing active events on a laptop with Ronda Privé"
       },
@@ -949,9 +949,9 @@
         "steps": [
           "Order from your phone anytime",
           "Get the \"ready for pickup\" alert",
-          "Collect at the exclusive VIP line"
+          "Give your order number and collect at the VIP line"
         ],
-        "imageAlt": "Person picking up an express order with QR at a festival VIP bar"
+        "imageAlt": "Person picking up their order at the VIP line of a festival bar"
       }
     }
   },
