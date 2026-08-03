@@ -48,9 +48,15 @@ describe("Navbar active state", () => {
     expect(activeLabels()).toEqual(["Producto"]);
   });
 
-  it("lights Producto on Cómo funciona, which it also owns", async () => {
+  // Not listed in the dropdown, but still product territory — owning a page and
+  // listing it are separate things, and the alternative is a dark menu.
+  it("lights Producto on Cómo funciona, which it owns without listing", async () => {
     await renderAt("/es/como-funciona");
     expect(activeLabels()).toEqual(["Producto"]);
+    const hrefs = [...document.querySelectorAll("#product-menu a")].map((a) =>
+      a.getAttribute("href"),
+    );
+    expect(hrefs).not.toContain("/es/como-funciona");
   });
 
   it("lights Soluciones on the industries page it owns", async () => {
@@ -75,7 +81,9 @@ describe("Navbar active state", () => {
 });
 
 describe("Navbar product menu", () => {
-  it("exposes every capability plus the overview and how-it-works", async () => {
+  // The capabilities and nothing else: an overview row duplicated the footer
+  // and the breadcrumb, and a how-it-works row duplicated these pages.
+  it("lists the four capabilities and nothing else", async () => {
     await renderAt("/es/producto");
     const hrefs = [...document.querySelectorAll("#product-menu a")].map((a) =>
       a.getAttribute("href"),
@@ -85,8 +93,6 @@ describe("Navbar product menu", () => {
       "/es/producto/entrega-en-asiento",
       "/es/producto/compra-y-retiro",
       "/es/producto/operacion-de-cocina",
-      "/es/producto",
-      "/es/como-funciona",
     ]);
   });
 
