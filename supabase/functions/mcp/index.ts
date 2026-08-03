@@ -237,6 +237,7 @@ var faqItems = [
 // src/i18n/locales/es.json
 var es_default = {
   navbar: {
+    menu: "Men\xFA",
     solutions: "Soluciones",
     industries: "Industrias",
     howItWorks: "C\xF3mo funciona",
@@ -601,13 +602,19 @@ var es_default = {
     implementTitle: "\xBFQuieres implementar esto en tu evento?",
     implementSubtitle: "Conoce la plataforma Ronda Priv\xE9"
   },
-  solutions: {
-    heroTitle: "Soluciones que",
-    heroHighlight: "transforman tu operaci\xF3n",
-    heroSubtitle: "Tres modalidades de venta digital dise\xF1adas para maximizar ingresos y eliminar fricci\xF3n en eventos de alta demanda.",
+  product: {
+    heroTitle: "El producto que",
+    heroHighlight: "elimina la fila",
+    heroSubtitle: "Cuatro capacidades que trabajan juntas: tres formas de vender y una operaci\xF3n de barra y cocina hecha para el ritmo de un evento.",
+    modesTitle: "Las cuatro capacidades",
+    viewDetail: "Ver detalle",
+    overview: "Vista general del producto",
+    otherModesTitle: "Otras capacidades",
+    stepsTitle: "C\xF3mo funciona, paso a paso",
     pickup: {
       title: "Compra y Retiro",
       subtitle: "Compra digital con retiro en punto de venta",
+      seoDescription: "Compra y retiro: el pedido se paga desde el celular y la preparaci\xF3n arranca cuando el cliente llega al punto de retiro. Sin fila y sin producto fr\xEDo.",
       steps: [
         {
           title: "Accede a Ronda Priv\xE9",
@@ -638,6 +645,7 @@ var es_default = {
     seat: {
       title: "Compra desde el asiento",
       subtitle: "Delivery directo a tu ubicaci\xF3n dentro del recinto",
+      seoDescription: "Entrega en asiento: cada asiento tiene su QR, el pedido llega a la ubicaci\xF3n exacta y nadie se pierde parte del show por ir a la barra.",
       steps: [
         {
           title: "Escanea el QR del asiento",
@@ -668,6 +676,7 @@ var es_default = {
     preorder: {
       title: "Compra anticipada",
       subtitle: "Compra antes del evento, retira el d\xEDa del show",
+      seoDescription: "Compra anticipada: el p\xFAblico compra d\xEDas antes del evento y retira el d\xEDa del show con un QR, sin fila y con la demanda proyectada de antemano.",
       steps: [
         {
           title: "Compra antes del evento",
@@ -690,6 +699,7 @@ var es_default = {
     kitchen: {
       title: "Operaci\xF3n de barra y cocina",
       subtitle: "Flujo operativo dise\xF1ado para velocidad y control",
+      seoDescription: "Operaci\xF3n de barra y cocina: cada pedido llega ordenado por producto, cliente o ubicaci\xF3n, con estados en vivo y control de lo que se prepara.",
       description: "Cuando entra un pedido, el equipo operativo visualiza el detalle completo. El personal de barra o cocina ve cada pedido por producto, cliente o ubicaci\xF3n. El sistema permite iniciar preparaci\xF3n, actualizar estados y mantener trazabilidad completa.",
       statuses: [
         "Recibido",
@@ -1034,9 +1044,9 @@ var es_default = {
       description: "Compra desde el celular antes y durante el show, sin filas ni t\xF3tems.",
       descriptionWithName: "{{name}} en Ronda Priv\xE9. Compra desde el celular antes y durante el show \u2014 sin filas, sin t\xF3tems."
     },
-    solutions: {
-      title: "Soluciones",
-      description: "Compra anticipada, entrega al asiento y compra y retiro. Las tres formas de Ronda Priv\xE9 para eliminar las filas en eventos y venues."
+    product: {
+      title: "Producto",
+      description: "Las cuatro capacidades de Ronda Priv\xE9: compra anticipada, entrega en asiento, compra y retiro y operaci\xF3n de barra y cocina."
     },
     industries: {
       title: "Soluciones por industria",

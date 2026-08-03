@@ -1,5 +1,6 @@
 {
   "navbar": {
+    "menu": "Menu",
     "solutions": "Soluções",
     "industries": "Indústrias",
     "howItWorks": "Como funciona",
@@ -364,13 +365,19 @@
     "implementTitle": "Quer isso no seu evento?",
     "implementSubtitle": "Conheça a plataforma Ronda Privé"
   },
-  "solutions": {
-    "heroTitle": "Soluções que",
-    "heroHighlight": "transformam sua operação",
-    "heroSubtitle": "Três modalidades de venda digital projetadas para maximizar receita e eliminar fricção em eventos de alta demanda.",
+  "product": {
+    "heroTitle": "O produto que",
+    "heroHighlight": "acaba com a fila",
+    "heroSubtitle": "Quatro capacidades que trabalham juntas: três formas de vender e uma operação de bar e cozinha feita para o ritmo de um evento.",
+    "modesTitle": "As quatro capacidades",
+    "viewDetail": "Ver detalhes",
+    "overview": "Visão geral do produto",
+    "otherModesTitle": "Outras capacidades",
+    "stepsTitle": "Como funciona, passo a passo",
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Compra digital com retirada no ponto de venda",
+      "seoDescription": "Compra e retirada: o pedido é pago pelo celular e a preparação começa quando o cliente chega ao ponto de retirada. Sem fila e sem produto frio.",
       "steps": [
         {
           "title": "Acesse o Ronda Privé",
@@ -401,6 +408,7 @@
     "seat": {
       "title": "Compra do seu assento",
       "subtitle": "Entrega direta à sua localização dentro do recinto",
+      "seoDescription": "Entrega no assento: cada assento tem o seu QR, o pedido chega à localização exata e ninguém perde parte do show na fila do bar.",
       "steps": [
         {
           "title": "Escaneie o QR do assento",
@@ -431,6 +439,7 @@
     "preorder": {
       "title": "Compra antecipada",
       "subtitle": "Compre antes do evento, retire no dia do show",
+      "seoDescription": "Compra antecipada: o público compra dias antes do evento e retira no dia do show com um QR, sem fila e com a demanda projetada com antecedência.",
       "steps": [
         {
           "title": "Compre antes do evento",
@@ -453,6 +462,7 @@
     "kitchen": {
       "title": "Operação de bar e cozinha",
       "subtitle": "Fluxo operacional projetado para velocidade e controle",
+      "seoDescription": "Operação de bar e cozinha: cada pedido chega organizado por produto, cliente ou localização, com status ao vivo e controle do que está sendo preparado.",
       "description": "Quando um pedido entra, a equipe operacional visualiza os detalhes completos. O pessoal de bar ou cozinha vê cada pedido por produto, cliente ou localização. O sistema permite acompanhar a preparação, atualizar status e manter rastreabilidade completa.",
       "statuses": [
         "Recebido",
@@ -797,9 +807,9 @@
       "description": "Compre pelo celular antes e durante o show — sem filas e sem totens.",
       "descriptionWithName": "{{name}} no Ronda Privé. Compre pelo celular antes e durante o show — sem filas e sem totens."
     },
-    "solutions": {
-      "title": "Soluções",
-      "description": "Compra antecipada, entrega no assento e retirada expressa. As três modalidades do Ronda Privé para acabar com as filas em eventos e venues."
+    "product": {
+      "title": "Produto",
+      "description": "As quatro capacidades do Ronda Privé: compra antecipada, entrega no assento, compra e retirada e operação de bar e cozinha."
     },
     "industries": {
       "title": "Soluções por setor",

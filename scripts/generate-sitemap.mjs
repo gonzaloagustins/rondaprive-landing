@@ -21,9 +21,11 @@ const SITE = "https://rondaprive.com";
 const SUPPORTED_LANGS = ["es", "en", "pt", "fr"];
 const DEFAULT_LANG = "es";
 
+// `solutions` is intentionally absent: /producto replaced it and the old slug
+// only serves a redirect now, so it must not be advertised to crawlers.
 const ROUTE_SLUGS = {
   events:     { es: "eventos",       en: "events",       fr: "evenements",        pt: "eventos" },
-  solutions:  { es: "soluciones",    en: "solutions",    fr: "solutions",         pt: "solucoes" },
+  product:    { es: "producto",      en: "product",      fr: "produit",           pt: "produto" },
   industries: { es: "industrias",    en: "industries",   fr: "industries",        pt: "industrias" },
   howItWorks: { es: "como-funciona", en: "how-it-works", fr: "comment-ca-marche", pt: "como-funciona" },
   benefits:   { es: "beneficios",    en: "benefits",     fr: "avantages",         pt: "beneficios" },
@@ -31,6 +33,14 @@ const ROUTE_SLUGS = {
   faq:        { es: "faq",           en: "faq",          fr: "faq",               pt: "faq" },
   glossary:   { es: "glosario",      en: "glossary",     fr: "lexique",           pt: "glossario" },
   contact:    { es: "contacto",      en: "contact",      fr: "contact",           pt: "contato" },
+};
+
+// Mirror of PRODUCT_MODE_SLUGS in src/i18n/routes.ts.
+const PRODUCT_MODE_SLUGS = {
+  preorder: { es: "compra-anticipada",   en: "pre-order",          fr: "precommande",         pt: "compra-antecipada" },
+  seat:     { es: "entrega-en-asiento",  en: "seat-delivery",      fr: "livraison-au-siege",  pt: "entrega-no-assento" },
+  pickup:   { es: "compra-y-retiro",     en: "order-and-pickup",   fr: "commande-et-retrait", pt: "compra-e-retirada" },
+  kitchen:  { es: "operacion-de-cocina", en: "kitchen-operations", fr: "operations-cuisine",  pt: "operacao-de-cozinha" },
 };
 
 const PAGE_KEYS = ["home", ...Object.keys(ROUTE_SLUGS)];
@@ -60,6 +70,19 @@ const urls = [];
 for (const pageKey of PAGE_KEYS) {
   for (const lang of SUPPORTED_LANGS) {
     urls.push(buildUrlEntry((l) => pathFor(pageKey, l), lang, today));
+  }
+}
+// One URL per capability under /producto. These are the pages meant to rank
+// for intent-level searches, so they belong in the sitemap individually.
+for (const mode of Object.keys(PRODUCT_MODE_SLUGS)) {
+  for (const lang of SUPPORTED_LANGS) {
+    urls.push(
+      buildUrlEntry(
+        (l) => `${pathFor("product", l)}/${PRODUCT_MODE_SLUGS[mode][l]}`,
+        lang,
+        today,
+      ),
+    );
   }
 }
 // Insight articles carry their real publication date as lastmod so crawlers

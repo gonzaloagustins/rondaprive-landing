@@ -12,15 +12,21 @@ import { useGTMPageview } from "@/hooks/useGTMPageview";
 import Home from "./pages/Home";
 import {
   DEFAULT_LANG,
+  PRODUCT_MODES,
+  PRODUCT_MODE_SLUGS,
   ROUTE_SLUGS,
   SUPPORTED_LANGS,
   isLang,
+  isProductMode,
+  localizedPath,
+  parseLangFromPath,
   type Lang,
 } from "@/i18n/routes";
 
 const Events = lazy(() => import("./pages/Events"));
 const EventDetail = lazy(() => import("./pages/EventDetail"));
-const Solutions = lazy(() => import("./pages/Solutions"));
+const Product = lazy(() => import("./pages/Product"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const Industries = lazy(() => import("./pages/Industries"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const Benefits = lazy(() => import("./pages/Benefits"));
@@ -107,6 +113,46 @@ const localizedRoutes = (
     ];
   });
 
+/**
+ * /:lang/producto plus one concrete child route per capability, per language.
+ * Concrete slugs (rather than a `:mode` param) keep typos resolving to the 404
+ * page, and let each detail page receive its mode as an explicit prop instead
+ * of re-parsing the URL.
+ */
+const productRoutes = () =>
+  SUPPORTED_LANGS.flatMap((lang) => {
+    const base = ROUTE_SLUGS.product[lang];
+    return [
+      <Route key={`product-${lang}`} path={base} element={<Product />} />,
+      ...PRODUCT_MODES.map((mode) => (
+        <Route
+          key={`product-${lang}-${mode}`}
+          path={`${base}/${PRODUCT_MODE_SLUGS[mode][lang]}`}
+          element={<ProductDetail mode={mode} />}
+        />
+      )),
+    ];
+  });
+
+/**
+ * The retired /soluciones page, which /producto replaced.
+ *
+ * Old inbound links (including the footer deep links) carried the capability
+ * in the hash, so #preorder/#seat/#pickup land on the matching detail page
+ * rather than dropping everyone on the hub. Language comes from the path, not
+ * from i18next: LangGuard syncs the catalog in an effect, so on a cold load of
+ * a legacy URL i18next may still hold the previous language on first render.
+ */
+const LegacySolutionsRedirect = () => {
+  const location = useLocation();
+  const lang = parseLangFromPath(location.pathname) ?? DEFAULT_LANG;
+  const mode = location.hash.replace(/^#/, "");
+  const to = isProductMode(mode)
+    ? localizedPath("productDetail", lang, `/${mode}`)
+    : localizedPath("product", lang);
+  return <Navigate to={to} replace />;
+};
+
 const RouterShell = () => {
   useGTMPageview();
   return (
@@ -123,7 +169,8 @@ const RouterShell = () => {
                   <Route element={<PageLayout />}>
                     <Route index element={<Home />} />
                     {localizedRoutes("events", <Events />, { path: ":id", element: <EventDetail /> })}
-                    {localizedRoutes("solutions", <Solutions />)}
+                    {productRoutes()}
+                    {localizedRoutes("solutions", <LegacySolutionsRedirect />)}
                     {localizedRoutes("industries", <Industries />)}
                     {localizedRoutes("howItWorks", <HowItWorks />)}
                     {localizedRoutes("benefits", <Benefits />)}
