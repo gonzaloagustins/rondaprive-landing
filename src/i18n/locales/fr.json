@@ -377,43 +377,29 @@
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Commande digitale avec retrait au point de vente",
-      "seoDescription": "Commande et retrait : la commande est payée depuis le téléphone, préparée pendant le spectacle et récupérée en donnant le numéro de commande dans la file des commandes digitales.",
+      "seoDescription": "Commande et retrait en quatre étapes : scannez le QR du bar, choisissez au menu, payez depuis le téléphone et retirez avec votre numéro de commande. Sans file.",
       "steps": [
         {
-          "title": "Accédez à Ronda Privé",
-          "description": "Le participant entre en scannant un QR ou via le lien direct."
+          "title": "Scannez le QR du bar",
+          "description": "Chaque bar ou commerce a son QR. Rien à télécharger."
         },
         {
-          "title": "Parcourez et commandez",
-          "description": "Consultez le menu digital, sélectionnez vos produits et payez depuis le téléphone."
+          "title": "Parcourez le menu et choisissez",
+          "description": "Voyez les produits disponibles et composez votre commande depuis le téléphone."
         },
         {
-          "title": "Recevez votre numéro de commande",
-          "description": "Un numéro unique est généré pour identifier la commande."
+          "title": "Payez",
+          "description": "Paiement digital en quelques secondes, sans espèces ni terminal."
         },
         {
-          "title": "La commande est préparée",
-          "description": "Le bar ou la cuisine la prépare pendant que le participant reste dans l'événement."
-        },
-        {
-          "title": "Recevez l'alerte",
-          "description": "La notification « prêt à retirer » arrive."
-        },
-        {
-          "title": "Donnez votre numéro et retirez",
-          "description": "La remise se fait dans la file réservée aux commandes digitales. Sans attente, sans congestion."
+          "title": "Retirez, et c'est tout",
+          "description": "Présentez votre numéro de commande dans la file des commandes digitales."
         }
       ],
       "screens": {
-        "confirmedTitle": "Commande confirmée.",
-        "payLabel": "Payer",
-        "total": "$11.200",
         "aria": "Simulation du parcours commande et retrait sur téléphone",
-        "discoverTitle": "Les meilleurs lieux, choisis pour vous.",
-        "searchPlaceholder": "Cherchez un événement ou un artiste…",
-        "thisWeek": "Cette semaine",
-        "venueName": "Arena Norte",
-        "venueMeta": "Aujourd'hui · 21h00",
+        "scanTitle": "Scannez le QR du bar",
+        "scanHint": "Pointez la caméra vers le code",
         "barName": "Bar Central",
         "barFloor": "4e étage",
         "waitLabel": "Attente : 6 min",
@@ -427,21 +413,15 @@
         "item2Name": "Bière lager",
         "item2Desc": "Canette 470 ml",
         "item2Price": "$3.200",
-        "preparingTitle": "Préparation de votre commande.",
+        "cartLabel": "Voir la commande",
+        "totalLabel": "Total",
+        "total": "$11.200",
+        "processingLabel": "Paiement en cours…",
         "orderNumber": "A127",
         "codeLabel": "Code",
         "codeValue": "7342",
-        "statusLabel": "Statut",
-        "statusConfirmed": "Confirmée",
-        "statusConfirmedHint": "Votre commande a été confirmée.",
-        "statusPreparing": "En préparation",
-        "statusPreparingHint": "Votre commande est en préparation.",
-        "statusReady": "Prête à retirer",
-        "pickupAtLabel": "Retrait à",
         "readyBanner": "Votre commande est prête !",
-        "readyHint": "Présentez-le au point de retrait",
-        "deliveredLabel": "Commande retirée",
-        "ratingLabel": "Alors, c'était comment ?"
+        "readyHint": "Présentez-le au point de retrait"
       }
     },
     "seat": {

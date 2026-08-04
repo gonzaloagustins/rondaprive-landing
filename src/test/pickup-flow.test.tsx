@@ -28,7 +28,8 @@ class StubObserver {
   unobserve() {}
 }
 
-const STEPS = Array.from({ length: 6 }, (_, i) => ({
+/** Four, matching the four screens — the component asserts they line up. */
+const STEPS = Array.from({ length: 4 }, (_, i) => ({
   title: `Paso ${i + 1}`,
   description: `Descripción del paso ${i + 1}`,
 }));
@@ -88,7 +89,7 @@ describe("PickupFlow", () => {
 
   it("keeps the phone in step with the list", async () => {
     await renderFlow();
-    for (const i of [3, 5, 1, 0]) {
+    for (const i of [3, 1, 2, 0]) {
       await scrollStepIntoBand(i);
       expect(activeStepIndex()).toBe(i);
       expect(activeScreen()).toBe(i);
@@ -108,11 +109,11 @@ describe("PickupFlow", () => {
   // would flash the first screen in the middle of the page.
   it("holds the last step when nothing is in the band", async () => {
     await renderFlow();
-    await scrollStepIntoBand(4);
+    await scrollStepIntoBand(3);
     await act(async () => {
-      observerCb?.([{ target: observed[4], isIntersecting: false }]);
+      observerCb?.([{ target: observed[3], isIntersecting: false }]);
     });
-    expect(activeScreen()).toBe(4);
+    expect(activeScreen()).toBe(3);
   });
 
   // Steps 3 and 4 once shared a title, so step 3 showed step 4's wording and
@@ -123,12 +124,10 @@ describe("PickupFlow", () => {
     const sc = (k: string) => i18n.t(`product.pickup.screens.${k}`) as string;
 
     const expected = [
-      sc("discoverTitle"), // 1 · accede
-      sc("payLabel"), //      2 · explora y compra
-      sc("confirmedTitle"), // 3 · recibe tu número
-      sc("preparingTitle"), // 4 · se prepara
-      sc("readyBanner"), //   5 · recibe el aviso
-      sc("deliveredLabel"), // 6 · retira
+      sc("scanHint"), //         1 · escanea el QR de la barra
+      sc("cartLabel"), //        2 · explora la carta y elige
+      sc("processingLabel"), //  3 · paga
+      sc("readyBanner"), //      4 · retira, y listo
     ];
 
     // Every marker must be unique, or the assertion below proves nothing.
@@ -141,12 +140,26 @@ describe("PickupFlow", () => {
     }
   });
 
-  it("never shows a later step's title on an earlier screen", async () => {
+  it("never shows a later step's screen text on an earlier step", async () => {
     await renderFlow();
-    const preparing = i18n.t("product.pickup.screens.preparingTitle") as string;
+    const ready = i18n.t("product.pickup.screens.readyBanner") as string;
+    // Step 3 is paying; the order cannot already be ready for pickup.
     await scrollStepIntoBand(2);
     const stepThree = document.querySelector('[data-screen][data-active="true"]');
-    expect(stepThree?.textContent).not.toContain(preparing);
+    expect(stepThree?.textContent).not.toContain(ready);
+  });
+
+  // The screens are hardcoded while the steps come from the catalog, so a copy
+  // edit that adds or drops a step would silently desync the two.
+  it("has exactly one screen per step in the catalog", async () => {
+    await i18n.changeLanguage("es");
+    const catalogSteps = i18n.t("product.pickup.steps", {
+      returnObjects: true,
+    }) as unknown[];
+    await renderFlow();
+    expect(document.querySelectorAll("[data-screen]")).toHaveLength(
+      catalogSteps.length,
+    );
   });
 
   it("hides the phone from assistive tech, since the list carries the content", async () => {

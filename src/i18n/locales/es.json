@@ -377,43 +377,29 @@
     "pickup": {
       "title": "Compra y Retiro",
       "subtitle": "Compra digital con retiro en punto de venta",
-      "seoDescription": "Compra y retiro: el pedido se paga desde el celular, se prepara mientras el show sigue y se retira dando el número de orden en la fila de pedidos digitales.",
+      "seoDescription": "Compra y retiro en cuatro pasos: escanea el QR de la barra, elige de la carta, paga desde el celular y retira dando tu número de orden. Sin filas.",
       "steps": [
         {
-          "title": "Accede a Ronda Privé",
-          "description": "El asistente ingresa escaneando un QR o desde un link directo."
+          "title": "Escanea el QR de la barra",
+          "description": "Cada barra o comercio tiene su QR. No hay que descargar nada."
         },
         {
-          "title": "Explora y compra",
-          "description": "Ve la carta digital, selecciona productos y paga desde el celular."
+          "title": "Explora la carta y elige",
+          "description": "Ve los productos disponibles y arma tu pedido desde el celular."
         },
         {
-          "title": "Recibe tu número de orden",
-          "description": "Se genera un número único que identifica el pedido."
+          "title": "Paga",
+          "description": "Pago digital en segundos, sin efectivo ni terminal."
         },
         {
-          "title": "El pedido se prepara",
-          "description": "La barra o la cocina lo prepara mientras el asistente sigue en el evento."
-        },
-        {
-          "title": "Recibe el aviso",
-          "description": "Llega la notificación de listo para retirar."
-        },
-        {
-          "title": "Da tu número y retira",
-          "description": "La entrega es en la fila exclusiva para pedidos digitales. Sin esperas, sin congestión."
+          "title": "Retira, y listo",
+          "description": "Presenta tu número de orden en la fila de pedidos digitales."
         }
       ],
       "screens": {
-        "confirmedTitle": "Pedido confirmado.",
-        "payLabel": "Pagar",
-        "total": "$11.200",
         "aria": "Simulación del flujo de compra y retiro en el celular",
-        "discoverTitle": "Los mejores lugares, seleccionados para ti.",
-        "searchPlaceholder": "Busca un evento o artista…",
-        "thisWeek": "Esta semana",
-        "venueName": "Arena Norte",
-        "venueMeta": "Hoy · 21:00",
+        "scanTitle": "Escanea el QR de la barra",
+        "scanHint": "Apunta la cámara al código",
         "barName": "Barra Central",
         "barFloor": "4to piso",
         "waitLabel": "Espera: 6 min",
@@ -427,21 +413,15 @@
         "item2Name": "Cerveza lager",
         "item2Desc": "Lata 470 ml",
         "item2Price": "$3.200",
-        "preparingTitle": "Preparando tu pedido.",
+        "cartLabel": "Ver pedido",
+        "totalLabel": "Total",
+        "total": "$11.200",
+        "processingLabel": "Procesando pago…",
         "orderNumber": "A127",
         "codeLabel": "Código",
         "codeValue": "7342",
-        "statusLabel": "Estado",
-        "statusConfirmed": "Confirmado",
-        "statusConfirmedHint": "Tu pedido fue confirmado.",
-        "statusPreparing": "En preparación",
-        "statusPreparingHint": "Tu pedido está siendo preparado.",
-        "statusReady": "Listo para retirar",
-        "pickupAtLabel": "Retiro en",
         "readyBanner": "¡Tu pedido está listo!",
-        "readyHint": "Preséntalo en el punto de retiro",
-        "deliveredLabel": "Pedido entregado",
-        "ratingLabel": "¿Cómo estuvo?"
+        "readyHint": "Preséntalo en el punto de retiro"
       }
     },
     "seat": {
