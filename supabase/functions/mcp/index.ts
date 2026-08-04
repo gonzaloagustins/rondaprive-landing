@@ -624,6 +624,11 @@ var es_default = {
         ticketLabel: "Comanda",
         action: "Marcar listo"
       },
+      validation: {
+        label: "VALIDADO EN OPERACI\xD3N REAL",
+        title: "Fiesta LOLA, Rancagua",
+        detail: "Probado en sector general y \xE1rea VIP"
+      },
       impact: [
         {
           value: "\u221285%",
