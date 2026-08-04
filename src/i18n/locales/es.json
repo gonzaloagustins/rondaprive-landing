@@ -397,6 +397,7 @@
           { "before": "Los datos de consumo llegan al día siguiente", "after": "Datos en vivo durante el evento" }
         ]
       },
+      "otherModesIntro": "Los tres canales operan en el mismo evento, sobre la misma carta y el mismo panel.",
       "validation": {
         "label": "VALIDADO EN OPERACIÓN REAL",
         "title": "Fiesta LOLA, Rancagua",

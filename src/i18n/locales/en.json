@@ -397,6 +397,7 @@
           { "before": "Consumption data arrives the next day", "after": "Live data during the event" }
         ]
       },
+      "otherModesIntro": "All three channels run at the same event, on the same menu and the same dashboard.",
       "validation": {
         "label": "VALIDATED IN REAL OPERATION",
         "title": "Fiesta LOLA, Rancagua",

@@ -231,8 +231,17 @@ const ProductDetail = ({ mode }: ProductDetailProps) => {
           each other, or the only way sideways is back through the menu. */}
       <section className="py-16 border-t border-border/50">
         <div className="section-container">
-          <h2 className="text-2xl font-bold mb-8">{t("product.otherModesTitle")}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <h2 className="text-2xl font-bold">{t("product.otherModesTitle")}</h2>
+          {/* Section deck, not card copy: it frames all three at once, so it
+              sits under the heading at body size and lets the cards keep the
+              only bold type in the block. Pickup-only for now — it is the one
+              page whose copy was written for this grid. */}
+          {mode === "pickup" && (
+            <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
+              {t("product.pickup.otherModesIntro")}
+            </p>
+          )}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
             {others.map((other) => {
               const OtherIcon = iconMap[other.icon] || Clock;
               return (
