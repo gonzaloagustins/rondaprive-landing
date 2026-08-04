@@ -374,10 +374,33 @@
     "overview": "Vue d'ensemble du produit",
     "otherModesTitle": "Autres capacités",
     "stepsTitle": "Comment ça marche, étape par étape",
+    "impactTitle": "Ce qui change dans votre exploitation",
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Commande digitale avec retrait au point de vente",
       "seoDescription": "Commande et retrait en quatre étapes : scannez le QR du commerce, choisissez au menu, payez depuis le téléphone et retirez avec votre numéro de commande. Sans file.",
+      "impact": [
+        {
+          "value": "−85%",
+          "label": "Files d'attente",
+          "note": "Ni bornes ni caisses : la commande arrive depuis le téléphone."
+        },
+        {
+          "value": "+40%",
+          "label": "Ventes",
+          "note": "Plus de tournées par personne quand commander prend deux minutes."
+        },
+        {
+          "value": "3x",
+          "label": "Vitesse de service",
+          "note": "Votre équipe prépare au lieu d'encaisser."
+        },
+        {
+          "value": "0",
+          "label": "Infrastructure supplémentaire",
+          "note": "Cela fonctionne avec les appareils que vous avez déjà."
+        }
+      ],
       "steps": [
         {
           "title": "Scannez le QR du commerce",
