@@ -145,6 +145,20 @@ const ProductDetail = ({ mode }: ProductDetailProps) => {
                 </div>
               ))}
             </dl>
+
+            {/* The quiet half of the page's ask: same destination as the
+                closing CTA, but left on the content column and in the outline
+                variant, so whoever is convinced by the figures can leave here
+                without this competing with the ending. */}
+            <div className="mt-12 flex flex-col items-start gap-4">
+              <p className="text-muted-foreground">{t("product.impactCta")}</p>
+              <Button variant="gold-outline" className="group" asChild>
+                <Link to={path("contact")}>
+                  {t("navbar.requestDemo")}
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </section>
       )}
