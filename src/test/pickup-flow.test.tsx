@@ -161,7 +161,7 @@ describe("PickupFlow", () => {
       sc("scanHint"), //         1 · escanea el QR de la barra
       sc("cartLabel"), //        2 · explora la carta y elige
       sc("processingLabel"), //  3 · paga
-      sc("readyBanner"), //      4 · retira, y listo
+      sc("readyBanner"), //      4 · sigue tu pedido y retira
     ];
 
     // Every marker must be unique, or the assertion below proves nothing.
@@ -200,5 +200,24 @@ describe("PickupFlow", () => {
     await renderFlow();
     const phone = document.querySelector("[data-screen]")?.closest("[aria-hidden]");
     expect(phone).not.toBeNull();
+  });
+
+  // A step's `note` is an optional caveat. It has to reach the page — it is
+  // the only place the 4-digit code is mentioned — without being mistaken for
+  // part of the step itself.
+  it("renders a step's note under its description, quieter than it", async () => {
+    await i18n.changeLanguage("es");
+    render(
+      <I18nextProvider i18n={i18n}>
+        <PickupFlow
+          steps={STEPS.map((s, i) => (i === 3 ? { ...s, note: "Nota del paso 4" } : s))}
+          heading="Cómo funciona, paso a paso"
+        />
+      </I18nextProvider>,
+    );
+
+    const note = screen.getByText("Nota del paso 4");
+    expect(note.className).toContain("text-xs");
+    expect(note.previousElementSibling).toHaveTextContent("Descripción del paso 4");
   });
 });
