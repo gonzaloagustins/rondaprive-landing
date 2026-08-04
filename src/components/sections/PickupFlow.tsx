@@ -32,30 +32,60 @@ interface PickupFlowProps {
   heading: string;
 }
 
-/** Index of the step currently crossing the middle band of the viewport. */
+/** Fraction of the viewport height where a step becomes the active one. */
+const ACTIVATION_LINE = 0.45;
+
+/**
+ * The last step whose top has passed the activation line.
+ *
+ * Measured from live geometry on each scroll frame rather than from
+ * IntersectionObserver entries. An observer with a thin band reports threshold
+ * crossings, and one callback can carry several at once: scroll faster than a
+ * step's spacing and the steps in between enter and leave without ever being
+ * reported as intersecting, so picking from the batch skipped them — that is
+ * what made the phone jump from step 1 straight to step 4. Entry order is not
+ * document order either, so the choice was not even monotonic.
+ *
+ * Reading positions directly cannot skip: whatever the scroll delta, the answer
+ * is always the step the visitor is actually looking at.
+ */
 const useActiveStep = (count: number) => {
   const [active, setActive] = useState(0);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
-    const items = itemRefs.current.filter(Boolean) as HTMLLIElement[];
-    if (!items.length) return;
+    let frame = 0;
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        // The band is thin, so at most one step is inside it. When a scroll
-        // jump leaves the band empty we keep the last value rather than
-        // resetting, which would flash screen 1 mid-page.
-        const inBand = entries.find((e) => e.isIntersecting);
-        if (!inBand) return;
-        const idx = items.indexOf(inBand.target as HTMLLIElement);
-        if (idx !== -1) setActive(idx);
-      },
-      { rootMargin: "-48% 0px -48% 0px", threshold: 0 },
-    );
+    const compute = () => {
+      frame = 0;
+      const line = window.innerHeight * ACTIVATION_LINE;
+      let next = 0;
+      let closest = -Infinity;
 
-    items.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+      itemRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const top = el.getBoundingClientRect().top;
+        if (top <= line && top > closest) {
+          closest = top;
+          next = i;
+        }
+      });
+
+      setActive(next);
+    };
+
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(compute);
+    };
+
+    compute();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
   }, [count]);
 
   return { active, itemRefs };
@@ -286,16 +316,20 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
           </div>
 
           {/* Steps — the actual content. */}
-          <ol className="lg:col-span-7 lg:order-1 space-y-8 lg:space-y-20">
+          {/* Each step gets a screenful-ish slice of scroll. Packed tighter,
+              all four fit in one viewport and the middle two flash past with
+              almost no travel of their own. */}
+          <ol className="lg:col-span-7 lg:order-1 space-y-10 lg:space-y-0">
             {steps.map((step, i) => {
               const isActive = i === shown;
               return (
                 <li
                   key={step.title}
+                  data-step={i}
                   ref={(el) => {
                     itemRefs.current[i] = el;
                   }}
-                  className={`border-l-2 pl-5 transition-colors duration-300 ${
+                  className={`border-l-2 pl-5 transition-colors duration-300 lg:flex lg:min-h-[46vh] lg:flex-col lg:justify-center ${
                     isActive ? "border-primary" : "border-border"
                   }`}
                 >
