@@ -5,34 +5,46 @@ import PickupFlow from "@/components/sections/PickupFlow";
 import i18n from "@/i18n";
 
 /**
- * The phone is driven by an IntersectionObserver, which jsdom doesn't
- * implement. We stub it, keep the callback, and fire it by hand — that is what
- * lets us assert the actual contract: step N on screen means screen N on the
- * phone.
+ * The phone follows live geometry on each scroll frame, so the tests drive it
+ * the same way: stub each step's position, fire a scroll, read what shows.
+ * jsdom reports every rect as zeroes, hence the prototype stub.
  */
-type Cb = (entries: { target: Element; isIntersecting: boolean }[]) => void;
-
-let observerCb: Cb | null = null;
-let observed: Element[] = [];
-
-class StubObserver {
-  constructor(cb: Cb) {
-    observerCb = cb;
-  }
-  observe(el: Element) {
-    observed.push(el);
-  }
-  disconnect() {
-    observed = [];
-  }
-  unobserve() {}
-}
 
 /** Four, matching the four screens — the component asserts they line up. */
 const STEPS = Array.from({ length: 4 }, (_, i) => ({
   title: `Paso ${i + 1}`,
   description: `Descripción del paso ${i + 1}`,
 }));
+
+const VIEWPORT = 1000;
+/** Must mirror ACTIVATION_LINE in the component. */
+const LINE = VIEWPORT * 0.45;
+
+const realRect = Element.prototype.getBoundingClientRect;
+
+/** Position every step: `tops[i]` is step i's distance from the viewport top. */
+const positionSteps = (tops: number[]) => {
+  Element.prototype.getBoundingClientRect = function () {
+    const step = (this as HTMLElement).dataset?.step;
+    const top = step == null ? 9999 : tops[Number(step)];
+    return {
+      top, bottom: top + 200, left: 0, right: 0, width: 0, height: 200,
+      x: 0, y: top, toJSON: () => ({}),
+    } as DOMRect;
+  };
+};
+
+/**
+ * Positions the list as if the visitor had scrolled `offset` pixels into the
+ * section: step 0 starts just below the line and each one sits 300px lower.
+ */
+const SPACING = 300;
+const scrollTo = async (offset: number) => {
+  positionSteps(STEPS.map((_, i) => LINE - 10 + i * SPACING - offset));
+  await act(async () => {
+    window.dispatchEvent(new Event("scroll"));
+  });
+};
 
 const renderFlow = async () => {
   await i18n.changeLanguage("es");
@@ -43,29 +55,36 @@ const renderFlow = async () => {
   );
 };
 
-/** Fire the observer as if `index`'s step had scrolled into the middle band. */
-const scrollStepIntoBand = (index: number) =>
-  act(() => {
-    observerCb?.([{ target: observed[index], isIntersecting: true }]);
-  });
-
 const activeScreen = () =>
-  Number(document.querySelector('[data-screen][data-active="true"]')?.getAttribute("data-screen"));
+  Number(
+    document
+      .querySelector('[data-screen][data-active="true"]')
+      ?.getAttribute("data-screen"),
+  );
 
 const activeStepIndex = () =>
-  [...document.querySelectorAll("ol > li")].findIndex((li) =>
+  [...document.querySelectorAll("li[data-step]")].findIndex((li) =>
     li.className.includes("border-primary"),
   );
 
 describe("PickupFlow", () => {
   beforeEach(() => {
-    observerCb = null;
-    observed = [];
-    vi.stubGlobal("IntersectionObserver", StubObserver);
+    Object.defineProperty(window, "innerHeight", {
+      writable: true,
+      configurable: true,
+      value: VIEWPORT,
+    });
+    // The hook defers to rAF; run it synchronously so state lands in the act().
+    vi.spyOn(window, "requestAnimationFrame").mockImplementation((cb) => {
+      cb(0);
+      return 0;
+    });
+    positionSteps(STEPS.map((_, i) => LINE - 10 + i * SPACING));
   });
 
   afterEach(() => {
-    vi.unstubAllGlobals();
+    Element.prototype.getBoundingClientRect = realRect;
+    vi.restoreAllMocks();
   });
 
   it("renders every step as real text, not just as artwork", async () => {
@@ -76,11 +95,6 @@ describe("PickupFlow", () => {
     }
   });
 
-  it("observes one element per step", async () => {
-    await renderFlow();
-    expect(observed).toHaveLength(STEPS.length);
-  });
-
   it("starts on the first step and its screen", async () => {
     await renderFlow();
     expect(activeStepIndex()).toBe(0);
@@ -89,36 +103,56 @@ describe("PickupFlow", () => {
 
   it("keeps the phone in step with the list", async () => {
     await renderFlow();
-    for (const i of [3, 1, 2, 0]) {
-      await scrollStepIntoBand(i);
+    for (const i of [0, 1, 2, 3]) {
+      await scrollTo(i * SPACING);
       expect(activeStepIndex()).toBe(i);
       expect(activeScreen()).toBe(i);
     }
   });
 
+  // The reported bug: the phone went from step 1 to step 4 and skipped the two
+  // in between. A thin IntersectionObserver band reports threshold crossings,
+  // and one scroll can carry several at once, so the middle steps were never
+  // seen. Scrolling in fine increments must visit every step, in order.
+  it("visits every step in order, skipping none", async () => {
+    await renderFlow();
+    const seen: number[] = [];
+    for (let offset = 0; offset <= SPACING * 3; offset += 25) {
+      await scrollTo(offset);
+      const current = activeScreen();
+      if (seen[seen.length - 1] !== current) seen.push(current);
+    }
+    expect(seen).toEqual([0, 1, 2, 3]);
+  });
+
+  // Even a jump bigger than a step's spacing must land on the right step
+  // rather than on whichever one happened to be reported.
+  it("lands on the right step after a jump past several", async () => {
+    await renderFlow();
+    await scrollTo(SPACING * 3);
+    expect(activeScreen()).toBe(3);
+    await scrollTo(SPACING);
+    expect(activeScreen()).toBe(1);
+  });
+
   it("shows exactly one screen at a time", async () => {
     await renderFlow();
-    await scrollStepIntoBand(2);
+    await scrollTo(SPACING * 2);
     const shown = [...document.querySelectorAll("[data-screen]")].filter(
       (el) => el.getAttribute("data-active") === "true",
     );
     expect(shown).toHaveLength(1);
   });
 
-  // A scroll jump can leave the thin band empty. Resetting to step 1 there
-  // would flash the first screen in the middle of the page.
-  it("holds the last step when nothing is in the band", async () => {
+  it("holds the first step while the section is still below the line", async () => {
     await renderFlow();
-    await scrollStepIntoBand(3);
+    positionSteps(STEPS.map((_, i) => LINE + 200 + i * SPACING));
     await act(async () => {
-      observerCb?.([{ target: observed[3], isIntersecting: false }]);
+      window.dispatchEvent(new Event("scroll"));
     });
-    expect(activeScreen()).toBe(3);
+    expect(activeScreen()).toBe(0);
   });
 
-  // Steps 3 and 4 once shared a title, so step 3 showed step 4's wording and
-  // the two screens looked identical — the flow read as out of order. This pins
-  // each step to text only its own screen has, in order.
   it("shows a distinct, correctly ordered screen for every step", async () => {
     await renderFlow();
     const sc = (k: string) => i18n.t(`product.pickup.screens.${k}`) as string;
@@ -134,7 +168,7 @@ describe("PickupFlow", () => {
     expect(new Set(expected).size).toBe(expected.length);
 
     for (let i = 0; i < expected.length; i++) {
-      await scrollStepIntoBand(i);
+      await scrollTo(i * SPACING);
       const shown = document.querySelector('[data-screen][data-active="true"]');
       expect(shown?.textContent).toContain(expected[i]);
     }
@@ -144,7 +178,7 @@ describe("PickupFlow", () => {
     await renderFlow();
     const ready = i18n.t("product.pickup.screens.readyBanner") as string;
     // Step 3 is paying; the order cannot already be ready for pickup.
-    await scrollStepIntoBand(2);
+    await scrollTo(SPACING * 2);
     const stepThree = document.querySelector('[data-screen][data-active="true"]');
     expect(stepThree?.textContent).not.toContain(ready);
   });
