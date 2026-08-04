@@ -89,9 +89,9 @@ describe("Navbar product menu", () => {
       a.getAttribute("href"),
     );
     expect(hrefs).toEqual([
+      "/es/producto/compra-y-retiro",
       "/es/producto/compra-anticipada",
       "/es/producto/entrega-en-asiento",
-      "/es/producto/compra-y-retiro",
       "/es/producto/operacion-de-cocina",
     ]);
   });

@@ -44,7 +44,7 @@ export const ROUTE_SLUGS: SlugMap = {
  * double as the i18n keys under the `product` namespace; only the URL slug is
  * localized. Order is the order they appear in the menu, footer and hub.
  */
-export const PRODUCT_MODES = ['preorder', 'seat', 'pickup', 'kitchen'] as const;
+export const PRODUCT_MODES = ['pickup', 'preorder', 'seat', 'kitchen'] as const;
 export type ProductMode = typeof PRODUCT_MODES[number];
 
 export const PRODUCT_MODE_SLUGS: Record<ProductMode, Record<Lang, string>> = {
