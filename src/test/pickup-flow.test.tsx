@@ -205,6 +205,25 @@ describe("PickupFlow", () => {
   // A step's `note` is an optional caveat. It has to reach the page — it is
   // the only place the 4-digit code is mentioned — without being mistaken for
   // part of the step itself.
+  // The payment screen showed only a total, so most of it was empty. It now
+  // carries the order summary — the same order the menu screen shows, read from
+  // one list so the two cannot drift apart and stop looking like one app.
+  it("summarizes the same items and prices on the payment screen as on the menu", async () => {
+    await renderFlow();
+    const sc = (k: string) => i18n.t(`product.pickup.screens.${k}`) as string;
+    const screens = [...document.querySelectorAll("[data-screen]")];
+    const menu = screens[1]?.textContent ?? "";
+    const pay = screens[2]?.textContent ?? "";
+
+    for (const key of ["item1Name", "item1Price", "item2Name", "item2Price"]) {
+      expect(menu).toContain(sc(key));
+      expect(pay).toContain(sc(key));
+    }
+    // The total and the spinner still close the screen.
+    expect(pay).toContain(sc("total"));
+    expect(pay).toContain(sc("processingLabel"));
+  });
+
   // The steps' desktop height is what spaces them out, so it decides how much
   // scroll each one owns. It was halved (46vh → min-h-52, 13rem), and the
   // failure mode of packing them tighter is a step that no visitor can ever
