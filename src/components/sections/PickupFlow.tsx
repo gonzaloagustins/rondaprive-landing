@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Check, QrCode, Bell, Minus, Plus } from "lucide-react";
+import { Check, Search, MapPin, Menu, Plus, Loader } from "lucide-react";
 
 /**
  * The Compra y Retiro flow, told with a phone that keeps pace with the steps.
@@ -11,13 +11,19 @@ import { Check, QrCode, Bell, Minus, Plus } from "lucide-react";
  * step scrolls past the middle of the viewport — read step 4 and you see step 4.
  * Nothing is scroll-jacked; the visitor keeps control of the page.
  *
+ * The screens mirror the shipped Comprador prototype rather than an invented
+ * UI: the order number and a separate 4-digit code, the three-state status
+ * timeline, and the full-bleed green takeover when the order is ready — that
+ * last one is the most recognisable screen in the product.
+ *
+ * Venue, bar and product names are generic on purpose. The prototype uses real
+ * third-party trademarks; those need permission before they go on a public
+ * page, so the mockup uses stand-ins that are trivial to swap in i18n.
+ *
  * The step list is the real content: it carries the text, it is what the
  * prerendered HTML and screen readers get, and it reads fine on its own. The
  * phone is decorative reinforcement and is hidden from assistive tech.
  */
-
-const SCREEN_COUNT = 6;
-const ORDER_NUMBER = "A-142";
 
 interface PickupFlowProps {
   steps: { title: string; description: string }[];
@@ -63,15 +69,85 @@ const usePrefersReducedMotion = () => {
   return reduce;
 };
 
-const ScreenChrome = ({ children }: { children: React.ReactNode }) => (
-  <div className="absolute inset-0 flex flex-col px-5 pt-9 pb-6">{children}</div>
-);
+/* ---------------------------------------------------------------- primitives */
 
-const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+const Label = ({ children }: { children: React.ReactNode }) => (
+  <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
     {children}
   </p>
 );
+
+const Screen = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div className={`absolute inset-0 flex flex-col px-4 pt-9 pb-5 ${className ?? ""}`}>
+    {children}
+  </div>
+);
+
+/** App bar: wordmark + menu, as in the real screens. */
+const AppBar = () => (
+  <div className="flex items-center justify-between mb-4">
+    <span className="font-display text-sm font-bold tracking-tight">Ronda</span>
+    <Menu className="w-3.5 h-3.5 text-foreground" />
+  </div>
+);
+
+const Field = ({ placeholder }: { placeholder: string }) => (
+  <div className="flex items-center gap-2 rounded-xl bg-muted/70 px-3 py-2">
+    <Search className="w-3 h-3 text-muted-foreground flex-shrink-0" />
+    <span className="text-[10px] text-muted-foreground truncate">{placeholder}</span>
+  </div>
+);
+
+/** One row of the status timeline. */
+const StatusRow = ({
+  state,
+  title,
+  hint,
+  last,
+}: {
+  state: "done" | "current" | "todo";
+  title: string;
+  hint?: string;
+  last?: boolean;
+}) => (
+  <div className="flex gap-2.5">
+    <div className="flex flex-col items-center">
+      <span
+        className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 ${
+          state === "done"
+            ? "bg-foreground"
+            : state === "current"
+              ? "bg-primary/25"
+              : "bg-border"
+        }`}
+      >
+        {state === "done" && (
+          <Check className="w-2.5 h-2.5 text-background" strokeWidth={3.5} />
+        )}
+        {state === "current" && <Loader className="w-2.5 h-2.5 text-primary" />}
+      </span>
+      {!last && <span className="w-px flex-1 bg-border my-0.5" />}
+    </div>
+    <div className={last ? "" : "pb-2.5"}>
+      <p
+        className={`text-[10px] font-semibold leading-tight ${
+          state === "todo" ? "text-muted-foreground" : "text-foreground"
+        }`}
+      >
+        {title}
+      </p>
+      {hint && <p className="text-[9px] text-muted-foreground mt-0.5">{hint}</p>}
+    </div>
+  </div>
+);
+
+/* -------------------------------------------------------------------- section */
 
 const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
   const { t } = useTranslation();
@@ -80,110 +156,186 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
 
   const s = (key: string) => t(`product.pickup.screens.${key}`);
 
+  /** Status card, shared by the two steps that differ only in how far it got. */
+  const statusCard = (stage: "confirmed" | "preparing") => (
+    <div className="rounded-xl bg-muted/50 p-3">
+      <Label>{s("statusLabel")}</Label>
+      <div className="mt-2">
+        <StatusRow
+          state="done"
+          title={s("statusConfirmed")}
+          hint={s("statusConfirmedHint")}
+        />
+        <StatusRow
+          state={stage === "preparing" ? "current" : "todo"}
+          title={s("statusPreparing")}
+          hint={s("statusPreparingHint")}
+        />
+        <StatusRow state="todo" title={s("statusReady")} last />
+      </div>
+    </div>
+  );
+
+  const orderHeader = () => (
+    <>
+      <p className="text-sm font-semibold leading-tight">{s("preparingTitle")}</p>
+      <p className="font-display text-4xl font-bold tracking-tight mt-1">
+        {s("orderNumber")}
+      </p>
+      <span className="mt-2 inline-flex items-center gap-1.5 self-start rounded-full bg-muted px-2.5 py-1">
+        <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+          {s("codeLabel")}
+        </span>
+        <span className="text-[11px] font-bold tracking-[0.1em] text-primary">
+          {s("codeValue")}
+        </span>
+      </span>
+    </>
+  );
+
   const screens = [
-    // 1 — entry: the QR that opens the menu is still real, it is only the
-    // pickup receipt that stopped being a QR.
-    <ScreenChrome key="scan">
-      <Eyebrow>{s("scanTitle")}</Eyebrow>
-      <div className="flex-1 flex items-center justify-center">
-        <div className="w-32 h-32 rounded-2xl border-2 border-primary/30 bg-primary/5 flex items-center justify-center">
-          <QrCode className="w-16 h-16 text-primary" strokeWidth={1.5} />
+    // 1 — landing in the venue's app.
+    <Screen key="discover">
+      <AppBar />
+      <p className="text-[13px] font-semibold leading-snug mb-3">
+        {s("discoverTitle")}
+      </p>
+      <Field placeholder={s("searchPlaceholder")} />
+      <div className="mt-4">
+        <Label>{s("thisWeek")}</Label>
+        <div className="mt-2 rounded-xl overflow-hidden bg-muted">
+          <div className="h-20 bg-gradient-to-br from-foreground/80 to-foreground/50" />
+          <div className="p-2.5">
+            <p className="text-[11px] font-semibold">{s("venueName")}</p>
+            <p className="text-[9px] text-muted-foreground mt-0.5">{s("venueMeta")}</p>
+          </div>
         </div>
       </div>
-    </ScreenChrome>,
+    </Screen>,
 
-    // 2 — the cart. No prices: currency differs per market and inventing them
-    // would put fake numbers on a page that sells accuracy.
-    <ScreenChrome key="order">
-      <Eyebrow>{s("orderTitle")}</Eyebrow>
-      <div className="mt-4 space-y-2.5">
-        {[s("item1"), s("item2")].map((item) => (
-          <div
-            key={item}
-            className="rounded-xl bg-white/70 border border-border/60 p-3 flex items-center justify-between"
-          >
-            <span className="text-xs font-medium text-foreground">{item}</span>
-            <span className="flex items-center gap-2 text-muted-foreground">
-              <Minus className="w-3 h-3" />
-              <span className="text-xs font-semibold text-foreground">1</span>
-              <Plus className="w-3 h-3 text-primary" />
+    // 2 — the menu: bar header with live wait time, categories, items.
+    <Screen key="menu">
+      <div className="flex items-center gap-2 mb-3">
+        <span className="w-8 h-8 rounded-lg bg-foreground flex-shrink-0" />
+        <div className="min-w-0">
+          <p className="text-[11px] font-semibold truncate">{s("barName")}</p>
+          <p className="text-[9px] text-muted-foreground flex items-center gap-1">
+            <MapPin className="w-2.5 h-2.5" />
+            {s("barFloor")}
+            <span className="w-1 h-1 rounded-full bg-[#4F7A4A]" />
+            <span className="uppercase tracking-[0.08em] font-semibold text-[#4F7A4A]">
+              {s("waitLabel")}
             </span>
+          </p>
+        </div>
+      </div>
+      <Field placeholder={s("menuSearch")} />
+      <div className="flex gap-1.5 mt-2.5">
+        <span className="rounded-full bg-foreground text-background text-[9px] font-semibold px-2.5 py-1">
+          {s("catAll")}
+        </span>
+        <span className="rounded-full border border-border text-[9px] px-2.5 py-1 text-muted-foreground">
+          {s("catCocktails")}
+        </span>
+      </div>
+      <div className="mt-3 space-y-2">
+        {[
+          { name: s("item1Name"), desc: s("item1Desc"), price: s("item1Price"), tag: true },
+          { name: s("item2Name"), desc: s("item2Desc"), price: s("item2Price"), tag: false },
+        ].map((item) => (
+          <div key={item.name} className="rounded-xl bg-muted/60 p-2 flex gap-2">
+            <span className="w-11 h-11 rounded-lg bg-foreground flex-shrink-0" />
+            <div className="min-w-0 flex-1">
+              <div className="flex items-start justify-between gap-1">
+                <p className="text-[10px] font-semibold leading-tight">{item.name}</p>
+                {item.tag && (
+                  <span className="text-[7px] font-bold uppercase tracking-[0.1em] text-primary bg-primary/15 rounded-full px-1.5 py-0.5 flex-shrink-0">
+                    {s("popular")}
+                  </span>
+                )}
+              </div>
+              <p className="text-[8px] text-muted-foreground leading-tight mt-0.5 line-clamp-1">
+                {item.desc}
+              </p>
+              <div className="flex items-center justify-between mt-1">
+                <span className="text-[11px] font-bold">{item.price}</span>
+                <span className="w-5 h-5 rounded-full bg-foreground flex items-center justify-center">
+                  <Plus className="w-3 h-3 text-background" strokeWidth={3} />
+                </span>
+              </div>
+            </div>
           </div>
         ))}
       </div>
-      <div className="mt-auto h-9 rounded-full bg-primary flex items-center justify-center">
-        <span className="text-[11px] font-semibold text-primary-foreground">
-          {s("orderTitle")}
-        </span>
-      </div>
-    </ScreenChrome>,
+    </Screen>,
 
-    // 3 — the order number, which replaced the QR receipt.
-    <ScreenChrome key="number">
-      <Eyebrow>{s("confirmedTitle")}</Eyebrow>
-      <div className="flex-1 flex flex-col items-center justify-center">
-        <span className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground mb-1">
-          {s("orderNumberLabel")}
-        </span>
-        <span className="font-display text-5xl font-bold tracking-tight text-foreground">
-          {ORDER_NUMBER}
-        </span>
-      </div>
-    </ScreenChrome>,
+    // 3 — the order number and its code, right after payment.
+    <Screen key="number">
+      <AppBar />
+      {orderHeader()}
+      <div className="mt-3">{statusCard("confirmed")}</div>
+    </Screen>,
 
-    // 4 — prepared while the attendee stays in the event.
-    <ScreenChrome key="preparing">
-      <Eyebrow>{s("preparingTitle")}</Eyebrow>
-      <div className="flex-1 flex flex-col items-center justify-center gap-4">
-        <span className="font-display text-3xl font-bold text-foreground">
-          {ORDER_NUMBER}
-        </span>
-        <div className="w-32 h-1.5 rounded-full bg-border overflow-hidden">
-          <div
-            className={`h-full w-2/3 rounded-full bg-primary ${
-              reduceMotion ? "" : "animate-pulse"
-            }`}
-          />
+    // 4 — same screen, timeline advanced. Mirrors how the real app behaves.
+    <Screen key="preparing">
+      <AppBar />
+      {orderHeader()}
+      <div className="mt-3">{statusCard("preparing")}</div>
+      <div className="mt-2 rounded-xl bg-muted/50 p-3">
+        <Label>{s("pickupAtLabel")}</Label>
+        <p className="text-[10px] font-semibold mt-1.5">{s("barName")}</p>
+        <p className="text-[9px] text-muted-foreground">{s("barFloor")}</p>
+      </div>
+    </Screen>,
+
+    // 5 — the green takeover. Full bleed so it reads across a dark bar.
+    <Screen key="ready" className="!px-0 !pt-0 !pb-0">
+      <div className="flex-1 bg-[#4F7A4A] flex flex-col items-center justify-center text-center px-5">
+        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/80">
+          {s("readyBanner")}
+        </p>
+        <p className="font-display text-6xl font-bold text-white leading-none mt-2">
+          {s("orderNumber").replace(/^[A-Za-z]/, "")}
+        </p>
+        <div className="mt-4">
+          <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-white/60">
+            {s("codeLabel")}
+          </p>
+          <p className="text-2xl font-bold tracking-[0.28em] text-white mt-0.5">
+            {s("codeValue").split("").join(" ")}
+          </p>
         </div>
-        <p className="text-[10px] text-muted-foreground text-center px-4">
-          {s("preparingHint")}
+        <p className="text-[10px] text-white/80 mt-4">{s("readyHint")}</p>
+        <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-white/50 mt-1.5">
+          {s("barName")} · {s("barFloor")}
         </p>
       </div>
-    </ScreenChrome>,
+    </Screen>,
 
-    // 5 — the alert.
-    <ScreenChrome key="ready">
-      <Eyebrow>{s("preparingTitle")}</Eyebrow>
-      <div className="flex-1 flex items-center justify-center">
-        <div className="w-full rounded-2xl bg-white border border-primary/30 shadow-lg p-4 flex items-start gap-3">
-          <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center">
-            <Bell className="w-4 h-4 text-primary" />
-          </span>
-          <div>
-            <p className="text-xs font-semibold text-foreground">{s("readyTitle")}</p>
-            <p className="text-[10px] text-muted-foreground mt-0.5">{s("readyHint")}</p>
-            <p className="text-[10px] font-semibold text-foreground mt-1.5">
-              {s("orderNumberLabel")} {ORDER_NUMBER}
-            </p>
+    // 6 — handover, and the rating the real app asks for right after.
+    <Screen key="done">
+      <AppBar />
+      <div className="flex-1 flex flex-col items-center justify-center text-center">
+        <span className="w-12 h-12 rounded-full bg-[#4F7A4A]/15 flex items-center justify-center">
+          <Check className="w-6 h-6 text-[#4F7A4A]" strokeWidth={3} />
+        </span>
+        <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground mt-3">
+          {s("deliveredLabel")}
+        </p>
+        <p className="font-display text-3xl font-bold tracking-tight mt-1">
+          #{s("orderNumber")}
+        </p>
+        <div className="mt-6 w-full rounded-xl bg-muted/50 p-3">
+          <Label>{s("ratingLabel")}</Label>
+          <div className="flex justify-center gap-4 mt-2 text-lg" aria-hidden>
+            <span>☹️</span>
+            <span>😐</span>
+            <span>🤩</span>
           </div>
         </div>
       </div>
-    </ScreenChrome>,
-
-    // 6 — handover.
-    <ScreenChrome key="done">
-      <Eyebrow>{s("doneTitle")}</Eyebrow>
-      <div className="flex-1 flex flex-col items-center justify-center gap-3">
-        <span className="w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center">
-          <Check className="w-7 h-7 text-primary" strokeWidth={2.5} />
-        </span>
-        <span className="font-display text-2xl font-bold text-foreground">
-          {ORDER_NUMBER}
-        </span>
-        <p className="text-[10px] text-muted-foreground">{s("readyHint")}</p>
-      </div>
-    </ScreenChrome>,
-  ].slice(0, SCREEN_COUNT);
+    </Screen>,
+  ];
 
   return (
     <section className="py-16">
@@ -203,7 +355,7 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
                   {/* Notch */}
                   <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-[18px] rounded-full bg-[#1A1814] z-20" />
 
-                  {screens.map((screen, i) => (
+                  {screens.map((sc, i) => (
                     <div
                       key={i}
                       data-screen={i}
@@ -212,12 +364,12 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
                         reduceMotion ? "" : "transition-opacity duration-500 ease-out"
                       } ${i === active ? "opacity-100" : "opacity-0"}`}
                     >
-                      {screen}
+                      {sc}
                     </div>
                   ))}
 
                   {/* Home indicator */}
-                  <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-20 h-1 rounded-full bg-foreground/20" />
+                  <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-20 h-1 rounded-full bg-foreground/20 z-20" />
                 </div>
               </div>
             </div>
