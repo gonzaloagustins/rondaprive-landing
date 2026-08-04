@@ -658,6 +658,7 @@ var es_default = {
         orderNumber: "A127",
         codeLabel: "C\xF3digo",
         codeValue: "7342",
+        preparingBanner: "En preparaci\xF3n",
         readyBanner: "\xA1Tu pedido est\xE1 listo!",
         readyHint: "Pres\xE9ntalo en el punto de retiro"
       }
