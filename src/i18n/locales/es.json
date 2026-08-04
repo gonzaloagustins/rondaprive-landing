@@ -380,8 +380,8 @@
       "seoDescription": "Compra y Retira en cuatro pasos: escanea el QR de la barra, elige de la carta, paga desde el celular y retira dando tu número de orden. Sin filas.",
       "steps": [
         {
-          "title": "Escanea el QR de la barra",
-          "description": "Cada barra o comercio tiene su QR. No hay que descargar nada."
+          "title": "Escanea el QR del comercio",
+          "description": "Cada comercio tiene su QR. No hay que descargar nada."
         },
         {
           "title": "Explora la carta y elige",
@@ -392,8 +392,9 @@
           "description": "Pago digital en segundos, sin efectivo ni terminal."
         },
         {
-          "title": "Retira, y listo",
-          "description": "Presenta tu número de orden en la fila de pedidos digitales."
+          "title": "Sigue tu pedido y retira",
+          "description": "La pantalla se pone verde cuando tu pedido está listo. Vas al punto de retiro, muestras tu número y listo.",
+          "note": "El organizador puede pedir además un código de 4 dígitos."
         }
       ],
       "screens": {
