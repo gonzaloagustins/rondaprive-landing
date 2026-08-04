@@ -421,6 +421,7 @@
         "orderNumber": "A127",
         "codeLabel": "Code",
         "codeValue": "7342",
+        "preparingBanner": "In preparation",
         "readyBanner": "Your order is ready!",
         "readyHint": "Show it at the collection point"
       }
