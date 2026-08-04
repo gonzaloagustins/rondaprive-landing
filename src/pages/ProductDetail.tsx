@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
+import PickupFlow from "@/components/sections/PickupFlow";
 import { productModeMeta, productModes } from "@/data/productModes";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import type { ProductMode } from "@/i18n/routes";
@@ -94,24 +95,29 @@ const ProductDetail = ({ mode }: ProductDetailProps) => {
         className="pt-8"
       />
 
-      {steps.length > 0 && (
-        <section className="py-16">
-          <div className="section-container">
-            <h2 className="text-2xl font-bold mb-8">{t("product.stepsTitle")}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {steps.map((step, i) => (
-                <div key={step.title} className="card-premium p-6 space-y-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">
-                    {String(i + 1).padStart(2, "0")}
+      {/* Compra y Retiro gets the phone walkthrough; the others keep the plain
+          grid until the pattern proves itself here. */}
+      {steps.length > 0 &&
+        (mode === "pickup" ? (
+          <PickupFlow steps={steps} heading={t("product.stepsTitle")} />
+        ) : (
+          <section className="py-16">
+            <div className="section-container">
+              <h2 className="text-2xl font-bold mb-8">{t("product.stepsTitle")}</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {steps.map((step, i) => (
+                  <div key={step.title} className="card-premium p-6 space-y-3">
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                    <h3 className="font-semibold">{step.title}</h3>
+                    <p className="text-sm text-muted-foreground">{step.description}</p>
                   </div>
-                  <h3 className="font-semibold">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        ))}
 
       {description && (
         <section className="py-16">

@@ -614,7 +614,7 @@ var es_default = {
     pickup: {
       title: "Compra y Retiro",
       subtitle: "Compra digital con retiro en punto de venta",
-      seoDescription: "Compra y retiro: el pedido se paga desde el celular y la preparaci\xF3n arranca cuando el cliente llega al punto de retiro. Sin fila y sin producto fr\xEDo.",
+      seoDescription: "Compra y retiro: el pedido se paga desde el celular, se prepara mientras el show sigue y se retira dando el n\xFAmero de orden en la fila de pedidos digitales.",
       steps: [
         {
           title: "Accede a Ronda Priv\xE9",
@@ -625,22 +625,36 @@ var es_default = {
           description: "Ve la carta digital, selecciona productos y paga desde el celular."
         },
         {
-          title: "Recibe tu QR",
-          description: "Se genera un c\xF3digo QR \xFAnico como comprobante del pedido."
+          title: "Recibe tu n\xFAmero de orden",
+          description: "Se genera un n\xFAmero \xFAnico que identifica el pedido."
         },
         {
-          title: "Ac\xE9rcate al punto de retiro",
-          description: "El asistente se dirige al punto de venta sin hacer fila."
+          title: "El pedido se prepara",
+          description: "La barra o la cocina lo prepara mientras el asistente sigue en el evento."
         },
         {
-          title: "Escaneo y preparaci\xF3n",
-          description: "El personal escanea el QR y reci\xE9n ah\xED inicia la preparaci\xF3n."
+          title: "Recibe el aviso",
+          description: "Llega la notificaci\xF3n de listo para retirar."
         },
         {
-          title: "Retira tu pedido",
-          description: "El pedido se entrega listo. Sin esperas, sin congesti\xF3n."
+          title: "Da tu n\xFAmero y retira",
+          description: "La entrega es en la fila exclusiva para pedidos digitales. Sin esperas, sin congesti\xF3n."
         }
-      ]
+      ],
+      screens: {
+        scanTitle: "Escanea para entrar",
+        orderTitle: "Tu pedido",
+        item1: "Cerveza",
+        item2: "Agua mineral",
+        confirmedTitle: "Pedido confirmado",
+        orderNumberLabel: "N\xFAmero de orden",
+        preparingTitle: "En preparaci\xF3n",
+        preparingHint: "Te avisamos cuando est\xE9 listo",
+        readyTitle: "Listo para retirar",
+        readyHint: "Fila de pedidos digitales",
+        doneTitle: "Entregado",
+        aria: "Simulaci\xF3n del flujo de compra y retiro en el celular"
+      }
     },
     seat: {
       title: "Compra desde el asiento",
