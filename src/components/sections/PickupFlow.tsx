@@ -144,6 +144,13 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
 
   const s = (key: string) => t(`product.pickup.screens.${key}`);
 
+  // One list for both the menu and the payment summary. They are the same order
+  // seen twice, so reading it from one place is what keeps them agreeing.
+  const items = [
+    { name: s("item1Name"), desc: s("item1Desc"), price: s("item1Price"), tag: true },
+    { name: s("item2Name"), desc: s("item2Desc"), price: s("item2Price"), tag: false },
+  ];
+
   const screens = [
     // 1 — scanning the bar's own QR. No download, which is the point.
     <Screen key="scan" className="!px-0 !pt-0 !pb-0">
@@ -189,10 +196,7 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
         </span>
       </div>
       <div className="mt-3 space-y-2">
-        {[
-          { name: s("item1Name"), desc: s("item1Desc"), price: s("item1Price"), tag: true },
-          { name: s("item2Name"), desc: s("item2Desc"), price: s("item2Price"), tag: false },
-        ].map((item) => (
+        {items.map((item) => (
           <div key={item.name} className="rounded-xl bg-muted/60 p-2 flex gap-2">
             <span className="w-11 h-11 rounded-lg bg-foreground flex-shrink-0" />
             <div className="min-w-0 flex-1">
@@ -224,9 +228,28 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
       </div>
     </Screen>,
 
-    // 3 — paying. Deliberately no processor branding.
+    // 3 — paying. Deliberately no processor branding, no payment methods: what
+    // you are confirming is the order, and the screen showed only a total.
     <Screen key="pay">
       <AppBar />
+      {/* Same rows as the menu — thumbnail, name at 10px semibold, price at
+          11px bold, space-y-2 — so the two screens read as one app. The
+          description and the add button are dropped: nothing to browse or add
+          once you are paying. */}
+      <div className="space-y-2">
+        {items.map((item) => (
+          <div
+            key={item.name}
+            className="rounded-xl bg-muted/60 p-2 flex items-center gap-2"
+          >
+            <span className="w-11 h-11 rounded-lg bg-foreground flex-shrink-0" />
+            <p className="text-[10px] font-semibold leading-tight min-w-0 flex-1">
+              {item.name}
+            </p>
+            <span className="text-[11px] font-bold flex-shrink-0">{item.price}</span>
+          </div>
+        ))}
+      </div>
       <div className="flex-1 flex flex-col items-center justify-center">
         <Label>{s("totalLabel")}</Label>
         <p className="font-display text-4xl font-bold tracking-tight mt-1">
