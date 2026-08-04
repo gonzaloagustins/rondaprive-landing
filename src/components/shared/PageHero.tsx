@@ -43,8 +43,13 @@ const PageHero = ({
             <span className="text-gradient-gold">{titleHighlight}</span>
           )}
         </h1>
+        {/* text-balance evens out the lines of a subtitle that wraps. Without
+            it, a two-sentence subtitle breaks wherever max-w-2xl runs out —
+            the pickup one left 70 characters on the first line and 20 on the
+            second. Balancing is content-agnostic, so it needs no per-page
+            width: a subtitle short enough for one line is unaffected. */}
         {subtitle && (
-          <p className="mt-6 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto animate-fade-in-delay-1">
+          <p className="mt-6 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto text-balance animate-fade-in-delay-1">
             {subtitle}
           </p>
         )}
