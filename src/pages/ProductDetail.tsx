@@ -168,6 +168,28 @@ const ProductDetail = ({ mode }: ProductDetailProps) => {
           pickup needs it: it is the one mode whose flow ends at a counter. */}
       {mode === "pickup" && <KitchenTeaser to={path("productDetail", "/kitchen")} />}
 
+      {/* Proof that the walkthrough above is not a prototype. One row between
+          two hairlines: it has to be findable, not persuasive — the figures
+          are the argument, this only says they came from somewhere real. */}
+      {mode === "pickup" && (
+        <section className="pb-16">
+          <div className="section-container">
+            <div className="flex flex-col gap-1 border-y border-border/50 py-5 sm:flex-row sm:items-baseline sm:gap-6">
+              {/* Venue logo goes here, ahead of the label, once we have written
+                  permission to show the mark. Until then the name alone: an
+                  unlicensed logo is the venue's trademark, not our artwork. */}
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground whitespace-nowrap">
+                {t("product.pickup.validation.label")}
+              </p>
+              <p className="font-semibold">{t("product.pickup.validation.title")}</p>
+              <p className="text-sm text-muted-foreground sm:ml-auto">
+                {t("product.pickup.validation.detail")}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {description && (
         <section className="py-16">
           <div className="section-container grid lg:grid-cols-2 gap-8">

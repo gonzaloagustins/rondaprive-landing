@@ -387,6 +387,11 @@
         "ticketLabel": "Comanda",
         "action": "Marcar listo"
       },
+      "validation": {
+        "label": "VALIDADO EN OPERACIÓN REAL",
+        "title": "Fiesta LOLA, Rancagua",
+        "detail": "Probado en sector general y área VIP"
+      },
       "impact": [
         {
           "value": "−85%",
