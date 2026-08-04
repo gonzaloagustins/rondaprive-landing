@@ -629,8 +629,9 @@ var es_default = {
           description: "Pago digital en segundos, sin efectivo ni terminal."
         },
         {
-          title: "Retira, y listo",
-          description: "Presenta tu n\xFAmero de orden en la fila de pedidos digitales."
+          title: "Sigue tu pedido y retira",
+          description: "La pantalla se pone verde cuando tu pedido est\xE1 listo. Vas al punto de retiro, muestras tu n\xFAmero y listo.",
+          note: "El organizador puede pedir adem\xE1s un c\xF3digo de 4 d\xEDgitos."
         }
       ],
       screens: {

@@ -99,7 +99,7 @@ Compra digital con retiro en punto de venta
 1. **Escanea el QR de la barra:** Cada barra o comercio tiene su QR. No hay que descargar nada.
 2. **Explora la carta y elige:** Ve los productos disponibles y arma tu pedido desde el celular.
 3. **Paga:** Pago digital en segundos, sin efectivo ni terminal.
-4. **Retira, y listo:** Presenta tu número de orden en la fila de pedidos digitales.
+4. **Sigue tu pedido y retira:** La pantalla se pone verde cuando tu pedido está listo. Vas al punto de retiro, muestras tu número y listo. El organizador puede pedir además un código de 4 dígitos.
 
 #### Compra desde el asiento
 URL: https://rondaprive.com/es/producto/entrega-en-asiento
