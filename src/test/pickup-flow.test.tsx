@@ -115,6 +115,40 @@ describe("PickupFlow", () => {
     expect(activeScreen()).toBe(4);
   });
 
+  // Steps 3 and 4 once shared a title, so step 3 showed step 4's wording and
+  // the two screens looked identical — the flow read as out of order. This pins
+  // each step to text only its own screen has, in order.
+  it("shows a distinct, correctly ordered screen for every step", async () => {
+    await renderFlow();
+    const sc = (k: string) => i18n.t(`product.pickup.screens.${k}`) as string;
+
+    const expected = [
+      sc("discoverTitle"), // 1 · accede
+      sc("payLabel"), //      2 · explora y compra
+      sc("confirmedTitle"), // 3 · recibe tu número
+      sc("preparingTitle"), // 4 · se prepara
+      sc("readyBanner"), //   5 · recibe el aviso
+      sc("deliveredLabel"), // 6 · retira
+    ];
+
+    // Every marker must be unique, or the assertion below proves nothing.
+    expect(new Set(expected).size).toBe(expected.length);
+
+    for (let i = 0; i < expected.length; i++) {
+      await scrollStepIntoBand(i);
+      const shown = document.querySelector('[data-screen][data-active="true"]');
+      expect(shown?.textContent).toContain(expected[i]);
+    }
+  });
+
+  it("never shows a later step's title on an earlier screen", async () => {
+    await renderFlow();
+    const preparing = i18n.t("product.pickup.screens.preparingTitle") as string;
+    await scrollStepIntoBand(2);
+    const stepThree = document.querySelector('[data-screen][data-active="true"]');
+    expect(stepThree?.textContent).not.toContain(preparing);
+  });
+
   it("hides the phone from assistive tech, since the list carries the content", async () => {
     await renderFlow();
     const phone = document.querySelector("[data-screen]")?.closest("[aria-hidden]");

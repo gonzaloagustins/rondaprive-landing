@@ -405,6 +405,9 @@
         }
       ],
       "screens": {
+        "confirmedTitle": "Order confirmed.",
+        "payLabel": "Pay",
+        "total": "$11.200",
         "aria": "Simulation of the order-and-pickup flow on a phone",
         "discoverTitle": "The best venues, picked for you.",
         "searchPlaceholder": "Search an event or artist…",

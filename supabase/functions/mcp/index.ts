@@ -642,6 +642,9 @@ var es_default = {
         }
       ],
       screens: {
+        confirmedTitle: "Pedido confirmado.",
+        payLabel: "Pagar",
+        total: "$11.200",
         aria: "Simulaci\xF3n del flujo de compra y retiro en el celular",
         discoverTitle: "Los mejores lugares, seleccionados para ti.",
         searchPlaceholder: "Busca un evento o artista\u2026",
