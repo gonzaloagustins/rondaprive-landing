@@ -387,6 +387,16 @@
         "ticketLabel": "Ticket",
         "action": "Marquer prêt"
       },
+      "comparison": {
+        "before": "Exploitation traditionnelle",
+        "after": "Avec Ronda Privé",
+        "rows": [
+          { "before": "Le client fait la queue pour commander, puis pour payer", "after": "Il commande d'où il est" },
+          { "before": "Chaque point de vente exige un terminal et une caisse", "after": "Zéro infrastructure supplémentaire" },
+          { "before": "Le personnel encaisse au lieu de préparer", "after": "Le personnel prépare et remet, rien d'autre" },
+          { "before": "Les données de consommation arrivent le lendemain", "after": "Des données en direct pendant l'événement" }
+        ]
+      },
       "validation": {
         "label": "VALIDÉ EN EXPLOITATION RÉELLE",
         "title": "Fiesta LOLA, Rancagua",

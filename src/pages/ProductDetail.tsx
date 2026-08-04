@@ -14,6 +14,7 @@ import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
 import PickupFlow from "@/components/sections/PickupFlow";
 import KitchenTeaser from "@/components/sections/KitchenTeaser";
+import PickupComparison from "@/components/sections/PickupComparison";
 import { productModeMeta, productModes } from "@/data/productModes";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import type { ProductMode } from "@/i18n/routes";
@@ -163,6 +164,10 @@ const ProductDetail = ({ mode }: ProductDetailProps) => {
           </div>
         </section>
       )}
+
+      {/* What the figures above mean line by line, for whoever wants the
+          argument spelled out rather than counted. */}
+      {mode === "pickup" && <PickupComparison />}
 
       {/* Where the order goes next. Only pickup authors this copy, and only
           pickup needs it: it is the one mode whose flow ends at a counter. */}

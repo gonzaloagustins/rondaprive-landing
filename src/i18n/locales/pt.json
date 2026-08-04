@@ -387,6 +387,16 @@
         "ticketLabel": "Comanda",
         "action": "Marcar pronto"
       },
+      "comparison": {
+        "before": "Operação tradicional",
+        "after": "Com Ronda Privé",
+        "rows": [
+          { "before": "O cliente enfrenta uma fila para pedir e outra para pagar", "after": "Pede de onde estiver" },
+          { "before": "Cada ponto de venda precisa de terminal e caixa", "after": "Zero infraestrutura extra" },
+          { "before": "A equipe cobra em vez de preparar", "after": "A equipe só prepara e entrega" },
+          { "before": "Os dados de consumo chegam no dia seguinte", "after": "Dados ao vivo durante o evento" }
+        ]
+      },
       "validation": {
         "label": "VALIDADO EM OPERAÇÃO REAL",
         "title": "Fiesta LOLA, Rancagua",
