@@ -264,6 +264,27 @@ describe("PickupFlow", () => {
       expect(shown?.querySelector("svg")).not.toBeNull();
     });
 
+    // The sticky phone needs 620px from the top of the viewport (112px offset
+    // plus 508px of phone) and cannot extend past the bottom of its column,
+    // whose height is the step list's. Halving the step height left the list
+    // ending 613px down when step 04 activates — 7px short, so the phone was
+    // pushed up behind the navbar exactly when this pair matters most. Two
+    // things keep it on screen, and jsdom cannot measure either, so assert the
+    // classes that encode them.
+    it("keeps the room the sticky phone needs to stay on screen", async () => {
+      await goToLastStep();
+      // A margin here would make the row 548px tall and cost 40px of the
+      // headroom; a transform offsets the frame without growing the row.
+      const prep = document.querySelector('[data-phone="preparing"]');
+      expect(prep?.className).toMatch(/translate-y-/);
+      expect(prep?.className).not.toMatch(/\bm[ty]-/);
+
+      // And the list carries a step's worth of padding, which is what gives
+      // back the slack the taller steps used to provide.
+      const list = document.querySelector("li[data-step]")?.closest("ol");
+      expect(list?.className).toContain("lg:pb-52");
+    });
+
     // Two 248px phones do not fit in this column below xl, and nothing may
     // animate between the two states.
     it("hides the preparing phone below xl and never transitions the pair", async () => {
