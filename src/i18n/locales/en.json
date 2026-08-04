@@ -377,43 +377,29 @@
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Digital ordering with point-of-sale collection",
-      "seoDescription": "Order and pickup: guests pay from their phone, the order is made while the show goes on, and they collect it by giving their order number in the digital-orders line.",
+      "seoDescription": "Order and pickup in four steps: scan the bar's QR, choose from the menu, pay from your phone and collect with your order number. No lines.",
       "steps": [
         {
-          "title": "Access Ronda Privé",
-          "description": "The attendee enters by scanning a QR code or through a direct link."
+          "title": "Scan the bar's QR code",
+          "description": "Every bar or vendor has its own QR. Nothing to download."
         },
         {
-          "title": "Browse and order",
-          "description": "View the digital menu, select products, and pay from the phone."
+          "title": "Browse the menu and choose",
+          "description": "See what's available and build your order from your phone."
         },
         {
-          "title": "Get your order number",
-          "description": "A unique number is generated to identify the order."
+          "title": "Pay",
+          "description": "Digital payment in seconds — no cash, no card terminal."
         },
         {
-          "title": "The order gets prepared",
-          "description": "The bar or kitchen makes it while the attendee stays in the event."
-        },
-        {
-          "title": "Get the alert",
-          "description": "The \"ready for pickup\" notification arrives."
-        },
-        {
-          "title": "Give your number and collect",
-          "description": "Handover happens in the line reserved for digital orders. No waiting, no congestion."
+          "title": "Collect, and that's it",
+          "description": "Show your order number in the digital-orders line."
         }
       ],
       "screens": {
-        "confirmedTitle": "Order confirmed.",
-        "payLabel": "Pay",
-        "total": "$11.200",
         "aria": "Simulation of the order-and-pickup flow on a phone",
-        "discoverTitle": "The best venues, picked for you.",
-        "searchPlaceholder": "Search an event or artist…",
-        "thisWeek": "This week",
-        "venueName": "Arena Norte",
-        "venueMeta": "Today · 9:00 PM",
+        "scanTitle": "Scan the bar's QR code",
+        "scanHint": "Point the camera at the code",
         "barName": "Central Bar",
         "barFloor": "4th floor",
         "waitLabel": "Wait: 6 min",
@@ -427,21 +413,15 @@
         "item2Name": "Lager beer",
         "item2Desc": "470 ml can",
         "item2Price": "$3.200",
-        "preparingTitle": "Preparing your order.",
+        "cartLabel": "View order",
+        "totalLabel": "Total",
+        "total": "$11.200",
+        "processingLabel": "Processing payment…",
         "orderNumber": "A127",
         "codeLabel": "Code",
         "codeValue": "7342",
-        "statusLabel": "Status",
-        "statusConfirmed": "Confirmed",
-        "statusConfirmedHint": "Your order was confirmed.",
-        "statusPreparing": "Being prepared",
-        "statusPreparingHint": "Your order is being prepared.",
-        "statusReady": "Ready for pickup",
-        "pickupAtLabel": "Pick up at",
         "readyBanner": "Your order is ready!",
-        "readyHint": "Show it at the collection point",
-        "deliveredLabel": "Order collected",
-        "ratingLabel": "How was it?"
+        "readyHint": "Show it at the collection point"
       }
     },
     "seat": {
