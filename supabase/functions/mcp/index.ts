@@ -614,7 +614,7 @@ var es_default = {
     pickup: {
       title: "Compra y Retira",
       subtitle: "Compra digital con retiro en punto de venta",
-      seoDescription: "Compra y Retira en cuatro pasos: escanea el QR de la barra, elige de la carta, paga desde el celular y retira dando tu n\xFAmero de orden. Sin filas.",
+      seoDescription: "Compra y Retira en cuatro pasos: escanea el QR del comercio, elige de la carta, paga desde el celular y retira dando tu n\xFAmero de orden. Sin filas.",
       steps: [
         {
           title: "Escanea el QR del comercio",

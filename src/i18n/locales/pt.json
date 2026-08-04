@@ -377,11 +377,11 @@
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Compra digital com retirada no ponto de venda",
-      "seoDescription": "Compra e retirada em quatro passos: escaneie o QR do bar, escolha no cardápio, pague pelo celular e retire informando seu número de pedido. Sem filas.",
+      "seoDescription": "Compra e retirada em quatro passos: escaneie o QR do comércio, escolha no cardápio, pague pelo celular e retire informando seu número de pedido. Sem filas.",
       "steps": [
         {
-          "title": "Escaneie o QR do bar",
-          "description": "Cada bar ou comércio tem seu QR. Não precisa baixar nada."
+          "title": "Escaneie o QR do comércio",
+          "description": "Cada comércio tem seu QR. Não precisa baixar nada."
         },
         {
           "title": "Explore o cardápio e escolha",
@@ -392,8 +392,9 @@
           "description": "Pagamento digital em segundos, sem dinheiro nem terminal."
         },
         {
-          "title": "Retire, e pronto",
-          "description": "Informe seu número de pedido na fila de pedidos digitais."
+          "title": "Acompanhe seu pedido e retire",
+          "description": "A tela fica verde quando seu pedido está pronto. Vá ao ponto de retirada, mostre seu número e pronto.",
+          "note": "O organizador pode pedir também um código de 4 dígitos."
         }
       ],
       "screens": {

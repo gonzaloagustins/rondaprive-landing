@@ -377,11 +377,11 @@
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Commande digitale avec retrait au point de vente",
-      "seoDescription": "Commande et retrait en quatre étapes : scannez le QR du bar, choisissez au menu, payez depuis le téléphone et retirez avec votre numéro de commande. Sans file.",
+      "seoDescription": "Commande et retrait en quatre étapes : scannez le QR du commerce, choisissez au menu, payez depuis le téléphone et retirez avec votre numéro de commande. Sans file.",
       "steps": [
         {
-          "title": "Scannez le QR du bar",
-          "description": "Chaque bar ou commerce a son QR. Rien à télécharger."
+          "title": "Scannez le QR du commerce",
+          "description": "Chaque commerce a son QR. Rien à télécharger."
         },
         {
           "title": "Parcourez le menu et choisissez",
@@ -392,8 +392,9 @@
           "description": "Paiement digital en quelques secondes, sans espèces ni terminal."
         },
         {
-          "title": "Retirez, et c'est tout",
-          "description": "Présentez votre numéro de commande dans la file des commandes digitales."
+          "title": "Suivez votre commande et retirez",
+          "description": "L'écran devient vert quand votre commande est prête. Allez au point de retrait, montrez votre numéro et c'est tout.",
+          "note": "L'organisateur peut aussi demander un code à 4 chiffres."
         }
       ],
       "screens": {

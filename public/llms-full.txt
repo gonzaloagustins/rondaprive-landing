@@ -539,10 +539,10 @@ URL: https://rondaprive.com/en/product/order-and-pickup
 
 Digital ordering with point-of-sale collection
 
-1. **Scan the bar's QR code:** Every bar or vendor has its own QR. Nothing to download.
+1. **Scan the vendor's QR code:** Every vendor has its own QR. Nothing to download.
 2. **Browse the menu and choose:** See what's available and build your order from your phone.
 3. **Pay:** Digital payment in seconds — no cash, no card terminal.
-4. **Collect, and that's it:** Show your order number in the digital-orders line.
+4. **Track your order and collect:** The screen turns green when your order is ready. Head to the pickup point, show your number and you are done. The organizer may also ask for a 4-digit code.
 
 #### Order from your seat
 URL: https://rondaprive.com/en/product/seat-delivery
