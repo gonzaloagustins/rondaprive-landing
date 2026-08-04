@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Check, Search, MapPin, Menu, Plus, ScanLine, Loader } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 /**
  * The Compra y Retira flow, told with a phone that keeps pace with the steps.
@@ -125,6 +126,40 @@ const AppBar = () => (
   <div className="flex items-center justify-between mb-4">
     <span className="font-display text-sm font-bold tracking-tight">Ronda</span>
     <Menu className="w-3.5 h-3.5 text-foreground" />
+  </div>
+);
+
+/**
+ * The device frame. Extracted because the last step shows two of them: the
+ * order in preparation and the same order ready, side by side, so the change of
+ * state is legible without anything having to animate.
+ */
+const Phone = ({
+  children,
+  className,
+  state,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  /** Which of the two the frame is, on the last step. */
+  state: "order" | "preparing";
+}) => (
+  <div
+    aria-hidden
+    data-phone={state}
+    className={cn(
+      "relative w-[248px] h-[508px] rounded-[2.75rem] bg-[#1A1814] p-[10px]",
+      "shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)]",
+      className,
+    )}
+  >
+    <div className="relative w-full h-full rounded-[2.25rem] bg-background overflow-hidden">
+      {/* Notch */}
+      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-[18px] rounded-full bg-[#1A1814] z-20" />
+      {children}
+      {/* Home indicator */}
+      <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-20 h-1 rounded-full bg-foreground/20 z-20" />
+    </div>
   </div>
 );
 
@@ -291,6 +326,32 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
     </Screen>,
   ];
 
+  /**
+   * The same order before it is ready, shown beside the green one on the last
+   * step so the change of state reads on its own.
+   *
+   * Deliberately not a fifth entry in `screens`: it is not a step of its own,
+   * and the one-screen-per-step check below is what keeps the phone in sync
+   * with the catalog. Same layout as the ready screen on the design system's
+   * neutral surface — no green, no amber, and none of what arriving adds: no
+   * code, no check.
+   */
+  const preparing = (
+    <Screen key="preparing" className="!px-0 !pt-0 !pb-0">
+      <div className="flex-1 bg-muted flex flex-col items-center justify-center text-center px-5">
+        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+          {s("preparingBanner")}
+        </p>
+        <p className="font-display text-6xl font-bold text-foreground leading-none mt-2">
+          {s("orderNumber").replace(/^[A-Za-z]/, "")}
+        </p>
+        <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/70 mt-4">
+          {s("barName")} · {s("barFloor")}
+        </p>
+      </div>
+    </Screen>
+  );
+
   // One screen per step. If the catalog and this array ever drift, clamp rather
   // than render a blank phone — and say so, because it means one of them is
   // wrong.
@@ -300,6 +361,7 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
     );
   }
   const shown = Math.min(active, screens.length - 1);
+  const isLastStep = shown === screens.length - 1;
 
   return (
     <section className="py-16">
@@ -311,14 +373,27 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
               and sticky from md up where there is room for it to stay put. */}
           <div className="lg:col-span-5 lg:order-2">
             <div className="md:sticky md:top-28 flex justify-center">
-              <div
-                aria-hidden
-                className="relative w-[248px] h-[508px] rounded-[2.75rem] bg-[#1A1814] p-[10px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)]"
-              >
-                <div className="relative w-full h-full rounded-[2.25rem] bg-background overflow-hidden">
-                  {/* Notch */}
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-[18px] rounded-full bg-[#1A1814] z-20" />
+              {/* On the last step the pair sits in one row: the order in
+                  preparation, then the same order ready. They overlap by 2rem
+                  because two 248px phones do not fit side by side in this
+                  column — 464px of pair against 469px of column, so the offset
+                  is what makes it fit at all.
 
+                  Gated on xl, not lg: between 1024px and ~1275px the column is
+                  narrower than the pair, and the prep phone would sit on top of
+                  the step text. Below xl only the ready state shows, which is
+                  what the phone did before.
+
+                  No transition on the pair: it is a comparison of two states,
+                  not an animation between them. */}
+              <div className="flex items-start">
+                {isLastStep && (
+                  <Phone state="preparing" className="hidden xl:block mt-10">
+                    {preparing}
+                  </Phone>
+                )}
+
+                <Phone state="order" className={isLastStep ? "xl:-ml-8" : undefined}>
                   {screens.map((sc, i) => (
                     <div
                       key={i}
@@ -331,10 +406,7 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
                       {sc}
                     </div>
                   ))}
-
-                  {/* Home indicator */}
-                  <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-20 h-1 rounded-full bg-foreground/20 z-20" />
-                </div>
+                </Phone>
               </div>
             </div>
           </div>

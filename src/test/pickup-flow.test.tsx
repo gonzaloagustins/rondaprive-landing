@@ -205,6 +205,76 @@ describe("PickupFlow", () => {
   // A step's `note` is an optional caveat. It has to reach the page — it is
   // the only place the 4-digit code is mentioned — without being mistaken for
   // part of the step itself.
+  // The last step used to show only the end state, so the change of state was
+  // not visible at all. It now shows the order in preparation beside it. The
+  // pair only means something if the two frames differ in the right ways.
+  describe("the last step's pair of phones", () => {
+    const goToLastStep = async () => {
+      await renderFlow();
+      await scrollTo(SPACING * (STEPS.length - 1));
+      expect(activeScreen()).toBe(STEPS.length - 1);
+    };
+
+    it("shows one phone before the last step and two on it", async () => {
+      await renderFlow();
+      for (const i of [0, 1, 2]) {
+        await scrollTo(i * SPACING);
+        expect(document.querySelectorAll("[data-phone]")).toHaveLength(1);
+        expect(document.querySelector('[data-phone="preparing"]')).toBeNull();
+      }
+      await scrollTo(SPACING * 3);
+      expect(document.querySelectorAll("[data-phone]")).toHaveLength(2);
+    });
+
+    it("shows the order number on the preparing phone, without the code", async () => {
+      await goToLastStep();
+      const sc = (k: string) => i18n.t(`product.pickup.screens.${k}`) as string;
+      const prep = document.querySelector('[data-phone="preparing"]');
+      const text = prep?.textContent ?? "";
+
+      expect(text).toContain(sc("preparingBanner"));
+      expect(text).toContain(sc("orderNumber").replace(/^[A-Za-z]/, ""));
+      // The code and the confirmation are what arriving adds — not before.
+      expect(text).not.toContain(sc("codeLabel"));
+      expect(text).not.toContain(sc("codeValue").split("").join(" "));
+      expect(text).not.toContain(sc("readyBanner"));
+      expect(prep?.querySelector("svg")).toBeNull();
+    });
+
+    it("keeps green off the preparing phone", async () => {
+      await goToLastStep();
+      const prep = document.querySelector('[data-phone="preparing"]');
+      // The ready screen's green is a literal hex in the markup; the preparing
+      // one must not carry it, nor an amber stand-in.
+      expect(prep?.innerHTML).not.toContain("4F7A4A");
+      expect(prep?.innerHTML ?? "").not.toMatch(/amber|bg-primary(?![-\w])/);
+    });
+
+    it("leaves the ready phone as it was", async () => {
+      await goToLastStep();
+      const sc = (k: string) => i18n.t(`product.pickup.screens.${k}`) as string;
+      const ready = document.querySelector('[data-phone="order"]');
+      const shown = ready?.querySelector('[data-screen][data-active="true"]');
+      const text = shown?.textContent ?? "";
+
+      expect(text).toContain(sc("readyBanner"));
+      expect(text).toContain(sc("codeLabel"));
+      expect(text).toContain(sc("readyHint"));
+      expect(shown?.innerHTML).toContain("4F7A4A");
+      expect(shown?.querySelector("svg")).not.toBeNull();
+    });
+
+    // Two 248px phones do not fit in this column below xl, and nothing may
+    // animate between the two states.
+    it("hides the preparing phone below xl and never transitions the pair", async () => {
+      await goToLastStep();
+      const prep = document.querySelector('[data-phone="preparing"]');
+      expect(prep?.className).toContain("hidden");
+      expect(prep?.className).toContain("xl:block");
+      expect(prep?.className).not.toMatch(/transition|animate|duration/);
+    });
+  });
+
   // The payment screen showed only a total, so most of it was empty. It now
   // carries the order summary — the same order the menu screen shows, read from
   // one list so the two cannot drift apart and stop looking like one app.
