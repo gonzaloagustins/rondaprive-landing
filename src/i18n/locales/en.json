@@ -377,11 +377,11 @@
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Digital ordering with point-of-sale collection",
-      "seoDescription": "Order and pickup in four steps: scan the bar's QR, choose from the menu, pay from your phone and collect with your order number. No lines.",
+      "seoDescription": "Order and pickup in four steps: scan the vendor's QR, choose from the menu, pay from your phone and collect with your order number. No lines.",
       "steps": [
         {
-          "title": "Scan the bar's QR code",
-          "description": "Every bar or vendor has its own QR. Nothing to download."
+          "title": "Scan the vendor's QR code",
+          "description": "Every vendor has its own QR. Nothing to download."
         },
         {
           "title": "Browse the menu and choose",
@@ -392,8 +392,9 @@
           "description": "Digital payment in seconds — no cash, no card terminal."
         },
         {
-          "title": "Collect, and that's it",
-          "description": "Show your order number in the digital-orders line."
+          "title": "Track your order and collect",
+          "description": "The screen turns green when your order is ready. Head to the pickup point, show your number and you are done.",
+          "note": "The organizer may also ask for a 4-digit code."
         }
       ],
       "screens": {
