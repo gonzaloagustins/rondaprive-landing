@@ -99,7 +99,13 @@ const itemList = (items) =>
   (items || []).map((i) => `- **${i.title}:** ${i.description}`).join("\n");
 
 const stepList = (steps) =>
-  (steps || []).map((s, n) => `${n + 1}. **${s.title}:** ${s.description}`).join("\n");
+  (steps || [])
+    .map(
+      (s, n) =>
+        // `note` is an optional caveat on the step; agents want it inline.
+        `${n + 1}. **${s.title}:** ${s.description}${s.note ? ` ${s.note}` : ""}`,
+    )
+    .join("\n");
 
 const heroLine = (node) =>
   `${node?.heroTitle || ""} ${node?.heroHighlight || ""}`.trim();

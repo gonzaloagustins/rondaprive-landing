@@ -27,7 +27,8 @@ import { Check, Search, MapPin, Menu, Plus, ScanLine, Loader } from "lucide-reac
  */
 
 interface PickupFlowProps {
-  steps: { title: string; description: string }[];
+  /** `note` is an optional aside — a caveat that must not compete with the step. */
+  steps: { title: string; description: string; note?: string }[];
   /** Section heading, supplied by the page so the copy stays in one place. */
   heading: string;
 }
@@ -352,6 +353,11 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
                   <p className="mt-1.5 text-sm text-muted-foreground max-w-md">
                     {step.description}
                   </p>
+                  {step.note && (
+                    <p className="mt-1.5 text-xs text-muted-foreground/80 max-w-md">
+                      {step.note}
+                    </p>
+                  )}
                 </li>
               );
             })}

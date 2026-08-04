@@ -392,8 +392,9 @@
           "description": "Pago digital en segundos, sin efectivo ni terminal."
         },
         {
-          "title": "Retira, y listo",
-          "description": "Presenta tu número de orden en la fila de pedidos digitales."
+          "title": "Sigue tu pedido y retira",
+          "description": "La pantalla se pone verde cuando tu pedido está listo. Vas al punto de retiro, muestras tu número y listo.",
+          "note": "El organizador puede pedir además un código de 4 dígitos."
         }
       ],
       "screens": {

@@ -44,7 +44,7 @@ const ProductDetail = ({ mode }: ProductDetailProps) => {
   const steps = t(`product.${mode}.steps`, {
     returnObjects: true,
     defaultValue: [],
-  }) as { title: string; description: string }[];
+  }) as { title: string; description: string; note?: string }[];
   const statuses = t(`product.${mode}.statuses`, {
     returnObjects: true,
     defaultValue: [],
