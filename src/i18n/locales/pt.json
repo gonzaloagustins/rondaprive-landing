@@ -380,6 +380,13 @@
       "title": "Pick Up Express",
       "subtitle": "Compra digital com retirada no ponto de venda",
       "seoDescription": "Compra e retirada em quatro passos: escaneie o QR do comércio, escolha no cardápio, pague pelo celular e retire informando seu número de pedido. Sem filas.",
+      "kitchenTeaser": {
+        "title": "E no bar, o pedido já está na tela",
+        "description": "O operador vê a comanda com o número do pedido e marca como pronto. O cliente vê a mudança no celular na hora.",
+        "link": "Veja como funciona a operação de bar e cozinha",
+        "ticketLabel": "Comanda",
+        "action": "Marcar pronto"
+      },
       "impact": [
         {
           "value": "−85%",

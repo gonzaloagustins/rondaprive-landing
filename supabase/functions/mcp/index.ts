@@ -611,10 +611,41 @@ var es_default = {
     overview: "Vista general del producto",
     otherModesTitle: "Otras capacidades",
     stepsTitle: "C\xF3mo funciona, paso a paso",
+    impactTitle: "Lo que cambia en tu operaci\xF3n",
+    impactCta: "Te mostramos c\xF3mo se ve en tu recinto.",
     pickup: {
       title: "Compra y Retira",
       subtitle: "Tu p\xFAblico pide desde el celular y retira sin fila. Tu equipo despacha hasta 3x m\xE1s r\xE1pido.",
       seoDescription: "Compra y Retira en cuatro pasos: escanea el QR del comercio, elige de la carta, paga desde el celular y retira dando tu n\xFAmero de orden. Sin filas.",
+      kitchenTeaser: {
+        title: "Y en la barra, el pedido ya est\xE1 en pantalla",
+        description: "El operador ve la comanda con su n\xFAmero de orden y marca listo. El cliente ve el cambio en su celular al instante.",
+        link: "Ver c\xF3mo funciona la operaci\xF3n de barra y cocina",
+        ticketLabel: "Comanda",
+        action: "Marcar listo"
+      },
+      impact: [
+        {
+          value: "\u221285%",
+          label: "Filas",
+          note: "Sin t\xF3tems ni cajas: el pedido entra desde el celular."
+        },
+        {
+          value: "+40%",
+          label: "Ventas",
+          note: "M\xE1s rondas por persona cuando pedir toma dos minutos."
+        },
+        {
+          value: "3x",
+          label: "Velocidad de servicio",
+          note: "Tu equipo prepara en vez de cobrar."
+        },
+        {
+          value: "0",
+          label: "Infraestructura extra",
+          note: "Funciona con los dispositivos que ya tienes."
+        }
+      ],
       steps: [
         {
           title: "Escanea el QR del comercio",
@@ -1201,15 +1232,14 @@ var es_default = {
         label: "COMPRA Y RETIRA",
         title: "Tu pedido listo cuando llegas",
         bullets: [
-          "Fila VIP para pedidos digitales",
           "Sin esperar, sin filas"
         ],
         steps: [
           "Pide desde tu celular en cualquier momento",
-          'Recibe el aviso de "listo para retirar"',
-          "Das tu n\xFAmero de orden y retiras en la fila VIP"
+          "La pantalla se pone verde cuando est\xE1 listo",
+          "Das tu n\xFAmero de orden y retiras"
         ],
-        imageAlt: "Persona retirando su pedido en la fila VIP de un bar de festival"
+        imageAlt: "Persona retirando su pedido en un bar de festival"
       }
     }
   },
@@ -1225,11 +1255,11 @@ var es_default = {
     eyebrow: "Panel de control",
     headline: "Todo bajo control.",
     headlineHighlight: "En tiempo real.",
-    description: "Un dashboard completo para organizadores y equipos operativos. Visualiza ventas, gestiona inventario y toma decisiones informadas al instante.",
+    description: "Un dashboard completo para organizadores y equipos operativos. Visualiza ventas, controla disponibilidad y toma decisiones informadas al instante.",
     modules: [
       { title: "Estad\xEDsticas r\xE1pidas", subtitle: "KPIs en tiempo real" },
       { title: "Gesti\xF3n de productos", subtitle: "Men\xFAs y precios" },
-      { title: "Inventario en vivo", subtitle: "Stock actualizado" },
+      { title: "Disponibilidad en vivo", subtitle: "Quiebres al instante" },
       { title: "Anal\xEDticas", subtitle: "Insights de consumo" },
       { title: "Monitoreo de ventas", subtitle: "Seguimiento continuo" },
       { title: "Comportamiento", subtitle: "Patrones de consumo" },
