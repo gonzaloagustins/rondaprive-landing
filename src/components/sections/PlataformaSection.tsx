@@ -17,8 +17,16 @@ type ProductMeta = {
   highlight?: boolean;
 };
 
-// Order applies Serial-Position + Peak-End: soft entry → hero → tangible close.
+// Same order as the menu, the footer and the /producto hub (PRODUCT_MODES).
 const productsMeta: ProductMeta[] = [
+  {
+    id: "pickup",
+    icon: CheckSquare,
+    image: "/pickup-express.jpg",
+    imageWebp: "/pickup-express.webp",
+    imageWebpMd: "/pickup-express-900w.webp",
+    imageWebpSm: "/pickup-express-600w.webp",
+  },
   {
     id: "preorder",
     icon: Clock,
@@ -35,14 +43,6 @@ const productsMeta: ProductMeta[] = [
     imageWebpMd: "/seat-delivery-900w.webp",
     imageWebpSm: "/seat-delivery-600w.webp",
     highlight: true,
-  },
-  {
-    id: "pickup",
-    icon: CheckSquare,
-    image: "/pickup-express.jpg",
-    imageWebp: "/pickup-express.webp",
-    imageWebpMd: "/pickup-express-900w.webp",
-    imageWebpSm: "/pickup-express-600w.webp",
   },
 ];
 
