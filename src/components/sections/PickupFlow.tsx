@@ -385,10 +385,19 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
                   what the phone did before.
 
                   No transition on the pair: it is a comparison of two states,
-                  not an animation between them. */}
+                  not an animation between them.
+
+                  The vertical offset is a transform rather than a margin. A
+                  margin makes the row 548px tall, and a sticky element cannot
+                  go past the bottom of its column: the taller it is, the sooner
+                  the column runs out and pushes it up behind the navbar. A
+                  transform offsets it visually and leaves the row at 508px, and
+                  it offsets downward only, so nothing reaches above the sticky
+                  top. See lg:pb-52 on the list below, which is the other half
+                  of keeping this on screen. */}
               <div className="flex items-start">
                 {isLastStep && (
-                  <Phone state="preparing" className="hidden xl:block mt-10">
+                  <Phone state="preparing" className="hidden xl:block translate-y-10">
                     {preparing}
                   </Phone>
                 )}
@@ -417,8 +426,17 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
               empty screen: a step's content is ~90px, so 78% of the box was
               blank, and the taller the monitor the worse it got. A fixed
               min-h-52 (13rem) is about half that, does not grow with the
-              viewport, and still leaves each step ~200px of its own travel. */}
-          <ol className="lg:col-span-7 lg:order-1 space-y-10 lg:space-y-0">
+              viewport, and still leaves each step ~200px of its own travel.
+
+              lg:pb-52 is what pays for that. The sticky phone needs 620px from
+              the top of the viewport (112px of offset plus 508px of phone) and
+              cannot extend past the bottom of its column, whose height is this
+              list's. At 46vh a step, the list ended 819px down when the last
+              step became active — 199px of slack. Halved, it ended at 613px:
+              7px short, so the phone was already being pushed up behind the
+              navbar on step 04, and further with every pixel scrolled. One more
+              step's worth of padding gives back the same 199px of slack. */}
+          <ol className="lg:col-span-7 lg:order-1 space-y-10 lg:space-y-0 lg:pb-52">
             {steps.map((step, i) => {
               const isActive = i === shown;
               return (
