@@ -91,7 +91,7 @@ Compra antes del evento, retira el día del show
 3. **Recibe tu QR:** Un código QR se genera como comprobante de tu compra anticipada.
 4. **El día del evento, retira:** Presenta tu QR en el punto de retiro y recibe tu pedido sin esperar.
 
-#### Compra y Retiro
+#### Compra y Retira
 URL: https://rondaprive.com/es/producto/compra-y-retiro
 
 Compra digital con retiro en punto de venta
@@ -127,13 +127,13 @@ Cada industria tiene desafíos únicos. Ronda Privé se adapta con soluciones es
 
 - **Nightclubs:** Optimiza la venta en barra y mesas VIP. Menos congestión, más rotación, mayor consumo por mesa.
   - Problema: Barras congestionadas, pérdida de ventas en momentos peak, dificultad para atender mesas VIP con agilidad.
-  - Solución: Pedidos desde mesa o zona VIP directo al celular. Compra y Retiro para reducir filas en barra. Dashboard con métricas en vivo.
+  - Solución: Pedidos desde mesa o zona VIP directo al celular. Compra y Retira para reducir filas en barra. Dashboard con métricas en vivo.
 - **Festivales:** Mayor velocidad en puntos de alta demanda. Compra anticipada para reducir congestión y planificar inventario.
   - Problema: Miles de asistentes, múltiples puntos de venta, filas interminables y pérdida masiva de ventas potenciales.
-  - Solución: Compra y Retiro en todos los puntos. Compra anticipada pre-evento. Inventario centralizado con alertas de stock.
+  - Solución: Compra y Retira en todos los puntos. Compra anticipada pre-evento. Inventario centralizado con alertas de stock.
 - **Estadios y Conciertos:** QR en asientos, suites y hospitality. Compra desde el asiento con entrega directa sin perder el espectáculo.
   - Problema: Asistentes abandonan sus asientos para comprar y pierden el show. Suites y hospitality sin servicio ágil.
-  - Solución: QR en cada asiento o sector. Compra desde el celular con entrega al asiento. Compra y Retiro para sectores generales.
+  - Solución: QR en cada asiento o sector. Compra desde el celular con entrega al asiento. Compra y Retira para sectores generales.
 - **Bares y Venues:** Flujo de pedidos más ordenado, operación eficiente y mayor rotación en noches de alta demanda.
   - Problema: Barras saturadas en horarios pico, errores en pedidos, falta de control de inventario y caja.
   - Solución: Pedidos desde QR en mesa o barra. Preparación ordenada por prioridad. Dashboard de ventas y stock en tiempo real.
@@ -154,7 +154,7 @@ Desde el primer pedido hasta la entrega, cada paso está diseñado para maximiza
 
 1. **Recibe el pedido:** El equipo operativo visualiza cada pedido con detalle de productos, cliente y ubicación.
 2. **Inicia preparación:** El personal marca el estado: recibido, en preparación, listo.
-3. **Escanea y entrega:** En Compra y Retiro se escanea el QR del cliente. En Compra desde el asiento se asocia a la ubicación.
+3. **Escanea y entrega:** En Compra y Retira se escanea el QR del cliente. En Compra desde el asiento se asocia a la ubicación.
 4. **Actualiza estado:** El sistema actualiza en tiempo real: listo, entregado. Trazabilidad completa.
 
 #### Para organizadores
@@ -254,7 +254,7 @@ Definiciones de los conceptos que usamos en Ronda Privé y que escucharás en el
 #### Modalidades de venta
 
 - **Compra anticipada:** Modalidad de venta donde el cliente compra y paga su consumo días o semanas antes del evento. El día del evento activa tu compra y retírala sin hacer filas. Permite al organizador planificar inventario con anticipación.
-- **Compra y retiro:** Modalidad donde el cliente compra desde su celular durante el evento y retira el pedido en un punto de venta cuando está listo. Funciona como fila digital: no requiere esperar en una línea física.
+- **Compra y Retira:** Modalidad donde el cliente compra desde su celular durante el evento y retira el pedido en un punto de venta cuando está listo. Funciona como fila digital: no requiere esperar en una línea física.
 - **Entrega en asiento:** Modalidad para eventos con asientos identificados (estadios, suites, palcos, hospitality). El cliente escanea el QR de su ubicación, compra desde el celular y recibe el pedido directamente en su asiento o mesa, sin moverse.
 - **Fila digital:** Sistema que reemplaza la fila física por una cola gestionada digitalmente. El cliente compra desde su celular, recibe un número de orden y se acerca al punto de retiro solo cuando el pedido está listo.
 - **Número de orden:** Identificador único que recibe el cliente al concretar la compra. Sirve para retirar el pedido y, según la configuración del organizador, puede pedirse junto con un código de verificación adicional.
@@ -357,7 +357,7 @@ El patrón se repite en la mayoría de los estadios: la venta se concentra en el
 
 #### Qué se implementó
 
-La implementación combinó dos modalidades: compra desde el asiento para sectores premium — el asistente escanea el QR de su ubicación y recibe el pedido donde está — y compra y retiro para el resto del recinto, con puntos de retiro diferenciados por sector para repartir el flujo de gente.
+La implementación combinó dos modalidades: compra desde el asiento para sectores premium — el asistente escanea el QR de su ubicación y recibe el pedido donde está — y Compra y Retira para el resto del recinto, con puntos de retiro diferenciados por sector para repartir el flujo de gente.
 
 No se instaló infraestructura adicional: la operación corre sobre los puntos de venta existentes y los celulares de los propios asistentes.
 
