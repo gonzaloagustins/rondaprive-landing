@@ -624,6 +624,16 @@ var es_default = {
         ticketLabel: "Comanda",
         action: "Marcar listo"
       },
+      comparison: {
+        before: "Operaci\xF3n tradicional",
+        after: "Con Ronda Priv\xE9",
+        rows: [
+          { before: "El cliente hace fila para pedir y otra para pagar", after: "Pide desde donde est\xE1" },
+          { before: "Cada punto de venta necesita terminal y caja", after: "Cero infraestructura extra" },
+          { before: "El personal cobra en vez de preparar", after: "El personal solo prepara y entrega" },
+          { before: "Los datos de consumo llegan al d\xEDa siguiente", after: "Datos en vivo durante el evento" }
+        ]
+      },
       validation: {
         label: "VALIDADO EN OPERACI\xD3N REAL",
         title: "Fiesta LOLA, Rancagua",
