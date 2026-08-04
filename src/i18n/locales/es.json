@@ -380,6 +380,13 @@
       "title": "Compra y Retira",
       "subtitle": "Tu público pide desde el celular y retira sin fila. Tu equipo despacha hasta 3x más rápido.",
       "seoDescription": "Compra y Retira en cuatro pasos: escanea el QR del comercio, elige de la carta, paga desde el celular y retira dando tu número de orden. Sin filas.",
+      "kitchenTeaser": {
+        "title": "Y en la barra, el pedido ya está en pantalla",
+        "description": "El operador ve la comanda con su número de orden y marca listo. El cliente ve el cambio en su celular al instante.",
+        "link": "Ver cómo funciona la operación de barra y cocina",
+        "ticketLabel": "Comanda",
+        "action": "Marcar listo"
+      },
       "impact": [
         {
           "value": "−85%",

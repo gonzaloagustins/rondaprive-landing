@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/shared/PageHero";
 import SEO from "@/components/shared/SEO";
 import PickupFlow from "@/components/sections/PickupFlow";
+import KitchenTeaser from "@/components/sections/KitchenTeaser";
 import { productModeMeta, productModes } from "@/data/productModes";
 import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 import type { ProductMode } from "@/i18n/routes";
@@ -162,6 +163,10 @@ const ProductDetail = ({ mode }: ProductDetailProps) => {
           </div>
         </section>
       )}
+
+      {/* Where the order goes next. Only pickup authors this copy, and only
+          pickup needs it: it is the one mode whose flow ends at a counter. */}
+      {mode === "pickup" && <KitchenTeaser to={path("productDetail", "/kitchen")} />}
 
       {description && (
         <section className="py-16">

@@ -380,6 +380,13 @@
       "title": "Pick Up Express",
       "subtitle": "Digital ordering with point-of-sale collection",
       "seoDescription": "Order and pickup in four steps: scan the vendor's QR, choose from the menu, pay from your phone and collect with your order number. No lines.",
+      "kitchenTeaser": {
+        "title": "And at the bar, the order is already on screen",
+        "description": "The operator sees the ticket with its order number and marks it ready. The customer sees the change on their phone right away.",
+        "link": "See how bar and kitchen operations work",
+        "ticketLabel": "Ticket",
+        "action": "Mark ready"
+      },
       "impact": [
         {
           "value": "−85%",

@@ -380,6 +380,13 @@
       "title": "Pick Up Express",
       "subtitle": "Commande digitale avec retrait au point de vente",
       "seoDescription": "Commande et retrait en quatre étapes : scannez le QR du commerce, choisissez au menu, payez depuis le téléphone et retirez avec votre numéro de commande. Sans file.",
+      "kitchenTeaser": {
+        "title": "Et au bar, la commande est déjà à l'écran",
+        "description": "L'opérateur voit le ticket avec son numéro de commande et le marque prêt. Le client voit le changement sur son téléphone aussitôt.",
+        "link": "Voir comment fonctionne l'exploitation bar et cuisine",
+        "ticketLabel": "Ticket",
+        "action": "Marquer prêt"
+      },
       "impact": [
         {
           "value": "−85%",
