@@ -317,9 +317,12 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
           </div>
 
           {/* Steps — the actual content. */}
-          {/* Each step gets a screenful-ish slice of scroll. Packed tighter,
-              all four fit in one viewport and the middle two flash past with
-              almost no travel of their own. */}
+          {/* Each step reserves a slice of scroll so the phone has room to
+              change between them. It used to be 46vh, which read as a near-
+              empty screen: a step's content is ~90px, so 78% of the box was
+              blank, and the taller the monitor the worse it got. A fixed
+              min-h-52 (13rem) is about half that, does not grow with the
+              viewport, and still leaves each step ~200px of its own travel. */}
           <ol className="lg:col-span-7 lg:order-1 space-y-10 lg:space-y-0">
             {steps.map((step, i) => {
               const isActive = i === shown;
@@ -330,7 +333,7 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
                   ref={(el) => {
                     itemRefs.current[i] = el;
                   }}
-                  className={`border-l-2 pl-5 transition-colors duration-300 lg:flex lg:min-h-[46vh] lg:flex-col lg:justify-center ${
+                  className={`border-l-2 pl-5 transition-colors duration-300 lg:flex lg:min-h-52 lg:flex-col lg:justify-center ${
                     isActive ? "border-primary" : "border-border"
                   }`}
                 >

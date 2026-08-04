@@ -205,6 +205,42 @@ describe("PickupFlow", () => {
   // A step's `note` is an optional caveat. It has to reach the page — it is
   // the only place the 4-digit code is mentioned — without being mistaken for
   // part of the step itself.
+  // The steps' desktop height is what spaces them out, so it decides how much
+  // scroll each one owns. It was halved (46vh → min-h-52, 13rem), and the
+  // failure mode of packing them tighter is a step that no visitor can ever
+  // stop on: scroll past it and the phone jumps straight to the next. Every
+  // step must still be reachable at the real spacing, not just at a roomy one.
+  const LG_STEP_HEIGHT = 208; // min-h-52, mirrored from the component
+
+  it("gives every step its own screen at the real desktop spacing", async () => {
+    await renderFlow();
+    for (let i = 0; i < STEPS.length; i++) {
+      // Position the list as if step i's top had just crossed the line.
+      positionSteps(STEPS.map((_, j) => LINE - 5 + (j - i) * LG_STEP_HEIGHT));
+      await act(async () => {
+        window.dispatchEvent(new Event("scroll"));
+      });
+      expect(activeStepIndex()).toBe(i);
+      expect(activeScreen()).toBe(i);
+    }
+  });
+
+  it("visits every step in order at the real desktop spacing too", async () => {
+    await renderFlow();
+    const seen: number[] = [];
+    // 8px divides the total travel exactly, so the sweep lands on the last
+    // step's threshold rather than stopping just short of it.
+    for (let offset = 0; offset <= LG_STEP_HEIGHT * 3; offset += 8) {
+      positionSteps(STEPS.map((_, i) => LINE - 5 + i * LG_STEP_HEIGHT - offset));
+      await act(async () => {
+        window.dispatchEvent(new Event("scroll"));
+      });
+      const cur = activeScreen();
+      if (seen[seen.length - 1] !== cur) seen.push(cur);
+    }
+    expect(seen).toEqual([0, 1, 2, 3]);
+  });
+
   it("renders a step's note under its description, quieter than it", async () => {
     await i18n.changeLanguage("es");
     render(
