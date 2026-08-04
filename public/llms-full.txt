@@ -40,19 +40,18 @@ La forma más rápida, segura y cómoda de disfrutar cada momento.
   2. Compra desde tu celular
   3. Recibe en tu ubicación sin moverte
 - **Tu pedido listo cuando llegas**
-  - Fila VIP para pedidos digitales
   - Sin esperar, sin filas
   1. Pide desde tu celular en cualquier momento
-  2. Recibe el aviso de "listo para retirar"
-  3. Das tu número de orden y retiras en la fila VIP
+  2. La pantalla se pone verde cuando está listo
+  3. Das tu número de orden y retiras
 
 ### Todo bajo control. En tiempo real.
 
-Un dashboard completo para organizadores y equipos operativos. Visualiza ventas, gestiona inventario y toma decisiones informadas al instante.
+Un dashboard completo para organizadores y equipos operativos. Visualiza ventas, controla disponibilidad y toma decisiones informadas al instante.
 
 - **Estadísticas rápidas:** KPIs en tiempo real
 - **Gestión de productos:** Menús y precios
-- **Inventario en vivo:** Stock actualizado
+- **Disponibilidad en vivo:** Quiebres al instante
 - **Analíticas:** Insights de consumo
 - **Monitoreo de ventas:** Seguimiento continuo
 - **Comportamiento:** Patrones de consumo
@@ -483,19 +482,18 @@ The fastest, safest, most comfortable way to enjoy every moment.
   2. Order from your phone
   3. Get it delivered without moving
 - **Your order ready when you arrive**
-  - VIP line for digital orders
   - No waiting, no queues
   1. Order from your phone anytime
-  2. Get the "ready for pickup" alert
-  3. Give your order number and collect at the VIP line
+  2. The screen turns green when it's ready
+  3. Give your order number and collect
 
 ### Everything under control. In real time.
 
-A full dashboard for organizers and operations teams. Track sales, manage inventory, and make informed decisions in the moment.
+A full dashboard for organizers and operations teams. Track sales, track availability, and make informed decisions in the moment.
 
 - **Quick stats:** Real-time KPIs
 - **Product management:** Menus and pricing
-- **Live inventory:** Stock kept current
+- **Live availability:** Stockouts in the moment
 - **Analytics:** Consumption insights
 - **Sales monitoring:** Continuous tracking
 - **Behavior:** Consumption patterns

@@ -988,15 +988,14 @@
         "label": "ORDER & PICK UP",
         "title": "Your order ready when you arrive",
         "bullets": [
-          "VIP line for digital orders",
           "No waiting, no queues"
         ],
         "steps": [
           "Order from your phone anytime",
-          "Get the \"ready for pickup\" alert",
-          "Give your order number and collect at the VIP line"
+          "The screen turns green when it's ready",
+          "Give your order number and collect"
         ],
-        "imageAlt": "Person picking up their order at the VIP line of a festival bar"
+        "imageAlt": "Person picking up their order at a festival bar"
       }
     }
   },
@@ -1012,11 +1011,11 @@
     "eyebrow": "Control panel",
     "headline": "Everything under control.",
     "headlineHighlight": "In real time.",
-    "description": "A full dashboard for organizers and operations teams. Track sales, manage inventory, and make informed decisions in the moment.",
+    "description": "A full dashboard for organizers and operations teams. Track sales, track availability, and make informed decisions in the moment.",
     "modules": [
       { "title": "Quick stats", "subtitle": "Real-time KPIs" },
       { "title": "Product management", "subtitle": "Menus and pricing" },
-      { "title": "Live inventory", "subtitle": "Stock kept current" },
+      { "title": "Live availability", "subtitle": "Stockouts in the moment" },
       { "title": "Analytics", "subtitle": "Consumption insights" },
       { "title": "Sales monitoring", "subtitle": "Continuous tracking" },
       { "title": "Behavior", "subtitle": "Consumption patterns" },

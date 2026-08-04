@@ -988,15 +988,14 @@
         "label": "COMMANDE & RETRAIT",
         "title": "Votre commande prête à votre arrivée",
         "bullets": [
-          "File VIP pour les commandes digitales",
           "Sans attente, sans file"
         ],
         "steps": [
           "Commandez depuis votre téléphone à tout moment",
-          "Recevez l'alerte \"prêt à retirer\"",
-          "Donnez votre numéro de commande et retirez dans la file VIP"
+          "L'écran passe au vert quand c'est prêt",
+          "Donnez votre numéro de commande et retirez"
         ],
-        "imageAlt": "Personne récupérant sa commande dans la file VIP d'un bar de festival"
+        "imageAlt": "Personne récupérant sa commande dans un bar de festival"
       }
     }
   },
@@ -1012,11 +1011,11 @@
     "eyebrow": "Tableau de bord",
     "headline": "Tout sous contrôle.",
     "headlineHighlight": "En temps réel.",
-    "description": "Un dashboard complet pour organisateurs et équipes opérationnelles. Suivez les ventes, gérez l'inventaire et prenez des décisions éclairées à l'instant.",
+    "description": "Un dashboard complet pour organisateurs et équipes opérationnelles. Suivez les ventes, suivez la disponibilité et prenez des décisions éclairées à l'instant.",
     "modules": [
       { "title": "Statistiques rapides", "subtitle": "KPI en temps réel" },
       { "title": "Gestion des produits", "subtitle": "Menus et prix" },
-      { "title": "Inventaire en direct", "subtitle": "Stock à jour" },
+      { "title": "Disponibilité en direct", "subtitle": "Ruptures à l'instant" },
       { "title": "Analytique", "subtitle": "Insights de consommation" },
       { "title": "Suivi des ventes", "subtitle": "Suivi continu" },
       { "title": "Comportement", "subtitle": "Schémas de consommation" },

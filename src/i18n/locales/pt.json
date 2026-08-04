@@ -988,15 +988,14 @@
         "label": "COMPRA E RETIRADA",
         "title": "Seu pedido pronto quando você chega",
         "bullets": [
-          "Fila VIP para pedidos digitais",
           "Sem esperar, sem filas"
         ],
         "steps": [
           "Peça pelo celular a qualquer momento",
-          "Receba o aviso \"pronto para retirar\"",
-          "Informe seu número de pedido e retire na fila VIP"
+          "A tela fica verde quando está pronto",
+          "Informe seu número de pedido e retire"
         ],
-        "imageAlt": "Pessoa retirando seu pedido na fila VIP de um bar de festival"
+        "imageAlt": "Pessoa retirando seu pedido em um bar de festival"
       }
     }
   },
@@ -1012,11 +1011,11 @@
     "eyebrow": "Painel de controle",
     "headline": "Tudo sob controle.",
     "headlineHighlight": "Em tempo real.",
-    "description": "Um dashboard completo para organizadores e equipes operacionais. Visualize vendas, gerencie estoque e tome decisões informadas na hora.",
+    "description": "Um dashboard completo para organizadores e equipes operacionais. Visualize vendas, controle a disponibilidade e tome decisões informadas na hora.",
     "modules": [
       { "title": "Estatísticas rápidas", "subtitle": "KPIs em tempo real" },
       { "title": "Gestão de produtos", "subtitle": "Cardápios e preços" },
-      { "title": "Estoque ao vivo", "subtitle": "Stock atualizado" },
+      { "title": "Disponibilidade ao vivo", "subtitle": "Rupturas na hora" },
       { "title": "Analytics", "subtitle": "Insights de consumo" },
       { "title": "Monitoramento de vendas", "subtitle": "Acompanhamento contínuo" },
       { "title": "Comportamento", "subtitle": "Padrões de consumo" },
