@@ -634,6 +634,7 @@ var es_default = {
           { before: "Los datos de consumo llegan al d\xEDa siguiente", after: "Datos en vivo durante el evento" }
         ]
       },
+      otherModesIntro: "Los tres canales operan en el mismo evento, sobre la misma carta y el mismo panel.",
       validation: {
         label: "VALIDADO EN OPERACI\xD3N REAL",
         title: "Fiesta LOLA, Rancagua",

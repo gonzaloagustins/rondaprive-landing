@@ -397,6 +397,7 @@
           { "before": "Les données de consommation arrivent le lendemain", "after": "Des données en direct pendant l'événement" }
         ]
       },
+      "otherModesIntro": "Les trois canaux fonctionnent sur le même événement, avec le même menu et le même tableau de bord.",
       "validation": {
         "label": "VALIDÉ EN EXPLOITATION RÉELLE",
         "title": "Fiesta LOLA, Rancagua",
