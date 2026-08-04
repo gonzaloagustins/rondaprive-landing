@@ -176,9 +176,13 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
     </div>
   );
 
-  const orderHeader = () => (
+  // The title is a parameter, not a constant: steps 3 and 4 are different
+  // moments — the number arriving, then the order being made — and reusing one
+  // title made them look like the same screen and put step 4's wording on
+  // step 3.
+  const orderHeader = (title: string) => (
     <>
-      <p className="text-sm font-semibold leading-tight">{s("preparingTitle")}</p>
+      <p className="text-sm font-semibold leading-tight">{title}</p>
       <p className="font-display text-4xl font-bold tracking-tight mt-1">
         {s("orderNumber")}
       </p>
@@ -267,19 +271,27 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
           </div>
         ))}
       </div>
+      {/* The step says "explora y compra", so paying has to be visible here
+          and not only implied by the menu. */}
+      <div className="mt-auto flex items-center justify-between rounded-full bg-foreground px-3.5 py-2">
+        <span className="text-[10px] font-semibold text-background">
+          {s("payLabel")}
+        </span>
+        <span className="text-[11px] font-bold text-background">{s("total")}</span>
+      </div>
     </Screen>,
 
     // 3 — the order number and its code, right after payment.
     <Screen key="number">
       <AppBar />
-      {orderHeader()}
+      {orderHeader(s("confirmedTitle"))}
       <div className="mt-3">{statusCard("confirmed")}</div>
     </Screen>,
 
     // 4 — same screen, timeline advanced. Mirrors how the real app behaves.
     <Screen key="preparing">
       <AppBar />
-      {orderHeader()}
+      {orderHeader(s("preparingTitle"))}
       <div className="mt-3">{statusCard("preparing")}</div>
       <div className="mt-2 rounded-xl bg-muted/50 p-3">
         <Label>{s("pickupAtLabel")}</Label>

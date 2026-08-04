@@ -405,6 +405,9 @@
         }
       ],
       "screens": {
+        "confirmedTitle": "Pedido confirmado.",
+        "payLabel": "Pagar",
+        "total": "$11.200",
         "aria": "Simulação do fluxo de compra e retirada no celular",
         "discoverTitle": "Os melhores lugares, selecionados para você.",
         "searchPlaceholder": "Busque um evento ou artista…",

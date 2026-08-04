@@ -405,6 +405,9 @@
         }
       ],
       "screens": {
+        "confirmedTitle": "Commande confirmée.",
+        "payLabel": "Payer",
+        "total": "$11.200",
         "aria": "Simulation du parcours commande et retrait sur téléphone",
         "discoverTitle": "Les meilleurs lieux, choisis pour vous.",
         "searchPlaceholder": "Cherchez un événement ou un artiste…",
