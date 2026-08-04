@@ -96,12 +96,10 @@ URL: https://rondaprive.com/es/producto/compra-y-retiro
 
 Compra digital con retiro en punto de venta
 
-1. **Accede a Ronda Privé:** El asistente ingresa escaneando un QR o desde un link directo.
-2. **Explora y compra:** Ve la carta digital, selecciona productos y paga desde el celular.
-3. **Recibe tu número de orden:** Se genera un número único que identifica el pedido.
-4. **El pedido se prepara:** La barra o la cocina lo prepara mientras el asistente sigue en el evento.
-5. **Recibe el aviso:** Llega la notificación de listo para retirar.
-6. **Da tu número y retira:** La entrega es en la fila exclusiva para pedidos digitales. Sin esperas, sin congestión.
+1. **Escanea el QR de la barra:** Cada barra o comercio tiene su QR. No hay que descargar nada.
+2. **Explora la carta y elige:** Ve los productos disponibles y arma tu pedido desde el celular.
+3. **Paga:** Pago digital en segundos, sin efectivo ni terminal.
+4. **Retira, y listo:** Presenta tu número de orden en la fila de pedidos digitales.
 
 #### Compra desde el asiento
 URL: https://rondaprive.com/es/producto/entrega-en-asiento
@@ -541,12 +539,10 @@ URL: https://rondaprive.com/en/product/order-and-pickup
 
 Digital ordering with point-of-sale collection
 
-1. **Access Ronda Privé:** The attendee enters by scanning a QR code or through a direct link.
-2. **Browse and order:** View the digital menu, select products, and pay from the phone.
-3. **Get your order number:** A unique number is generated to identify the order.
-4. **The order gets prepared:** The bar or kitchen makes it while the attendee stays in the event.
-5. **Get the alert:** The "ready for pickup" notification arrives.
-6. **Give your number and collect:** Handover happens in the line reserved for digital orders. No waiting, no congestion.
+1. **Scan the bar's QR code:** Every bar or vendor has its own QR. Nothing to download.
+2. **Browse the menu and choose:** See what's available and build your order from your phone.
+3. **Pay:** Digital payment in seconds — no cash, no card terminal.
+4. **Collect, and that's it:** Show your order number in the digital-orders line.
 
 #### Order from your seat
 URL: https://rondaprive.com/en/product/seat-delivery

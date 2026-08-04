@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Check, Search, MapPin, Menu, Plus, Loader } from "lucide-react";
+import { Check, Search, MapPin, Menu, Plus, ScanLine, Loader } from "lucide-react";
 
 /**
  * The Compra y Retiro flow, told with a phone that keeps pace with the steps.
@@ -8,17 +8,18 @@ import { Check, Search, MapPin, Menu, Plus, Loader } from "lucide-react";
  * Why this shape rather than a cinematic pinned hero: this is a mid-funnel page
  * the visitor reached from the menu already interested, so the visual has to
  * explain rather than impress. The phone is sticky and swaps screens as each
- * step scrolls past the middle of the viewport — read step 4 and you see step 4.
+ * step scrolls past the middle of the viewport — read step 3 and you see step 3.
  * Nothing is scroll-jacked; the visitor keeps control of the page.
  *
- * The screens mirror the shipped Comprador prototype rather than an invented
- * UI: the order number and a separate 4-digit code, the three-state status
- * timeline, and the full-bleed green takeover when the order is ready — that
- * last one is the most recognisable screen in the product.
+ * One screen per step, in order, and the count is asserted below: a mismatch
+ * between the steps in the catalog and the screens here is what once made the
+ * walkthrough look out of sync.
  *
- * Venue, bar and product names are generic on purpose. The prototype uses real
- * third-party trademarks; those need permission before they go on a public
- * page, so the mockup uses stand-ins that are trivial to swap in i18n.
+ * Screens follow the shipped Comprador prototype (menu layout, the live wait
+ * time, the order number plus its separate code, the full-bleed green takeover
+ * when the order is ready). Venue, bar, product and payment names are generic
+ * on purpose: the prototype uses real third-party trademarks, which need
+ * permission on a public page. They live in i18n, so swapping them is copy.
  *
  * The step list is the real content: it carries the text, it is what the
  * prerendered HTML and screen readers get, and it reads fine on its own. The
@@ -89,7 +90,6 @@ const Screen = ({
   </div>
 );
 
-/** App bar: wordmark + menu, as in the real screens. */
 const AppBar = () => (
   <div className="flex items-center justify-between mb-4">
     <span className="font-display text-sm font-bold tracking-tight">Ronda</span>
@@ -104,49 +104,6 @@ const Field = ({ placeholder }: { placeholder: string }) => (
   </div>
 );
 
-/** One row of the status timeline. */
-const StatusRow = ({
-  state,
-  title,
-  hint,
-  last,
-}: {
-  state: "done" | "current" | "todo";
-  title: string;
-  hint?: string;
-  last?: boolean;
-}) => (
-  <div className="flex gap-2.5">
-    <div className="flex flex-col items-center">
-      <span
-        className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 ${
-          state === "done"
-            ? "bg-foreground"
-            : state === "current"
-              ? "bg-primary/25"
-              : "bg-border"
-        }`}
-      >
-        {state === "done" && (
-          <Check className="w-2.5 h-2.5 text-background" strokeWidth={3.5} />
-        )}
-        {state === "current" && <Loader className="w-2.5 h-2.5 text-primary" />}
-      </span>
-      {!last && <span className="w-px flex-1 bg-border my-0.5" />}
-    </div>
-    <div className={last ? "" : "pb-2.5"}>
-      <p
-        className={`text-[10px] font-semibold leading-tight ${
-          state === "todo" ? "text-muted-foreground" : "text-foreground"
-        }`}
-      >
-        {title}
-      </p>
-      {hint && <p className="text-[9px] text-muted-foreground mt-0.5">{hint}</p>}
-    </div>
-  </div>
-);
-
 /* -------------------------------------------------------------------- section */
 
 const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
@@ -156,68 +113,26 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
 
   const s = (key: string) => t(`product.pickup.screens.${key}`);
 
-  /** Status card, shared by the two steps that differ only in how far it got. */
-  const statusCard = (stage: "confirmed" | "preparing") => (
-    <div className="rounded-xl bg-muted/50 p-3">
-      <Label>{s("statusLabel")}</Label>
-      <div className="mt-2">
-        <StatusRow
-          state="done"
-          title={s("statusConfirmed")}
-          hint={s("statusConfirmedHint")}
-        />
-        <StatusRow
-          state={stage === "preparing" ? "current" : "todo"}
-          title={s("statusPreparing")}
-          hint={s("statusPreparingHint")}
-        />
-        <StatusRow state="todo" title={s("statusReady")} last />
-      </div>
-    </div>
-  );
-
-  // The title is a parameter, not a constant: steps 3 and 4 are different
-  // moments — the number arriving, then the order being made — and reusing one
-  // title made them look like the same screen and put step 4's wording on
-  // step 3.
-  const orderHeader = (title: string) => (
-    <>
-      <p className="text-sm font-semibold leading-tight">{title}</p>
-      <p className="font-display text-4xl font-bold tracking-tight mt-1">
-        {s("orderNumber")}
-      </p>
-      <span className="mt-2 inline-flex items-center gap-1.5 self-start rounded-full bg-muted px-2.5 py-1">
-        <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-          {s("codeLabel")}
-        </span>
-        <span className="text-[11px] font-bold tracking-[0.1em] text-primary">
-          {s("codeValue")}
-        </span>
-      </span>
-    </>
-  );
-
   const screens = [
-    // 1 — landing in the venue's app.
-    <Screen key="discover">
-      <AppBar />
-      <p className="text-[13px] font-semibold leading-snug mb-3">
-        {s("discoverTitle")}
-      </p>
-      <Field placeholder={s("searchPlaceholder")} />
-      <div className="mt-4">
-        <Label>{s("thisWeek")}</Label>
-        <div className="mt-2 rounded-xl overflow-hidden bg-muted">
-          <div className="h-20 bg-gradient-to-br from-foreground/80 to-foreground/50" />
-          <div className="p-2.5">
-            <p className="text-[11px] font-semibold">{s("venueName")}</p>
-            <p className="text-[9px] text-muted-foreground mt-0.5">{s("venueMeta")}</p>
-          </div>
+    // 1 — scanning the bar's own QR. No download, which is the point.
+    <Screen key="scan" className="!px-0 !pt-0 !pb-0">
+      <div className="flex-1 bg-[#1A1814] flex flex-col items-center justify-center gap-4">
+        <div className="relative w-32 h-32 rounded-2xl border-2 border-primary/50">
+          <ScanLine className="absolute inset-0 m-auto w-14 h-14 text-primary" strokeWidth={1.5} />
+          {/* Viewfinder corners */}
+          <span className="absolute -top-px -left-px w-5 h-5 border-t-2 border-l-2 border-primary rounded-tl-2xl" />
+          <span className="absolute -top-px -right-px w-5 h-5 border-t-2 border-r-2 border-primary rounded-tr-2xl" />
+          <span className="absolute -bottom-px -left-px w-5 h-5 border-b-2 border-l-2 border-primary rounded-bl-2xl" />
+          <span className="absolute -bottom-px -right-px w-5 h-5 border-b-2 border-r-2 border-primary rounded-br-2xl" />
+        </div>
+        <div className="text-center px-6">
+          <p className="text-[11px] font-semibold text-white">{s("scanTitle")}</p>
+          <p className="text-[9px] text-white/60 mt-1">{s("scanHint")}</p>
         </div>
       </div>
     </Screen>,
 
-    // 2 — the menu: bar header with live wait time, categories, items.
+    // 2 — the menu: bar header with live wait time, categories, items, cart.
     <Screen key="menu">
       <div className="flex items-center gap-2 mb-3">
         <span className="w-8 h-8 rounded-lg bg-foreground flex-shrink-0" />
@@ -271,36 +186,30 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
           </div>
         ))}
       </div>
-      {/* The step says "explora y compra", so paying has to be visible here
-          and not only implied by the menu. */}
-      <div className="mt-auto flex items-center justify-between rounded-full bg-foreground px-3.5 py-2">
-        <span className="text-[10px] font-semibold text-background">
-          {s("payLabel")}
+      {/* Choosing, not paying yet — that is the next step. */}
+      <div className="mt-auto flex items-center justify-between rounded-full border border-border px-3.5 py-2">
+        <span className="text-[10px] font-semibold text-foreground">{s("cartLabel")}</span>
+        <span className="text-[10px] font-bold text-foreground">2</span>
+      </div>
+    </Screen>,
+
+    // 3 — paying. Deliberately no processor branding.
+    <Screen key="pay">
+      <AppBar />
+      <div className="flex-1 flex flex-col items-center justify-center">
+        <Label>{s("totalLabel")}</Label>
+        <p className="font-display text-4xl font-bold tracking-tight mt-1">
+          {s("total")}
+        </p>
+        <span className="mt-6 flex items-center gap-2 text-[10px] text-muted-foreground">
+          <Loader className={`w-3 h-3 text-primary ${reduceMotion ? "" : "animate-spin"}`} />
+          {s("processingLabel")}
         </span>
-        <span className="text-[11px] font-bold text-background">{s("total")}</span>
       </div>
     </Screen>,
 
-    // 3 — the order number and its code, right after payment.
-    <Screen key="number">
-      <AppBar />
-      {orderHeader(s("confirmedTitle"))}
-      <div className="mt-3">{statusCard("confirmed")}</div>
-    </Screen>,
-
-    // 4 — same screen, timeline advanced. Mirrors how the real app behaves.
-    <Screen key="preparing">
-      <AppBar />
-      {orderHeader(s("preparingTitle"))}
-      <div className="mt-3">{statusCard("preparing")}</div>
-      <div className="mt-2 rounded-xl bg-muted/50 p-3">
-        <Label>{s("pickupAtLabel")}</Label>
-        <p className="text-[10px] font-semibold mt-1.5">{s("barName")}</p>
-        <p className="text-[9px] text-muted-foreground">{s("barFloor")}</p>
-      </div>
-    </Screen>,
-
-    // 5 — the green takeover. Full bleed so it reads across a dark bar.
+    // 4 — the green takeover, which is what you hold up at the counter. Full
+    // bleed is the point: it has to read across a dark bar.
     <Screen key="ready" className="!px-0 !pt-0 !pb-0">
       <div className="flex-1 bg-[#4F7A4A] flex flex-col items-center justify-center text-center px-5">
         <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/80">
@@ -321,33 +230,22 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
         <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-white/50 mt-1.5">
           {s("barName")} · {s("barFloor")}
         </p>
-      </div>
-    </Screen>,
-
-    // 6 — handover, and the rating the real app asks for right after.
-    <Screen key="done">
-      <AppBar />
-      <div className="flex-1 flex flex-col items-center justify-center text-center">
-        <span className="w-12 h-12 rounded-full bg-[#4F7A4A]/15 flex items-center justify-center">
-          <Check className="w-6 h-6 text-[#4F7A4A]" strokeWidth={3} />
+        <span className="mt-4 w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
+          <Check className="w-5 h-5 text-white" strokeWidth={3} />
         </span>
-        <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground mt-3">
-          {s("deliveredLabel")}
-        </p>
-        <p className="font-display text-3xl font-bold tracking-tight mt-1">
-          #{s("orderNumber")}
-        </p>
-        <div className="mt-6 w-full rounded-xl bg-muted/50 p-3">
-          <Label>{s("ratingLabel")}</Label>
-          <div className="flex justify-center gap-4 mt-2 text-lg" aria-hidden>
-            <span>☹️</span>
-            <span>😐</span>
-            <span>🤩</span>
-          </div>
-        </div>
       </div>
     </Screen>,
   ];
+
+  // One screen per step. If the catalog and this array ever drift, clamp rather
+  // than render a blank phone — and say so, because it means one of them is
+  // wrong.
+  if (import.meta.env.DEV && steps.length !== screens.length) {
+    console.warn(
+      `PickupFlow: ${steps.length} steps but ${screens.length} screens — they must match.`,
+    );
+  }
+  const shown = Math.min(active, screens.length - 1);
 
   return (
     <section className="py-16">
@@ -371,10 +269,10 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
                     <div
                       key={i}
                       data-screen={i}
-                      data-active={i === active ? "true" : "false"}
+                      data-active={i === shown ? "true" : "false"}
                       className={`absolute inset-0 ${
                         reduceMotion ? "" : "transition-opacity duration-500 ease-out"
-                      } ${i === active ? "opacity-100" : "opacity-0"}`}
+                      } ${i === shown ? "opacity-100" : "opacity-0"}`}
                     >
                       {sc}
                     </div>
@@ -388,9 +286,9 @@ const PickupFlow = ({ steps, heading }: PickupFlowProps) => {
           </div>
 
           {/* Steps — the actual content. */}
-          <ol className="lg:col-span-7 lg:order-1 space-y-8 lg:space-y-16">
+          <ol className="lg:col-span-7 lg:order-1 space-y-8 lg:space-y-20">
             {steps.map((step, i) => {
-              const isActive = i === active;
+              const isActive = i === shown;
               return (
                 <li
                   key={step.title}

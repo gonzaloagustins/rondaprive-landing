@@ -614,43 +614,29 @@ var es_default = {
     pickup: {
       title: "Compra y Retiro",
       subtitle: "Compra digital con retiro en punto de venta",
-      seoDescription: "Compra y retiro: el pedido se paga desde el celular, se prepara mientras el show sigue y se retira dando el n\xFAmero de orden en la fila de pedidos digitales.",
+      seoDescription: "Compra y retiro en cuatro pasos: escanea el QR de la barra, elige de la carta, paga desde el celular y retira dando tu n\xFAmero de orden. Sin filas.",
       steps: [
         {
-          title: "Accede a Ronda Priv\xE9",
-          description: "El asistente ingresa escaneando un QR o desde un link directo."
+          title: "Escanea el QR de la barra",
+          description: "Cada barra o comercio tiene su QR. No hay que descargar nada."
         },
         {
-          title: "Explora y compra",
-          description: "Ve la carta digital, selecciona productos y paga desde el celular."
+          title: "Explora la carta y elige",
+          description: "Ve los productos disponibles y arma tu pedido desde el celular."
         },
         {
-          title: "Recibe tu n\xFAmero de orden",
-          description: "Se genera un n\xFAmero \xFAnico que identifica el pedido."
+          title: "Paga",
+          description: "Pago digital en segundos, sin efectivo ni terminal."
         },
         {
-          title: "El pedido se prepara",
-          description: "La barra o la cocina lo prepara mientras el asistente sigue en el evento."
-        },
-        {
-          title: "Recibe el aviso",
-          description: "Llega la notificaci\xF3n de listo para retirar."
-        },
-        {
-          title: "Da tu n\xFAmero y retira",
-          description: "La entrega es en la fila exclusiva para pedidos digitales. Sin esperas, sin congesti\xF3n."
+          title: "Retira, y listo",
+          description: "Presenta tu n\xFAmero de orden en la fila de pedidos digitales."
         }
       ],
       screens: {
-        confirmedTitle: "Pedido confirmado.",
-        payLabel: "Pagar",
-        total: "$11.200",
         aria: "Simulaci\xF3n del flujo de compra y retiro en el celular",
-        discoverTitle: "Los mejores lugares, seleccionados para ti.",
-        searchPlaceholder: "Busca un evento o artista\u2026",
-        thisWeek: "Esta semana",
-        venueName: "Arena Norte",
-        venueMeta: "Hoy \xB7 21:00",
+        scanTitle: "Escanea el QR de la barra",
+        scanHint: "Apunta la c\xE1mara al c\xF3digo",
         barName: "Barra Central",
         barFloor: "4to piso",
         waitLabel: "Espera: 6 min",
@@ -664,21 +650,15 @@ var es_default = {
         item2Name: "Cerveza lager",
         item2Desc: "Lata 470 ml",
         item2Price: "$3.200",
-        preparingTitle: "Preparando tu pedido.",
+        cartLabel: "Ver pedido",
+        totalLabel: "Total",
+        total: "$11.200",
+        processingLabel: "Procesando pago\u2026",
         orderNumber: "A127",
         codeLabel: "C\xF3digo",
         codeValue: "7342",
-        statusLabel: "Estado",
-        statusConfirmed: "Confirmado",
-        statusConfirmedHint: "Tu pedido fue confirmado.",
-        statusPreparing: "En preparaci\xF3n",
-        statusPreparingHint: "Tu pedido est\xE1 siendo preparado.",
-        statusReady: "Listo para retirar",
-        pickupAtLabel: "Retiro en",
         readyBanner: "\xA1Tu pedido est\xE1 listo!",
-        readyHint: "Pres\xE9ntalo en el punto de retiro",
-        deliveredLabel: "Pedido entregado",
-        ratingLabel: "\xBFC\xF3mo estuvo?"
+        readyHint: "Pres\xE9ntalo en el punto de retiro"
       }
     },
     seat: {
