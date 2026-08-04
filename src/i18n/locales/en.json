@@ -377,7 +377,7 @@
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Digital ordering with point-of-sale collection",
-      "seoDescription": "Order and pickup: guests pay from their phone and preparation starts when they reach the counter. No line, no food going cold.",
+      "seoDescription": "Order and pickup: guests pay from their phone, the order is made while the show goes on, and they collect it by giving their order number in the digital-orders line.",
       "steps": [
         {
           "title": "Access Ronda Privé",
@@ -388,22 +388,36 @@
           "description": "View the digital menu, select products, and pay from the phone."
         },
         {
-          "title": "Receive your QR",
-          "description": "A unique QR code is generated as your order receipt."
+          "title": "Get your order number",
+          "description": "A unique number is generated to identify the order."
         },
         {
-          "title": "Head to the collection point",
-          "description": "The attendee goes to the point of sale without standing in line."
+          "title": "The order gets prepared",
+          "description": "The bar or kitchen makes it while the attendee stays in the event."
         },
         {
-          "title": "Scan and preparation",
-          "description": "Staff scans the QR and only then begins preparation."
+          "title": "Get the alert",
+          "description": "The \"ready for pickup\" notification arrives."
         },
         {
-          "title": "Collect your order",
-          "description": "The order is delivered ready. No waiting, no congestion."
+          "title": "Give your number and collect",
+          "description": "Handover happens in the line reserved for digital orders. No waiting, no congestion."
         }
-      ]
+      ],
+      "screens": {
+        "scanTitle": "Scan to enter",
+        "orderTitle": "Your order",
+        "item1": "Beer",
+        "item2": "Mineral water",
+        "confirmedTitle": "Order confirmed",
+        "orderNumberLabel": "Order number",
+        "preparingTitle": "Being prepared",
+        "preparingHint": "We'll let you know when it's ready",
+        "readyTitle": "Ready for pickup",
+        "readyHint": "Digital orders line",
+        "doneTitle": "Collected",
+        "aria": "Simulation of the order-and-pickup flow on a phone"
+      }
     },
     "seat": {
       "title": "Order from your seat",

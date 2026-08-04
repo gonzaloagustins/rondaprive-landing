@@ -377,7 +377,7 @@
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Compra digital com retirada no ponto de venda",
-      "seoDescription": "Compra e retirada: o pedido é pago pelo celular e a preparação começa quando o cliente chega ao ponto de retirada. Sem fila e sem produto frio.",
+      "seoDescription": "Compra e retirada: o pedido é pago pelo celular, é preparado enquanto o show continua e se retira informando o número do pedido na fila de pedidos digitais.",
       "steps": [
         {
           "title": "Acesse o Ronda Privé",
@@ -388,22 +388,36 @@
           "description": "Veja o cardápio digital, selecione produtos e pague pelo celular."
         },
         {
-          "title": "Receba seu QR",
-          "description": "Um código QR único é gerado como comprovante do pedido."
+          "title": "Receba seu número de pedido",
+          "description": "Um número único é gerado para identificar o pedido."
         },
         {
-          "title": "Vá até o ponto de retirada",
-          "description": "O participante se dirige ao ponto de venda sem enfrentar fila."
+          "title": "O pedido é preparado",
+          "description": "O bar ou a cozinha prepara enquanto o participante continua no evento."
         },
         {
-          "title": "Escaneio e preparação",
-          "description": "O staff escaneia o QR e só então inicia a preparação."
+          "title": "Receba o aviso",
+          "description": "Chega a notificação de pronto para retirar."
         },
         {
-          "title": "Retire seu pedido",
-          "description": "O pedido é entregue pronto. Sem espera, sem congestionamento."
+          "title": "Informe seu número e retire",
+          "description": "A entrega é na fila exclusiva para pedidos digitais. Sem espera, sem congestionamento."
         }
-      ]
+      ],
+      "screens": {
+        "scanTitle": "Escaneie para entrar",
+        "orderTitle": "Seu pedido",
+        "item1": "Cerveja",
+        "item2": "Água mineral",
+        "confirmedTitle": "Pedido confirmado",
+        "orderNumberLabel": "Número do pedido",
+        "preparingTitle": "Em preparação",
+        "preparingHint": "Avisamos quando estiver pronto",
+        "readyTitle": "Pronto para retirar",
+        "readyHint": "Fila de pedidos digitais",
+        "doneTitle": "Retirado",
+        "aria": "Simulação do fluxo de compra e retirada no celular"
+      }
     },
     "seat": {
       "title": "Compra do seu assento",

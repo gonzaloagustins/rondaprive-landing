@@ -377,7 +377,7 @@
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Commande digitale avec retrait au point de vente",
-      "seoDescription": "Commande et retrait : la commande est payée depuis le téléphone et la préparation démarre à l'arrivée du client au comptoir. Sans file, sans produit froid.",
+      "seoDescription": "Commande et retrait : la commande est payée depuis le téléphone, préparée pendant le spectacle et récupérée en donnant le numéro de commande dans la file des commandes digitales.",
       "steps": [
         {
           "title": "Accédez à Ronda Privé",
@@ -388,22 +388,36 @@
           "description": "Consultez le menu digital, sélectionnez vos produits et payez depuis le téléphone."
         },
         {
-          "title": "Recevez votre QR",
-          "description": "Un code QR unique est généré comme justificatif de commande."
+          "title": "Recevez votre numéro de commande",
+          "description": "Un numéro unique est généré pour identifier la commande."
         },
         {
-          "title": "Rendez-vous au point de retrait",
-          "description": "Le participant se dirige au point de vente sans faire la queue."
+          "title": "La commande est préparée",
+          "description": "Le bar ou la cuisine la prépare pendant que le participant reste dans l'événement."
         },
         {
-          "title": "Scan et préparation",
-          "description": "Le personnel scanne le QR et c'est seulement alors que la préparation commence."
+          "title": "Recevez l'alerte",
+          "description": "La notification « prêt à retirer » arrive."
         },
         {
-          "title": "Récupérez votre commande",
-          "description": "La commande est servie prête. Sans attente, sans congestion."
+          "title": "Donnez votre numéro et retirez",
+          "description": "La remise se fait dans la file réservée aux commandes digitales. Sans attente, sans congestion."
         }
-      ]
+      ],
+      "screens": {
+        "scanTitle": "Scannez pour entrer",
+        "orderTitle": "Votre commande",
+        "item1": "Bière",
+        "item2": "Eau minérale",
+        "confirmedTitle": "Commande confirmée",
+        "orderNumberLabel": "Numéro de commande",
+        "preparingTitle": "En préparation",
+        "preparingHint": "Nous vous prévenons dès que c'est prêt",
+        "readyTitle": "Prêt à retirer",
+        "readyHint": "File des commandes digitales",
+        "doneTitle": "Retiré",
+        "aria": "Simulation du parcours commande et retrait sur téléphone"
+      }
     },
     "seat": {
       "title": "Commande depuis votre siège",

@@ -98,10 +98,10 @@ Compra digital con retiro en punto de venta
 
 1. **Accede a Ronda Privé:** El asistente ingresa escaneando un QR o desde un link directo.
 2. **Explora y compra:** Ve la carta digital, selecciona productos y paga desde el celular.
-3. **Recibe tu QR:** Se genera un código QR único como comprobante del pedido.
-4. **Acércate al punto de retiro:** El asistente se dirige al punto de venta sin hacer fila.
-5. **Escaneo y preparación:** El personal escanea el QR y recién ahí inicia la preparación.
-6. **Retira tu pedido:** El pedido se entrega listo. Sin esperas, sin congestión.
+3. **Recibe tu número de orden:** Se genera un número único que identifica el pedido.
+4. **El pedido se prepara:** La barra o la cocina lo prepara mientras el asistente sigue en el evento.
+5. **Recibe el aviso:** Llega la notificación de listo para retirar.
+6. **Da tu número y retira:** La entrega es en la fila exclusiva para pedidos digitales. Sin esperas, sin congestión.
 
 #### Compra desde el asiento
 URL: https://rondaprive.com/es/producto/entrega-en-asiento
@@ -543,10 +543,10 @@ Digital ordering with point-of-sale collection
 
 1. **Access Ronda Privé:** The attendee enters by scanning a QR code or through a direct link.
 2. **Browse and order:** View the digital menu, select products, and pay from the phone.
-3. **Receive your QR:** A unique QR code is generated as your order receipt.
-4. **Head to the collection point:** The attendee goes to the point of sale without standing in line.
-5. **Scan and preparation:** Staff scans the QR and only then begins preparation.
-6. **Collect your order:** The order is delivered ready. No waiting, no congestion.
+3. **Get your order number:** A unique number is generated to identify the order.
+4. **The order gets prepared:** The bar or kitchen makes it while the attendee stays in the event.
+5. **Get the alert:** The "ready for pickup" notification arrives.
+6. **Give your number and collect:** Handover happens in the line reserved for digital orders. No waiting, no congestion.
 
 #### Order from your seat
 URL: https://rondaprive.com/en/product/seat-delivery
