@@ -374,10 +374,33 @@
     "overview": "Visão geral do produto",
     "otherModesTitle": "Outras capacidades",
     "stepsTitle": "Como funciona, passo a passo",
+    "impactTitle": "O que muda na sua operação",
     "pickup": {
       "title": "Pick Up Express",
       "subtitle": "Compra digital com retirada no ponto de venda",
       "seoDescription": "Compra e retirada em quatro passos: escaneie o QR do comércio, escolha no cardápio, pague pelo celular e retire informando seu número de pedido. Sem filas.",
+      "impact": [
+        {
+          "value": "−85%",
+          "label": "Filas",
+          "note": "Sem totens nem caixas: o pedido entra pelo celular."
+        },
+        {
+          "value": "+40%",
+          "label": "Vendas",
+          "note": "Mais rodadas por pessoa quando pedir leva dois minutos."
+        },
+        {
+          "value": "3x",
+          "label": "Velocidade de serviço",
+          "note": "Sua equipe prepara em vez de cobrar."
+        },
+        {
+          "value": "0",
+          "label": "Infraestrutura extra",
+          "note": "Funciona com os dispositivos que você já tem."
+        }
+      ],
       "steps": [
         {
           "title": "Escaneie o QR do comércio",

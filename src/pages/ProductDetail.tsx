@@ -54,6 +54,10 @@ const ProductDetail = ({ mode }: ProductDetailProps) => {
     defaultValue: [],
   }) as string[];
   const description = t(`product.${mode}.description`, "");
+  const impact = t(`product.${mode}.impact`, {
+    returnObjects: true,
+    defaultValue: [],
+  }) as { value: string; label: string; note: string }[];
 
   const others = productModes.filter((m) => m.id !== mode);
 
@@ -118,6 +122,32 @@ const ProductDetail = ({ mode }: ProductDetailProps) => {
             </div>
           </section>
         ))}
+
+      {/* The figures that answer "and what do I get out of it" right after the
+          walkthrough. No cards and no state colour: these are numbers to read,
+          not statuses to react to, so spacing and type do the separating. */}
+      {impact.length > 0 && (
+        <section className="pb-16">
+          <div className="section-container">
+            <h2 className="text-2xl font-bold mb-10">{t("product.impactTitle")}</h2>
+            <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
+              {impact.map((metric) => (
+                <div key={metric.label}>
+                  <dt className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-primary">
+                    {metric.value}
+                  </dt>
+                  <dd className="mt-3">
+                    <span className="font-semibold">{metric.label}</span>
+                    <span className="mt-1.5 block text-sm text-muted-foreground leading-relaxed">
+                      {metric.note}
+                    </span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
 
       {description && (
         <section className="py-16">
