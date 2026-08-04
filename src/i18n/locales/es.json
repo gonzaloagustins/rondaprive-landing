@@ -59,7 +59,7 @@
     "titleHighlight": "vender más",
     "subtitle": "Cada modalidad se adapta al tipo de evento, recinto y experiencia que necesitas ofrecer.",
     "pickup": {
-      "title": "Compra y Retiro",
+      "title": "Compra y Retira",
       "description": "El asistente compra desde su celular y retira en el punto de venta cuando su pedido está listo. Sin filas, sin esperas.",
       "cta": "Ver detalle"
     },
@@ -116,7 +116,7 @@
         },
         {
           "title": "Escanea y entrega",
-          "description": "En Compra y Retiro se escanea el QR del cliente. En Compra desde el asiento se asocia a la ubicación."
+          "description": "En Compra y Retira se escanea el QR del cliente. En Compra desde el asiento se asocia a la ubicación."
         },
         {
           "title": "Actualiza estado",
@@ -227,29 +227,29 @@
       "title": "Nightclubs",
       "description": "Optimiza la venta en barra y mesas VIP. Menos congestión, más rotación, mayor consumo por mesa.",
       "problem": "Barras congestionadas, pérdida de ventas en momentos peak, dificultad para atender mesas VIP con agilidad.",
-      "solution": "Pedidos desde mesa o zona VIP directo al celular. Compra y Retiro para reducir filas en barra. Dashboard con métricas en vivo.",
-      "useCases": "Pedidos desde mesa VIP • Compra y Retiro en barra principal • Promociones en tiempo real • Control de stock de botellas"
+      "solution": "Pedidos desde mesa o zona VIP directo al celular. Compra y Retira para reducir filas en barra. Dashboard con métricas en vivo.",
+      "useCases": "Pedidos desde mesa VIP • Compra y Retira en barra principal • Promociones en tiempo real • Control de stock de botellas"
     },
     "festivals": {
       "title": "Festivales",
       "description": "Mayor velocidad en puntos de alta demanda. Compra anticipada para reducir congestión y planificar inventario.",
       "problem": "Miles de asistentes, múltiples puntos de venta, filas interminables y pérdida masiva de ventas potenciales.",
-      "solution": "Compra y Retiro en todos los puntos. Compra anticipada pre-evento. Inventario centralizado con alertas de stock.",
-      "useCases": "Compra anticipada de combos • Compra y Retiro en barras múltiples • Inventario multi-punto • Reportes por zona"
+      "solution": "Compra y Retira en todos los puntos. Compra anticipada pre-evento. Inventario centralizado con alertas de stock.",
+      "useCases": "Compra anticipada de combos • Compra y Retira en barras múltiples • Inventario multi-punto • Reportes por zona"
     },
     "stadiums": {
       "title": "Estadios y Conciertos",
       "description": "QR en asientos, suites y hospitality. Compra desde el asiento con entrega directa sin perder el espectáculo.",
       "problem": "Asistentes abandonan sus asientos para comprar y pierden el show. Suites y hospitality sin servicio ágil.",
-      "solution": "QR en cada asiento o sector. Compra desde el celular con entrega al asiento. Compra y Retiro para sectores generales.",
-      "useCases": "Delivery al asiento • QR por sector • Servicio en suites • Compra y Retiro en cantinas • Compra anticipada"
+      "solution": "QR en cada asiento o sector. Compra desde el celular con entrega al asiento. Compra y Retira para sectores generales.",
+      "useCases": "Delivery al asiento • QR por sector • Servicio en suites • Compra y Retira en cantinas • Compra anticipada"
     },
     "bars": {
       "title": "Bares y Venues",
       "description": "Flujo de pedidos más ordenado, operación eficiente y mayor rotación en noches de alta demanda.",
       "problem": "Barras saturadas en horarios pico, errores en pedidos, falta de control de inventario y caja.",
       "solution": "Pedidos desde QR en mesa o barra. Preparación ordenada por prioridad. Dashboard de ventas y stock en tiempo real.",
-      "useCases": "QR en mesas • Compra y Retiro en barra • Control de stock en vivo • Métricas de consumo por hora"
+      "useCases": "QR en mesas • Compra y Retira en barra • Control de stock en vivo • Métricas de consumo por hora"
     }
   },
   "dashboard": {
@@ -345,7 +345,7 @@
     "upcoming": "Próximos eventos",
     "all": "Todos",
     "features": {
-      "pickup": "Compra y Retiro",
+      "pickup": "Compra y Retira",
       "seat": "Compra desde el asiento",
       "preorder": "Compra anticipada"
     },
@@ -375,9 +375,9 @@
     "otherModesTitle": "Otras capacidades",
     "stepsTitle": "Cómo funciona, paso a paso",
     "pickup": {
-      "title": "Compra y Retiro",
+      "title": "Compra y Retira",
       "subtitle": "Compra digital con retiro en punto de venta",
-      "seoDescription": "Compra y retiro en cuatro pasos: escanea el QR de la barra, elige de la carta, paga desde el celular y retira dando tu número de orden. Sin filas.",
+      "seoDescription": "Compra y Retira en cuatro pasos: escanea el QR de la barra, elige de la carta, paga desde el celular y retira dando tu número de orden. Sin filas.",
       "steps": [
         {
           "title": "Escanea el QR de la barra",
@@ -397,7 +397,7 @@
         }
       ],
       "screens": {
-        "aria": "Simulación del flujo de compra y retiro en el celular",
+        "aria": "Simulación del flujo de Compra y Retira en el celular",
         "scanTitle": "Escanea el QR de la barra",
         "scanHint": "Apunta la cámara al código",
         "barName": "Barra Central",
@@ -553,7 +553,7 @@
         "definition": "Modalidad de venta donde el cliente compra y paga su consumo días o semanas antes del evento. El día del evento activa tu compra y retírala sin hacer filas. Permite al organizador planificar inventario con anticipación."
       },
       "compra-y-retiro": {
-        "term": "Compra y retiro",
+        "term": "Compra y Retira",
         "definition": "Modalidad donde el cliente compra desde su celular durante el evento y retira el pedido en un punto de venta cuando está listo. Funciona como fila digital: no requiere esperar en una línea física."
       },
       "entrega-en-asiento": {
@@ -694,7 +694,7 @@
       "intro": "Los estadios concentran uno de los desafíos operativos más difíciles del F&B: decenas de miles de personas que quieren comprar en la misma ventana de minutos. Este análisis recorre qué pasa cuando se implementa compra digital por sectores y qué resultados se pueden esperar.",
       "sections": [
         { "heading": "El punto de partida", "body": "El patrón se repite en la mayoría de los estadios: la venta se concentra en el entretiempo y los cortes del espectáculo. En esos minutos, las filas superan la capacidad de atención, buena parte del público desiste y la venta por asistente queda muy por debajo de su potencial." },
-        { "heading": "Qué se implementó", "body": "La implementación combinó dos modalidades: compra desde el asiento para sectores premium — el asistente escanea el QR de su ubicación y recibe el pedido donde está — y compra y retiro para el resto del recinto, con puntos de retiro diferenciados por sector para repartir el flujo de gente.\n\nNo se instaló infraestructura adicional: la operación corre sobre los puntos de venta existentes y los celulares de los propios asistentes." },
+        { "heading": "Qué se implementó", "body": "La implementación combinó dos modalidades: compra desde el asiento para sectores premium — el asistente escanea el QR de su ubicación y recibe el pedido donde está — y Compra y Retira para el resto del recinto, con puntos de retiro diferenciados por sector para repartir el flujo de gente.\n\nNo se instaló infraestructura adicional: la operación corre sobre los puntos de venta existentes y los celulares de los propios asistentes." },
         { "heading": "Los resultados", "body": "Con la compra digital operando, los tiempos de espera se redujeron en torno al 70%: el pedido se prepara mientras el asistente sigue en su asiento, y el retiro toma segundos en lugar de minutos de fila.\n\nEl efecto comercial acompaña: al eliminar la barrera de la espera, más asistentes compran y aumenta la frecuencia de pedidos durante el evento." },
         { "heading": "Aprendizajes para otras implementaciones", "body": "Tres factores marcaron la diferencia: señalética clara para que el público entienda el flujo de retiro, capacitación breve del staff en el nuevo flujo de preparación, y una carta acotada que mantiene los tiempos de preparación estables incluso en los picos de demanda." }
       ]
@@ -811,7 +811,7 @@
   "seo": {
     "default": {
       "title": "Ronda Privé | Tecnología premium para eventos y venues",
-      "description": "Plataforma móvil para eventos y venues: compra anticipada, entrega al asiento y compra y retiro. Sin filas ni tótems."
+      "description": "Plataforma móvil para eventos y venues: compra anticipada, entrega al asiento y Compra y Retira. Sin filas ni tótems."
     },
     "home": {
       "title": "Elimina la espera y maximiza las ventas en tu venue",
@@ -819,7 +819,7 @@
     },
     "events": {
       "title": "Eventos activos",
-      "description": "Eventos en vivo donde Ronda Privé está operando. Compra anticipada, entrega al asiento y compra y retiro."
+      "description": "Eventos en vivo donde Ronda Privé está operando. Compra anticipada, entrega al asiento y Compra y Retira."
     },
     "eventDetail": {
       "title": "Evento",
@@ -828,7 +828,7 @@
     },
     "product": {
       "title": "Producto",
-      "description": "Las cuatro capacidades de Ronda Privé: compra anticipada, entrega en asiento, compra y retiro y operación de barra y cocina."
+      "description": "Las cuatro capacidades de Ronda Privé: compra anticipada, entrega en asiento, Compra y Retira y operación de barra y cocina."
     },
     "industries": {
       "title": "Soluciones por industria",
@@ -905,11 +905,11 @@
   "eventFeatures": {
     "preorder": "Compra anticipada",
     "seat": "Compra desde el asiento",
-    "pickup": "Compra y Retiro"
+    "pickup": "Compra y Retira"
   },
   "formatos": {
     "channels": {
-      "pickup": "Compra y Retiro",
+      "pickup": "Compra y Retira",
       "seat": "Desde el asiento",
       "table": "Desde la mesa",
       "preorder": "Anticipada"
@@ -959,7 +959,7 @@
         "imageAlt": "Mozo entregando bebida en asiento VIP durante concierto"
       },
       "pickup": {
-        "label": "COMPRA Y RETIRO",
+        "label": "COMPRA Y RETIRA",
         "title": "Tu pedido listo cuando llegas",
         "bullets": [
           "Fila VIP para pedidos digitales",
@@ -1073,7 +1073,7 @@
       },
       "channels": {
         "title": "Ventas por canal",
-        "pickup": "Compra y Retiro",
+        "pickup": "Compra y Retira",
         "seat": "Compra desde el Asiento",
         "preorder": "Compra Anticipada"
       },
@@ -1094,12 +1094,12 @@
     "useCases": {
       "nightclubs": [
         "Pedidos desde mesa VIP",
-        "Compra y Retiro en barra",
+        "Compra y Retira en barra",
         "Promociones en tiempo real",
         "Control de stock"
       ],
       "festivals": [
-        "Puntos de Compra y Retiro",
+        "Puntos de Compra y Retira",
         "Compra anticipada masiva",
         "Reducción de filas 80%",
         "Más ventas por persona"
@@ -1112,7 +1112,7 @@
       ],
       "bars": [
         "QR en mesas",
-        "Compra y Retiro en barra",
+        "Compra y Retira en barra",
         "Control de stock en vivo",
         "Métricas por hora"
       ]

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Check, Search, MapPin, Menu, Plus, ScanLine, Loader } from "lucide-react";
 
 /**
- * The Compra y Retiro flow, told with a phone that keeps pace with the steps.
+ * The Compra y Retira flow, told with a phone that keeps pace with the steps.
  *
  * Why this shape rather than a cinematic pinned hero: this is a mid-funnel page
  * the visitor reached from the menu already interested, so the visual has to

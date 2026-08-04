@@ -95,7 +95,7 @@ const ProductDetail = ({ mode }: ProductDetailProps) => {
         className="pt-8"
       />
 
-      {/* Compra y Retiro gets the phone walkthrough; the others keep the plain
+      {/* Compra y Retira gets the phone walkthrough; the others keep the plain
           grid until the pattern proves itself here. */}
       {steps.length > 0 &&
         (mode === "pickup" ? (

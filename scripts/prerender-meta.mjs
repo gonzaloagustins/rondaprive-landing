@@ -587,7 +587,7 @@ const SERVICE_DEFS = [
   },
   {
     id: "pickup",
-    label: "Compra y Retiro",
+    label: "Compra y Retira",
     serviceType: "Mobile food and beverage pickup",
     locale: "solutionsOverview.pickup",
   },

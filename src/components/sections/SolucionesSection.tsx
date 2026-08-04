@@ -11,7 +11,7 @@ const SolucionesSection = () => {
   const { t } = useTranslation();
   const { path } = useLocalizedPath();
   const channelMeta = {
-    pickup: { label: t("formatos.channels.pickup", "Compra y Retiro"), Icon: ShoppingBag },
+    pickup: { label: t("formatos.channels.pickup", "Compra y Retira"), Icon: ShoppingBag },
     seat: { label: t("formatos.channels.seat", "Desde el asiento"), Icon: Armchair },
     table: { label: t("formatos.channels.table", "Desde la mesa"), Icon: Armchair },
     preorder: { label: t("formatos.channels.preorder", "Anticipada"), Icon: Clock },
