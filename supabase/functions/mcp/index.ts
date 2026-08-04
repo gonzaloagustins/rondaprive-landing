@@ -613,7 +613,7 @@ var es_default = {
     stepsTitle: "C\xF3mo funciona, paso a paso",
     pickup: {
       title: "Compra y Retira",
-      subtitle: "Compra digital con retiro en punto de venta",
+      subtitle: "Tu p\xFAblico pide desde el celular y retira sin fila. Tu equipo despacha hasta 3x m\xE1s r\xE1pido.",
       seoDescription: "Compra y Retira en cuatro pasos: escanea el QR del comercio, elige de la carta, paga desde el celular y retira dando tu n\xFAmero de orden. Sin filas.",
       steps: [
         {
