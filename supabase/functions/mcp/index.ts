@@ -617,8 +617,8 @@ var es_default = {
       seoDescription: "Compra y Retira en cuatro pasos: escanea el QR de la barra, elige de la carta, paga desde el celular y retira dando tu n\xFAmero de orden. Sin filas.",
       steps: [
         {
-          title: "Escanea el QR de la barra",
-          description: "Cada barra o comercio tiene su QR. No hay que descargar nada."
+          title: "Escanea el QR del comercio",
+          description: "Cada comercio tiene su QR. No hay que descargar nada."
         },
         {
           title: "Explora la carta y elige",
